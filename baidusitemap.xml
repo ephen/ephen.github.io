@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>https://ephen.me/2017/dnsrr-caa/</loc>
+    <lastmod>2018-04-12T08:30:18.368Z</lastmod>
+    <data>
+        <display>
+        <title>SSL证书颁发机构将对域名强制CAA检查，到底什么是CAA？CAA记录详解</title>
+        <pubTime>2017-06-12T16:00:00.000Z</pubTime>
+        
+        <tag>DNS</tag>
+         
+        <tag>https</tag>
+         
+        <tag>SSL</tag>
+         
+        <tag>CAA</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作笔记" url="https://ephen.me/categories/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/dyn-crashed/</loc>
+    <lastmod>2018-04-12T08:30:07.173Z</lastmod>
+    <data>
+        <display>
+        <title>谈谈上月Dyn遭受的DDoS攻击</title>
+        <pubTime>2016-11-03T16:00:00.000Z</pubTime>
+        
+        <tag>DYN</tag>
+         
+        <tag>DDoS</tag>
+         
+        <tag>域名攻击</tag>
+         
+         
+           
+             
+              <breadCrumb title="当时就被震惊" url="https://ephen.me/categories/%E5%BD%93%E6%97%B6%E5%B0%B1%E8%A2%AB%E9%9C%87%E6%83%8A/"/>
+          
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E5%BD%93%E6%97%B6%E5%B0%B1%E8%A2%AB%E9%9C%87%E6%83%8A/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BD%93%E6%97%B6%E5%B0%B1%E8%A2%AB%E9%9C%87%E6%83%8A/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2018/First-Surgery/</loc>
+    <lastmod>2018-04-12T08:29:58.189Z</lastmod>
+    <data>
+        <display>
+        <title>记生平第一次手术经历</title>
+        <pubTime>2018-03-27T16:00:00.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/Postman/</loc>
+    <lastmod>2018-04-12T08:29:46.324Z</lastmod>
+    <data>
+        <display>
+        <title>网站API测试工具：chrome插件 - Postman</title>
+        <pubTime>2015-04-23T16:00:00.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
+         
+        <tag>postman</tag>
+         
+        <tag>api</tag>
+         
+        <tag>web</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具介绍" url="https://ephen.me/categories/%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2017/beian/</loc>
+    <lastmod>2018-04-12T08:29:31.098Z</lastmod>
+    <data>
+        <display>
+        <title>给网站添加备案号展示</title>
+        <pubTime>2017-02-21T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>备案</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客折腾" url="https://ephen.me/categories/%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/GetTestingCertificate/</loc>
+    <lastmod>2018-04-12T08:29:19.839Z</lastmod>
+    <data>
+        <display>
+        <title>终于领证了！~</title>
+        <pubTime>2015-05-06T16:00:00.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/hello-hexo/</loc>
+    <lastmod>2018-04-12T08:29:08.839Z</lastmod>
+    <data>
+        <display>
+        <title>全新出发，正式启用Hexo！</title>
+        <pubTime>2016-07-25T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>sitemap</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+             
+              <breadCrumb title="博客折腾" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/VmwareNetSet/</loc>
+    <lastmod>2018-04-12T08:29:00.482Z</lastmod>
+    <data>
+        <display>
+        <title>桥接模式下如何设置虚拟机和本机在同一网段</title>
+        <pubTime>2015-03-30T16:00:00.000Z</pubTime>
+        
+        <tag>Vmware</tag>
+         
+        <tag>Network</tag>
+         
+        <tag>虚拟机</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作笔记" url="https://ephen.me/categories/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/dotkp-zone-dns-remove/</loc>
+    <lastmod>2018-04-12T08:28:48.313Z</lastmod>
+    <data>
+        <display>
+        <title>隔壁粗事了！朝鲜顶级域.kp域名DNS数据配置可被转移</title>
+        <pubTime>2016-09-21T16:00:00.000Z</pubTime>
+        
+        <tag>朝鲜</tag>
+         
+        <tag>顶级域</tag>
+         
+        <tag>DNS域转移</tag>
+         
+        <tag>bind</tag>
+         
+         
+           
+             
+              <breadCrumb title="当时就被震惊" url="https://ephen.me/categories/%E5%BD%93%E6%97%B6%E5%B0%B1%E8%A2%AB%E9%9C%87%E6%83%8A/"/>
+          
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E5%BD%93%E6%97%B6%E5%B0%B1%E8%A2%AB%E9%9C%87%E6%83%8A/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/GetDriverLicense/</loc>
+    <lastmod>2018-04-12T08:28:38.401Z</lastmod>
+    <data>
+        <display>
+        <title>我又领证了！~</title>
+        <pubTime>2016-07-27T16:00:00.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/change-duty/</loc>
+    <lastmod>2018-04-12T08:28:23.305Z</lastmod>
+    <data>
+        <display>
+        <title>我又换工作~~内容~~了！</title>
+        <pubTime>2016-10-20T16:00:00.000Z</pubTime>
+        
+        <tag>产品运营</tag>
+         
+        <tag>产品管理</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2017/GetPMPCertificate/</loc>
+    <lastmod>2018-04-12T08:28:00.079Z</lastmod>
+    <data>
+        <display>
+        <title>成功取得项目管理专业人士资格认证</title>
+        <pubTime>2017-07-24T16:00:00.000Z</pubTime>
+        
+        <tag>项目</tag>
+         
+        <tag>管理</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/InvoidOfInvalidCase/</loc>
+    <lastmod>2018-04-12T08:27:25.540Z</lastmod>
+    <data>
+        <display>
+        <title>怎么避免无效的软件测试场景？</title>
+        <pubTime>2015-03-26T16:00:00.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>用例</tag>
+         
+        <tag>场景</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/SercurityTest/</loc>
+    <lastmod>2018-04-12T08:27:11.611Z</lastmod>
+    <data>
+        <display>
+        <title>安全测试与渗透测试区别</title>
+        <pubTime>2015-10-11T16:00:00.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>安全</tag>
+         
+        <tag>渗透</tag>
+         
+         
+           
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2017/Goodbye-Orthodontic/</loc>
+    <lastmod>2018-04-12T08:26:55.971Z</lastmod>
+    <data>
+        <display>
+        <title>告别“牙套妹”称号</title>
+        <pubTime>2017-08-28T16:00:00.000Z</pubTime>
+        
+        <tag>生活</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/ScreenToGif/</loc>
+    <lastmod>2018-04-12T08:26:44.586Z</lastmod>
+    <data>
+        <display>
+        <title>分享一个win平台记录重现步骤的录屏小工具：ScreenToGif</title>
+        <pubTime>2015-08-03T16:00:00.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>分享</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具介绍" url="https://ephen.me/categories/%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/fenghe-blog/</loc>
+    <lastmod>2018-04-12T08:26:18.469Z</lastmod>
+    <data>
+        <display>
+        <title>几乎花了一个下午的时间参观了风河博客</title>
+        <pubTime>2016-12-29T16:00:00.000Z</pubTime>
+        
+        <tag>DNS</tag>
+         
+        <tag>泛域名</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/opration-halfyear/</loc>
+    <lastmod>2018-04-12T08:23:45.131Z</lastmod>
+    <data>
+        <display>
+        <title>做CloudXNS产品运营的这半年</title>
+        <pubTime>2015-06-24T16:00:00.000Z</pubTime>
+        
+        <tag>CloudXNS</tag>
+         
+        <tag>产品运营</tag>
+         
+        <tag>v2ex</tag>
+         
+         
+           
+             
+              <breadCrumb title="心情驿站" url="https://ephen.me/categories/%E5%BF%83%E6%83%85%E9%A9%BF%E7%AB%99/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/dnssec-dnsviz/</loc>
+    <lastmod>2018-04-12T08:23:32.047Z</lastmod>
+    <data>
+        <display>
+        <title>使用网页工具 DNSViz 检查域名 DNSSEC 配置</title>
+        <pubTime>2016-10-12T16:00:00.000Z</pubTime>
+        
+        <tag>DNSViz</tag>
+         
+        <tag>DNSSEC</tag>
+         
+        <tag>DNS劫持</tag>
+         
+        <tag>DNS安全</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具介绍" url="https://ephen.me/categories/%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/"/>
+          
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2017/PublicDns_2/</loc>
+    <lastmod>2018-04-12T08:23:17.913Z</lastmod>
+    <data>
+        <display>
+        <title>使用公共 DNS 上网的弊端（二）</title>
+        <pubTime>2017-08-17T16:00:00.000Z</pubTime>
+        
+        <tag>公共DNS</tag>
+         
+        <tag>Public DNS</tag>
+         
+        <tag>本地DNS</tag>
+         
+        <tag>递归DNS</tag>
+         
+        <tag>edns-client-subnet</tag>
+         
+         
+           
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2017/PublicDns_1/</loc>
+    <lastmod>2018-04-12T08:23:09.668Z</lastmod>
+    <data>
+        <display>
+        <title>使用公共 DNS 上网的弊端（一）</title>
+        <pubTime>2017-08-03T16:00:00.000Z</pubTime>
+        
+        <tag>公共DNS</tag>
+         
+        <tag>Public DNS</tag>
+         
+        <tag>本地DNS</tag>
+         
+        <tag>递归DNS</tag>
+         
+         
+           
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2017/dns_tcp/</loc>
+    <lastmod>2018-04-12T08:22:45.986Z</lastmod>
+    <data>
+        <display>
+        <title>什么情况下DNS会使用TCP传输协议？</title>
+        <pubTime>2017-07-16T16:00:00.000Z</pubTime>
+        
+        <tag>DNS</tag>
+         
+        <tag>TCP</tag>
+         
+        <tag>UDP</tag>
+         
+        <tag>协议</tag>
+         
+         
+           
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/AB-test/</loc>
+    <lastmod>2018-04-12T08:22:21.985Z</lastmod>
+    <data>
+        <display>
+        <title>不会 A/B 测试的 Web 设计师不是好程序员</title>
+        <pubTime>2015-11-05T16:00:00.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>程序员</tag>
+         
+        <tag>设计师</tag>
+         
+         
+           
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/win8x64-oracle-plsql/</loc>
+    <lastmod>2018-04-12T08:22:10.466Z</lastmod>
+    <data>
+        <display>
+        <title>win8 64位+Oracle 11g 64位下使用PL/SQL Developer 的解决办法</title>
+        <pubTime>2015-03-30T16:00:00.000Z</pubTime>
+        
+        <tag>Oracle</tag>
+         
+        <tag>Win8</tag>
+         
+        <tag>PL/SQL</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作笔记" url="https://ephen.me/categories/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2017/VSCode_PlantUML/</loc>
+    <lastmod>2018-04-12T08:21:57.178Z</lastmod>
+    <data>
+        <display>
+        <title>VSCode 中使用 PlantUML 插件生成 UML</title>
+        <pubTime>2017-10-22T16:00:00.000Z</pubTime>
+        
+        <tag>VSCode</tag>
+         
+        <tag>UML</tag>
+         
+        <tag>解析流程</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具介绍" url="https://ephen.me/categories/%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/Jmeter-NonGUI-Test/</loc>
+    <lastmod>2018-04-12T08:21:22.047Z</lastmod>
+    <data>
+        <display>
+        <title>Jmeter以non-gui模式进行分布式测试</title>
+        <pubTime>2016-01-05T16:00:00.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>Jmeter</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作笔记" url="https://ephen.me/categories/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2016/dns-rr/</loc>
+    <lastmod>2018-04-12T08:21:11.213Z</lastmod>
+    <data>
+        <display>
+        <title>DNS资源记录（Resource Record，简称RR）介绍</title>
+        <pubTime>2016-10-07T16:00:00.000Z</pubTime>
+        
+        <tag>DNS</tag>
+         
+        <tag>记录类型</tag>
+         
+        <tag>SOA</tag>
+         
+        <tag>参考资料</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作笔记" url="https://ephen.me/categories/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
+          
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2015/cloudxns-ax/</loc>
+    <lastmod>2018-04-12T08:20:55.273Z</lastmod>
+    <data>
+        <display>
+        <title>CloudXNS中的AX记录类型测试</title>
+        <pubTime>2015-04-09T16:00:00.000Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
+         
+        <tag>AX记录</tag>
+         
+         
+           
+             
+              <breadCrumb title="工作笔记" url="https://ephen.me/categories/%E5%B7%A5%E4%BD%9C%E7%AC%94%E8%AE%B0/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+</urlset>
