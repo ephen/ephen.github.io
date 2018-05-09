@@ -3,6 +3,7 @@
 
 
     
+    
   <url>
     <loc>https://ephen.me/2017/dnsrr-caa/</loc>
     <lastmod>2018-04-12T08:30:18.368Z</lastmod>
@@ -90,9 +91,9 @@
         <title>网站API测试工具：chrome插件 - Postman</title>
         <pubTime>2015-04-23T16:00:00.000Z</pubTime>
         
-        <tag>CloudXNS</tag>
-         
         <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
          
         <tag>postman</tag>
          
@@ -673,9 +674,9 @@
         <title>CloudXNS中的AX记录类型测试</title>
         <pubTime>2015-04-09T16:00:00.000Z</pubTime>
         
-        <tag>CloudXNS</tag>
-         
         <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
          
         <tag>AX记录</tag>
          
@@ -688,5 +689,4 @@
     </data>
     </url>
 
-    
 </urlset>

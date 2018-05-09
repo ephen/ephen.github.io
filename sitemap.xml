@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ephen.me/About/index.html</loc>
+    
+    <lastmod>2018-05-09T16:30:31.832Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ephen.me/2017/dnsrr-caa/</loc>
     
     <lastmod>2018-04-12T08:30:18.368Z</lastmod>
@@ -194,13 +201,6 @@
     <loc>https://ephen.me/2015/cloudxns-ax/</loc>
     
     <lastmod>2018-04-12T08:20:55.273Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ephen.me/About/index.html</loc>
-    
-    <lastmod>2017-07-26T06:16:08.000Z</lastmod>
     
   </url>
   
