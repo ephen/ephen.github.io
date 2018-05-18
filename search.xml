@@ -40,7 +40,7 @@
 <p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfw4kn7cnj218c0hstbi.jpg" alt="Azure"></p>
 <p>值得一提的是，Azure 还有 Win Server 中的那套 Active Directory （活动目录）类似机制，使用域控制器将用户分域、分组并针对应用、控件、设备等（而非系统中的云资源）做一些安全权限配置。</p>
 <p>但关于 Azure AD 我暂时理解得不够，未来可能还需要多花时间研究一下。</p>
-<h3 id="IBM-Cloud-（BlueMix）"><a href="#IBM-Cloud-（BlueMix）" class="headerlink" title="IBM Cloud （BlueMix）"></a>IBM Cloud （BlueMix）</h3><p>BlueMix 在访问管理上看起来并没有使用统一的认证接口，它为资源创建服务标识以提供给内部其他资源或外部应用接入，同时亦可类似 GCP 那样直接为用户和组授权，也有直接为内部资源之间创建链接权限。</p>
+<h3 id="IBM-Cloud-（BlueMix）"><a href="#IBM-Cloud-（BlueMix）" class="headerlink" title="IBM Cloud （BlueMix）"></a>IBM Cloud （BlueMix）</h3><p>BlueMix 在访问管理上看起来并没有使用统一的认证接口，它为资源创建服务标识以提供给内部其他资源或外部应用接入，同时亦可类似 GCP 那样直接为用户和组授权，也有直接为内部资源之间创建连结权限。</p>
 <p>用户是邀请其他账号过来参与本账户的资源协作，没有子账号，不支持权限策略的编辑和制定。</p>
 <p>不过，在其用户的管理配置界面，有提到“未来支持 IAM ”字样。</p>
 <p>看来 AWS 行业鼻祖的地位影响还是很大的。</p>
@@ -359,9 +359,9 @@
         
         <tags>
             
-            <tag> Public DNS </tag>
-            
             <tag> 公共DNS </tag>
+            
+            <tag> Public DNS </tag>
             
             <tag> 本地DNS </tag>
             
@@ -423,9 +423,9 @@
         
         <tags>
             
-            <tag> Public DNS </tag>
-            
             <tag> 公共DNS </tag>
+            
+            <tag> Public DNS </tag>
             
             <tag> 本地DNS </tag>
             
