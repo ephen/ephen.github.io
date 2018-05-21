@@ -60,7 +60,7 @@
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/5ebd877egy1frekr14otnj21540dmdh9.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/5ebd877ely1frfw4kn7cnj218c0hstbi.jpg">
 <meta property="og:image" content="https://ws1.sinaimg.cn/large/5ebd877egy1frekr15j0lj21ga0dwmy9.jpg">
-<meta property="og:updated_time" content="2018-05-18T16:46:55.800Z">
+<meta property="og:updated_time" content="2018-05-21T02:00:10.779Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于云平台用户鉴权管理（IAM）的一些总结和思考">
 <meta name="twitter:description" content="AWS 作为云计算行业鼻祖，不论是什么功能，都做得非常完备，且一切可编程。它们能全方位的解决客户的各种问题，甚至想他人之未曾想，真的非常值得业内人士及机构尊敬。 但，完备的背后离不开大量的人力支持，又因为它的完备使得各业务都极其复杂。我最近才开始好好看一看 AWS ，才知道居然都有专门的 AWS 咨询师这样的职业。真是厉害了~ 目前主要在看的模块是 IAM 以及周边功能，由于本喵的英文水平不太好，">
@@ -372,7 +372,7 @@ var _hmt = _hmt || [];
 <p>AWS IAM 内置了一系列的 Policy ，已足够客户使用。万一不够，还可以创建属于自己的 Policy 。</p>
 <p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfwwlixkjj20b00dmt9b.jpg" alt="IAM Authority"></p>
 <hr>
-<h2 id="不同平台用户管理机制对比"><a href="#不同平台用户管理机制对比" class="headerlink" title="不同平台用户管理机制对比"></a>不同平台用户管理机制对比</h2><p>目前几乎所有的云平台都有基于资源协作的用户权限管理体系，国内的阿里云、腾讯云基本就是精简版的 AWS IAM ，UCloud 及<a href="https://www.qingcloud.com" target="_blank" rel="noopener">青云</a>都能满足简单的跨用户资源协作但整体的设计性和可扩展性一般，而国外的产品倒是各有各的特色。</p>
+<h2 id="不同平台用户管理机制对比"><a href="#不同平台用户管理机制对比" class="headerlink" title="不同平台用户管理机制对比"></a>不同平台用户管理机制对比</h2><p>目前几乎所有的云平台都有基于资源协作的用户权限管理体系，国内的大厂像阿里云、腾讯云基本就是精简版的 AWS IAM ，而国外的产品倒是各有各的特色。</p>
 <h3 id="Google-Cloud-Platform"><a href="#Google-Cloud-Platform" class="headerlink" title="Google Cloud Platform"></a>Google Cloud Platform</h3><p>GCP 在用户添加时便为其设定具备某种权限的角色，当然后期可编辑和更改。</p>
 <p>角色即代表了权限 Map ，一个用户可以有多种角色，而角色策略本身内置不可编辑。</p>
 <p>其他资源或应用需要接入时在第一次接入时自动创建基于 IAM 的成员，这样看来，应用获取的可能也是永久接入权限。</p>

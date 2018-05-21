@@ -29,7 +29,7 @@
 <p>AWS IAM 内置了一系列的 Policy ，已足够客户使用。万一不够，还可以创建属于自己的 Policy 。</p>
 <p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfwwlixkjj20b00dmt9b.jpg" alt="IAM Authority"></p>
 <hr>
-<h2 id="不同平台用户管理机制对比"><a href="#不同平台用户管理机制对比" class="headerlink" title="不同平台用户管理机制对比"></a>不同平台用户管理机制对比</h2><p>目前几乎所有的云平台都有基于资源协作的用户权限管理体系，国内的阿里云、腾讯云基本就是精简版的 AWS IAM ，UCloud 及<a href="https://www.qingcloud.com" target="_blank" rel="noopener">青云</a>都能满足简单的跨用户资源协作但整体的设计性和可扩展性一般，而国外的产品倒是各有各的特色。</p>
+<h2 id="不同平台用户管理机制对比"><a href="#不同平台用户管理机制对比" class="headerlink" title="不同平台用户管理机制对比"></a>不同平台用户管理机制对比</h2><p>目前几乎所有的云平台都有基于资源协作的用户权限管理体系，国内的大厂像阿里云、腾讯云基本就是精简版的 AWS IAM ，而国外的产品倒是各有各的特色。</p>
 <h3 id="Google-Cloud-Platform"><a href="#Google-Cloud-Platform" class="headerlink" title="Google Cloud Platform"></a>Google Cloud Platform</h3><p>GCP 在用户添加时便为其设定具备某种权限的角色，当然后期可编辑和更改。</p>
 <p>角色即代表了权限 Map ，一个用户可以有多种角色，而角色策略本身内置不可编辑。</p>
 <p>其他资源或应用需要接入时在第一次接入时自动创建基于 IAM 的成员，这样看来，应用获取的可能也是永久接入权限。</p>
@@ -359,9 +359,9 @@
         
         <tags>
             
-            <tag> 公共DNS </tag>
-            
             <tag> Public DNS </tag>
+            
+            <tag> 公共DNS </tag>
             
             <tag> 本地DNS </tag>
             
@@ -423,9 +423,9 @@
         
         <tags>
             
-            <tag> 公共DNS </tag>
-            
             <tag> Public DNS </tag>
+            
+            <tag> 公共DNS </tag>
             
             <tag> 本地DNS </tag>
             
