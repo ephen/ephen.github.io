@@ -27,7 +27,7 @@
 <h3 id="权限（Authority）"><a href="#权限（Authority）" class="headerlink" title="权限（Authority）"></a>权限（Authority）</h3><p>可以说，权限是整个 IAM 的核心，控制着这个账户下所有的用户及角色对其资源的访问程度。允许还是拒绝？可访问？可管理？增删改查……对象是某个资源 or 某一类资源？</p>
 <p>在 AWS 中，所有可能的权限都事先设计好，只需要绑定到用户、组或者角色就可以生效了。这些设计好的权限被称之为策略（Policy）。</p>
 <p>AWS IAM 内置了一系列的 Policy ，已足够客户使用。万一不够，还可以创建属于自己的 Policy 。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfwwlixkjj20b00dmt9b.jpg" alt="IAM Authority">（该图片系转载，来源：<a href="https://www.jianshu.com/p/9ac6f557dd97" target="_blank" rel="noopener"> Alchemist - AWS IAM 学习总结 </a>）</p>
+<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfwwlixkjj20b00dmt9b.jpg" alt="IAM Authority"><font size="1">（该图片系转载，侵删致歉。来源：<a href="https://www.jianshu.com/p/9ac6f557dd97" target="_blank" rel="noopener"> Alchemist - AWS IAM 学习总结 </a>）</font></p>
 <hr>
 <h2 id="不同平台用户管理机制对比"><a href="#不同平台用户管理机制对比" class="headerlink" title="不同平台用户管理机制对比"></a>不同平台用户管理机制对比</h2><p>目前几乎所有的云平台都有基于资源协作的用户权限管理体系，国内的大厂像阿里云、腾讯云基本就是精简版的 AWS IAM ，而国外的产品倒是各有各的特色。</p>
 <h3 id="Google-Cloud-Platform"><a href="#Google-Cloud-Platform" class="headerlink" title="Google Cloud Platform"></a>Google Cloud Platform</h3><p>GCP 在用户添加时便为其设定具备某种权限的角色，当然后期可编辑和更改。</p>
