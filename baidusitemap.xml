@@ -4,6 +4,34 @@
 
     
   <url>
+    <loc>https://ephen.me/2018/mutisite-oneip/</loc>
+    <lastmod>2018-09-03T02:17:23.060Z</lastmod>
+    <data>
+        <display>
+        <title>需要上线多个域名（网站）却只有一个公网 IP 怎么办？</title>
+        <pubTime>2018-08-31T12:01:32.000Z</pubTime>
+        
+        <tag>域名</tag>
+         
+        <tag>网站</tag>
+         
+        <tag>负载均衡器</tag>
+         
+        <tag>VPC</tag>
+         
+        <tag>VirtualHost</tag>
+         
+         
+           
+             
+              <breadCrumb title="经验分享" url="https://ephen.me/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ephen.me/2018/cloudplatform-iam/</loc>
     <lastmod>2018-05-21T03:00:04.305Z</lastmod>
     <data>
@@ -123,9 +151,9 @@
         <title>网站API测试工具：chrome插件 - Postman</title>
         <pubTime>2015-04-23T16:00:00.000Z</pubTime>
         
-        <tag>CloudXNS</tag>
-         
         <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
          
         <tag>postman</tag>
          
@@ -503,9 +531,9 @@
         <title>使用公共 DNS 上网的弊端（二）</title>
         <pubTime>2017-08-17T16:00:00.000Z</pubTime>
         
-        <tag>公共DNS</tag>
-         
         <tag>Public DNS</tag>
+         
+        <tag>公共DNS</tag>
          
         <tag>本地DNS</tag>
          
@@ -531,9 +559,9 @@
         <title>使用公共 DNS 上网的弊端（一）</title>
         <pubTime>2017-08-03T16:00:00.000Z</pubTime>
         
-        <tag>公共DNS</tag>
-         
         <tag>Public DNS</tag>
+         
+        <tag>公共DNS</tag>
          
         <tag>本地DNS</tag>
          
@@ -706,9 +734,9 @@
         <title>CloudXNS中的AX记录类型测试</title>
         <pubTime>2015-04-09T16:00:00.000Z</pubTime>
         
-        <tag>CloudXNS</tag>
-         
         <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
          
         <tag>AX记录</tag>
          

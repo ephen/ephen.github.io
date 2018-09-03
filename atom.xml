@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ephen.me/"/>
-  <updated>2018-05-21T03:00:04.305Z</updated>
+  <updated>2018-09-03T02:17:23.060Z</updated>
   <id>https://ephen.me/</id>
   
   <author>
@@ -15,6 +15,42 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>需要上线多个域名（网站）却只有一个公网 IP 怎么办？</title>
+    <link href="https://ephen.me/2018/mutisite-oneip/"/>
+    <id>https://ephen.me/2018/mutisite-oneip/</id>
+    <published>2018-08-31T12:01:32.000Z</published>
+    <updated>2018-09-03T02:17:23.060Z</updated>
+    
+    <content type="html"><![CDATA[<p>以前做 DNS ，推出过一个系列的《如何让多 ip 域名配置游刃有余》的几篇文章，毕竟作为智能 DNS ，站点多 ip 的配置是其职责所在。</p><p>然而最近，有的小伙伴问题又来了：</p><blockquote><p>没那么多钱申请那么多不同机房的公网 ip ，但又有必要部署多个不咋占资源的站点，又该怎么办呢？</p></blockquote><p><img src="https://ww2.sinaimg.cn/mw690/006mBCT4gw1f4h3rwp03fj30640640su.jpg" alt=" 穷到变形 "></p><p>别急，穷人不止你一个，自然有又穷又聪明的 PM &amp; 技术给出解决方案，啥都能给变出来。</p><a id="more"></a><h2 id="穷到啥都不剩：别说-ip-了，连主机都买不起"><a href="#穷到啥都不剩：别说-ip-了，连主机都买不起" class="headerlink" title="穷到啥都不剩：别说 ip 了，连主机都买不起"></a>穷到啥都不剩：别说 ip 了，连主机都买不起</h2><p>在云计算行业，虚拟化是一个不陌生的词。只要资源够，一台机器可以生出无数台虚拟机来。</p><p> Web 服务上同样也有类似的概念，人们可以通过创建不同的 VirtualHost 指向不同的域名（或端口）和目录，即可实现同一台机器上生出多个不同的站点。</p><p>以 Apache 为例，Apache 安装好后在默认配置中一般有两个重要的配置文件：<code>httpd.conf</code>和<code>welcome.conf</code></p><p>其中<code>httpd.conf</code>是程序的配置文件，决定了程序将要使用什么组件、监听什么端口、加载什么配置、各类程序文件及日志文件都放到哪里等等；而<code>welcome.conf</code>是程序提供的 Web 配置示例，告诉使用者要搭建网站该怎么配置。</p><ul><li>注：Apache 中 Web 站点配置文件名不一定是<code>welcome.conf</code>，只要<code>httpd.conf</code>文件中有指向，可以是任意的文件名。本文仅以<code>welcome.conf</code>做示例。</li></ul><p>我们知道，http 服务的默认端口是 80 ，使用 80 端口则用户在访问时不用刻意在浏览器输入端口号，非常方便。<code>httpd.conf</code>文件中默认<code>Listen 80</code>，要使用 80 端口，我们只需要配置好 Web 站点即可。</p><p>默认的<code>welcome.conf</code>文件内容中的 VirtualHost 配置是这样的（截取关键内容）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/&quot;</span><br><span class="line">    ServerName ephen.me</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure><p><code>DocumentRoot</code>后面的目录表示站点搭建目录，<code>ServerName</code> 表示站点域名。</p><p>如果我们需要配置多个不同的站点，将站点搭建到不同的目录，在该文件中多配置几条 VirtualHost 就好：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost ephen.me:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/ephen.me/&quot;</span><br><span class="line">    ServerName ephen.me</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">&lt;VirtualHost demo.com:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/demo.com/&quot;</span><br><span class="line">    ServerName demo.com</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure><p>使用其他的 Web 服务程序，道理是一样的。 Nginx VirtualHost 配置可参考：<a href="http://tabalt.net/blog/nginx-virtual-host/" target="_blank" rel="noopener">http://tabalt.net/blog/nginx-virtual-host/</a></p><h2 id="只是有点小气：不差钱，就是只想用一个-ip"><a href="#只是有点小气：不差钱，就是只想用一个-ip" class="headerlink" title="只是有点小气：不差钱，就是只想用一个 ip"></a>只是有点小气：不差钱，就是只想用一个 ip</h2><p>假设多个不同的网站已经在不同的云主机上已搭建好，而目前能提供服务的可用 ip 只有一个。通常咱们会想到要是前面再有一个分发装置用于绑定这个 ip ，然后通过访问端口或域名区分真正到达的主机，那真真是极好的~</p><p>在云计算行业，这个分发装置肯定是有的，就看你怎么用了。</p><p>下文将以 QingCloud 云平台为例，来解决这个问题。</p><h3 id="负载均衡器（Load-Balancer）"><a href="#负载均衡器（Load-Balancer）" class="headerlink" title="负载均衡器（Load Balancer）"></a>负载均衡器（Load Balancer）</h3><p>创建负载均衡监听器，监听 80 端口，添加多个后端，然后为这些后端分别绑定不同的转发策略，就能成功满足需求。</p><p>操作步骤示例：</p><ol><li>创建负载均衡器，绑定仅有的一个公网 ip</li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furpyp9ugqj20x10b5wfh.jpg" alt="Load Balancer"></p><ol start="2"><li><p>为该负载均衡器创建基于 80 端口的 HTTP 监听器，并将已搭建好的几个网站添加为该监听器的后端</p><ul><li>注：我只有一个站点，但不影响后续的示例</li></ul></li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furq2f7tyaj20n60710t5.jpg" alt="HTTP 监听器"></p><ol start="3"><li><p>为对应的后端添加转发策略，让来自<code>ephen.me</code>站点的请求指向对应的后端地址</p><ul><li>注意看上面第二步附图中后端列表倒数第 3 个字段——“转发策略”，点击下面对应的“绑定”二字；</li><li>若没有转发策略可绑，会指引创建：</li></ul><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqcgo0zrj20gr0anaaf.jpg" alt="create forward"></p><ul><li>为转发策略添加规则，选择“按域名转发”：</li></ul><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqf5ulgfj20o90dx0vl.jpg" alt="add rules"></p><ul><li>回到负载均衡监听器，为对应后端添加转发策略</li></ul><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqkmxnfkj20px07daan.jpg" alt="choose forward"></p></li></ol><p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，若域名为 <code>ephen.me</code>则转发至该后端主机。</strong></p><p>如果有存在多台已配置好不同 Web 服务的云主机要共用这个 ip ，只需要继续往这个负载均衡器添加后端主机并绑定不同规则的转发策略就可以了。</p><p>当然，负载均衡器的作用远不仅仅如此，本文的介绍可以看作是为解决问题而抖个机灵罢了。更多的介绍可参照 QingCloud 官网：<a href="https://www.qingcloud.com/products/loadbalancer/" target="_blank" rel="noopener">负载均衡_LB Cluster | 青云QingCloud</a></p><h3 id="VPC-网络"><a href="#VPC-网络" class="headerlink" title="VPC 网络"></a>VPC 网络</h3><p>“负载均衡器 + 转发策略”的解决方案确实很好用，但如果多个不同业务的站点已经搭建到不同的云主机，除了 ip 没有多的可用外，连域名都想用同一个，只靠端口号来区分，又该怎么办呢？</p><p>当然负载均衡器也是可以解决的，看到这里的小伙伴可以一起思考下。不过这时候容许灰姑娘再抖个机灵，通过创建“VPC 网络 + 端口转发”来解决。</p><p>关于 VPC 网络的介绍，可以先看看：<a href="https://www.qingcloud.com/products/vpc/" target="_blank" rel="noopener">专属私有网络_VPC | 青云QingCloud</a></p><p>懂的童鞋可跳过，且看操作步骤：</p><ol><li>创建 VPC 网络，绑定仅有的一个公网 ip</li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrcla6vvj20vo0djmyr.jpg" alt="VPC"></p><ol start="2"><li>在 VPC 网络中创建一个 vxnet 私有网络，并将业务承载主机加入到这个网络，在开启 DHCP 服务的情况下，它将自动分配到一个私有网络地址</li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrf9pci6j20v608b74z.jpg" alt="VxNet"></p><ol start="3"><li>管理 VPC 网络配置，添加端口转发，将来自 80 端口的业务转发到私有网络中的这台云主机上</li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrkr9dlij20uq0b3mye.jpg" alt="Port Forward"></p><p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，则转发至私有网络中 ip 地址为<code>192.168.128.2</code>的主机。</strong></p><p>同理，其他业务的云主机，可以都加入到前面已创建好的私有网络并获得各自的私有网络 ip 地址，再设置不同的端口转发到不同的地址就好了。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上只是灰姑娘的个人想法，其实标题所描述的问题解法还有很多，欢迎相互交流。</p><p>也许有些小伙伴的业务过于庞大后会有更多的难题需要解决，不过办法都是人想的，如果有童鞋有别的难题，也欢迎相互交流。</p><p>最后，感谢耐心看完此文。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;以前做 DNS ，推出过一个系列的《如何让多 ip 域名配置游刃有余》的几篇文章，毕竟作为智能 DNS ，站点多 ip 的配置是其职责所在。&lt;/p&gt;
+&lt;p&gt;然而最近，有的小伙伴问题又来了：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;没那么多钱申请那么多不同机房的公网 ip ，但又有必要部署多个不咋占资源的站点，又该怎么办呢？&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;img src=&quot;https://ww2.sinaimg.cn/mw690/006mBCT4gw1f4h3rwp03fj30640640su.jpg&quot; alt=&quot; 穷到变形 &quot;&gt;&lt;/p&gt;
+&lt;p&gt;别急，穷人不止你一个，自然有又穷又聪明的 PM &amp;amp; 技术给出解决方案，啥都能给变出来。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="经验分享" scheme="https://ephen.me/categories/%E7%BB%8F%E9%AA%8C%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="域名" scheme="https://ephen.me/tags/%E5%9F%9F%E5%90%8D/"/>
+    
+      <category term="网站" scheme="https://ephen.me/tags/%E7%BD%91%E7%AB%99/"/>
+    
+      <category term="负载均衡器" scheme="https://ephen.me/tags/%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E5%99%A8/"/>
+    
+      <category term="VPC" scheme="https://ephen.me/tags/VPC/"/>
+    
+      <category term="VirtualHost" scheme="https://ephen.me/tags/VirtualHost/"/>
+    
+  </entry>
   
   <entry>
     <title>关于云平台用户鉴权管理（IAM）的一些总结和思考</title>
@@ -148,9 +184,9 @@
       <category term="知识探索" scheme="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
     
     
-      <category term="公共DNS" scheme="https://ephen.me/tags/%E5%85%AC%E5%85%B1DNS/"/>
-    
       <category term="Public DNS" scheme="https://ephen.me/tags/Public-DNS/"/>
+    
+      <category term="公共DNS" scheme="https://ephen.me/tags/%E5%85%AC%E5%85%B1DNS/"/>
     
       <category term="本地DNS" scheme="https://ephen.me/tags/%E6%9C%AC%E5%9C%B0DNS/"/>
     
@@ -180,9 +216,9 @@
       <category term="知识探索" scheme="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
     
     
-      <category term="公共DNS" scheme="https://ephen.me/tags/%E5%85%AC%E5%85%B1DNS/"/>
-    
       <category term="Public DNS" scheme="https://ephen.me/tags/Public-DNS/"/>
+    
+      <category term="公共DNS" scheme="https://ephen.me/tags/%E5%85%AC%E5%85%B1DNS/"/>
     
       <category term="本地DNS" scheme="https://ephen.me/tags/%E6%9C%AC%E5%9C%B0DNS/"/>
     
@@ -570,36 +606,6 @@
       <category term="测试" scheme="https://ephen.me/tags/%E6%B5%8B%E8%AF%95/"/>
     
       <category term="Jmeter" scheme="https://ephen.me/tags/Jmeter/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>不会 A/B 测试的 Web 设计师不是好程序员</title>
-    <link href="https://ephen.me/2015/AB-test/"/>
-    <id>https://ephen.me/2015/AB-test/</id>
-    <published>2015-11-05T16:00:00.000Z</published>
-    <updated>2018-04-12T08:22:21.985Z</updated>
-    
-    <content type="html"><![CDATA[<p>英文原文：<a href="https://shopifypartnerblog.myshopify.com/blogs/blog/74161923-how-a-b-testing-will-make-you-a-better-web-designer" target="_blank" rel="noopener">How A/B Testing Will Make You a Better Web Designer</a></p><hr><p>设计一个网站无论对设计者还是业主都是一个浩大的工程。但是，不管你是创建一个新的网站，还是对已有网站做重新设计，有一个至关重要的点，你的决定要基于数据而不是基于感觉。对客户和设计来说，在设计过程中做出的决定，可以决定创意，可以决定商业的成败。</p><p>为了避免你下一个作品中潜在的缺陷，你应该将 A/B 测试做为你设计工具的标准配置。对客户网站做简单的 A/B 测试可以让你交付之前避免设计，导航，功能上的任何缺陷。这样可以让你交出最终产品，不仅视觉效果极佳，还有优化的交互 – 他们会爱上你的。</p><p>听起来很有趣？继续阅读，看看 A/B 测试如果让你成为更好的 web 设计师。</p><a id="more"></a><h2 id="A-B-测试-101"><a href="#A-B-测试-101" class="headerlink" title="A/B 测试 101"></a>A/B 测试 101</h2><p>A/B 测试（又称分割测试），允许你在一个网站测试两个不同的测试元素，测试目的是判断哪种设计对完成特定目标是最有效的。</p><p>做 A/B 测试时，进入网站的用户会被随机分配到两个组：一半在“A 组”，另外一半在“B 组”。随后每组显示你选定的不同设计元素<strong> — </strong>例如，登录页面，商铺主题，响应按钮，或者结帐流程。</p><p><img src="https://static.oschina.net/uploads/img/201511/03163625_pzJH.jpg" alt="Ab Testing for Web Design - Multiple Landing Pages"></p><p>通过对真实用户实时测试两组不同的设计元素，你可以收集成有意义的数据用来确定每个组的设计元素对访客行为的影响。这会给你更来设计洞察力，帮助你为客户创建最佳在线商业方案。</p><p><strong>从本质上讲，A/B 测试帮助你在每一个项目上设计出最好的网站。 </strong></p><h3 id="为什么-Web-设计者应该做-A-B-测试"><a href="#为什么-Web-设计者应该做-A-B-测试" class="headerlink" title="为什么 Web 设计者应该做 A/B 测试"></a>为什么 Web 设计者应该做 A/B 测试</h3><p>创建最好的网站应该就是你开始在设计项目中把 A/B 测试作为标准服务来提供的充分理由。不过如果你还不服气的话，下面也是你可以预见到的其它好处：</p><p><strong>1. 增加收入 </strong>— 通过将 A/B 测试当做一项服务涵盖到你的自由职业项目中，就能为你带来更多的项目收益。你既可以将其作为标准化服务包含到你的 web 设计包中，也可以利用其在网站优化方面的好处将其作为加钱项。你的客户会花费一个体面的金额以让他们的网站建设专业起来 — 把 A/B 测试作为一项后续服务来做出明智的设计修改，这样做将帮助他们获得收入的最大爆发(而你自己也能赚更多一点)。</p><p><strong>2. 减少客户纠纷 </strong>— 当扯到要为一个网站做出设计决定的时候，看起来房间里的每个人都对于网站应该怎么怎么样持有各自的观点 — 特别是为此花了钱的客户。幸运的是，A/B 测试为你提供了具体的数据来指导设计决定，并且无需得罪客户就能化解掉不必要的纠纷。</p><p><strong>3. 心满意足的客户 </strong>— 将所有精力集中到网站的视觉设计上而忽略其功能性目标这种事情是很容易发生的。然而大多数客户确实想要一个好看的最终产品，每个客户其实更关心那个网站的转化。运行 A/B 测试能向你的客户说明你是真正在关心他们业务的在线目标的，并且也希望尽力帮他们完成预期。</p><h3 id="如何设计一个简单-A-B-测试"><a href="#如何设计一个简单-A-B-测试" class="headerlink" title="如何设计一个简单 A/B 测试"></a>如何设计一个简单 A/B 测试</h3><p>如果之前从来没有运作过一次 web 优化实验，第一次的 A/B 测试看起来就会相当令人为难。但是不要担心，创造一个简单的 A/B 测试其实还是相当简单的。下面我会概述一种你可以开始尝试运作你的首次 A/B 测试的策略性方法。</p><h3 id="定义你的目标"><a href="#定义你的目标" class="headerlink" title="定义你的目标"></a>定义你的目标</h3><p>在你开始测试一些东西的时候，你需要去理解网站的目的。理解了网站的目的就能让你确定在量化的指标方面成功对于你的客户意味着什么。这些指标，也叫做转换，代表了你所期望的访问者将会在网站上进行的动作。通过及早定义目标和成功指标，你就为 A/B 测试将要执行的操作划定了一个框框。</p><p>你的转换指标将根据你所设计的网站的类型而有所不同。下面的表格概述了不同网站类型的常见转换指标：</p><p><img src="https://static.oschina.net/uploads/img/201511/03163625_wt9T.png" alt="ab testing metrics for web design"></p><h3 id="识别瓶颈"><a href="#识别瓶颈" class="headerlink" title="识别瓶颈"></a>识别瓶颈</h3><p>为了让你的测试得到最好的结果，你需要识别过程通道中用户失去访问兴趣或者脱离通向转换路程的区域。这些障碍被称为瓶颈。就是这些瓶颈对你的网站的表现产生了消极的影响，也就是你想要运作 A/B 测试的地方。</p><p><img src="https://static.oschina.net/uploads/img/201511/03163625_dHcG.jpg" alt="Ab Testing for web design Bottlenecks"></p><p>如果你在客户的商店中设置了 Google Analytics，其内置的转换跟踪可以提供相对简单的方式来识别用户体验中潜在的瓶颈，可以在分析管理界面中设定你的转换目标，通过定义一些用户走向转换的过程中的事件和页面就可以简单地创建一个转换通道。</p><p>电子商务网站上常见的一个简单转换通道示例应该是这样的: “放到购物车” 到 “查看购物车”到“下单” 到 “选择支付方式” 到最后 “订单确认”。这里有一个 <a href="https://support.google.com/analytics/answer/1032415?hl=en" target="_blank" rel="noopener">很棒的指南</a> 能帮助你开始在 Analytics 上进行转换跟踪，另外还有一个能帮助你进行更多 <a href="https://docs.shopify.com/support/other/general-information/google-analytics-goals-and-funnels" target="_blank" rel="noopener">高级的通道转换跟踪</a> 的设置。</p><p>一旦你设置好了转换目标和通道，你就能够使用 Google Analytics 的“Goals“找到的“Goal Flow”报告来识别瓶颈了。通过对造成最多门槛和用户退出的事件和页面进行高亮显示，这份报告能够帮助你着力于对测试最有益的区域。</p><p><strong><img src="https://static.oschina.net/uploads/img/201511/03163626_Q0qY.jpg" alt=""></strong></p><h3 id="创建一个假设"><a href="#创建一个假设" class="headerlink" title="创建一个假设"></a>创建一个假设</h3><p>一旦你确认了目标并识别除了瓶颈，你就应该创建一个你确信的假设，有关于对站点的设计修改会改变访问者行为的。这会使得你的测试更具价值，因为它想过程中加入了一层目的，确保你仍在保持对于整个测试目标实现过程的跟踪。</p><p><strong>例如，假设你的客户的最终目标是降低网站的购物车放弃率。你已经完成了调查并识别出影响现有比率的瓶颈在于出现在”结算信息“页面之后而在”确认“页面之前的”传递信息“页面。在这种情况下，你的假设可以像下面这样：</strong></p><p><strong>“如果我们通过将计费和传递信息页面整合成一个页面来缩短结账流程，那么整体的购物车放弃率将会降低。”</strong></p><p>如果你在没有创建一个假设的情况下去尝试运作一次测试，你还是会收集到关于访问者有价值的数据。不过不幸的是，你会错过对于诸如为什么结果是他们这样做了这种问题的更深层次的分析和验证。即使你的测试失败了，你还是能够从实验中得出一些结论。实验的妙处在于，在整个站点上的实现之前放弃那些不起作用的想法。</p><h3 id="设计一些修改版本"><a href="#设计一些修改版本" class="headerlink" title="设计一些修改版本"></a>设计一些修改版本</h3><p>在你可以去实践你的实验之前，你需要针对你所测试的特定的设计元素创建修改版本。元素原来的版本是控制版本，而新的版本都是这个控制版本的变化版本。</p><p><img src="https://static.oschina.net/uploads/img/201511/03163626_7iGu.jpg" alt="Web Design Variants for AB Testing"></p><p>为了开发出最准确和公正的 A/B 测试，要确保新的版本中只有控制变量其中之一被修改了。例如，你可以测试一个号召性按钮(如前所述)的颜色，或者其在页面上的位置，但不能同时测试。将你的测试限制于单一变量确保了你可以放心地将行为所发生的变化归因于做出了设计修改的变量<strong>。</strong></p><h3 id="开始测试"><a href="#开始测试" class="headerlink" title="开始测试"></a>开始测试</h3><p>瓶颈确认而且构建了设计变量，你几乎就已经准备好运作你的A/B测试了。为了确保你的测试能提供最精确的结果，你会想要确保下面两件事情发生在实现期：</p><p>1. 向一组随机选择的站点访问者分组同时展示你的变量和控制版本的元素.</p><p>2. 将你的测试运行足够长的时间，那样它就能展示尽可能最大数量的样本.</p><p>遵循这两项准则将有助于确保实验提供了统计上最显著的可能结果。那样，你就可以对你所使用的数据放心了，因为你所做出的最终设计决定的基础是可靠和精确的。</p><p>对于初学者要在他们的站点——不管它是不是在 Shopify 上 ——上开始实现一次 A/B 测试最容易的方法就是使用 A/B 实验工具. 有各种工具可以供你用来在网站上进行 A/B 测试, 而我建议你先从 <a href="https://optimizely.com/" target="_blank" rel="noopener">Optimizely</a>, <a href="https://unbounce.com/" target="_blank" rel="noopener">unbounce</a>, 或者 <a href="https://www.google.com/analytics/standard/features/" target="_blank" rel="noopener">Google Analytics Content Experiments</a> 开始.</p><p><strong>还有如果你在找一些额外的资源作为入门资料, 可以看看这些综合指南:</strong></p><ul><li><a href="https://www.shopify.ca/blog/12385217-the-beginners-guide-to-simple-a-b-testing" target="_blank" rel="noopener">简单的 A/B 测试入门指南</a></li><li><a href="https://blog.optimizely.com/2013/03/08/ab-testing-and-website-redesigns/" target="_blank" rel="noopener">A/B 测试和网站重新设计</a></li><li><a href="https://blog.optimizely.com/2013/04/30/71-things-to-ab-test/" target="_blank" rel="noopener">A/B 测试有关的71件事</a></li></ul><h2 id="成为一名更好的web设计者"><a href="#成为一名更好的web设计者" class="headerlink" title="成为一名更好的web设计者"></a>成为一名更好的web设计者</h2><p>最成功的网站设计者知道网站的交接仅仅只是开始而已. 每一个单独的项目都能带来几乎无穷尽的实践和优化的机会. 通过把 A/B 测试当做你的标准设计包中提供的一项服务, 就将能够提高收入，帮助你的客户达成更好的商务业绩, 并构建出一个你可以真正为之骄傲的网站.</p><p>你还在等什么呢? 马上开始测试踏上你成为更好的 web 设计者的征途吧。</p><p>此文为转载，原文链接：<a href="https://www.oschina.net/translate/how-a-b-testing-will-make-you-a-better-web-designer" target="_blank" rel="noopener">https://www.oschina.net/translate/how-a-b-testing-will-make-you-a-better-web-designer</a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;英文原文：&lt;a href=&quot;https://shopifypartnerblog.myshopify.com/blogs/blog/74161923-how-a-b-testing-will-make-you-a-better-web-designer&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;How A/B Testing Will Make You a Better Web Designer&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;设计一个网站无论对设计者还是业主都是一个浩大的工程。但是，不管你是创建一个新的网站，还是对已有网站做重新设计，有一个至关重要的点，你的决定要基于数据而不是基于感觉。对客户和设计来说，在设计过程中做出的决定，可以决定创意，可以决定商业的成败。&lt;/p&gt;
-&lt;p&gt;为了避免你下一个作品中潜在的缺陷，你应该将 A/B 测试做为你设计工具的标准配置。对客户网站做简单的 A/B 测试可以让你交付之前避免设计，导航，功能上的任何缺陷。这样可以让你交出最终产品，不仅视觉效果极佳，还有优化的交互 – 他们会爱上你的。&lt;/p&gt;
-&lt;p&gt;听起来很有趣？继续阅读，看看 A/B 测试如果让你成为更好的 web 设计师。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="知识探索" scheme="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
-    
-    
-      <category term="测试" scheme="https://ephen.me/tags/%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="程序员" scheme="https://ephen.me/tags/%E7%A8%8B%E5%BA%8F%E5%91%98/"/>
-    
-      <category term="设计师" scheme="https://ephen.me/tags/%E8%AE%BE%E8%AE%A1%E5%B8%88/"/>
     
   </entry>
   
