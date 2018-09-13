@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://ephen.me/"/>
-  <updated>2018-09-03T02:17:23.060Z</updated>
+  <updated>2018-09-03T02:22:23.657Z</updated>
   <id>https://ephen.me/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://ephen.me/2018/mutisite-oneip/"/>
     <id>https://ephen.me/2018/mutisite-oneip/</id>
     <published>2018-08-31T12:01:32.000Z</published>
-    <updated>2018-09-03T02:17:23.060Z</updated>
+    <updated>2018-09-03T02:22:23.657Z</updated>
     
     <content type="html"><![CDATA[<p>以前做 DNS ，推出过一个系列的《如何让多 ip 域名配置游刃有余》的几篇文章，毕竟作为智能 DNS ，站点多 ip 的配置是其职责所在。</p><p>然而最近，有的小伙伴问题又来了：</p><blockquote><p>没那么多钱申请那么多不同机房的公网 ip ，但又有必要部署多个不咋占资源的站点，又该怎么办呢？</p></blockquote><p><img src="https://ww2.sinaimg.cn/mw690/006mBCT4gw1f4h3rwp03fj30640640su.jpg" alt=" 穷到变形 "></p><p>别急，穷人不止你一个，自然有又穷又聪明的 PM &amp; 技术给出解决方案，啥都能给变出来。</p><a id="more"></a><h2 id="穷到啥都不剩：别说-ip-了，连主机都买不起"><a href="#穷到啥都不剩：别说-ip-了，连主机都买不起" class="headerlink" title="穷到啥都不剩：别说 ip 了，连主机都买不起"></a>穷到啥都不剩：别说 ip 了，连主机都买不起</h2><p>在云计算行业，虚拟化是一个不陌生的词。只要资源够，一台机器可以生出无数台虚拟机来。</p><p> Web 服务上同样也有类似的概念，人们可以通过创建不同的 VirtualHost 指向不同的域名（或端口）和目录，即可实现同一台机器上生出多个不同的站点。</p><p>以 Apache 为例，Apache 安装好后在默认配置中一般有两个重要的配置文件：<code>httpd.conf</code>和<code>welcome.conf</code></p><p>其中<code>httpd.conf</code>是程序的配置文件，决定了程序将要使用什么组件、监听什么端口、加载什么配置、各类程序文件及日志文件都放到哪里等等；而<code>welcome.conf</code>是程序提供的 Web 配置示例，告诉使用者要搭建网站该怎么配置。</p><ul><li>注：Apache 中 Web 站点配置文件名不一定是<code>welcome.conf</code>，只要<code>httpd.conf</code>文件中有指向，可以是任意的文件名。本文仅以<code>welcome.conf</code>做示例。</li></ul><p>我们知道，http 服务的默认端口是 80 ，使用 80 端口则用户在访问时不用刻意在浏览器输入端口号，非常方便。<code>httpd.conf</code>文件中默认<code>Listen 80</code>，要使用 80 端口，我们只需要配置好 Web 站点即可。</p><p>默认的<code>welcome.conf</code>文件内容中的 VirtualHost 配置是这样的（截取关键内容）：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/&quot;</span><br><span class="line">    ServerName ephen.me</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure><p><code>DocumentRoot</code>后面的目录表示站点搭建目录，<code>ServerName</code> 表示站点域名。</p><p>如果我们需要配置多个不同的站点，将站点搭建到不同的目录，在该文件中多配置几条 VirtualHost 就好：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost ephen.me:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/ephen.me/&quot;</span><br><span class="line">    ServerName ephen.me</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">&lt;VirtualHost demo.com:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/demo.com/&quot;</span><br><span class="line">    ServerName demo.com</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure><p>使用其他的 Web 服务程序，道理是一样的。 Nginx VirtualHost 配置可参考：<a href="http://tabalt.net/blog/nginx-virtual-host/" target="_blank" rel="noopener">http://tabalt.net/blog/nginx-virtual-host/</a></p><h2 id="只是有点小气：不差钱，就是只想用一个-ip"><a href="#只是有点小气：不差钱，就是只想用一个-ip" class="headerlink" title="只是有点小气：不差钱，就是只想用一个 ip"></a>只是有点小气：不差钱，就是只想用一个 ip</h2><p>假设多个不同的网站已经在不同的云主机上已搭建好，而目前能提供服务的可用 ip 只有一个。通常咱们会想到要是前面再有一个分发装置用于绑定这个 ip ，然后通过访问端口或域名区分真正到达的主机，那真真是极好的~</p><p>在云计算行业，这个分发装置肯定是有的，就看你怎么用了。</p><p>下文将以 QingCloud 云平台为例，来解决这个问题。</p><h3 id="负载均衡器（Load-Balancer）"><a href="#负载均衡器（Load-Balancer）" class="headerlink" title="负载均衡器（Load Balancer）"></a>负载均衡器（Load Balancer）</h3><p>创建负载均衡监听器，监听 80 端口，添加多个后端，然后为这些后端分别绑定不同的转发策略，就能成功满足需求。</p><p>操作步骤示例：</p><ol><li>创建负载均衡器，绑定仅有的一个公网 ip</li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furpyp9ugqj20x10b5wfh.jpg" alt="Load Balancer"></p><ol start="2"><li><p>为该负载均衡器创建基于 80 端口的 HTTP 监听器，并将已搭建好的几个网站添加为该监听器的后端</p><ul><li>注：我只有一个站点，但不影响后续的示例</li></ul></li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furq2f7tyaj20n60710t5.jpg" alt="HTTP 监听器"></p><ol start="3"><li><p>为对应的后端添加转发策略，让来自<code>ephen.me</code>站点的请求指向对应的后端地址</p><ul><li>注意看上面第二步附图中后端列表倒数第 3 个字段——“转发策略”，点击下面对应的“绑定”二字；</li><li>若没有转发策略可绑，会指引创建：</li></ul><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqcgo0zrj20gr0anaaf.jpg" alt="create forward"></p><ul><li>为转发策略添加规则，选择“按域名转发”：</li></ul><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqf5ulgfj20o90dx0vl.jpg" alt="add rules"></p><ul><li>回到负载均衡监听器，为对应后端添加转发策略</li></ul><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqkmxnfkj20px07daan.jpg" alt="choose forward"></p></li></ol><p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，若域名为 <code>ephen.me</code>则转发至该后端主机。</strong></p><p>如果有存在多台已配置好不同 Web 服务的云主机要共用这个 ip ，只需要继续往这个负载均衡器添加后端主机并绑定不同规则的转发策略就可以了。</p><p>当然，负载均衡器的作用远不仅仅如此，本文的介绍可以看作是为解决问题而抖个机灵罢了。更多的介绍可参照 QingCloud 官网：<a href="https://www.qingcloud.com/products/loadbalancer/" target="_blank" rel="noopener">负载均衡_LB Cluster | 青云QingCloud</a></p><h3 id="VPC-网络"><a href="#VPC-网络" class="headerlink" title="VPC 网络"></a>VPC 网络</h3><p>“负载均衡器 + 转发策略”的解决方案确实很好用，但如果多个不同业务的站点已经搭建到不同的云主机，除了 ip 没有多的可用外，连域名都想用同一个，只靠端口号来区分，又该怎么办呢？</p><p>当然负载均衡器也是可以解决的，看到这里的小伙伴可以一起思考下。不过这时候容许灰姑娘再抖个机灵，通过创建“VPC 网络 + 端口转发”来解决。</p><p>关于 VPC 网络的介绍，可以先看看：<a href="https://www.qingcloud.com/products/vpc/" target="_blank" rel="noopener">专属私有网络_VPC | 青云QingCloud</a></p><p>懂的童鞋可跳过，且看操作步骤：</p><ol><li>创建 VPC 网络，绑定仅有的一个公网 ip</li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrcla6vvj20vo0djmyr.jpg" alt="VPC"></p><ol start="2"><li>在 VPC 网络中创建一个 vxnet 私有网络，并将业务承载主机加入到这个网络，在开启 DHCP 服务的情况下，它将自动分配到一个私有网络地址</li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrf9pci6j20v608b74z.jpg" alt="VxNet"></p><ol start="3"><li>管理 VPC 网络配置，添加端口转发，将来自 80 端口的业务转发到私有网络中的这台云主机上</li></ol><p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrkr9dlij20uq0b3mye.jpg" alt="Port Forward"></p><p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，则转发至私有网络中 ip 地址为<code>192.168.128.2</code>的主机。</strong></p><p>同理，其他业务的云主机，可以都加入到前面已创建好的私有网络并获得各自的私有网络 ip 地址，再设置不同的端口转发到不同的地址就好了。</p><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上只是灰姑娘的个人想法，其实标题所描述的问题解法还有很多，欢迎相互交流。</p><p>也许有些小伙伴的业务过于庞大后会有更多的难题需要解决，不过办法都是人想的，如果有童鞋有别的难题，也欢迎相互交流。</p><p>最后，感谢耐心看完此文。</p>]]></content>
     
@@ -184,9 +184,9 @@
       <category term="知识探索" scheme="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
     
     
-      <category term="Public DNS" scheme="https://ephen.me/tags/Public-DNS/"/>
-    
       <category term="公共DNS" scheme="https://ephen.me/tags/%E5%85%AC%E5%85%B1DNS/"/>
+    
+      <category term="Public DNS" scheme="https://ephen.me/tags/Public-DNS/"/>
     
       <category term="本地DNS" scheme="https://ephen.me/tags/%E6%9C%AC%E5%9C%B0DNS/"/>
     
@@ -216,9 +216,9 @@
       <category term="知识探索" scheme="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
     
     
-      <category term="Public DNS" scheme="https://ephen.me/tags/Public-DNS/"/>
-    
       <category term="公共DNS" scheme="https://ephen.me/tags/%E5%85%AC%E5%85%B1DNS/"/>
+    
+      <category term="Public DNS" scheme="https://ephen.me/tags/Public-DNS/"/>
     
       <category term="本地DNS" scheme="https://ephen.me/tags/%E6%9C%AC%E5%9C%B0DNS/"/>
     
