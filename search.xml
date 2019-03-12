@@ -4,6 +4,149 @@
   
     
     <entry>
+      <title><![CDATA[又来折腾博客了]]></title>
+      <url>https://ephen.me/2019/blog-update/</url>
+      <content type="html"><![CDATA[<p>博客好久没有更新了，难得妇女节放半天假有个好心情。</p>
+<p>本次更新点：</p>
+<ol>
+<li>修改 favicon 图标；</li>
+<li>增加原创版权声明；</li>
+<li>增加支付宝&amp;微信打赏码；</li>
+<li>部分样式调整；</li>
+</ol>
+<p>其实都是一些比较小的更新，原本也没有什么好值得一提的，主要就聊聊相关的改造想法吧。</p>
+<a id="more"></a>
+<h2 id="修改-favicon-图标"><a href="#修改-favicon-图标" class="headerlink" title="修改 favicon 图标"></a>修改 favicon 图标</h2><p>过去我的 Favicon 其实是用 CloudXNS 的产品 Logo 微调了下颜色而来，有些小伙伴表示并看不出什么差别。</p>
+<p>转眼间，我已离开世纪互联快一年了，现在依然用着这个 Logo 还真的是不太合适。就考虑重新设计，并顺便了解下射击师的日常。</p>
+<p>刚好捉到一来武汉出差的美女射击师，让她先教我画这个简单的风车。掌握到方法后，我又画了各种各样的风车。也尝试画了一些别的图案，并挑选了一些我觉得画得还行的一个个应用到本地博客上试。最终选了现在用的这个，跟之前的差别没有太大，但还是能明显看得到差别。</p>
+<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1g0z15ks0lij20t00im78c.jpg" alt="blog favicon"></p>
+<p><strong>立个 Flag ：<del>以后每年都换一次自己设计的 Favicon</del> （请假装没看见……</strong></p>
+<h3 id="一点感悟"><a href="#一点感悟" class="headerlink" title="一点感悟"></a>一点感悟</h3><p>设计真的是需要有丰富的想象力和创意的事情，当看到成果的时候所有前期的焦头烂额都觉得值得，很容易带来成就感和满足感；而它又是一个特别容易让人陷入细节的事情，哪怕是一个像素的差异都会耿耿于怀非要修正不可，也容易让人迷失方向忘记初衷。</p>
+<h2 id="原创版权声明"><a href="#原创版权声明" class="headerlink" title="原创版权声明"></a>原创版权声明</h2><p>本博勉强称之为原创技术博吧，过去我没有加过版权声明。之前有些文章是同时在老东家当作官方技术博文来发的，被转载的不少，并且也不太好去要求那些地方加上转载来源。现在，我打算日后首发原创就来自这里，并声明一下版权。还望路过的有转载 or 改编意图的小伙伴，别忘了附上我的原文地址。</p>
+<p>不过现在越来越懒得写技术博文了，工作生活繁忙又没啥动力。哎……（我差不多是一只废喵了。</p>
+<h2 id="请赐予我动力"><a href="#请赐予我动力" class="headerlink" title="请赐予我动力"></a>请赐予我动力</h2><p>我是个乐意传授知识的人。这破博虽没什么流量，但隔三岔五收到邮件或 Telegram 消息咨询问题的也不少，我都有一一认真回答。</p>
+<p>其实想写的主题有不少，我的博客 to do list 上都排着呢。</p>
+<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1g0z1499tdhj20pf0mgq4a.jpg" alt=" ToDoList "></p>
+<p>当然，这个列表排了好几个月了，很有可能有些东西都过时了，最终也不一定兑现发布。</p>
+<p>这次博客更新，我在每篇原创博文下都有提供支付宝和微信二维码，路过的小伙伴随意打赏以赐予我更新的动力吧。（请不要说我的码太丑，我可是花了好多心思来设计的呢！<del>这下本灰灰的审美问题已众所周知</del></p>
+<h3 id="O-∩-∩-O"><a href="#O-∩-∩-O" class="headerlink" title="O(∩_∩)O"></a>O(∩_∩)O</h3><p>其实靠打赏来维持写作动力只是个玩笑辣，写不写、怎么写更多的还是看我自己。哪怕是没有打赏，问我的问题依然会一如既往的认真回复，如果能得到支持当然是更开心咯。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>略微改了下主题里面的内容分割、二级标题、三级标题、引用、代码块等样式。（一切都是因我的渣审美在作祟。</p>
+<p>也没有什么好需要特别说明的。</p>
+<p>为了摆“原创声明”和“赞赏二维码”花了好几天捣鼓也没有搞定，最后也是在公司抓了只前端大神几分钟就给我搞定了。得出结论：<code>果然代码开发是个吃经验的工种，速成彻底宣告失败。</code></p>
+<p><strong>像我这种干啥都三分钟热度的人，真的很需要有人在后边鞭笞我。</strong></p>
+]]></content>
+      
+        <categories>
+            
+            <category> 博客折腾 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 版权 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[闲聊 DNS 系统中域名的格式标准：下划线“_”是被允许的吗？]]></title>
+      <url>https://ephen.me/2019/zone-format/</url>
+      <content type="html"><![CDATA[<p>朋友最近在做解析配置的时候遇到问题，因 gitlab 域名所有权验证时提供的 host 是 <code>_gitlab-pages-verification-code</code> 被解析商认为域名不符合标准而拒绝填写，便来与我讨论：<strong>域名的格式标准是什么？到底是否可以有下划线呢？</strong></p>
+<p>虽说没事去研究<code>“茴”字有几种写法</code>着实有些多此一举，不过偶尔在做些研究时带点儿孔乙己精神还是挺好玩的一件事儿。</p>
+<p>其实关于下划线的争议，我估计也不是一天两天了。国内外一些解析商的标准都是各有不同，而一些需要配置域名解析的商家提供的要求也是五花八门。比如最常见的邮件服务提供商，它们的 MX、SPF、DomainKey 等要求非专业人员要弄懂得费可大的力气。</p>
+<p>今天灰姑娘就来从标准规范中剖析闲聊域名格式标准的那些事。</p>
+<a id="more"></a>
+<p><strong>想直接看结论的童鞋可直接点击左侧文章目录跳转。</strong></p>
+<h2 id="RFC-1034-amp-RFC-1035"><a href="#RFC-1034-amp-RFC-1035" class="headerlink" title="RFC-1034 &amp; RFC-1035"></a>RFC-1034 &amp; RFC-1035</h2><p><a href="https://tools.ietf.org/html/rfc1034" target="_blank" rel="noopener">RFC 1034</a> 和 <a href="https://tools.ietf.org/html/rfc1035" target="_blank" rel="noopener">RFC 1035</a> 是专门讲 DNS 以及域名基础的标准，业内也常常将这两篇拿出来分析和培训。</p>
+<p>关于域名的格式，这两篇中有内容相同的段落来具体描述，RFC-1034 的 3.5 章节和 RFC-1035 的 2.3.1 章节。以下摘取自 RFC-1034 ：</p>
+<blockquote>
+<p>3.5. Preferred name syntax</p>
+<p>The DNS specifications attempt to be as general as possible in the rules for constructing domain names.  The idea is that the name of any existing object can be expressed as a domain name with minimal changes. However, when assigning a domain name for an object, the prudent user will select a name which satisfies both the rules of the domain system and any existing rules for the object, whether these rules are published or implied by existing programs.</p>
+<p>For example, when naming a mail domain, the user should satisfy both the rules of this memo and those in RFC-822.  When creating a new host name, the old rules for HOSTS.TXT should be followed.  This avoids problems when old software is converted to use domain names.</p>
+<p>The following syntax will result in fewer problems with many applications that use domain names (e.g., mail, TELNET).</p>
+<p><code>&lt;domain&gt; ::= &lt;subdomain&gt; | &quot; &quot;</code><br><code>&lt;subdomain&gt; ::= &lt;label&gt; | &lt;subdomain&gt; &quot;.&quot; &lt;label&gt;</code><br><code>&lt;label&gt; ::= &lt;letter&gt; [ [ &lt;ldh-str&gt; ] &lt;let-dig&gt; ]</code><br><code>&lt;ldh-str&gt; ::= &lt;let-dig-hyp&gt; | &lt;let-dig-hyp&gt; &lt;ldh-str&gt;</code><br><code>&lt;let-dig-hyp&gt; ::= &lt;let-dig&gt; | &quot;-&quot;</code><br><code>&lt;let-dig&gt; ::= &lt;letter&gt; | &lt;digit&gt;</code><br><code>&lt;letter&gt; ::= any one of the 52 alphabetic characters A through Z in upper case and a through z in lower case</code><br><code>&lt;digit&gt; ::= any one of the ten digits 0 through 9</code></p>
+<p>Note that while upper and lower case letters are allowed in domain names, no significance is attached to the case.  That is, two names with the same spelling but different case are to be treated as if identical.</p>
+<p><strong>The labels must follow the rules for ARPANET host names.  They must start with a letter, end with a letter or digit, and have as interior characters only letters, digits, and hyphen.  There are also some restrictions on the length.  Labels must be 63 characters or less.</strong></p>
+<p>For example, the following strings identify hosts in the Internet:</p>
+<p><code>A.ISI.EDU  XX.LCS.MIT.EDU  SRI-NIC.ARPA</code></p>
+</blockquote>
+<p>上面加粗的这一段，便明确指出 <strong>“域名要遵循 ARPANET 的主机名格式：必须以字母开头、以字母或者数字结尾，中间部分为字母、数字或连字符，长度必须是 63 个字符或者更短。”</strong></p>
+<p>从这里，我们可以看出，下划线“_”是不被允许的，无论它在什么位置。但有意思的是，从这描述上来看，数字竟然也是不允许放在开头的！</p>
+<p>我们知道，在做反向域名解析的时候，需要指定的 IP 除了最后的<code>in-addr.arpa</code>和<code>ip6.arpa</code>前面就都是纯数字。所以，会不会是这个标准有什么问题呢？</p>
+<h3 id="学会查阅-RFC"><a href="#学会查阅-RFC" class="headerlink" title="学会查阅 RFC"></a>学会查阅 RFC</h3><p>这里顺便提一下，我们通常在查阅 RFC 的时候，多是关注该文档的内容，但其实也要关注下文档的发布信息。</p>
+<p>以下是 RFC-1034 的发布信息：</p>
+<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1g101222gibj20qs082mye.jpg" alt=" rfc1034 comment "></p>
+<p>它明确的表明了这份标准：</p>
+<ol>
+<li>发布于 1987 年 11 月，是因特网标准。</li>
+<li>存在勘误，RFC 1101, 1183, 1348, 1876, 1982, 2065, 2181, 2308, 2535, 4033, 4034, 4035, 4343, 4035, 4592, 5936, 8020, 8482 对本标准有所更新。</li>
+<li>淘汰了 882, 883, 973 这三个 RFC 标准。</li>
+</ol>
+<p>顶上的链接除了提供各种格式的查看方式外，还有文档跟踪及勘误表。我们可以去勘误表里面查查看都有哪些问题，而后去更新的文档里面找找还有没有我们需要的内容。</p>
+<h2 id="数字能否放到开头？"><a href="#数字能否放到开头？" class="headerlink" title="数字能否放到开头？"></a>数字能否放到开头？</h2><p>通过查阅勘误表，大致也就能发现几个英文拼写或语法错误。通过追踪接下来的更新标准，我找到了前面关于反向域名的格式疑惑。</p>
+<p>以下节选自<a href="https://tools.ietf.org/html/rfc1101" target="_blank" rel="noopener"> RFC 1101 </a>：</p>
+<blockquote>
+<p>3.1. Network name syntax</p>
+<p>The current syntax for network names, as defined by [RFC 952] is an alphanumeric string of up to 24 characters, which begins with an alpha, and may include “.” and “-“ except as first and last characters.  This is the format which was also used for host names before the DNS.  Upward compatibility with existing names might be a goal of any new scheme.</p>
+<p>However, the present syntax has been used to define a flat name space, and hence would prohibit the same distributed name allocation method used for host names.  There is some sentiment for allowing the NIC to continue to allocate and regulate network names, much as it allocates numbers, but the majority opinion favors local control of network names.  Although it would be possible to provide a flat space or a name space in which, for example, the last label of a domain name captured the old-style network name, any such approach would add complexity to the method and create different rules for network names and host names.</p>
+<p>For these reasons, we assume that the syntax of network names will be the same as the expanded syntax for host names permitted in [HR]. <strong>The new syntax expands the set of names to allow leading digits, so long as the resulting representations do not conflict with IP addresses in decimal octet form.</strong>  For example, 3Com.COM and 3M.COM are now legal, although 26.0.0.73.COM is not.  See [HR] for details.</p>
+</blockquote>
+<p>还是注意加粗的这段话，它表明：<strong>新的语法标准允许以数字开头，但结果不能与十进制八位字节形式的 IP 地址冲突。</strong></p>
+<p>更多信息大家可以自行去查看，最终 RFC-1101 定义了基于网络名称的 DNS 编码规范。</p>
+<p>那么，网易家的<code>163.com</code>也合法了。</p>
+<h2 id="下划线“-”到底能不能允许存在呢？"><a href="#下划线“-”到底能不能允许存在呢？" class="headerlink" title="下划线“_”到底能不能允许存在呢？"></a>下划线“_”到底能不能允许存在呢？</h2><p>事实上，域名系统可以看做一种用来存储具备层级关系的数据的服务。随着互联网的发展，DNS 能做的事儿越来越多，对主机名格式的定义也开始越来越宽容。</p>
+<p>于是，于 1997 年发布的 <a href="https://tools.ietf.org/html/rfc2181" target="_blank" rel="noopener">RFC-2181</a> 再次对域名语法格式做了澄清：</p>
+<blockquote>
+<ol start="11">
+<li>Name syntax</li>
+</ol>
+<p>Occasionally it is assumed that the Domain Name System serves only the purpose of mapping Internet host names to data, and mapping Internet addresses to host names.  This is not correct, the DNS is a general (if somewhat limited) hierarchical database, and can store almost any kind of data, for almost any purpose.</p>
+<p><strong>The DNS itself places only one restriction on the particular labels that can be used to identify resource records.  That one restriction relates to the length of the label and the full name.  The length of any one label is limited to between 1 and 63 octets.  A full domain name is limited to 255 octets (including the separators).  The zero length full name is defined as representing the root of the DNS tree, and is typically written and displayed as “.”.  Those restrictions aside, any binary string whatever can be used as the label of any resource record.</strong>  Similarly, any binary string can serve as the value of any record that includes a domain name as some or all of its value (SOA, NS, MX, PTR, CNAME, and any others that may be added). Implementations of the DNS protocols must not place any restrictions on the labels that can be used.  In particular, DNS servers must not refuse to serve a zone because it contains labels that might not be acceptable to some DNS client programs.  A DNS server may be configurable to issue warnings when loading, or even to refuse to load, a primary zone containing labels that might be considered questionable, however this should not happen by default.</p>
+<p>Note however, that the various applications that make use of DNS data can have restrictions imposed on what particular values are acceptable in their environment.  For example, that any binary label can have an MX record does not imply that any binary name can be used as the host part of an e-mail address.  Clients of the DNS can impose whatever restrictions are appropriate to their circumstances on the values they use as keys for DNS lookup requests, and on the values returned by the DNS.  If the client has such restrictions, it is solely responsible for validating the data from the DNS to ensure that it conforms before it makes any use of that data.</p>
+<p>See also [RFC1123] section 6.1.3.5.</p>
+</blockquote>
+<p>在这份标准文档中，明确了“<strong>除了限制长度（包括每个标签之间的长度以及完整域名总长）外，任何二进制字符串都可以作为任何资源记录的标签</strong>”。</p>
+<p>至此，关于下划线的谜底彻底揭开：<strong>下划线不应被 DNS 服务所拒绝。</strong>不过，上文中也有提到<strong>特殊的应用和场景可以有所限制，但并不是默认的。</strong>通常这种情况下，对应的应用服务往往会有所判断。</p>
+<p>此外，感兴趣的童鞋还可以继续看看上述节选中提到的 <a href="https://tools.ietf.org/html/rfc1123#page-79" target="_blank" rel="noopener"> RFC-1123 的 6.1.3.5 章节</a>。</p>
+<h2 id="其他提及"><a href="#其他提及" class="headerlink" title="其他提及"></a>其他提及</h2><p>细心的童鞋可能有看到前面 RFC-1034 中有提到大小写的内容：<strong>仅大小写不一致视为同一域名。</strong> 除此之外，没有提及更多。</p>
+<p>对于这种类似说法可能存在一些不确定性，2006 年 1 月发布的<a href="https://tools.ietf.org/html/rfc4343" target="_blank" rel="noopener"> RFC-4343 </a> 再次针对大小写、ASCII 码转义等格式标准做了澄清。</p>
+<p>感兴趣的童鞋可以去看看，我这里就不再引用和释义了。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>对于域名格式到底是怎样的，可以参考 AWS Route53 ，他们给了非常完整的定义：<a href="https://docs.aws.amazon.com/zh_cn/Route53/latest/DeveloperGuide/DomainNameFormat.html" target="_blank" rel="noopener"> DNS 域名格式 </a></p>
+<p>总的来说有如下几个关键要点：</p>
+<ol>
+<li>长度限制：每个 label 之间 63 个字符以内，域名全长（含所有的“.”，包括根）不超过 255 个字符；</li>
+<li>不区分大小写，常规默认小写；</li>
+<li>特殊字符：需要用<code>\三位八进制代码</code>格式转义；</li>
+<li>中、日、韩等非拉丁文字符域名：需要 Unicode 转换为 ASCII 字符串；</li>
+</ol>
+<p>值得一提的是，<strong>DNS 业内针对 Zone 一般是“字母、数字和连字符（-），且中划线不能在 label 开头和结束”</strong>。它来自早期已废弃的 RFC-882 &amp; RFC-973 ，业内已约定俗成并非是如今的硬性要求。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 知识探索 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DNS </tag>
+            
+            <tag> RFC </tag>
+            
+            <tag> 域名格式 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[需要上线多个域名（网站）却只有一个公网 IP 怎么办？]]></title>
       <url>https://ephen.me/2018/mutisite-oneip/</url>
       <content type="html"><![CDATA[<p>以前做 DNS ，推出过一个系列的《如何让多 ip 域名配置游刃有余》的几篇文章，毕竟作为智能 DNS ，站点多 ip 的配置是其职责所在。</p>
@@ -467,9 +610,9 @@
         
         <tags>
             
-            <tag> 公共DNS </tag>
-            
             <tag> Public DNS </tag>
+            
+            <tag> 公共DNS </tag>
             
             <tag> 本地DNS </tag>
             
@@ -531,9 +674,9 @@
         
         <tags>
             
-            <tag> 公共DNS </tag>
-            
             <tag> Public DNS </tag>
+            
+            <tag> 公共DNS </tag>
             
             <tag> 本地DNS </tag>
             
@@ -1994,9 +2137,9 @@
         
         <tags>
             
-            <tag> CloudXNS </tag>
-            
             <tag> 测试 </tag>
+            
+            <tag> CloudXNS </tag>
             
             <tag> postman </tag>
             
@@ -2033,67 +2176,11 @@
         
         <tags>
             
-            <tag> CloudXNS </tag>
-            
             <tag> 测试 </tag>
             
+            <tag> CloudXNS </tag>
+            
             <tag> AX记录 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[桥接模式下如何设置虚拟机和本机在同一网段]]></title>
-      <url>https://ephen.me/2015/VmwareNetSet/</url>
-      <content type="html"><![CDATA[<ol>
-<li>打开VMware软件，开启要设置的虚拟机，用root用户登录；</li>
-<li>点击VMware软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“NAT模式”）；</li>
-<li>进入Linux虚拟机修改网卡设置：</li>
-</ol>
-<h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><a id="more"></a>
-<p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 通过键盘上下键选择“Network Configuration”，Tab到Run tool后回车；<br>3 . “Device Configuration”高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入ip设置界面；<br>4 . 默认情况下“Use DHCP”是自动获取，图形界面上展示为*，下面的静态IP不能进行设置。如下图：</p>
-<p><img src="https://ww2.sinaimg.cn/large/5ebd877egw1f62fk8e0pyj20a208ldg5.jpg" alt="虚拟网卡图形界面配置"></p>
-<p>5 . 将光标移动到“Use DHCP”的[*]上，点击空格键，即可开始设置下面的静态IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的ip设置，将虚拟客户机Linux设置成一样即可（除IP外，IP设置到同一网段）；如下图：</p>
-<p><img src="https://ww4.sinaimg.cn/large/5ebd877egw1f62g36qsscj20cr0g3gmt.jpg" alt="本机IP设置"><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f62g36q77wj20an09bq3k.jpg" alt="虚拟机IP设置"></p>
-<p>7 . Tab到“Save”、“Save&amp;Quit”保存本次设置；</p>
-<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 一般虚拟机网卡是eth0，修改文件vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<blockquote>
-<p>DEVICE=eth0 <em>#描述网卡对应的设备别名，例如ifcfg-eth0的文件中它为eth0</em></p>
-<p>BOOTPROTO=static <em>#设置网卡获得ip地址的方式，可能的选项为static，dhcp或bootp，分别对应静态指定的ip地址，通过dhcp协议获得的ip地址，通过bootp协议获得的ip地址</em></p>
-<p>BROADCAST=192.168.0.255 <em>#对应的子网广播地址</em></p>
-<p>HWADDR=00:07:E9:05:E8:B4 <em>#对应的网卡物理地址</em></p>
-<p>IPADDR=192.168.14.120 <em>#如果设置网卡获得ip地址的方式为静态指定，此字段就指定了网卡对应的ip地址</em></p>
-<p>IPV6INIT=no</p>
-<p>IPV6_AUTOCONF=no</p>
-<p>NETMASK=255.255.255.0 <em>#网卡对应的网络掩码</em></p>
-<p>NETWORK=192.168.0.0 <em>#网卡对应的网络地址</em></p>
-<p>ONBOOT=yes <em>#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</em></p>
-</blockquote>
-<p>3 . 修改对应网卡的网关的配置文件vi /etc/sysconfig/network</p>
-<blockquote>
-<p>NETWORKING=yes <em>#系统是否使用网络（一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启）</em></p>
-<p>HOSTNAME=localhost <em>#本机的主机名（这里设置的主机名要和/etc/hosts中设置的主机名对应）</em></p>
-<p>GATEWAY=192.168.14.1 <em>#本机连接的网关IP地址</em></p>
-</blockquote>
-<p>4 . 重启网卡或重启机器以应用上述修改。</p>
-<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以eth0为例）：先关闭（命令：ifdown eth0），再开启（命令：ifup eth0）</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 工作笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Vmware </tag>
-            
-            <tag> Network </tag>
-            
-            <tag> 虚拟机 </tag>
             
         </tags>
         
@@ -2156,6 +2243,62 @@
             <tag> Win8 </tag>
             
             <tag> PL/SQL </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[桥接模式下如何设置虚拟机和本机在同一网段]]></title>
+      <url>https://ephen.me/2015/VmwareNetSet/</url>
+      <content type="html"><![CDATA[<ol>
+<li>打开VMware软件，开启要设置的虚拟机，用root用户登录；</li>
+<li>点击VMware软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“NAT模式”）；</li>
+<li>进入Linux虚拟机修改网卡设置：</li>
+</ol>
+<h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><a id="more"></a>
+<p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 通过键盘上下键选择“Network Configuration”，Tab到Run tool后回车；<br>3 . “Device Configuration”高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入ip设置界面；<br>4 . 默认情况下“Use DHCP”是自动获取，图形界面上展示为*，下面的静态IP不能进行设置。如下图：</p>
+<p><img src="https://ww2.sinaimg.cn/large/5ebd877egw1f62fk8e0pyj20a208ldg5.jpg" alt="虚拟网卡图形界面配置"></p>
+<p>5 . 将光标移动到“Use DHCP”的[*]上，点击空格键，即可开始设置下面的静态IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的ip设置，将虚拟客户机Linux设置成一样即可（除IP外，IP设置到同一网段）；如下图：</p>
+<p><img src="https://ww4.sinaimg.cn/large/5ebd877egw1f62g36qsscj20cr0g3gmt.jpg" alt="本机IP设置"><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f62g36q77wj20an09bq3k.jpg" alt="虚拟机IP设置"></p>
+<p>7 . Tab到“Save”、“Save&amp;Quit”保存本次设置；</p>
+<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 一般虚拟机网卡是eth0，修改文件vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<blockquote>
+<p>DEVICE=eth0 <em>#描述网卡对应的设备别名，例如ifcfg-eth0的文件中它为eth0</em></p>
+<p>BOOTPROTO=static <em>#设置网卡获得ip地址的方式，可能的选项为static，dhcp或bootp，分别对应静态指定的ip地址，通过dhcp协议获得的ip地址，通过bootp协议获得的ip地址</em></p>
+<p>BROADCAST=192.168.0.255 <em>#对应的子网广播地址</em></p>
+<p>HWADDR=00:07:E9:05:E8:B4 <em>#对应的网卡物理地址</em></p>
+<p>IPADDR=192.168.14.120 <em>#如果设置网卡获得ip地址的方式为静态指定，此字段就指定了网卡对应的ip地址</em></p>
+<p>IPV6INIT=no</p>
+<p>IPV6_AUTOCONF=no</p>
+<p>NETMASK=255.255.255.0 <em>#网卡对应的网络掩码</em></p>
+<p>NETWORK=192.168.0.0 <em>#网卡对应的网络地址</em></p>
+<p>ONBOOT=yes <em>#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</em></p>
+</blockquote>
+<p>3 . 修改对应网卡的网关的配置文件vi /etc/sysconfig/network</p>
+<blockquote>
+<p>NETWORKING=yes <em>#系统是否使用网络（一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启）</em></p>
+<p>HOSTNAME=localhost <em>#本机的主机名（这里设置的主机名要和/etc/hosts中设置的主机名对应）</em></p>
+<p>GATEWAY=192.168.14.1 <em>#本机连接的网关IP地址</em></p>
+</blockquote>
+<p>4 . 重启网卡或重启机器以应用上述修改。</p>
+<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以eth0为例）：先关闭（命令：ifdown eth0），再开启（命令：ifup eth0）</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 工作笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Vmware </tag>
+            
+            <tag> Network </tag>
+            
+            <tag> 虚拟机 </tag>
             
         </tags>
         

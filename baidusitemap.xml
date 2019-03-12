@@ -4,6 +4,52 @@
 
     
   <url>
+    <loc>https://ephen.me/2019/zone-format/</loc>
+    <lastmod>2019-03-12T11:08:19.785Z</lastmod>
+    <data>
+        <display>
+        <title>闲聊 DNS 系统中域名的格式标准：下划线“_”是被允许的吗？</title>
+        <pubTime>2019-02-28T16:00:00.000Z</pubTime>
+        
+        <tag>DNS</tag>
+         
+        <tag>RFC</tag>
+         
+        <tag>域名格式</tag>
+         
+         
+           
+             
+              <breadCrumb title="知识探索" url="https://ephen.me/categories/%E7%9F%A5%E8%AF%86%E6%8E%A2%E7%B4%A2/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://ephen.me/2019/blog-update/</loc>
+    <lastmod>2019-03-12T03:35:54.789Z</lastmod>
+    <data>
+        <display>
+        <title>又来折腾博客了</title>
+        <pubTime>2019-03-07T16:00:00.000Z</pubTime>
+        
+        <tag>hexo</tag>
+         
+        <tag>版权</tag>
+         
+         
+           
+             
+              <breadCrumb title="博客折腾" url="https://ephen.me/categories/%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ephen.me/2015/SercurityTest/</loc>
     <lastmod>2019-03-06T06:44:25.627Z</lastmod>
     <data>
@@ -221,9 +267,9 @@
         <title>网站API测试工具：chrome插件 - Postman</title>
         <pubTime>2015-04-23T16:00:00.000Z</pubTime>
         
-        <tag>CloudXNS</tag>
-         
         <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
          
         <tag>postman</tag>
          
@@ -577,9 +623,9 @@
         <title>使用公共 DNS 上网的弊端（二）</title>
         <pubTime>2017-08-17T16:00:00.000Z</pubTime>
         
-        <tag>公共DNS</tag>
-         
         <tag>Public DNS</tag>
+         
+        <tag>公共DNS</tag>
          
         <tag>本地DNS</tag>
          
@@ -605,9 +651,9 @@
         <title>使用公共 DNS 上网的弊端（一）</title>
         <pubTime>2017-08-03T16:00:00.000Z</pubTime>
         
-        <tag>公共DNS</tag>
-         
         <tag>Public DNS</tag>
+         
+        <tag>公共DNS</tag>
          
         <tag>本地DNS</tag>
          
@@ -734,9 +780,9 @@
         <title>CloudXNS中的AX记录类型测试</title>
         <pubTime>2015-04-09T16:00:00.000Z</pubTime>
         
-        <tag>CloudXNS</tag>
-         
         <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
          
         <tag>AX记录</tag>
          
