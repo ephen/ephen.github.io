@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://ephen.me/2019/zone-format/</loc>
-    <lastmod>2019-03-12T11:08:19.785Z</lastmod>
+    <lastmod>2019-03-12T11:42:59.047Z</lastmod>
     <data>
         <display>
         <title>闲聊 DNS 系统中域名的格式标准：下划线“_”是被允许的吗？</title>
@@ -623,9 +623,9 @@
         <title>使用公共 DNS 上网的弊端（二）</title>
         <pubTime>2017-08-17T16:00:00.000Z</pubTime>
         
-        <tag>Public DNS</tag>
-         
         <tag>公共DNS</tag>
+         
+        <tag>Public DNS</tag>
          
         <tag>本地DNS</tag>
          
@@ -651,9 +651,9 @@
         <title>使用公共 DNS 上网的弊端（一）</title>
         <pubTime>2017-08-03T16:00:00.000Z</pubTime>
         
-        <tag>Public DNS</tag>
-         
         <tag>公共DNS</tag>
+         
+        <tag>Public DNS</tag>
          
         <tag>本地DNS</tag>
          

@@ -94,7 +94,7 @@
 <p>3.1. Network name syntax</p>
 <p>The current syntax for network names, as defined by [RFC 952] is an alphanumeric string of up to 24 characters, which begins with an alpha, and may include “.” and “-“ except as first and last characters.  This is the format which was also used for host names before the DNS.  Upward compatibility with existing names might be a goal of any new scheme.</p>
 <p>However, the present syntax has been used to define a flat name space, and hence would prohibit the same distributed name allocation method used for host names.  There is some sentiment for allowing the NIC to continue to allocate and regulate network names, much as it allocates numbers, but the majority opinion favors local control of network names.  Although it would be possible to provide a flat space or a name space in which, for example, the last label of a domain name captured the old-style network name, any such approach would add complexity to the method and create different rules for network names and host names.</p>
-<p>For these reasons, we assume that the syntax of network names will be the same as the expanded syntax for host names permitted in [HR]. <strong>The new syntax expands the set of names to allow leading digits, so long as the resulting representations do not conflict with IP addresses in decimal octet form.</strong>  For example, 3Com.COM and 3M.COM are now legal, although 26.0.0.73.COM is not.  See [HR] for details.</p>
+<p>For these reasons, we assume that the syntax of network names will be the same as the expanded syntax for host names permitted in [HR]. <strong>The new syntax expands the set of names to allow leading digits, so long as the resulting representations do not conflict with IP addresses in decimal octet form.</strong>  For example, <code>3Com.COM</code> and <code>3M.COM</code> are now legal, although <code>26.0.0.73.COM</code> is not.  See [HR] for details.</p>
 </blockquote>
 <p>还是注意加粗的这段话，它表明：<strong>新的语法标准允许以数字开头，但结果不能与十进制八位字节形式的 IP 地址冲突。</strong></p>
 <p>更多信息大家可以自行去查看，最终 RFC-1101 定义了基于网络名称的 DNS 编码规范。</p>
@@ -610,9 +610,9 @@
         
         <tags>
             
-            <tag> Public DNS </tag>
-            
             <tag> 公共DNS </tag>
+            
+            <tag> Public DNS </tag>
             
             <tag> 本地DNS </tag>
             
@@ -674,9 +674,9 @@
         
         <tags>
             
-            <tag> Public DNS </tag>
-            
             <tag> 公共DNS </tag>
+            
+            <tag> Public DNS </tag>
             
             <tag> 本地DNS </tag>
             
