@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://ephen.me/2019/zone-format/</loc>
-    <lastmod>2019-03-12T11:42:59.047Z</lastmod>
+    <lastmod>2019-03-12T11:46:43.270Z</lastmod>
     <data>
         <display>
         <title>闲聊 DNS 系统中域名的格式标准：下划线“_”是被允许的吗？</title>
@@ -267,9 +267,9 @@
         <title>网站API测试工具：chrome插件 - Postman</title>
         <pubTime>2015-04-23T16:00:00.000Z</pubTime>
         
-        <tag>测试</tag>
-         
         <tag>CloudXNS</tag>
+         
+        <tag>测试</tag>
          
         <tag>postman</tag>
          
@@ -780,9 +780,9 @@
         <title>CloudXNS中的AX记录类型测试</title>
         <pubTime>2015-04-09T16:00:00.000Z</pubTime>
         
-        <tag>测试</tag>
-         
         <tag>CloudXNS</tag>
+         
+        <tag>测试</tag>
          
         <tag>AX记录</tag>
          
