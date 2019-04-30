@@ -4,6 +4,59 @@
   
     
     <entry>
+      <title><![CDATA[bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）]]></title>
+      <url>https://ephen.me/2019/bind9-12-dig/</url>
+      <content type="html"><![CDATA[<p>前段时间又开始捣鼓网络 &amp; DNS 了，于是去 <a href="https://www.isc.org/downloads/" target="_blank" rel="noopener"> Bind9 官方 </a> 去下载了一个最新稳定版 Windows 环境的 Bind 。</p>
+<p>当时 Bind 9.14.1 还未正式发布为稳定版，所以我下载的版本是 9.12.3-P1 。下载完成后，安装到我的本地 PC 上。</p>
+<p>随后我在<strong>使用这个版本的 dig 时，只要不指定 DNS 服务器就没有返回，每次使用该工具时必须指定 DNS 服务器。</strong></p>
+<p><img src="https://imephen.pek3b.qingstor.com/digproblem.jpg" alt=" dig 12 版本有问题 "></p>
+<a id="more"></a>
+<p>起初我以为是公司办公网络环境自动获取设置的本地 DNS 地址有问题，看也能使用就没怎么放在心上。</p>
+<p>刚刚又在使用时，我突然想好好查看一番。Google 了一圈没有搜到结果。于是只好自己查问题了啵。</p>
+<p><strong>网络抓包并没有抓到任何 DNS 请求！</strong></p>
+<p><img src="https://pek3b.qingstor.com/imephen/capture.jpg" alt=" 抓包没有 dns 请求 "></p>
+<p>换 DNS 配置、换手机热点做网络环境的一番折腾，依然还是这样！开始决定要不换个旧点的版本试试。</p>
+<p>重新下载版本 bind 9.11.6-P1 安装后，没问题了鸭！</p>
+<p><img src="https://pek3b.qingstor.com/imephen/versionchange.jpg" alt=" dig 9.11.6-P1 版没问题 "></p>
+<p>真是喜极而泣。</p>
+<p>下载了目前最新稳定版 bind 9.14.1 又试了下，也没有问题。</p>
+<p><img src="https://pek3b.qingstor.com/imephen/dig914.jpg" alt=" dig 9.14.1 版没问题 "></p>
+<p><strong>如果你和我一样正在使用 dig 9.12.3-p1 版，为不影响使用，记得将软件升级或回退哦。</strong></p>
+<h2 id="Windows-上如何安装-dig-工具？"><a href="#Windows-上如何安装-dig-工具？" class="headerlink" title="Windows 上如何安装 dig 工具？"></a>Windows 上如何安装 dig 工具？</h2><p>最简单的方法，到官网下载相应版本 Bind 后，解压。</p>
+<p><img src="https://pek3b.qingstor.com/imephen/binddir.jpg" alt=" Bind 源程序解压 "></p>
+<p>使用管理员运行<code>BINDInstall.exe</code> ，指定本地安装目录。</p>
+<p>如果只想安装 dig ，安装选项选择<code>Tools Only</code>即可。如下图所示：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/bindinstall.jpg" alt=" 安装 dig "></p>
+<p>是不是很简单鸭~</p>
+<p>不太记得是不是需要自己加下环境变量，要是小伙伴<strong>安装后不能像我一样直接在 CMD 里不指定目录使用 dig ，那就需要添加下 PATH 。</strong></p>
+<p><img src="https://pek3b.qingstor.com/imephen/paths.jpg" alt=" 添加环境变量 "></p>
+<p>我个人的环境变量有些多，涂画得乱起八糟，请勿见怪。</p>
+<p>虽说这种安装方法不够绿色，不过这是最快且最好上手的方式了。</p>
+<p>想要绿色一点，就需要自己把 dig 程序和其应用的 DLL 库都收集起来放到一个文件夹里，然后再将此文件夹添加到 PATH 即可。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 工具介绍 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DNS </tag>
+            
+            <tag> bind </tag>
+            
+            <tag> dig </tag>
+            
+            <tag> Windows </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[首汽瑞卡便利租车怎么样？辣鸡霸王条款霸气客服气哭灰姑娘！]]></title>
       <url>https://ephen.me/2019/laji-reocar/</url>
       <content type="html"><![CDATA[<p>如今互联网时代，已经变成了一个服务至上的时代。每个人口袋里都揣着一点小钱，购买物品时贵点便宜点已不再那么重要。</p>
@@ -122,14 +175,14 @@
 <h2 id="修改-favicon-图标"><a href="#修改-favicon-图标" class="headerlink" title="修改 favicon 图标"></a>修改 favicon 图标</h2><p>过去我的 Favicon 其实是用 CloudXNS 的产品 Logo 微调了下颜色而来，有些小伙伴表示并看不出什么差别。</p>
 <p>转眼间，我已离开世纪互联快一年了，现在依然用着这个 Logo 还真的是不太合适。就考虑重新设计，并顺便了解下射击师的日常。</p>
 <p>刚好捉到一来武汉出差的美女射击师，让她先教我画这个简单的风车。掌握到方法后，我又画了各种各样的风车。也尝试画了一些别的图案，并挑选了一些我觉得画得还行的一个个应用到本地博客上试。最终选了现在用的这个，跟之前的差别没有太大，但还是能明显看得到差别。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1g0z15ks0lij20t00im78c.jpg" alt="blog favicon"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/favicons_test.jpg" alt="blog favicon"></p>
 <p><strong>立个 Flag ：<del>以后每年都换一次自己设计的 Favicon</del> （请假装没看见……</strong></p>
 <h3 id="一点感悟"><a href="#一点感悟" class="headerlink" title="一点感悟"></a>一点感悟</h3><p>设计真的是需要有丰富的想象力和创意的事情，当看到成果的时候所有前期的焦头烂额都觉得值得，很容易带来成就感和满足感；而它又是一个特别容易让人陷入细节的事情，哪怕是一个像素的差异都会耿耿于怀非要修正不可，也容易让人迷失方向忘记初衷。</p>
 <h2 id="原创版权声明"><a href="#原创版权声明" class="headerlink" title="原创版权声明"></a>原创版权声明</h2><p>本博勉强称之为原创技术博吧，过去我没有加过版权声明。之前有些文章是同时在老东家当作官方技术博文来发的，被转载的不少，并且也不太好去要求那些地方加上转载来源。现在，我打算日后首发原创就来自这里，并声明一下版权。还望路过的有转载 or 改编意图的小伙伴，别忘了附上我的原文地址。</p>
 <p>不过现在越来越懒得写技术博文了，工作生活繁忙又没啥动力。哎……（我差不多是一只废喵了。</p>
 <h2 id="请赐予我动力"><a href="#请赐予我动力" class="headerlink" title="请赐予我动力"></a>请赐予我动力</h2><p>我是个乐意传授知识的人。这破博虽没什么流量，但隔三岔五收到邮件或 Telegram 消息咨询问题的也不少，我都有一一认真回答。</p>
 <p>其实想写的主题有不少，我的博客 to do list 上都排着呢。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1g0z1499tdhj20pf0mgq4a.jpg" alt=" ToDoList "></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426145923.png" alt=" ToDoList "></p>
 <p>当然，这个列表排了好几个月了，很有可能有些东西都过时了，最终也不一定兑现发布。</p>
 <p>这次博客更新，我在每篇原创博文下都有提供支付宝和微信二维码，路过的小伙伴随意打赏以赐予我更新的动力吧。（请不要说我的码太丑，我可是花了好多心思来设计的呢！<del>这下本灰灰的审美问题已众所周知</del></p>
 <h3 id="O-∩-∩-O"><a href="#O-∩-∩-O" class="headerlink" title="O(∩_∩)O"></a>O(∩_∩)O</h3><p>其实靠打赏来维持写作动力只是个玩笑辣，写不写、怎么写更多的还是看我自己。哪怕是没有打赏，问我的问题依然会一如既往的认真回复，如果能得到支持当然是更开心咯。</p>
@@ -183,7 +236,7 @@
 <p>我们知道，在做反向域名解析的时候，需要指定的 IP 除了最后的<code>in-addr.arpa</code>和<code>ip6.arpa</code>前面就都是纯数字。所以，会不会是这个标准有什么问题呢？</p>
 <h3 id="学会查阅-RFC"><a href="#学会查阅-RFC" class="headerlink" title="学会查阅 RFC"></a>学会查阅 RFC</h3><p>这里顺便提一下，我们通常在查阅 RFC 的时候，多是关注该文档的内容，但其实也要关注下文档的发布信息。</p>
 <p>以下是 RFC-1034 的发布信息：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1g101222gibj20qs082mye.jpg" alt=" rfc1034 comment "></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426150600.png" alt=" rfc1034 comment "></p>
 <p>它明确的表明了这份标准：</p>
 <ol>
 <li>发布于 1987 年 11 月，是因特网标准。</li>
@@ -257,7 +310,7 @@
 <blockquote>
 <p>没那么多钱申请那么多不同机房的公网 ip ，但又有必要部署多个不咋占资源的站点，又该怎么办呢？</p>
 </blockquote>
-<p><img src="https://ww2.sinaimg.cn/mw690/006mBCT4gw1f4h3rwp03fj30640640su.jpg" alt=" 穷到变形 "></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163201.png" alt=" 穷到变形 "></p>
 <p>别急，穷人不止你一个，自然有又穷又聪明的 PM &amp; 技术给出解决方案，啥都能给变出来。</p>
 <a id="more"></a>
 <h2 id="穷到啥都不剩：别说-ip-了，连主机都买不起"><a href="#穷到啥都不剩：别说-ip-了，连主机都买不起" class="headerlink" title="穷到啥都不剩：别说 ip 了，连主机都买不起"></a>穷到啥都不剩：别说 ip 了，连主机都买不起</h2><p>在云计算行业，虚拟化是一个不陌生的词。只要资源够，一台机器可以生出无数台虚拟机来。</p>
@@ -282,7 +335,7 @@
 <ol>
 <li>创建负载均衡器，绑定仅有的一个公网 ip</li>
 </ol>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furpyp9ugqj20x10b5wfh.jpg" alt="Load Balancer"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163253.png" alt="Load Balancer"></p>
 <ol start="2">
 <li><p>为该负载均衡器创建基于 80 端口的 HTTP 监听器，并将已搭建好的几个网站添加为该监听器的后端</p>
 <ul>
@@ -290,22 +343,22 @@
 </ul>
 </li>
 </ol>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furq2f7tyaj20n60710t5.jpg" alt="HTTP 监听器"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163314.png" alt="HTTP 监听器"></p>
 <ol start="3">
 <li><p>为对应的后端添加转发策略，让来自<code>ephen.me</code>站点的请求指向对应的后端地址</p>
 <ul>
 <li>注意看上面第二步附图中后端列表倒数第 3 个字段——“转发策略”，点击下面对应的“绑定”二字；</li>
 <li>若没有转发策略可绑，会指引创建：</li>
 </ul>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqcgo0zrj20gr0anaaf.jpg" alt="create forward"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163335.png" alt="create forward"></p>
 <ul>
 <li>为转发策略添加规则，选择“按域名转发”：</li>
 </ul>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqf5ulgfj20o90dx0vl.jpg" alt="add rules"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163354.png" alt="add rules"></p>
 <ul>
 <li>回到负载均衡监听器，为对应后端添加转发策略</li>
 </ul>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furqkmxnfkj20px07daan.jpg" alt="choose forward"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163416.png" alt="choose forward"></p>
 </li>
 </ol>
 <p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，若域名为 <code>ephen.me</code>则转发至该后端主机。</strong></p>
@@ -318,15 +371,15 @@
 <ol>
 <li>创建 VPC 网络，绑定仅有的一个公网 ip</li>
 </ol>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrcla6vvj20vo0djmyr.jpg" alt="VPC"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163448.png" alt="VPC"></p>
 <ol start="2">
 <li>在 VPC 网络中创建一个 vxnet 私有网络，并将业务承载主机加入到这个网络，在开启 DHCP 服务的情况下，它将自动分配到一个私有网络地址</li>
 </ol>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrf9pci6j20v608b74z.jpg" alt="VxNet"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163534.png" alt="VxNet"></p>
 <ol start="3">
 <li>管理 VPC 网络配置，添加端口转发，将来自 80 端口的业务转发到私有网络中的这台云主机上</li>
 </ol>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1furrkr9dlij20uq0b3mye.jpg" alt="Port Forward"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426163552.png" alt="Port Forward"></p>
 <p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，则转发至私有网络中 ip 地址为<code>192.168.128.2</code>的主机。</strong></p>
 <p>同理，其他业务的云主机，可以都加入到前面已创建好的私有网络并获得各自的私有网络 ip 地址，再设置不同的端口转发到不同的地址就好了。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上只是灰姑娘的个人想法，其实标题所描述的问题解法还有很多，欢迎相互交流。</p>
@@ -373,32 +426,32 @@
 <p>既然是分散管理，那么就会对这些用户有不同的类别，就好比 A、B 是开发人员，C、D 是产品经理，各类人群关注点不同，于是给用户创建不同的分组。</p>
 <p>然而，可以访问资源的，不仅仅是人，也可能是其他资源、外部应用，或者其他的根。于是，这些被统称为“角色”。</p>
 <p>简单的用一个关系图来展示下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfyx7x5woj20u90khmyw.jpg" alt="IAM who"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426155745.png" alt="IAM who"></p>
 <h3 id="接入方式（How）"><a href="#接入方式（How）" class="headerlink" title="接入方式（How）"></a>接入方式（How）</h3><p>用户可以控制台登陆，可以用私有 API 封装到程序连结，亦可以通过 CLI 命令行方式登陆，这个登陆相当于永久性密钥。</p>
 <p>而对于各类不同的角色，它们会直接具备某些资源的访问及操作权限。那么每个资源可能需要开通接口，以提供给不同的角色做临时访问鉴权。</p>
 <p>于是构成了云平台的接入体系。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfxn3zl9rj20or0dgt9h.jpg" alt="IAM How"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426155850.png" alt="IAM How"></p>
 <h3 id="权限（Authority）"><a href="#权限（Authority）" class="headerlink" title="权限（Authority）"></a>权限（Authority）</h3><p>可以说，权限是整个 IAM 的核心，控制着这个账户下所有的用户及角色对其资源的访问程度。允许还是拒绝？可访问？可管理？增删改查……对象是某个资源 or 某一类资源？</p>
 <p>在 AWS 中，所有可能的权限都事先设计好，只需要绑定到用户、组或者角色就可以生效了。这些设计好的权限被称之为策略（Policy）。</p>
 <p>AWS IAM 内置了一系列的 Policy ，已足够客户使用。万一不够，还可以创建属于自己的 Policy 。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfwwlixkjj20b00dmt9b.jpg" alt="IAM Authority"><font size="1">（该图片系转载，侵删致歉。来源：<a href="https://www.jianshu.com/p/9ac6f557dd97" target="_blank" rel="noopener"> Alchemist - AWS IAM 学习总结 </a>）</font></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426155920.png" alt="IAM Authority"><font size="1">（该图片系转载，侵删致歉。来源：<a href="https://www.jianshu.com/p/9ac6f557dd97" target="_blank" rel="noopener"> Alchemist - AWS IAM 学习总结 </a>）</font></p>
 <hr>
 <h2 id="不同平台用户管理机制对比"><a href="#不同平台用户管理机制对比" class="headerlink" title="不同平台用户管理机制对比"></a>不同平台用户管理机制对比</h2><p>目前几乎所有的云平台都有基于资源协作的用户权限管理体系，国内的大厂像阿里云、腾讯云基本就是精简版的 AWS IAM ，而国外的产品倒是各有各的特色。</p>
 <h3 id="Google-Cloud-Platform"><a href="#Google-Cloud-Platform" class="headerlink" title="Google Cloud Platform"></a>Google Cloud Platform</h3><p>GCP 在用户添加时便为其设定具备某种权限的角色，当然后期可编辑和更改。</p>
 <p>角色即代表了权限 Map ，一个用户可以有多种角色，而角色策略本身内置不可编辑。</p>
 <p>其他资源或应用需要接入时在第一次接入时自动创建基于 IAM 的成员，这样看来，应用获取的可能也是永久接入权限。</p>
 <p>配置相对简单，但可扩展性一般。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1frekr14otnj21540dmdh9.jpg" alt="GCP IAM"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426160008.png" alt="GCP IAM"></p>
 <h3 id="Azure"><a href="#Azure" class="headerlink" title="Azure"></a>Azure</h3><p>Azure 将客户按订阅方式划分不同的套餐，在每个订阅中配置用户角色和用户组。</p>
 <p>和 GCP 类似，有一系列的资源控制内置权限。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877ely1frfw4kn7cnj218c0hstbi.jpg" alt="Azure"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426160029.png" alt="Azure"></p>
 <p>值得一提的是，Azure 还有 Win Server 中的那套 Active Directory （活动目录）类似机制，使用域控制器将用户分域、分组并针对应用、控件、设备等（而非系统中的云资源）做一些安全权限配置。</p>
 <p>但关于 Azure AD 我暂时理解得不够，未来可能还需要多花时间研究一下。</p>
 <h3 id="IBM-Cloud-（BlueMix）"><a href="#IBM-Cloud-（BlueMix）" class="headerlink" title="IBM Cloud （BlueMix）"></a>IBM Cloud （BlueMix）</h3><p>BlueMix 在访问管理上看起来并没有使用统一的认证接口，它为资源创建服务标识以提供给内部其他资源或外部应用接入，同时亦可类似 GCP 那样直接为用户和组授权，也有直接为内部资源之间创建连结权限。</p>
 <p>用户是邀请其他账号过来参与本账户的资源协作，没有子账号，不支持权限策略的编辑和制定。</p>
 <p>不过，在其用户的管理配置界面，有提到“未来支持 IAM ”字样。</p>
 <p>看来 AWS 行业鼻祖的地位影响还是很大的。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1frekr15j0lj21ga0dwmy9.jpg" alt="BlueMix"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426160053.png" alt="BlueMix"></p>
 <p>BlueMix 给人的感觉，虽然除了子账号，其他各功能也都有，就是比较凌乱，没有统一管控起来。</p>
 <hr>
 <h2 id="基于-AWS-IAM-的一些思考"><a href="#基于-AWS-IAM-的一些思考" class="headerlink" title="基于 AWS IAM 的一些思考"></a>基于 AWS IAM 的一些思考</h2><h3 id="用户模型"><a href="#用户模型" class="headerlink" title="用户模型"></a>用户模型</h3><p>账户安全问题不容小觑，AWS 在 IAM 控制台首页就提示客户删除根密钥创建 IAM 管理员账户是最佳实践。</p>
@@ -546,26 +599,26 @@
 <h3 id="2-安装-GraphViz-程序"><a href="#2-安装-GraphViz-程序" class="headerlink" title="2.安装 GraphViz 程序"></a>2.安装 GraphViz 程序</h3><p>下载地址：<a href="http://www.graphviz.org/Download_windows.php" target="_blank" rel="noopener">http://www.graphviz.org/Download_windows.php</a></p>
 <p>下载安装完后（灰姑娘将其安装到了 D 盘路径：<code>D:/program files/Graphviz/</code>下），也要配置环境变量。</p>
 <p>将 GraphViz 可执行程序路径配置到 <code>$path</code>：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fivz9yuncfj20tc0g1gmq.jpg" alt="GraphViz 环境变量"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152846.png" alt="GraphViz 环境变量"></p>
 <p><strong>后面的所有配置（ dot 配置和 VSCode 插件配置）都是基于 GraphViz 的安装路径，需要参照的小伙伴请注意。</strong></p>
 <h3 id="3-配置-Dot-脚本环境"><a href="#3-配置-Dot-脚本环境" class="headerlink" title="3.配置 Dot 脚本环境"></a>3.配置 Dot 脚本环境</h3><p>添加环境变量 <code>$GRAPHVIZ_DOT</code>。如下图所示：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fivz9yr0vkj20ij05aq33.jpg" alt="Dot 环境变量"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152918.png" alt="Dot 环境变量"></p>
 <p>配置完毕后启动 Windows Shell 执行 <code>dot -v</code> 命令查看 Dot 版本，以确定 GraphViz 和 Dot 环境是否准备成功。</p>
 <h3 id="4-安装-VSCode-插件并配置"><a href="#4-安装-VSCode-插件并配置" class="headerlink" title="4.安装 VSCode 插件并配置"></a>4.安装 VSCode 插件并配置</h3><p>VSCode 需要安装两个插件： <code>PlantUML</code> 和  <code>Graphviz Preview</code></p>
 <p>打开 VSCode 切换到左侧扩展商店，搜索并安装他们，安装完毕后分别激活。</p>
 <p>点击 VSCode 左下角齿轮按钮进入设置，在用户设置脚本中添加 <code>&quot;graphviz-preview.dotPath&quot;: &quot;D:/program files/Graphviz/bin/dot.exe&quot;</code> 并保存设置：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fivz9yzs9uj218m0ea0ub.jpg" alt="graphviz-preview.dotPath"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152953.png" alt="graphviz-preview.dotPath"></p>
 <h3 id="5-环境配置测试"><a href="#5-环境配置测试" class="headerlink" title="5.环境配置测试"></a>5.环境配置测试</h3><p><strong>重启 VSCode 。</strong></p>
 <p>新建文档输入以下测试代码：</p>
 <figure class="highlight pl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line"></span><br><span class="line">[*] --&gt; State1</span><br><span class="line">State1 --&gt; [*]</span><br><span class="line">State1 : this is a string</span><br><span class="line">State1 : this is another string</span><br><span class="line"></span><br><span class="line">State1 -&gt; State2</span><br><span class="line">State2 --&gt; [*]</span><br><span class="line"></span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
 <p>同时按下 <code>Alt</code> 键和字母 <code>D</code> 键，预览生成的 UML 状态图。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fivzlgvfi1j208c07nglj.jpg" alt="PlantUML 测试"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426153029.png" alt="PlantUML 测试"></p>
 <p>如果出现如图所示的错误，检查下是不是前面 GraphViz 安装和配置没做好。</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fivz9yx1ejj208o067jst.jpg" alt="GraphViz 报错"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426153134.png" alt="GraphViz 报错"></p>
 <h2 id="分享：-DNS-解析流程图"><a href="#分享：-DNS-解析流程图" class="headerlink" title="分享： DNS 解析流程图"></a>分享： DNS 解析流程图</h2><p>为了画这个图，灰姑娘专门去学了下这个脚本语言。如果小伙伴们也想学习，官方中文指导手册在这里：<a href="http://translate.plantuml.com/zh/PlantUML_Language_Reference_Guide_ZH.pdf" target="_blank" rel="noopener">点击下载</a>。除此之外，<a href="http://www.jianshu.com/p/e92a52770832" target="_blank" rel="noopener">这里</a> 还有网友分享的快速入门教程。</p>
 <p>回到正题，我的目的是要画个 DNS 解析流程图。</p>
 <p>最后图是勉强画出来了，看看画得咋样？</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fochhkdvcsj20nx0pmq51.jpg" alt="DNS 解析流程图"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426153216.png" alt="DNS 解析流程图"></p>
 <p>上图源代码分享如下：</p>
 <figure class="highlight pl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">@startuml</span><br><span class="line">title 域名解析流程图</span><br><span class="line">skinparam <span class="keyword">state</span> &#123;</span><br><span class="line">  StartColor MediumBlue</span><br><span class="line">  EndColor Red</span><br><span class="line">  BorderColor Gray</span><br><span class="line">  ArrowColor Gray</span><br><span class="line">  ArrowFontColor Indigo</span><br><span class="line">  BackgroundColor&lt;&lt;Request&gt;&gt; AliceBlue</span><br><span class="line">  BackgroundColor&lt;&lt;Answer&gt;&gt; HotPink</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">state</span> UserClient &#123;</span><br><span class="line">    [*] --&gt; 请求访问域名</span><br><span class="line">    请求访问域名 --&gt; 本机host</span><br><span class="line">    本机host -right-&gt; 成功访问域名 : 有映射</span><br><span class="line">    本机host --&gt; 本机DNS解析器 : 没有映射</span><br><span class="line">    本机DNS解析器 -up-&gt; 成功访问域名 : 有缓存</span><br><span class="line">    成功访问域名 --&gt; 本机DNS解析器 : 缓存更新</span><br><span class="line">    本机DNS解析器 --&gt; [*]</span><br><span class="line">    note left : 本图展示正常解析流程\n未成功访问域名不能结束\n（最左支路径无效）</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">state</span> 请求访问域名 : ephen.me.</span><br><span class="line">    <span class="keyword">state</span> 请求访问域名&lt;&lt;Request&gt;&gt;</span><br><span class="line">    <span class="keyword">state</span> 本机host : Windows 目录：</span><br><span class="line">    <span class="keyword">state</span> 本机host : C:\Windows\System32\drivers\etc</span><br><span class="line">    <span class="keyword">state</span> 成功访问域名 : ephen.me.</span><br><span class="line">    <span class="keyword">state</span> 成功访问域名&lt;&lt;Answer&gt;&gt;</span><br><span class="line">    <span class="keyword">state</span> 本机DNS解析器 : Windows 查看命令：</span><br><span class="line">    <span class="keyword">state</span> 本机DNS解析器 : ipconfig /displaydns</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">state</span> DNSServer &#123;</span><br><span class="line">    本机DNS解析器 -right-&gt; 本地DNS : 没有缓存</span><br><span class="line">    本地DNS -right-&gt; 根域名服务器 : 没有解析</span><br><span class="line">    本地DNS -left-&gt; 成功访问域名 : 有解析</span><br><span class="line">    根域名服务器 --&gt; 顶级域名服务器</span><br><span class="line">    顶级域名服务器 --&gt; 域名服务器</span><br><span class="line">    域名服务器 --&gt; 本地DNS : 获取结果并缓存</span><br><span class="line"></span><br><span class="line">    <span class="keyword">state</span> 本地DNS : 用户配置（<span class="number">8.8</span>.<span class="number">8.8</span>）</span><br><span class="line">    <span class="keyword">state</span> 根域名服务器 : a.root-servers.net.</span><br><span class="line">    <span class="keyword">state</span> 根域名服务器 : b.root-servers.net.</span><br><span class="line">    <span class="keyword">state</span> 根域名服务器 : ...</span><br><span class="line">    <span class="keyword">state</span> 根域名服务器 : m.root-servers.net.</span><br><span class="line">    <span class="keyword">state</span> 顶级域名服务器 : a<span class="number">0</span>.nic.me.</span><br><span class="line">    <span class="keyword">state</span> 顶级域名服务器 : b<span class="number">0</span>.nic.me.</span><br><span class="line">    <span class="keyword">state</span> 顶级域名服务器 : ...</span><br><span class="line">    <span class="keyword">state</span> 域名服务器 : lv3ns1.ffdns.net.</span><br><span class="line">    <span class="keyword">state</span> 域名服务器 : lv3ns2.ffdns.net.</span><br><span class="line">    <span class="keyword">state</span> 域名服务器 : lv3ns3.ffdns.net.</span><br><span class="line">    <span class="keyword">state</span> 域名服务器 : lv3ns4.ffdns.net.</span><br><span class="line">&#125;</span><br><span class="line">@enduml</span><br></pre></td></tr></table></figure>
 <p>希望我的分享能对路过这儿的你能有所帮助。</p>
@@ -657,9 +710,9 @@
 <hr>
 <p>恩，要说的差不多说完了。上照片。</p>
 <p>先来一张拆掉牙套次日的灰姑娘美照镇楼：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fkmnb46tcpj20k00zkju9.jpg" alt="拆掉牙套次日"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161220.png" alt="拆掉牙套次日"></p>
 <p>牙套前后脸型对比：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fkmn8xi6tkj20m80fnkjg.jpg" alt="牙套前后脸型对比照"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161335.png" alt="牙套前后脸型对比照"></p>
 <p>我不太喜欢拍照（所以我某种意义上不太像个女生），也没写过什么牙套日记，找张照片还挺难，凑合着看吧。希望没吓到路过的你。</p>
 <hr>
 <p><strong>未经允许，不得传播此文中图片及任何个人信息。</strong></p>
@@ -713,9 +766,9 @@
         
         <tags>
             
-            <tag> Public DNS </tag>
-            
             <tag> 公共DNS </tag>
+            
+            <tag> Public DNS </tag>
             
             <tag> 本地DNS </tag>
             
@@ -746,25 +799,25 @@
 <p>所以上网过程中，用户将从 DNS 入口获取解析，NS 服务器会向 DNS 出口分配智能解析。如果用户的 DNS 入口没有请求的解析缓存时，将向上级 DNS 请求查询，最终会请求到 NS 服务器，然后用户才获取到解析结果。</p>
 <p>那么当用户的 DNS 入口和 DNS 出口和用户的实际网络不一致时，就可能导致智能 DNS 提供的解析结果并不是最优的。</p>
 <h2 id="测试示例"><a href="#测试示例" class="headerlink" title="测试示例"></a>测试示例</h2><p>北京快网官方门户网站<a href="http://www.fastweb.com.cn" target="_blank" rel="noopener">www.fastweb.com.cn</a>使用了<a href="https://www.newdefend.com" target="_blank" rel="noopener">牛盾云安全</a>作了页面加速和安全防护，正常情况下使用运营商 DNS 在全国各地的解析情况如下图所示：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fi6jg6knaoj20so1kiamt.jpg" alt="FastWeb分区解析"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154730.png" alt="FastWeb分区解析"></p>
 <p>这是通过智能 DNS 和 CDN 双剑合璧的最优解析结果。</p>
 <p>例如灰姑娘所在地是湖北武汉，当使用本地运营商 DNS 并存在缓存时，<code>ping www.fastweb.com.cn</code>时延如下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fi6k14va5wj20e408m753.jpg" alt="本地DNS"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154755.png" alt="本地DNS"></p>
 <p>而我在本地模拟<code>ping</code>浙江台州的牛盾节点<code>122.226.182.43</code>，会看到时延稍微长一些：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fi6khpng3wj20cr08bmxy.jpg" alt="牛盾台州"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154839.png" alt="牛盾台州"></p>
 <p>那么公共 DNS 的出入口会不会跟实际网络不一致呢？</p>
 <h3 id="公共-DNS-的入口"><a href="#公共-DNS-的入口" class="headerlink" title="公共 DNS 的入口"></a>公共 DNS 的入口</h3><p>以阿里 DNS 223.5.5.5 为例。</p>
 <p>我在本地对阿里 DNS 的做了一个路由跟踪：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fi6kmxd3ocj20hz07k74x.jpg" alt="DNS入口"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154905.png" alt="DNS入口"></p>
 <p>可以发现，阿里 DNS 的入口在浙江杭州，而我本地网络是湖北电信。</p>
 <h3 id="公共-DNS-的出口"><a href="#公共-DNS-的出口" class="headerlink" title="公共 DNS 的出口"></a>公共 DNS 的出口</h3><p>刚刚和北京同事进行远程会议时提到这个议题，正好他的 PC 配置的是阿里公共 DNS ，我们让他访问<a href="http://tools.cloudxns.net/index/diag" target="_blank" rel="noopener"> CloudXNS 运维工具 - 本地DNS优化诊断</a>获取其出口 DNS ，得到的反馈如下：</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fi6o7hyn5qj20o80c9tbv.jpg" alt="出口DNS"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154956.png" alt="出口DNS"></p>
 <p>本地网络北京联通，出口 DNS 竟是广东电信，这远远比我前述举例的湖北电信和浙江电信的差距大得多。</p>
 <h3 id="解析影响验证"><a href="#解析影响验证" class="headerlink" title="解析影响验证"></a>解析影响验证</h3><p>该同事分别用阿里和运营商 DNS 对网易域名做了测试对比。</p>
 <p><em>使用阿里 DNS 测试结果：</em></p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fi6ncoct3ej20hv0c8aec.jpg" alt="阿里 DNS"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426155020.png" alt="阿里 DNS"></p>
 <p><em>使用运营商 DNS测试结果：</em></p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fi6o8uqn7bj20hc0cotd0.jpg" alt="运营商 DNS"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426155043.png" alt="运营商 DNS"></p>
 <p>使用运营商 DNS 时，<code>ping</code>值快得多。</p>
 ]]></content>
       
@@ -777,9 +830,9 @@
         
         <tags>
             
-            <tag> Public DNS </tag>
-            
             <tag> 公共DNS </tag>
+            
+            <tag> Public DNS </tag>
             
             <tag> 本地DNS </tag>
             
@@ -839,7 +892,7 @@
 <p>最终我两个群的小伙伴全数通过考试。</p>
 <hr>
 <p>证书证书，这肯定是要晒的咯！</p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fncyqevo2jj20tb0mnq7h.jpg" alt="PMP证书"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161446.png" alt="PMP证书"></p>
 <hr>
 <p><strong>未经允许，不得传播此文中图片及任何个人信息。</strong></p>
 <p><strong>情节严重者，将追究其法律责任。</strong></p>
@@ -867,7 +920,7 @@
       <url>https://ephen.me/2017/dns_tcp/</url>
       <content type="html"><![CDATA[<p>我们知道， DNS 是同时占用 UDP 和 TCP 的 53 端口传输数据的，这种单个应用协议同时使用两种传输协议的情况，在 TCP/IP 栈中也算是个异类。</p>
 <p>当我们在使用 tcpdump 、 WireShark 等抓包工具分析时，会发现几乎所有的 DNS 应用都是在使用 UDP 传输。</p>
-<p><img src="https://ww1.sinaimg.cn/large/5ebd877egy1fhmzsuvjvkj20x50gydjo.jpg" alt="DNS查询使用UDP协议传输"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154104.png" alt="DNS查询使用UDP协议传输"></p>
 <p>那么，为什么 DNS 还要占用 TCP 的端口，到底什么情况下才会用到 TCP 呢？</p>
 <a id="more"></a>
 <hr>
@@ -926,14 +979,14 @@
 <p>我们来做个测试：</p>
 </blockquote>
 <ol>
-<li>将<code>chinatesters.com</code>配置一个子域名<code>test</code>， NS 指向 He.net 的域名服务器。如图所示：<br><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fho1ynuqb9j20tf0c1gmz.jpg" alt="子域 DNS 配置"></li>
-<li>将<code>test.chinatesters.com</code>添加到 He.net 的域名控制面板，并添加一条 TXT 记录，值为<code>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</code>（长度： 768 ）。如下图：<br><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fho1yo40w8j20t70fgn18.jpg" alt="超长 TXT 记录配置"></li>
+<li>将<code>chinatesters.com</code>配置一个子域名<code>test</code>， NS 指向 He.net 的域名服务器。如图所示：<br><img src="https://pek3b.qingstor.com/imephen/20190426154445.png" alt="子域 DNS 配置"></li>
+<li>将<code>test.chinatesters.com</code>添加到 He.net 的域名控制面板，并添加一条 TXT 记录，值为<code>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</code>（长度： 768 ）。如下图：<br><img src="https://pek3b.qingstor.com/imephen/20190426154534.png" alt="超长 TXT 记录配置"></li>
 <li>配置生效后，使用<code>tcpdump</code>跟踪本地网卡的 53 端口，同时新开窗口用<code>dig</code>命令直接向<code>ns1.he.net</code>请求查询该 TXT 记录。</li>
 </ol>
 <p><em>DNS 查询记录：</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#dig aaaaaaaaaa.test.chinatesters.com TXT @ns1.he.net</span><br><span class="line">;; Truncated, retrying in TCP mode.</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6 &lt;&lt;&gt;&gt; aaaaaaaaaa.test.chinatesters.com TXT @ns1.he.net</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 56555</span><br><span class="line">;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</span><br><span class="line">;; WARNING: recursion requested but not available</span><br><span class="line"></span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;aaaaaaaaaa.test.chinatesters.com. IN	TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">aaaaaaaaaa.test.chinatesters.com. 300 IN TXT	&quot;111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;11&quot;</span><br><span class="line"></span><br><span class="line">;; Query time: 221 msec</span><br><span class="line">;; SERVER: 216.218.130.2#53(216.218.130.2)</span><br><span class="line">;; WHEN: Tue Jul 18 13:58:50 2017</span><br><span class="line">;; MSG SIZE  rcvd: 833</span><br></pre></td></tr></table></figure>
 <p><em>tcpdump 网卡跟踪记录：</em></p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fho1yoa28jj20l00dyq8f.jpg" alt="tcpdump 网卡跟踪"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154616.png" alt="tcpdump 网卡跟踪"></p>
 <p>查询记录结果的第一句便提示了<code>Truncated, retrying in TCP mode.</code>，表示启用了 TCP 协议查询。</p>
 <p>网卡抓包也展示了<code>seq</code>、<code>ack</code>等 TCP 协议中的三次握手过程，最后返回了域名<code>aaaaaaaaaa.test.chinatesters.com.</code>的 TXT 记录值。</p>
 <p>事实上，根据 <a href="https://tools.ietf.org/html/rfc1035" target="_blank" rel="noopener">RFC 1035</a> 章节 4.2 ，<strong>DNS 解析查询优先使用 UDP ，当 UDP 完成不了的情况下，则转换 TCP 查询</strong>。上述展示的就是这样的实例。</p>
@@ -1311,7 +1364,7 @@
 <p>对于 Paypal.com 来说，其 DS记录值 是上一级 .com 的私钥对其 DNSKEY 进行加密后得到的。</p>
 <p>而如果 Paypal.com 存在独立的子域时，又将利用其私钥对其子 zone 的 DNSKEY 执行加密从而生成子域的 DS记录值 。</p>
 <p>下图是用 DNSViz 查询到的 Paypal.com 的信任链：</p>
-<p><img src="https://ww2.sinaimg.cn/large/5ebd877egw1f8qj6q2owkj20mk0zidjj.jpg" alt="Paypal.com 的 DNSSEC 信任链"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426155405.png" alt="Paypal.com 的 DNSSEC 信任链"></p>
 <p>图中展示的三个框，从上至下依次代表域名<code>.</code>、<code>com.</code>和<code>paypal.com.</code>，每个框中间的内容分别对应这三个 zone 的 DNSKey 和 DS 的传递关系。</p>
 <p>可以通过点击<a href="http://dnsviz.net/d/paypal.com/dnssec/" target="_blank" rel="noopener">http://dnsviz.net/d/paypal.com/dnssec/</a>查看更多细节。</p>
 <h2 id="DNSSEC-配置检查神器：DNSViz"><a href="#DNSSEC-配置检查神器：DNSViz" class="headerlink" title="DNSSEC 配置检查神器：DNSViz"></a>DNSSEC 配置检查神器：DNSViz</h2><p>点开上面的网站，可以看到 DNSViz 是一个很强大的工具。</p>
@@ -1330,7 +1383,7 @@
 <p>更多的图例解释，可点击左侧下方的<a href="http://dnsviz.net/doc/dnssec/" target="_blank" rel="noopener">Full legend</a>。英文太渣，我就不做半调子翻译官了，感兴趣的话自己去看。</p>
 </blockquote>
 <p>既然是配置检查，当存在不正确的配置时，也会根据影响做 Error 或 Warning 的标记。例如我的博客域名 ephen.me，没有配置DNSSEC，查询出来是这样的：</p>
-<p><img src="https://ww2.sinaimg.cn/large/5ebd877egw1f8qml8gpx3j20qj0usn0m.jpg" alt="ephen.me的dnssec检查"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426155455.png" alt="ephen.me的dnssec检查"></p>
 <p>除了上图中最下一排的各种感叹号外，左边还有一大排的 Error 和 Warning ，描述了我的域名具体的配置出错的地方。</p>
 <blockquote>
 <p>如果以后要给域名部署配置DNSSEC，我会记得再来这个网站查查看。 </p>
@@ -1762,7 +1815,7 @@
 <p>科目四定的考场太遥远，中途在武昌火车站转车时，发现背包开了个大口子，里面的东西都不见了（包括有钱包、身份证之类的）。我到处找，最后居然找到了。包包并不是被别人拉开的，是我们赶车赶得太慌，拉链可能被什么东西勾开了，幸好东西都在。也幸好，在距离考场下班的20分钟前赶到。更幸运的是，我最后十题全对了，这10个题我只要再错一个就拿不到证了，好险！！</p>
 <p>作为一个感性的妹纸，宣誓的时候居然不知为何哽咽……</p>
 <p>女司机上路，请让一让……</p>
-<p><img src="https://ww1.sinaimg.cn/large/5ebd877egy1fcx6s9lcwij20v40io7iz" alt="驾驶证"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161552.png" alt="驾驶证"></p>
 <hr>
 <p><strong>未经允许，不得传播此文中图片及任何个人信息。</strong></p>
 <p><strong>情节严重者，将追究其法律责任。</strong></p>
@@ -1832,7 +1885,7 @@
 </blockquote>
 <h3 id="导入WordPress的页面-文章和评论"><a href="#导入WordPress的页面-文章和评论" class="headerlink" title="导入WordPress的页面/文章和评论"></a>导入WordPress的页面/文章和评论</h3><p>导入文章和页面需要安装这个插件：<code>npm install hexo-migrator-wordpress --save</code></p>
 <p>登陆Wordpress管理控制台，导出WXR文件，如下图所示：</p>
-<p><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f6iwxbmcguj20pt0bzt9y.jpg" alt="导出wp文件"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162220.png" alt="导出wp文件"></p>
 <p>将导出的文件保存为<code>wordpress.xml</code>，执行命令<code>hexo migrate wordpress wordpress.xml</code>即可完成文章导入。</p>
 <blockquote>
 <p>注意：</p>
@@ -1860,18 +1913,18 @@
 <p>设置好后，只需要在Hexo根目录执行<code>hexo g</code>后再执行<code>hexo d</code>便可完成页面的部署。</p>
 <p>和Github上一样，Coding上也要预先安装 SSH Key 并开通 Page 服务。SSH Key 不需要重新生成，将之前在github上用的内容复制过去即可；开通Page服务时注意将部署分支修改成master（默认分支是Coding-page）。</p>
 <p>然后去Github和Coding相应Page项目设置中绑定自己的域名，如图所示：</p>
-<p><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f6iy6moilmj20l10c9ab7.jpg" alt="Github绑定域名"></p>
-<p><img src="https://ww2.sinaimg.cn/large/5ebd877egw1f6iy6mm23vj20xw0icq4u.jpg" alt="Coding绑定域名"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162332.png" alt="Github绑定域名"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162355.png" alt="Coding绑定域名"></p>
 <p>如果希望在自己的云主机中也部署一份，那么可登陆主机生成 SSH Key，将Key添加到Github或者Coding中（我添加到了Github），到网站文件根目录关联项目链接后执行<code>git pull origin master</code>即可完成站点部署。</p>
 <p>最后，登陆<a href="https://www.cloudxns.net" target="_blank" rel="noopener">CloudXNS</a>做<a href="https://www.cloudxns.net/Index/dns.html" target="_blank" rel="noopener">域名解析</a>，我的解析设置如下图：</p>
-<p><img src="https://ww4.sinaimg.cn/large/5ebd877egw1f6iyh92u3yj20tm0axt9t.jpg" alt="CloudXNS域名解析"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162423.png" alt="CloudXNS域名解析"></p>
 <h3 id="RSS、站点地图及搜索引擎优化"><a href="#RSS、站点地图及搜索引擎优化" class="headerlink" title="RSS、站点地图及搜索引擎优化"></a>RSS、站点地图及搜索引擎优化</h3><p>这里不用多说，就是几个插件的安装和设置了。它们分别是：<code>hexo-generator-feed</code>，<code>hexo-generator-sitemap</code>和<code>hexo-generator-baidu-sitemap</code>。（两个sitemap一个是谷歌格式，一个是百度格式）</p>
 <p>RSS不需要做其他的操作，插件安装好后每次<code>hexo g</code>就会生成对应的RSS文件，需要时引用这个文件路径即可（比如主题设置中）。</p>
 <p>针对Sitemap，需要到博客根目录去修改<code>_config.yml</code>文件，在<code>plugins：</code>下添加以下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#sitemap</span><br><span class="line">sitemap:</span><br><span class="line">	path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">	path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
 <p>分别登陆谷歌站长平台和百度站长平台添加自己的新域名和站点地图。</p>
 <p>按照百度站长平台的指引添加站点地图的位置：</p>
-<p><img src="https://ww3.sinaimg.cn/large/5ebd877egw1f6iyztk985j20ru0npq5m.jpg" alt="百度站点地图"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162507.png" alt="百度站点地图"></p>
 <p>也可以到自己的云主机平台上执行命令手动提交，这种提交方式百度响应是最快的了。</p>
 <p>因此我在我的云主机上写了个脚本，用于每次同步网站内容后将新链接提交到百度：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">DIR=<span class="string">'/var/www/html'</span></span><br><span class="line">SITE=<span class="string">'http://ephen.me/'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;DIR&#125;</span>/</span><br><span class="line">git pull origin master &gt; <span class="variable">$&#123;DIR&#125;</span>/.gitpull.log</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">cat /dev/null &gt; <span class="variable">$&#123;DIR&#125;</span>/freshurls.txt </span><br><span class="line">grep <span class="string">'/index.html'</span> .gitpull.log | grep -v <span class="string">'\"'</span> | awk <span class="string">'&#123;print $1&#125;'</span> |<span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span>  <span class="string">"<span class="variable">$&#123;SITE&#125;</span><span class="variable">$&#123;line&#125;</span>"</span> &gt;&gt; <span class="variable">$&#123;DIR&#125;</span>/freshurls.txt </span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">curl -H <span class="string">'Content-Type:text/plain'</span> --data-binary @freshurls.txt <span class="string">"http://data.zz.baidu.com/urls?site=ephen.me&amp;token=xxxxxxxxxx"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
@@ -1910,31 +1963,31 @@
 <a id="more"></a>
 <h2 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h2><h3 id="linux下安装jdk1-7"><a href="#linux下安装jdk1-7" class="headerlink" title="linux下安装jdk1.7"></a>linux下安装jdk1.7</h3><p>负载机使用的是CentOS 6.7版本的linux系统， 自带有OpenJDK runtime environment (openjdk),它是一个在linux上实现开源的java 平台。</p>
 <p>1 . <strong>查看CentOs自带的JDK是否已安装</strong>，输入：<code>yum list installed |grep java</code></p>
-<p><img src="https://ww2.sinaimg.cn/large/5ebd877egw1f62ifp6gm4j20h902p3ze.jpg" alt="查看JDK是否安装"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152046.png" alt="查看JDK是否安装"></p>
 <p>2 . 若有自带安装的JDK，则表示JAVA环境已经安装成功，可以<strong>查看安装的java版本信息</strong></p>
 <p>输入：<code>java -version</code>可查看Java版本；</p>
-<p><img src="https://ww4.sinaimg.cn/large/5ebd877egw1f62ifpdpr1j20f602sdgl.jpg" alt="查看Java版本"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/20190426152205.png" alt="查看Java版本"></p>
 <p>3 . 如果想<strong>卸载CentOS系统自带Java环境</strong>，可输入：<code>yum -y remove java1.7.0-openjdk*</code> （*表示卸载掉java1.7.0的所有openjdk相关文件）</p>
 <p>4 . <strong>卸载tzdata-java</strong>输入：<code>yum -y remove tzdatajava.noarch</code>，当结果显示为Complete,即卸载完毕。</p>
 <p>5 . <strong>检查CentOS系统网络连接是否正常</strong>。</p>
 <p>使用yum方式安装需要连接网络下载相应安装文件，故需要使用ping命令测试网络，如<code>ping www.baidu.com</code></p>
-<p><img src="https://ww2.sinaimg.cn/large/5ebd877egw1f62ifpkty0j20gm06j0vw.jpg" alt="测试网络"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152436.png" alt="测试网络"></p>
 <p>6 . <strong>查看yum库中的java安装包</strong>，输入：<code>yum -y list java*</code></p>
-<p><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f62ifpajjyj20ea0c3jv6.jpg" alt="查看yum中java安装包"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152504.png" alt="查看yum中java安装包"></p>
 <p>7 . <strong>使用yum安装java环境</strong>，输入：<code>yum -y install java1.7.0-openjdk*</code>，当结果显示为Complete，即安装完毕。</p>
 <h3 id="安装JMeter"><a href="#安装JMeter" class="headerlink" title="安装JMeter"></a>安装JMeter</h3><p>安装好java环境，就可以在此基础之上安装jmeter。</p>
 <p>1 . <strong>将jmeter安装包上传到服务器指定目录</strong>，比如：<code>/root/mobile/</code></p>
 <p>2 . <strong>解压zip安装包</strong>，输入：<code>unzip apache-jmeter-2.13.zip</code></p>
-<p><img src="https://ww4.sinaimg.cn/large/5ebd877egw1f62ifp9xi2j20g803pt9r.jpg" alt="解压jmeter安装包"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152540.png" alt="解压jmeter安装包"></p>
 <h2 id="非GUI模式下运行Jmeter"><a href="#非GUI模式下运行Jmeter" class="headerlink" title="非GUI模式下运行Jmeter"></a>非GUI模式下运行Jmeter</h2><p>JMeter远程测试原理图如下：</p>
-<p><img src="https://ww4.sinaimg.cn/large/5ebd877egw1f62ifpgkhfj20ba078glt.jpg" alt="Jmeter远程测试原理图"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152614.png" alt="Jmeter远程测试原理图"></p>
 <p>如果运行JMeter客户端的机器性能不能满足测试需要，那么测试人员可以通过单个JMeter客户端来控制多个远程JMeter服务器，以便对服务器进行压力测试，模拟足够多的并发用户。通过远程运行JMeter，测试人员可以跨越多台低端计算机复制测试，这样就可以模拟一个比较大的服务器压力。</p>
 <p>用一台机器（称为JMeter客户端）上的jmeter同时启动另外几台机器（称为JMeter远程服务器）上的jmeter。</p>
 <p>1 . 保证jmeter客户端和jmeter远程服务器采用相同版本的jmeter和JVM。<br>2 . jmeter客户端和jmeter远程服务器最好在同一个网段内。<br>3 . 在jmeter远程服务器上运行<code>root/mobile/apache/jmeter-2.13/bin/jmeter-servere</code>脚本。指定server的ip，如：<code>./jmeter-server -Djava.rmi.server.hostname=118.192.6.15</code>，jmeter-server正常启动会提示”创建远程服务”<br>4 . 在jmeter客户端上修改<code>/bin/jmeter.properties</code>文件，找到属性<code>&quot;remote_hosts&quot;</code>，使用JMeter远程服务器的IP地址作为其属性值。可以添加多个服务器的IP地址，以逗号作为分隔。</p>
-<p><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f62ifpzoddj20nu0nydsv.jpg" alt="找到Jmeter属性文件"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152641.png" alt="找到Jmeter属性文件"></p>
 <p>例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">remote_hosts=118.192.6.15:1099,118.192.6.16:1099   #RMI port to be used by the server (must start rmiregistry with same port)</span><br><span class="line">server_port=1099</span><br></pre></td></tr></table></figure>
-<p><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f62ifpjpbyj20ic05bta6.jpg" alt="修改Jmeter属性"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152709.png" alt="修改Jmeter属性"></p>
 <p>5 . 在jmeter客户端上启动jmeter。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./jmeter -n -t plan.jmx -l result.jtl -r</span><br></pre></td></tr></table></figure>
 <p><code>plan.jmx</code>测试计划可以在windows环境下先创建，最好不要添加监听器，应为命令行启动的话监听器可能会占用资源而且有没有任何视图效果。</p>
@@ -1944,8 +1997,9 @@
 <p>-t  执行的测试脚本名</p>
 <p>-l  后面跟着测试结果记录的路径与文件名 </p>
 <p>-r  表示远程启动 (remote) </p>
-<p>jmeter客户端会自动向jmeter远程服务器上分发测试计划。<br>最后，可以将result.jtl结果文件下载到windows机上在不同的监听器上分析测试结果。</p>
+<p>jmeter客户端会自动向jmeter远程服务器上分发测试计划。</p>
 </blockquote>
+<p>最后，可以将result.jtl结果文件下载到windows机上在不同的监听器上分析测试结果。</p>
 ]]></content>
       
         <categories>
@@ -2086,8 +2140,7 @@
 <li>录制完成可回放和编辑，可以把操作过程中思考时间占据的无用帧删除，只保留重要部分，亦可在gif图片上涂鸦、写描述文字、打马赛克、加入已有图片等；</li>
 </ol>
 <p>下载及更多介绍请到ScreenToGif官网：<a href="https://screentogif.codeplex.com/" target="_blank" rel="noopener">https://screentogif.codeplex.com/</a></p>
-<p>以下是一个ScreenToGif录制操作步骤的示例：<a href="https://ww3.sinaimg.cn/large/9304329dgw1eurj8vvpl3g20xh0krnpe.gif" target="_blank" rel="noopener"><img src="https://ww3.sinaimg.cn/large/9304329dgw1eurj8vvpl3g20xh0krnpe.gif" alt=""></a></p>
-<p>&nbsp;</p>
+<p>以下是一个ScreenToGif录制操作步骤的示例：<img src="https://imephen.pek3b.qingstor.com/screentogifdemo.gif" alt=" ScreenToGifDemo "></p>
 ]]></content>
       
         <categories>
@@ -2181,8 +2234,8 @@
 <p>去年下半年打酱油考了个软件评测师，竟然通过了。</p>
 <p>不得不说国家单位效率低，到现在5月份证才做出来，然后必须工作日才能领。由于请假扣钱钱好心疼，所以在今天趁请假上医院看病的时间来领证…..QAQ…..地方真尼玛难找啊，破百度导航还给我指远路，坑爹。。</p>
 <p>不过最后总算是领到啦。。话不多说，晒图！</p>
-<p><img src="https://ww3.sinaimg.cn/large/5ebd877egw1f62h7rxwv7j20fj0m8jtj.jpg" alt="软件评测师证书封面"></p>
-<p><img src="https://ws1.sinaimg.cn/large/5ebd877egy1fncyqey3hcj20t50jf45r.jpg" alt="软件评测师证书内页"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162715.png" alt="软件评测师证书封面"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162735.png" alt="软件评测师证书内页"></p>
 <p>&nbsp;</p>
 <p>某些说我是伪娘的，泥萌垢了！！</p>
 <hr>
@@ -2221,14 +2274,14 @@
 </ol>
 <h2 id="三、API测试"><a href="#三、API测试" class="headerlink" title="三、API测试"></a>三、API测试</h2><p>以CloudXNS的API版本1.0为例。<br><span style="font-size: 8pt; color: #800080;">『现在CloudXNS的API已经升级到2.0了，不日1.0会被废弃，请小伙伴们不要再尝试使用，同时注意更新自己已经在用的API版本代码。传送门：<a href="https://www.cloudxns.net/AccountManage/apimanage.html" target="_blank" rel="noopener">https://www.cloudxns.net/AccountManage/apimanage.html </a>，请登陆CloudXNS账户后访问。』</span></p>
 <p>一张图描述各个区域的作用和测试方法：</p>
-<p><img src="https://ww3.sinaimg.cn/large/5ebd877egw1f62hm5c7nwj20m50le417.jpg" alt="postman各区域功能图解"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162846.png" alt="postman各区域功能图解"></p>
 <h2 id="四、保存配置"><a href="#四、保存配置" class="headerlink" title="四、保存配置"></a>四、保存配置</h2><p>经常测试的内容可以保存下来以后即可在左侧边栏“collections”中的列表一键调用。</p>
 <p>保存很简单，点击测试时“send”按钮那排最右边的“collection”按钮即可。</p>
 <p>如果是第一次保存，需要顺便创建一个collection文件夹。</p>
-<p><img src="https://ww3.sinaimg.cn/large/5ebd877egw1f62hmsk8fnj20qj0hxwfh.jpg" alt="postman_addcollection测试数据保存"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162940.png" alt="postman_addcollection测试数据保存"></p>
 <p>&nbsp;</p>
 <p>如果担心插件重装内容会丢失，或是想将自己的测试内容分享给同事使用，可以将collection导出成json文件或者上传到postman服务器提供分享链接。导入和导出操作入口如下：</p>
-<p><img src="https://ww4.sinaimg.cn/large/5ebd877egw1f62hp7mr0rj20cl04l3yp.jpg" alt="postman测试数据导出备份"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162959.png" alt="postman测试数据导出备份"></p>
 ]]></content>
       
         <categories>
@@ -2240,9 +2293,9 @@
         
         <tags>
             
-            <tag> 测试 </tag>
-            
             <tag> CloudXNS </tag>
+            
+            <tag> 测试 </tag>
             
             <tag> postman </tag>
             
@@ -2257,11 +2310,11 @@
     <entry>
       <title><![CDATA[CloudXNS中的AX记录类型测试]]></title>
       <url>https://ephen.me/2015/cloudxns-ax/</url>
-      <content type="html"><![CDATA[<p><img src="https://ww3.sinaimg.cn/large/5ebd877egw1f62f953sagj208c02gaa2.jpg" alt="CloudXNS Logo"></p>
+      <content type="html"><![CDATA[<p><img src="https://pek3b.qingstor.com/imephen/20190426151836.png" alt="CloudXNS Logo"></p>
 <h2 id="首先，简单介绍下CloudXNS中的AX记录类型："><a href="#首先，简单介绍下CloudXNS中的AX记录类型：" class="headerlink" title="首先，简单介绍下CloudXNS中的AX记录类型："></a>首先，简单介绍下CloudXNS中的AX记录类型：</h2><p>X意为eXtend，AX即表示扩展的A记录解析，具体表现为将多个A记录进行任意指定比例的负载均衡。我们知道，Local DNS服务器集群会对用户的请求进行缓存，当您有多个A记录时，它会随机将这些缓存的A记录其中一条反馈给用户。这样我们就无法预估每个ip被用户请求到的数量，或许久而久之这些ip的访问量会被平均。而使用CloudXNS的AX记录，就能当有Local DNS对CloudXNS进行请求时，按照预设比例返回给它其中一个值传递给用户，而这个比例是由站长您自己来控制的。</p>
 <a id="more"></a>
 <h2 id="然后，开始测试："><a href="#然后，开始测试：" class="headerlink" title="然后，开始测试："></a>然后，开始测试：</h2><p>首先将<a href="http://www.chinatesters.cn域名在CloudXNS系统中做如下图所示配置：" target="_blank" rel="noopener">www.chinatesters.cn域名在CloudXNS系统中做如下图所示配置：</a></p>
-<p><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f62fb4pj0hj20t20533zm.jpg" alt="CloudXNS解析配置"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426151910.png" alt="CloudXNS解析配置"></p>
 <p>优先级即代表预设比例，上图配置中表示记录值2.2.2.1、1.1.1.2和1.1.1.1出现的比例为30:100:50。灰姑娘写了个脚本通过多次执行同一个dig命令获取每个结果的出现次数。测试代码示例如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">i=0;</span><br><span class="line">rm -f .xtest_tmp.log</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -lt <span class="variable">$1</span> ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  dig www.chinatesters.cn @lv3ns4.ffdns.net +short &amp;gt;&amp;gt; .xtest_tmp.log</span><br><span class="line">  i=expr <span class="variable">$i</span> + 1</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">awk ‘&#123;name[<span class="variable">$1</span>]++&#125;;END&#123;<span class="keyword">for</span>(count <span class="keyword">in</span> name)<span class="built_in">print</span> count,name[count]&#125;’ .xtest_tmp.log</span><br></pre></td></tr></table></figure>
 <p>将脚本带参数200，表示执行200次命令。等待执行完毕后，得到结果如下：</p>
@@ -2279,67 +2332,11 @@
         
         <tags>
             
-            <tag> 测试 </tag>
-            
             <tag> CloudXNS </tag>
             
+            <tag> 测试 </tag>
+            
             <tag> AX记录 </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[桥接模式下如何设置虚拟机和本机在同一网段]]></title>
-      <url>https://ephen.me/2015/VmwareNetSet/</url>
-      <content type="html"><![CDATA[<ol>
-<li>打开VMware软件，开启要设置的虚拟机，用root用户登录；</li>
-<li>点击VMware软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“NAT模式”）；</li>
-<li>进入Linux虚拟机修改网卡设置：</li>
-</ol>
-<h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><a id="more"></a>
-<p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 通过键盘上下键选择“Network Configuration”，Tab到Run tool后回车；<br>3 . “Device Configuration”高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入ip设置界面；<br>4 . 默认情况下“Use DHCP”是自动获取，图形界面上展示为*，下面的静态IP不能进行设置。如下图：</p>
-<p><img src="https://ww2.sinaimg.cn/large/5ebd877egw1f62fk8e0pyj20a208ldg5.jpg" alt="虚拟网卡图形界面配置"></p>
-<p>5 . 将光标移动到“Use DHCP”的[*]上，点击空格键，即可开始设置下面的静态IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的ip设置，将虚拟客户机Linux设置成一样即可（除IP外，IP设置到同一网段）；如下图：</p>
-<p><img src="https://ww4.sinaimg.cn/large/5ebd877egw1f62g36qsscj20cr0g3gmt.jpg" alt="本机IP设置"><img src="https://ww1.sinaimg.cn/large/5ebd877egw1f62g36q77wj20an09bq3k.jpg" alt="虚拟机IP设置"></p>
-<p>7 . Tab到“Save”、“Save&amp;Quit”保存本次设置；</p>
-<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 一般虚拟机网卡是eth0，修改文件vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<blockquote>
-<p>DEVICE=eth0 <em>#描述网卡对应的设备别名，例如ifcfg-eth0的文件中它为eth0</em></p>
-<p>BOOTPROTO=static <em>#设置网卡获得ip地址的方式，可能的选项为static，dhcp或bootp，分别对应静态指定的ip地址，通过dhcp协议获得的ip地址，通过bootp协议获得的ip地址</em></p>
-<p>BROADCAST=192.168.0.255 <em>#对应的子网广播地址</em></p>
-<p>HWADDR=00:07:E9:05:E8:B4 <em>#对应的网卡物理地址</em></p>
-<p>IPADDR=192.168.14.120 <em>#如果设置网卡获得ip地址的方式为静态指定，此字段就指定了网卡对应的ip地址</em></p>
-<p>IPV6INIT=no</p>
-<p>IPV6_AUTOCONF=no</p>
-<p>NETMASK=255.255.255.0 <em>#网卡对应的网络掩码</em></p>
-<p>NETWORK=192.168.0.0 <em>#网卡对应的网络地址</em></p>
-<p>ONBOOT=yes <em>#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</em></p>
-</blockquote>
-<p>3 . 修改对应网卡的网关的配置文件vi /etc/sysconfig/network</p>
-<blockquote>
-<p>NETWORKING=yes <em>#系统是否使用网络（一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启）</em></p>
-<p>HOSTNAME=localhost <em>#本机的主机名（这里设置的主机名要和/etc/hosts中设置的主机名对应）</em></p>
-<p>GATEWAY=192.168.14.1 <em>#本机连接的网关IP地址</em></p>
-</blockquote>
-<p>4 . 重启网卡或重启机器以应用上述修改。</p>
-<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以eth0为例）：先关闭（命令：ifdown eth0），再开启（命令：ifup eth0）</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 工作笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Vmware </tag>
-            
-            <tag> Network </tag>
-            
-            <tag> 虚拟机 </tag>
             
         </tags>
         
@@ -2402,6 +2399,62 @@
             <tag> Win8 </tag>
             
             <tag> PL/SQL </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[桥接模式下如何设置虚拟机和本机在同一网段]]></title>
+      <url>https://ephen.me/2015/VmwareNetSet/</url>
+      <content type="html"><![CDATA[<ol>
+<li>打开VMware软件，开启要设置的虚拟机，用root用户登录；</li>
+<li>点击VMware软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“NAT模式”）；</li>
+<li>进入Linux虚拟机修改网卡设置：</li>
+</ol>
+<h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><a id="more"></a>
+<p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 通过键盘上下键选择“Network Configuration”，Tab到Run tool后回车；<br>3 . “Device Configuration”高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入ip设置界面；<br>4 . 默认情况下“Use DHCP”是自动获取，图形界面上展示为*，下面的静态IP不能进行设置。如下图：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161737.png" alt="虚拟网卡图形界面配置"></p>
+<p>5 . 将光标移动到“Use DHCP”的[*]上，点击空格键，即可开始设置下面的静态IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的ip设置，将虚拟客户机Linux设置成一样即可（除IP外，IP设置到同一网段）；如下图：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161803.png" alt="本机IP设置"><img src="https://pek3b.qingstor.com/imephen/20190426161823.png" alt="虚拟机IP设置"></p>
+<p>7 . Tab到“Save”、“Save&amp;Quit”保存本次设置；</p>
+<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 一般虚拟机网卡是eth0，修改文件vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<blockquote>
+<p>DEVICE=eth0 <em>#描述网卡对应的设备别名，例如ifcfg-eth0的文件中它为eth0</em></p>
+<p>BOOTPROTO=static <em>#设置网卡获得ip地址的方式，可能的选项为static，dhcp或bootp，分别对应静态指定的ip地址，通过dhcp协议获得的ip地址，通过bootp协议获得的ip地址</em></p>
+<p>BROADCAST=192.168.0.255 <em>#对应的子网广播地址</em></p>
+<p>HWADDR=00:07:E9:05:E8:B4 <em>#对应的网卡物理地址</em></p>
+<p>IPADDR=192.168.14.120 <em>#如果设置网卡获得ip地址的方式为静态指定，此字段就指定了网卡对应的ip地址</em></p>
+<p>IPV6INIT=no</p>
+<p>IPV6_AUTOCONF=no</p>
+<p>NETMASK=255.255.255.0 <em>#网卡对应的网络掩码</em></p>
+<p>NETWORK=192.168.0.0 <em>#网卡对应的网络地址</em></p>
+<p>ONBOOT=yes <em>#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</em></p>
+</blockquote>
+<p>3 . 修改对应网卡的网关的配置文件vi /etc/sysconfig/network</p>
+<blockquote>
+<p>NETWORKING=yes <em>#系统是否使用网络（一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启）</em></p>
+<p>HOSTNAME=localhost <em>#本机的主机名（这里设置的主机名要和/etc/hosts中设置的主机名对应）</em></p>
+<p>GATEWAY=192.168.14.1 <em>#本机连接的网关IP地址</em></p>
+</blockquote>
+<p>4 . 重启网卡或重启机器以应用上述修改。</p>
+<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以eth0为例）：先关闭（命令：ifdown eth0），再开启（命令：ifup eth0）</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 工作笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Vmware </tag>
+            
+            <tag> Network </tag>
+            
+            <tag> 虚拟机 </tag>
             
         </tags>
         
