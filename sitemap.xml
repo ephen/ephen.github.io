@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ephen.me/2019/bind9-12-dig/</loc>
+    
+    <lastmod>2019-04-30T03:57:12.129Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ephen.me/2018/mutisite-oneip/</loc>
     
     <lastmod>2019-04-26T08:36:07.861Z</lastmod>
@@ -131,13 +138,6 @@
     <loc>https://ephen.me/2019/blog-update/</loc>
     
     <lastmod>2019-04-26T07:00:47.379Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ephen.me/2019/bind9-12-dig/</loc>
-    
-    <lastmod>2019-04-26T06:57:48.436Z</lastmod>
     
   </url>
   

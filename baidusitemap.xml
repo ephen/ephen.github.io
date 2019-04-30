@@ -4,6 +4,32 @@
 
     
   <url>
+    <loc>https://ephen.me/2019/bind9-12-dig/</loc>
+    <lastmod>2019-04-30T03:57:12.129Z</lastmod>
+    <data>
+        <display>
+        <title>bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）</title>
+        <pubTime>2019-04-25T16:00:00.000Z</pubTime>
+        
+        <tag>DNS</tag>
+         
+        <tag>bind</tag>
+         
+        <tag>dig</tag>
+         
+        <tag>Windows</tag>
+         
+         
+           
+             
+              <breadCrumb title="工具介绍" url="https://ephen.me/categories/%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://ephen.me/2018/mutisite-oneip/</loc>
     <lastmod>2019-04-26T08:36:07.861Z</lastmod>
     <data>
@@ -39,9 +65,9 @@
         <title>网站API测试工具：chrome插件 - Postman</title>
         <pubTime>2015-04-23T16:00:00.000Z</pubTime>
         
-        <tag>CloudXNS</tag>
-         
         <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
          
         <tag>postman</tag>
          
@@ -401,9 +427,9 @@
         <title>CloudXNS中的AX记录类型测试</title>
         <pubTime>2015-04-09T16:00:00.000Z</pubTime>
         
-        <tag>CloudXNS</tag>
-         
         <tag>测试</tag>
+         
+        <tag>CloudXNS</tag>
          
         <tag>AX记录</tag>
          
@@ -457,32 +483,6 @@
            
              
               <breadCrumb title="博客折腾" url="https://ephen.me/categories/%E5%8D%9A%E5%AE%A2%E6%8A%98%E8%85%BE/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://ephen.me/2019/bind9-12-dig/</loc>
-    <lastmod>2019-04-26T06:57:48.436Z</lastmod>
-    <data>
-        <display>
-        <title>bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）</title>
-        <pubTime>2019-04-25T16:00:00.000Z</pubTime>
-        
-        <tag>DNS</tag>
-         
-        <tag>bind</tag>
-         
-        <tag>dig</tag>
-         
-        <tag>Windows</tag>
-         
-         
-           
-             
-              <breadCrumb title="工具介绍" url="https://ephen.me/categories/%E5%B7%A5%E5%85%B7%E4%BB%8B%E7%BB%8D/"/>
           
         </display>
     </data>

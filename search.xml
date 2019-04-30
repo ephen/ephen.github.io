@@ -6,7 +6,8 @@
     <entry>
       <title><![CDATA[bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）]]></title>
       <url>https://ephen.me/2019/bind9-12-dig/</url>
-      <content type="html"><![CDATA[<p>前段时间又开始捣鼓网络 &amp; DNS 了，于是去 <a href="https://www.isc.org/downloads/" target="_blank" rel="noopener"> Bind9 官方 </a> 去下载了一个最新稳定版 Windows 环境的 Bind 。</p>
+      <content type="html"><![CDATA[<p>查看安装方法请直接跳转至：<a href="/2019/bind9-12-dig/#Windows-上如何安装-dig-工具？">Windows 上如何安装 dig 工具？</a></p>
+<p>前段时间又开始捣鼓网络 &amp; DNS 了，于是去 <a href="https://www.isc.org/downloads/" target="_blank" rel="noopener"> Bind9 官方 </a> 去下载了一个最新稳定版 Windows 环境的 Bind 。</p>
 <p>当时 Bind 9.14.1 还未正式发布为稳定版，所以我下载的版本是 9.12.3-P1 。下载完成后，安装到我的本地 PC 上。</p>
 <p>随后我在<strong>使用这个版本的 dig 时，只要不指定 DNS 服务器就没有返回，每次使用该工具时必须指定 DNS 服务器。</strong></p>
 <p><img src="https://imephen.pek3b.qingstor.com/digproblem.jpg" alt=" dig 12 版本有问题 "></p>
@@ -2293,9 +2294,9 @@
         
         <tags>
             
-            <tag> CloudXNS </tag>
-            
             <tag> 测试 </tag>
+            
+            <tag> CloudXNS </tag>
             
             <tag> postman </tag>
             
@@ -2332,9 +2333,9 @@
         
         <tags>
             
-            <tag> CloudXNS </tag>
-            
             <tag> 测试 </tag>
+            
+            <tag> CloudXNS </tag>
             
             <tag> AX记录 </tag>
             
