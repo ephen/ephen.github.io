@@ -6,7 +6,9 @@
     <entry>
       <title><![CDATA[bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）]]></title>
       <url>https://ephen.me/2019/bind9-12-dig/</url>
-      <content type="html"><![CDATA[<p>查看安装方法请直接跳转至：<a href="/2019/bind9-12-dig/#Windows-上如何安装-dig-工具？">Windows 上如何安装 dig 工具？</a></p>
+      <content type="html"><![CDATA[<blockquote>
+<p>查看安装方法请直接跳转至：<a href="/2019/bind9-12-dig/#Windows-上如何安装-dig-工具？">Windows 上如何安装 dig 工具？</a></p>
+</blockquote>
 <p>前段时间又开始捣鼓网络 &amp; DNS 了，于是去 <a href="https://www.isc.org/downloads/" target="_blank" rel="noopener"> Bind9 官方 </a> 去下载了一个最新稳定版 Windows 环境的 Bind 。</p>
 <p>当时 Bind 9.14.1 还未正式发布为稳定版，所以我下载的版本是 9.12.3-P1 。下载完成后，安装到我的本地 PC 上。</p>
 <p>随后我在<strong>使用这个版本的 dig 时，只要不指定 DNS 服务器就没有返回，每次使用该工具时必须指定 DNS 服务器。</strong></p>
@@ -2294,9 +2296,9 @@
         
         <tags>
             
-            <tag> 测试 </tag>
-            
             <tag> CloudXNS </tag>
+            
+            <tag> 测试 </tag>
             
             <tag> postman </tag>
             
@@ -2333,11 +2335,67 @@
         
         <tags>
             
-            <tag> 测试 </tag>
-            
             <tag> CloudXNS </tag>
             
+            <tag> 测试 </tag>
+            
             <tag> AX记录 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[桥接模式下如何设置虚拟机和本机在同一网段]]></title>
+      <url>https://ephen.me/2015/VmwareNetSet/</url>
+      <content type="html"><![CDATA[<ol>
+<li>打开VMware软件，开启要设置的虚拟机，用root用户登录；</li>
+<li>点击VMware软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“NAT模式”）；</li>
+<li>进入Linux虚拟机修改网卡设置：</li>
+</ol>
+<h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><a id="more"></a>
+<p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 通过键盘上下键选择“Network Configuration”，Tab到Run tool后回车；<br>3 . “Device Configuration”高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入ip设置界面；<br>4 . 默认情况下“Use DHCP”是自动获取，图形界面上展示为*，下面的静态IP不能进行设置。如下图：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161737.png" alt="虚拟网卡图形界面配置"></p>
+<p>5 . 将光标移动到“Use DHCP”的[*]上，点击空格键，即可开始设置下面的静态IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的ip设置，将虚拟客户机Linux设置成一样即可（除IP外，IP设置到同一网段）；如下图：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161803.png" alt="本机IP设置"><img src="https://pek3b.qingstor.com/imephen/20190426161823.png" alt="虚拟机IP设置"></p>
+<p>7 . Tab到“Save”、“Save&amp;Quit”保存本次设置；</p>
+<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 一般虚拟机网卡是eth0，修改文件vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
+<blockquote>
+<p>DEVICE=eth0 <em>#描述网卡对应的设备别名，例如ifcfg-eth0的文件中它为eth0</em></p>
+<p>BOOTPROTO=static <em>#设置网卡获得ip地址的方式，可能的选项为static，dhcp或bootp，分别对应静态指定的ip地址，通过dhcp协议获得的ip地址，通过bootp协议获得的ip地址</em></p>
+<p>BROADCAST=192.168.0.255 <em>#对应的子网广播地址</em></p>
+<p>HWADDR=00:07:E9:05:E8:B4 <em>#对应的网卡物理地址</em></p>
+<p>IPADDR=192.168.14.120 <em>#如果设置网卡获得ip地址的方式为静态指定，此字段就指定了网卡对应的ip地址</em></p>
+<p>IPV6INIT=no</p>
+<p>IPV6_AUTOCONF=no</p>
+<p>NETMASK=255.255.255.0 <em>#网卡对应的网络掩码</em></p>
+<p>NETWORK=192.168.0.0 <em>#网卡对应的网络地址</em></p>
+<p>ONBOOT=yes <em>#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</em></p>
+</blockquote>
+<p>3 . 修改对应网卡的网关的配置文件vi /etc/sysconfig/network</p>
+<blockquote>
+<p>NETWORKING=yes <em>#系统是否使用网络（一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启）</em></p>
+<p>HOSTNAME=localhost <em>#本机的主机名（这里设置的主机名要和/etc/hosts中设置的主机名对应）</em></p>
+<p>GATEWAY=192.168.14.1 <em>#本机连接的网关IP地址</em></p>
+</blockquote>
+<p>4 . 重启网卡或重启机器以应用上述修改。</p>
+<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以eth0为例）：先关闭（命令：ifdown eth0），再开启（命令：ifup eth0）</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 工作笔记 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> Vmware </tag>
+            
+            <tag> Network </tag>
+            
+            <tag> 虚拟机 </tag>
             
         </tags>
         
@@ -2400,62 +2458,6 @@
             <tag> Win8 </tag>
             
             <tag> PL/SQL </tag>
-            
-        </tags>
-        
-    </entry>
-    
-    <entry>
-      <title><![CDATA[桥接模式下如何设置虚拟机和本机在同一网段]]></title>
-      <url>https://ephen.me/2015/VmwareNetSet/</url>
-      <content type="html"><![CDATA[<ol>
-<li>打开VMware软件，开启要设置的虚拟机，用root用户登录；</li>
-<li>点击VMware软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“NAT模式”）；</li>
-<li>进入Linux虚拟机修改网卡设置：</li>
-</ol>
-<h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><a id="more"></a>
-<p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 通过键盘上下键选择“Network Configuration”，Tab到Run tool后回车；<br>3 . “Device Configuration”高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入ip设置界面；<br>4 . 默认情况下“Use DHCP”是自动获取，图形界面上展示为*，下面的静态IP不能进行设置。如下图：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426161737.png" alt="虚拟网卡图形界面配置"></p>
-<p>5 . 将光标移动到“Use DHCP”的[*]上，点击空格键，即可开始设置下面的静态IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的ip设置，将虚拟客户机Linux设置成一样即可（除IP外，IP设置到同一网段）；如下图：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426161803.png" alt="本机IP设置"><img src="https://pek3b.qingstor.com/imephen/20190426161823.png" alt="虚拟机IP设置"></p>
-<p>7 . Tab到“Save”、“Save&amp;Quit”保存本次设置；</p>
-<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 一般虚拟机网卡是eth0，修改文件vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<blockquote>
-<p>DEVICE=eth0 <em>#描述网卡对应的设备别名，例如ifcfg-eth0的文件中它为eth0</em></p>
-<p>BOOTPROTO=static <em>#设置网卡获得ip地址的方式，可能的选项为static，dhcp或bootp，分别对应静态指定的ip地址，通过dhcp协议获得的ip地址，通过bootp协议获得的ip地址</em></p>
-<p>BROADCAST=192.168.0.255 <em>#对应的子网广播地址</em></p>
-<p>HWADDR=00:07:E9:05:E8:B4 <em>#对应的网卡物理地址</em></p>
-<p>IPADDR=192.168.14.120 <em>#如果设置网卡获得ip地址的方式为静态指定，此字段就指定了网卡对应的ip地址</em></p>
-<p>IPV6INIT=no</p>
-<p>IPV6_AUTOCONF=no</p>
-<p>NETMASK=255.255.255.0 <em>#网卡对应的网络掩码</em></p>
-<p>NETWORK=192.168.0.0 <em>#网卡对应的网络地址</em></p>
-<p>ONBOOT=yes <em>#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</em></p>
-</blockquote>
-<p>3 . 修改对应网卡的网关的配置文件vi /etc/sysconfig/network</p>
-<blockquote>
-<p>NETWORKING=yes <em>#系统是否使用网络（一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启）</em></p>
-<p>HOSTNAME=localhost <em>#本机的主机名（这里设置的主机名要和/etc/hosts中设置的主机名对应）</em></p>
-<p>GATEWAY=192.168.14.1 <em>#本机连接的网关IP地址</em></p>
-</blockquote>
-<p>4 . 重启网卡或重启机器以应用上述修改。</p>
-<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以eth0为例）：先关闭（命令：ifdown eth0），再开启（命令：ifup eth0）</p>
-]]></content>
-      
-        <categories>
-            
-            <category> 工作笔记 </category>
-            
-        </categories>
-        
-        
-        <tags>
-            
-            <tag> Vmware </tag>
-            
-            <tag> Network </tag>
-            
-            <tag> 虚拟机 </tag>
             
         </tags>
         

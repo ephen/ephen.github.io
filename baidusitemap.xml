@@ -5,7 +5,7 @@
     
   <url>
     <loc>https://ephen.me/2019/bind9-12-dig/</loc>
-    <lastmod>2019-04-30T03:57:12.129Z</lastmod>
+    <lastmod>2019-04-30T03:59:58.557Z</lastmod>
     <data>
         <display>
         <title>bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）</title>
@@ -65,9 +65,9 @@
         <title>网站API测试工具：chrome插件 - Postman</title>
         <pubTime>2015-04-23T16:00:00.000Z</pubTime>
         
-        <tag>测试</tag>
-         
         <tag>CloudXNS</tag>
+         
+        <tag>测试</tag>
          
         <tag>postman</tag>
          
@@ -427,9 +427,9 @@
         <title>CloudXNS中的AX记录类型测试</title>
         <pubTime>2015-04-09T16:00:00.000Z</pubTime>
         
-        <tag>测试</tag>
-         
         <tag>CloudXNS</tag>
+         
+        <tag>测试</tag>
          
         <tag>AX记录</tag>
          
