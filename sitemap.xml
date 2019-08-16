@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://ephen.me/2015/cloudxns-ax/</loc>
+    
+    <lastmod>2019-08-16T07:53:59.140Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://ephen.me/2019/bind9-12-dig/</loc>
     
     <lastmod>2019-04-30T03:59:58.557Z</lastmod>
@@ -117,13 +124,6 @@
     <loc>https://ephen.me/2016/Jmeter-NonGUI-Test/</loc>
     
     <lastmod>2019-04-26T07:27:47.379Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://ephen.me/2015/cloudxns-ax/</loc>
-    
-    <lastmod>2019-04-26T07:19:35.665Z</lastmod>
     
   </url>
   

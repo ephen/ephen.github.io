@@ -56,7 +56,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426151836.png">
 <meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426151910.png">
-<meta property="og:updated_time" content="2019-04-26T07:19:35.665Z">
+<meta property="og:updated_time" content="2019-08-16T07:53:59.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CloudXNS中的AX记录类型测试">
 <meta name="twitter:description" content="首先，简单介绍下CloudXNS中的AX记录类型：X意为eXtend，AX即表示扩展的A记录解析，具体表现为将多个A记录进行任意指定比例的负载均衡。我们知道，Local DNS服务器集群会对用户的请求进行缓存，当您有多个A记录时，它会随机将这些缓存的A记录其中一条反馈给用户。这样我们就无法预估每个ip被用户请求到的数量，或许久而久之这些ip的访问量会被平均。而使用CloudXNS的AX记录，就能">
@@ -367,7 +367,7 @@ var _hmt = _hmt || [];
 <h2 id="然后，开始测试："><a href="#然后，开始测试：" class="headerlink" title="然后，开始测试："></a>然后，开始测试：</h2><p>首先将<a href="http://www.chinatesters.cn域名在CloudXNS系统中做如下图所示配置：" target="_blank" rel="noopener">www.chinatesters.cn域名在CloudXNS系统中做如下图所示配置：</a></p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426151910.png" alt="CloudXNS解析配置"></p>
 <p>优先级即代表预设比例，上图配置中表示记录值2.2.2.1、1.1.1.2和1.1.1.1出现的比例为30:100:50。灰姑娘写了个脚本通过多次执行同一个dig命令获取每个结果的出现次数。测试代码示例如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">i=0;</span><br><span class="line">rm -f .xtest_tmp.log</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -lt <span class="variable">$1</span> ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  dig www.chinatesters.cn @lv3ns4.ffdns.net +short &amp;gt;&amp;gt; .xtest_tmp.log</span><br><span class="line">  i=expr <span class="variable">$i</span> + 1</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">awk ‘&#123;name[<span class="variable">$1</span>]++&#125;;END&#123;<span class="keyword">for</span>(count <span class="keyword">in</span> name)<span class="built_in">print</span> count,name[count]&#125;’ .xtest_tmp.log</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">i=0;</span><br><span class="line">rm -f .xtest_tmp.log</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -lt <span class="variable">$1</span> ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  dig www.chinatesters.cn @lv3ns4.ffdns.net +short &gt;&gt; .xtest_tmp.log</span><br><span class="line">  i=expr <span class="variable">$i</span> + 1</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">awk ‘&#123;name[<span class="variable">$1</span>]++&#125;;END&#123;<span class="keyword">for</span>(count <span class="keyword">in</span> name)<span class="built_in">print</span> count,name[count]&#125;’ .xtest_tmp.log</span><br></pre></td></tr></table></figure>
 <p>将脚本带参数200，表示执行200次命令。等待执行完毕后，得到结果如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost 02_mytest]<span class="comment"># ./xtest.sh 200</span></span><br><span class="line">2.2.2.1 38</span><br><span class="line">1.1.1.1 60</span><br><span class="line">1.1.1.2 102</span><br></pre></td></tr></table></figure>
 <p>我们可以看到，与配置的30:50:100非常接近。经过多次测试之后就会发现，当Local DNS向CloudXNS请求次数越来越多时，这个值就越来越接近于配置值。因此，当您的网站有多个服务器但他们的硬件资源悬殊较大时，就可以采用AX记录将域名解析设置为不同的负载比例，以充分利用您现有的资源进行负载均衡。</p>
@@ -384,7 +384,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2015/cloudxns-ax/">CloudXNS中的AX记录类型测试</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2015-04-10, 00:00:00</p>
-      <p><span>最后更新:</span>2019-04-26, 15:19:35</p>
+      <p><span>最后更新:</span>2019-08-16, 15:53:59</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2015/cloudxns-ax/" title="CloudXNS中的AX记录类型测试">https://ephen.me/2015/cloudxns-ax/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2015/cloudxns-ax/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
