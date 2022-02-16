@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <link rel="icon" href="/favicon.ico">
+
+
+	<link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+	<link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+<title>不会 A/B 测试的 Web 设计师不是好程序员 | Ephen‘s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+		scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+		search: true,
+		open_in_new: false
+	}
+</script>
+
+
+	<script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+<meta name="description" content="英文原文：How A/B Testing Will Make You a Better Web Designer  设计一个网站无论对设计者还是业主都是一个浩大的工程。但是，不管你是创建一个新的网站，还是对已有网站做重新设计，有一个至关重要的点，你的决定要基于数据而不是基于感觉。对客户和设计来说，在设计过程中做出的决定，可以决定创意，可以决定商业的成败。 为了避免你下一个作品中潜在的缺陷，你应该将">
+<meta name="keywords" content="测试,程序员,设计师">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不会 A&#x2F;B 测试的 Web 设计师不是好程序员">
+<meta property="og:url" content="https://ephen.me/2015/AB-test/index.html">
+<meta property="og:site_name" content="Ephen‘s Blog">
+<meta property="og:description" content="英文原文：How A/B Testing Will Make You a Better Web Designer  设计一个网站无论对设计者还是业主都是一个浩大的工程。但是，不管你是创建一个新的网站，还是对已有网站做重新设计，有一个至关重要的点，你的决定要基于数据而不是基于感觉。对客户和设计来说，在设计过程中做出的决定，可以决定创意，可以决定商业的成败。 为了避免你下一个作品中潜在的缺陷，你应该将">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://static.oschina.net/uploads/img/201511/03163625_pzJH.jpg">
+<meta property="og:image" content="https://static.oschina.net/uploads/img/201511/03163625_wt9T.png">
+<meta property="og:image" content="https://static.oschina.net/uploads/img/201511/03163625_dHcG.jpg">
+<meta property="og:image" content="https://static.oschina.net/uploads/img/201511/03163626_Q0qY.jpg">
+<meta property="og:image" content="https://static.oschina.net/uploads/img/201511/03163626_7iGu.jpg">
+<meta property="og:updated_time" content="2019-03-06T06:42:56.828Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="不会 A&#x2F;B 测试的 Web 设计师不是好程序员">
+<meta name="twitter:description" content="英文原文：How A/B Testing Will Make You a Better Web Designer  设计一个网站无论对设计者还是业主都是一个浩大的工程。但是，不管你是创建一个新的网站，还是对已有网站做重新设计，有一个至关重要的点，你的决定要基于数据而不是基于感觉。对客户和设计来说，在设计过程中做出的决定，可以决定创意，可以决定商业的成败。 为了避免你下一个作品中潜在的缺陷，你应该将">
+<meta name="twitter:image" content="https://static.oschina.net/uploads/img/201511/03163625_pzJH.jpg">
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104686993-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e818eaeb03db00e8a2fd123b0cb5d63e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Ephen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">奇葩一朵， IT 废材</p>
+		
+		
+			<form id="search-form">
+				<input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+				<i class="fa fa-times" onclick="resetSearch()"></i>
+			</form>
+			<div id="local-search-result"></div>
+			<p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+		        
+
+		
+            <div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+        <div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+                            <li><a href="/">主页</a></li>
+				        
+                            <li><a href="/archives/">所有文章</a></li>
+				        
+                            <li><a href="/categories/心情驿站/">心情驿站</a></li>
+				        
+                            <li><a href="/About/">关于|留言</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<a class="fa mail" href="mailto:ephen@live.cn" title="mail"></a>
+					        
+								<a class="fa telegram" href="https://telegram.me/imephen" title="telegram"></a>
+					        
+								<a class="fa twitter" href="https://twitter.com/imephen" title="twitter"></a>
+					        
+								<a class="fa zhihu" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
+					        
+								<a class="fa weibo" href="http://weibo.com/cinderellacici" title="weibo"></a>
+					        
+								<a class="fa rss" href="/atom.xml" title="rss"></a>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/AX记录/" style="font-size: 10px;">AX记录</a> <a href="/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/tags/BlueMix/" style="font-size: 10px;">BlueMix</a> <a href="/tags/CAA/" style="font-size: 10px;">CAA</a> <a href="/tags/CloudXNS/" style="font-size: 15px;">CloudXNS</a> <a href="/tags/DDoS/" style="font-size: 10px;">DDoS</a> <a href="/tags/DNS/" style="font-size: 17.5px;">DNS</a> <a href="/tags/DNSSEC/" style="font-size: 10px;">DNSSEC</a> <a href="/tags/DNSViz/" style="font-size: 10px;">DNSViz</a> <a href="/tags/DNS劫持/" style="font-size: 10px;">DNS劫持</a> <a href="/tags/DNS域转移/" style="font-size: 10px;">DNS域转移</a> <a href="/tags/DNS安全/" style="font-size: 10px;">DNS安全</a> <a href="/tags/DYN/" style="font-size: 10px;">DYN</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/IAM/" style="font-size: 10px;">IAM</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/PL-SQL/" style="font-size: 10px;">PL/SQL</a> <a href="/tags/Public-DNS/" style="font-size: 12.5px;">Public DNS</a> <a href="/tags/RFC/" style="font-size: 10px;">RFC</a> <a href="/tags/Reocar/" style="font-size: 10px;">Reocar</a> <a href="/tags/SOA/" style="font-size: 10px;">SOA</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/UDP/" style="font-size: 10px;">UDP</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/VirtualHost/" style="font-size: 10px;">VirtualHost</a> <a href="/tags/Vmware/" style="font-size: 10px;">Vmware</a> <a href="/tags/Win8/" style="font-size: 10px;">Win8</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/bind/" style="font-size: 12.5px;">bind</a> <a href="/tags/dig/" style="font-size: 10px;">dig</a> <a href="/tags/edns-client-subnet/" style="font-size: 10px;">edns-client-subnet</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/sitemap/" style="font-size: 10px;">sitemap</a> <a href="/tags/v2ex/" style="font-size: 10px;">v2ex</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/产品管理/" style="font-size: 10px;">产品管理</a> <a href="/tags/产品运营/" style="font-size: 12.5px;">产品运营</a> <a href="/tags/公共DNS/" style="font-size: 12.5px;">公共DNS</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/协议/" style="font-size: 10px;">协议</a> <a href="/tags/参考资料/" style="font-size: 10px;">参考资料</a> <a href="/tags/场景/" style="font-size: 10px;">场景</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/域名攻击/" style="font-size: 10px;">域名攻击</a> <a href="/tags/域名格式/" style="font-size: 10px;">域名格式</a> <a href="/tags/备案/" style="font-size: 10px;">备案</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/朝鲜/" style="font-size: 10px;">朝鲜</a> <a href="/tags/本地DNS/" style="font-size: 12.5px;">本地DNS</a> <a href="/tags/泛域名/" style="font-size: 10px;">泛域名</a> <a href="/tags/测试/" style="font-size: 20px;">测试</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/瑞卡/" style="font-size: 10px;">瑞卡</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/用例/" style="font-size: 10px;">用例</a> <a href="/tags/用户鉴权/" style="font-size: 10px;">用户鉴权</a> <a href="/tags/租车/" style="font-size: 10px;">租车</a> <a href="/tags/程序员/" style="font-size: 10px;">程序员</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/虚拟机/" style="font-size: 10px;">虚拟机</a> <a href="/tags/解析流程/" style="font-size: 10px;">解析流程</a> <a href="/tags/记录类型/" style="font-size: 10px;">记录类型</a> <a href="/tags/设计师/" style="font-size: 10px;">设计师</a> <a href="/tags/负载均衡器/" style="font-size: 10px;">负载均衡器</a> <a href="/tags/资源协作/" style="font-size: 10px;">资源协作</a> <a href="/tags/递归DNS/" style="font-size: 12.5px;">递归DNS</a> <a href="/tags/霸气客服/" style="font-size: 10px;">霸气客服</a> <a href="/tags/霸王条款/" style="font-size: 10px;">霸王条款</a> <a href="/tags/顶级域/" style="font-size: 10px;">顶级域</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a> <a href="/tags/首汽/" style="font-size: 10px;">首汽</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.freejishu.com/">Free技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.lwl12.com/">LWL</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://u.sb">Showfom</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://mritd.me/">漠然</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://kn007.net/">kn007</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://diygod.me/">DIYgod</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.lijian.me/">小李子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.skk.moe/">苏卡卡</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.4spaces.org">四个空格</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.ilemonrain.com">极光星空</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://xuanwo.io/">漩涡</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme"><a target='_blank' href='https://www.qingcloud.com/'>QingCloud 青云</a> 产品汪</div>
+				</section>
+				
+			</div>
+		</div>
+		<!-- <div align="center"><a class="adhd" href="https://psychcentral.com/quizzes/addquiz.htm" target="_blank"><img src="https://g.psychcentral.com/adhd_serious.gif" alt="Serious ADHD Likely!" width="180" height="81" border="0"></a></div> -->
+		
+		<a class="beian" href="http://www.beian.miit.gov.cn" target="_blank">鄂 ICP 备 15003996 号</a>
+				
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Ephen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">Ephen</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">奇葩一朵， IT 废材</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/categories/心情驿站/">心情驿站</a></li>
+		        
+					<li><a href="/About/">关于|留言</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<ul class="social">
+					
+						<a class="fa mail" target="_blank" href="mailto:ephen@live.cn" title="mail"></a>
+			        
+						<a class="fa telegram" target="_blank" href="https://telegram.me/imephen" title="telegram"></a>
+			        
+						<a class="fa twitter" target="_blank" href="https://twitter.com/imephen" title="twitter"></a>
+			        
+						<a class="fa zhihu" target="_blank" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
+			        
+						<a class="fa weibo" target="_blank" href="http://weibo.com/cinderellacici" title="weibo"></a>
+			        
+						<a class="fa rss" target="_blank" href="/atom.xml" title="rss"></a>
+			        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-AB-test" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/AB-test/" class="article-date">
+  	<time datetime="2015-11-05T16:00:00.000Z" itemprop="datePublished">2015-11-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      不会 A/B 测试的 Web 设计师不是好程序员
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/测试/">测试</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/程序员/">程序员</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计师/">设计师</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/知识探索/">知识探索</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>英文原文：<a href="https://shopifypartnerblog.myshopify.com/blogs/blog/74161923-how-a-b-testing-will-make-you-a-better-web-designer" target="_blank" rel="noopener">How A/B Testing Will Make You a Better Web Designer</a></p>
+<hr>
+<p>设计一个网站无论对设计者还是业主都是一个浩大的工程。但是，不管你是创建一个新的网站，还是对已有网站做重新设计，有一个至关重要的点，你的决定要基于数据而不是基于感觉。对客户和设计来说，在设计过程中做出的决定，可以决定创意，可以决定商业的成败。</p>
+<p>为了避免你下一个作品中潜在的缺陷，你应该将 A/B 测试做为你设计工具的标准配置。对客户网站做简单的 A/B 测试可以让你交付之前避免设计，导航，功能上的任何缺陷。这样可以让你交出最终产品，不仅视觉效果极佳，还有优化的交互 – 他们会爱上你的。</p>
+<p>听起来很有趣？继续阅读，看看 A/B 测试如果让你成为更好的 web 设计师。</p>
+<a id="more"></a>
+<h2 id="A-B-测试-101"><a href="#A-B-测试-101" class="headerlink" title="A/B 测试 101"></a>A/B 测试 101</h2><p>A/B 测试（又称分割测试），允许你在一个网站测试两个不同的测试元素，测试目的是判断哪种设计对完成特定目标是最有效的。</p>
+<p>做 A/B 测试时，进入网站的用户会被随机分配到两个组：一半在“A 组”，另外一半在“B 组”。随后每组显示你选定的不同设计元素<strong> — </strong>例如，登录页面，商铺主题，响应按钮，或者结帐流程。</p>
+<p><img src="https://static.oschina.net/uploads/img/201511/03163625_pzJH.jpg" alt="Ab Testing for Web Design - Multiple Landing Pages"></p>
+<p>通过对真实用户实时测试两组不同的设计元素，你可以收集成有意义的数据用来确定每个组的设计元素对访客行为的影响。这会给你更来设计洞察力，帮助你为客户创建最佳在线商业方案。</p>
+<p><strong>从本质上讲，A/B 测试帮助你在每一个项目上设计出最好的网站。 </strong></p>
+<h3 id="为什么-Web-设计者应该做-A-B-测试"><a href="#为什么-Web-设计者应该做-A-B-测试" class="headerlink" title="为什么 Web 设计者应该做 A/B 测试"></a>为什么 Web 设计者应该做 A/B 测试</h3><p>创建最好的网站应该就是你开始在设计项目中把 A/B 测试作为标准服务来提供的充分理由。不过如果你还不服气的话，下面也是你可以预见到的其它好处：</p>
+<p><strong>1. 增加收入 </strong>— 通过将 A/B 测试当做一项服务涵盖到你的自由职业项目中，就能为你带来更多的项目收益。你既可以将其作为标准化服务包含到你的 web 设计包中，也可以利用其在网站优化方面的好处将其作为加钱项。你的客户会花费一个体面的金额以让他们的网站建设专业起来 — 把 A/B 测试作为一项后续服务来做出明智的设计修改，这样做将帮助他们获得收入的最大爆发(而你自己也能赚更多一点)。</p>
+<p><strong>2. 减少客户纠纷 </strong>— 当扯到要为一个网站做出设计决定的时候，看起来房间里的每个人都对于网站应该怎么怎么样持有各自的观点 — 特别是为此花了钱的客户。幸运的是，A/B 测试为你提供了具体的数据来指导设计决定，并且无需得罪客户就能化解掉不必要的纠纷。</p>
+<p><strong>3. 心满意足的客户 </strong>— 将所有精力集中到网站的视觉设计上而忽略其功能性目标这种事情是很容易发生的。然而大多数客户确实想要一个好看的最终产品，每个客户其实更关心那个网站的转化。运行 A/B 测试能向你的客户说明你是真正在关心他们业务的在线目标的，并且也希望尽力帮他们完成预期。</p>
+<h3 id="如何设计一个简单-A-B-测试"><a href="#如何设计一个简单-A-B-测试" class="headerlink" title="如何设计一个简单 A/B 测试"></a>如何设计一个简单 A/B 测试</h3><p>如果之前从来没有运作过一次 web 优化实验，第一次的 A/B 测试看起来就会相当令人为难。但是不要担心，创造一个简单的 A/B 测试其实还是相当简单的。下面我会概述一种你可以开始尝试运作你的首次 A/B 测试的策略性方法。</p>
+<h3 id="定义你的目标"><a href="#定义你的目标" class="headerlink" title="定义你的目标"></a>定义你的目标</h3><p>在你开始测试一些东西的时候，你需要去理解网站的目的。理解了网站的目的就能让你确定在量化的指标方面成功对于你的客户意味着什么。这些指标，也叫做转换，代表了你所期望的访问者将会在网站上进行的动作。通过及早定义目标和成功指标，你就为 A/B 测试将要执行的操作划定了一个框框。</p>
+<p>你的转换指标将根据你所设计的网站的类型而有所不同。下面的表格概述了不同网站类型的常见转换指标：</p>
+<p><img src="https://static.oschina.net/uploads/img/201511/03163625_wt9T.png" alt="ab testing metrics for web design"></p>
+<h3 id="识别瓶颈"><a href="#识别瓶颈" class="headerlink" title="识别瓶颈"></a>识别瓶颈</h3><p>为了让你的测试得到最好的结果，你需要识别过程通道中用户失去访问兴趣或者脱离通向转换路程的区域。这些障碍被称为瓶颈。就是这些瓶颈对你的网站的表现产生了消极的影响，也就是你想要运作 A/B 测试的地方。</p>
+<p><img src="https://static.oschina.net/uploads/img/201511/03163625_dHcG.jpg" alt="Ab Testing for web design Bottlenecks"></p>
+<p>如果你在客户的商店中设置了 Google Analytics，其内置的转换跟踪可以提供相对简单的方式来识别用户体验中潜在的瓶颈，可以在分析管理界面中设定你的转换目标，通过定义一些用户走向转换的过程中的事件和页面就可以简单地创建一个转换通道。</p>
+<p>电子商务网站上常见的一个简单转换通道示例应该是这样的: “放到购物车” 到 “查看购物车”到“下单” 到 “选择支付方式” 到最后 “订单确认”。这里有一个 <a href="https://support.google.com/analytics/answer/1032415?hl=en" target="_blank" rel="noopener">很棒的指南</a> 能帮助你开始在 Analytics 上进行转换跟踪，另外还有一个能帮助你进行更多 <a href="https://docs.shopify.com/support/other/general-information/google-analytics-goals-and-funnels" target="_blank" rel="noopener">高级的通道转换跟踪</a> 的设置。</p>
+<p>一旦你设置好了转换目标和通道，你就能够使用 Google Analytics 的“Goals“找到的“Goal Flow”报告来识别瓶颈了。通过对造成最多门槛和用户退出的事件和页面进行高亮显示，这份报告能够帮助你着力于对测试最有益的区域。</p>
+<p><strong><img src="https://static.oschina.net/uploads/img/201511/03163626_Q0qY.jpg" alt=""></strong></p>
+<h3 id="创建一个假设"><a href="#创建一个假设" class="headerlink" title="创建一个假设"></a>创建一个假设</h3><p>一旦你确认了目标并识别除了瓶颈，你就应该创建一个你确信的假设，有关于对站点的设计修改会改变访问者行为的。这会使得你的测试更具价值，因为它想过程中加入了一层目的，确保你仍在保持对于整个测试目标实现过程的跟踪。</p>
+<p><strong>例如，假设你的客户的最终目标是降低网站的购物车放弃率。你已经完成了调查并识别出影响现有比率的瓶颈在于出现在”结算信息“页面之后而在”确认“页面之前的”传递信息“页面。在这种情况下，你的假设可以像下面这样：</strong></p>
+<p><strong>“如果我们通过将计费和传递信息页面整合成一个页面来缩短结账流程，那么整体的购物车放弃率将会降低。”</strong></p>
+<p>如果你在没有创建一个假设的情况下去尝试运作一次测试，你还是会收集到关于访问者有价值的数据。不过不幸的是，你会错过对于诸如为什么结果是他们这样做了这种问题的更深层次的分析和验证。即使你的测试失败了，你还是能够从实验中得出一些结论。实验的妙处在于，在整个站点上的实现之前放弃那些不起作用的想法。</p>
+<h3 id="设计一些修改版本"><a href="#设计一些修改版本" class="headerlink" title="设计一些修改版本"></a>设计一些修改版本</h3><p>在你可以去实践你的实验之前，你需要针对你所测试的特定的设计元素创建修改版本。元素原来的版本是控制版本，而新的版本都是这个控制版本的变化版本。</p>
+<p><img src="https://static.oschina.net/uploads/img/201511/03163626_7iGu.jpg" alt="Web Design Variants for AB Testing"></p>
+<p>为了开发出最准确和公正的 A/B 测试，要确保新的版本中只有控制变量其中之一被修改了。例如，你可以测试一个号召性按钮(如前所述)的颜色，或者其在页面上的位置，但不能同时测试。将你的测试限制于单一变量确保了你可以放心地将行为所发生的变化归因于做出了设计修改的变量<strong>。
+</strong></p>
+<h3 id="开始测试"><a href="#开始测试" class="headerlink" title="开始测试"></a>开始测试</h3><p>瓶颈确认而且构建了设计变量，你几乎就已经准备好运作你的A/B测试了。为了确保你的测试能提供最精确的结果，你会想要确保下面两件事情发生在实现期：</p>
+<p>1. 向一组随机选择的站点访问者分组同时展示你的变量和控制版本的元素.</p>
+<p>2. 将你的测试运行足够长的时间，那样它就能展示尽可能最大数量的样本.</p>
+<p>遵循这两项准则将有助于确保实验提供了统计上最显著的可能结果。那样，你就可以对你所使用的数据放心了，因为你所做出的最终设计决定的基础是可靠和精确的。</p>
+<p>对于初学者要在他们的站点——不管它是不是在 Shopify 上 ——上开始实现一次 A/B 测试最容易的方法就是使用 A/B 实验工具. 有各种工具可以供你用来在网站上进行 A/B 测试, 而我建议你先从 <a href="https://optimizely.com/" target="_blank" rel="noopener">Optimizely</a>, <a href="https://unbounce.com/" target="_blank" rel="noopener">unbounce</a>, 或者 <a href="https://www.google.com/analytics/standard/features/" target="_blank" rel="noopener">Google Analytics Content Experiments</a> 开始.</p>
+<p><strong>还有如果你在找一些额外的资源作为入门资料, 可以看看这些综合指南:</strong></p>
+<ul>
+<li><a href="https://www.shopify.ca/blog/12385217-the-beginners-guide-to-simple-a-b-testing" target="_blank" rel="noopener">简单的 A/B 测试入门指南</a></li>
+<li><a href="https://blog.optimizely.com/2013/03/08/ab-testing-and-website-redesigns/" target="_blank" rel="noopener">A/B 测试和网站重新设计</a></li>
+<li><a href="https://blog.optimizely.com/2013/04/30/71-things-to-ab-test/" target="_blank" rel="noopener">A/B 测试有关的71件事</a></li>
+</ul>
+<h2 id="成为一名更好的web设计者"><a href="#成为一名更好的web设计者" class="headerlink" title="成为一名更好的web设计者"></a>成为一名更好的web设计者</h2><p>最成功的网站设计者知道网站的交接仅仅只是开始而已. 每一个单独的项目都能带来几乎无穷尽的实践和优化的机会. 通过把 A/B 测试当做你的标准设计包中提供的一项服务, 就将能够提高收入，帮助你的客户达成更好的商务业绩, 并构建出一个你可以真正为之骄傲的网站.</p>
+<p>你还在等什么呢? 马上开始测试踏上你成为更好的 web 设计者的征途吧。</p>
+<p>此文为转载，原文链接：<a href="https://www.oschina.net/translate/how-a-b-testing-will-make-you-a-better-web-designer" target="_blank" rel="noopener">https://www.oschina.net/translate/how-a-b-testing-will-make-you-a-better-web-designer</a></p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/Jmeter-NonGUI-Test/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Jmeter以non-gui模式进行分布式测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/SercurityTest/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">安全测试与渗透测试区别</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    
+	<div id="toc" class="toc-article">
+		<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#A-B-测试-101"><span class="toc-number">1.</span> <span class="toc-text">A/B 测试 101</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么-Web-设计者应该做-A-B-测试"><span class="toc-number">1.1.</span> <span class="toc-text">为什么 Web 设计者应该做 A/B 测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何设计一个简单-A-B-测试"><span class="toc-number">1.2.</span> <span class="toc-text">如何设计一个简单 A/B 测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#定义你的目标"><span class="toc-number">1.3.</span> <span class="toc-text">定义你的目标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#识别瓶颈"><span class="toc-number">1.4.</span> <span class="toc-text">识别瓶颈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建一个假设"><span class="toc-number">1.5.</span> <span class="toc-text">创建一个假设</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设计一些修改版本"><span class="toc-number">1.6.</span> <span class="toc-text">设计一些修改版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#开始测试"><span class="toc-number">1.7.</span> <span class="toc-text">开始测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#成为一名更好的web设计者"><span class="toc-number">2.</span> <span class="toc-text">成为一名更好的web设计者</span></a></li></ol>
+		
+	</div>
+	<style>
+		.left-col .switch-btn,
+		.left-col .switch-area {
+		display: none;
+		}
+		#header .beian {
+		display: none;
+		}
+		#header .adhd {
+		display: none;
+		}
+		.toc-level-3 i,
+		.toc-level-3 ol {
+			display: none !important;
+		}
+	</style>
+	
+	<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+	
+	<script>
+		yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+	</script>
+
+
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+    
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    var disqus_config = function(){
+    	this.page.url = 'https://ephen.me/2015/AB-test/';
+	this.page.identifier = '2015/AB-test/';
+    };
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function(){
+    var d = document, s = d.createElement('script');
+    s.src = '//ephen.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);      
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/Jmeter-NonGUI-Test/" title="上一篇: Jmeter以non-gui模式进行分布式测试">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/SercurityTest/" title="下一篇: 安全测试与渗透测试区别">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2019/bind9-12-dig/">bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/laji-reocar/">首汽瑞卡便利租车怎么样？辣鸡霸王条款霸气客服气哭灰姑娘！</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/blog-update/">又来折腾博客了</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/zone-format/">闲聊 DNS 系统中域名的格式标准：下划线“_”是被允许的吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/mutisite-oneip/">需要上线多个域名（网站）却只有一个公网 IP 怎么办？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/cloudplatform-iam/">关于云平台用户鉴权管理（IAM）的一些总结和思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/First-Surgery/">记生平第一次手术经历</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/VSCode_PlantUML/">VSCode 中使用 PlantUML 插件生成 UML</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Goodbye-Orthodontic/">告别“牙套妹”称号</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/PublicDns_2/">使用公共 DNS 上网的弊端（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/PublicDns_1/">使用公共 DNS 上网的弊端（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/GetPMPCertificate/">成功取得项目管理专业人士资格认证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/dns_tcp/">什么情况下DNS会使用TCP传输协议？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/dnsrr-caa/">SSL证书颁发机构将对域名强制CAA检查，到底什么是CAA？CAA记录详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/beian/">给网站添加备案号展示</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/fenghe-blog/">几乎花了一个下午的时间参观了风河博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dyn-crashed/">谈谈上月Dyn遭受的DDoS攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/change-duty/">我又换工作~~内容~~了！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dnssec-dnsviz/">使用网页工具 DNSViz 检查域名 DNSSEC 配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dns-rr/">DNS资源记录（Resource Record，简称RR）介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dotkp-zone-dns-remove/">隔壁粗事了！朝鲜顶级域.kp域名DNS数据配置可被转移</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/GetDriverLicense/">我又领证了！~</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/hello-hexo/">全新出发，正式启用Hexo！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/Jmeter-NonGUI-Test/">Jmeter以non-gui模式进行分布式测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/AB-test/">不会 A/B 测试的 Web 设计师不是好程序员</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/SercurityTest/">安全测试与渗透测试区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/ScreenToGif/">分享一个win平台记录重现步骤的录屏小工具：ScreenToGif</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/opration-halfyear/">做CloudXNS产品运营的这半年</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/GetTestingCertificate/">终于领证了！~</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/Postman/">网站API测试工具：chrome插件 - Postman</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/cloudxns-ax/">CloudXNS中的AX记录类型测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/win8x64-oracle-plsql/">win8 64位+Oracle 11g 64位下使用PL/SQL Developer 的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/VmwareNetSet/">桥接模式下如何设置虚拟机和本机在同一网段</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/InvoidOfInvalidCase/">怎么避免无效的软件测试场景？</a></li></ul>
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Ephen | Hosted by <a href="https://pages.coding.me">Coding Pages</a>
+    	</div>
+      <div class="footer-right">
+      	<a href="https://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+	<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+  </div>
+</body>
+</html>

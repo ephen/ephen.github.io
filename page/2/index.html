@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <link rel="icon" href="/favicon.ico">
+
+
+	<link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+	<link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/style.css">
+
+	<style> .article { opacity: 1;} </style>
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+<title>Ephen‘s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+		scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+		search: true,
+		open_in_new: false
+	}
+</script>
+
+
+	<script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ephen‘s Blog">
+<meta property="og:url" content="https://ephen.me/page/2/index.html">
+<meta property="og:site_name" content="Ephen‘s Blog">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ephen‘s Blog">
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104686993-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e818eaeb03db00e8a2fd123b0cb5d63e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Ephen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">奇葩一朵， IT 废材</p>
+		
+		
+			<form id="search-form">
+				<input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+				<i class="fa fa-times" onclick="resetSearch()"></i>
+			</form>
+			<div id="local-search-result"></div>
+			<p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+		        
+
+		
+            <div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+        <div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+                            <li><a href="/">主页</a></li>
+				        
+                            <li><a href="/archives/">所有文章</a></li>
+				        
+                            <li><a href="/categories/心情驿站/">心情驿站</a></li>
+				        
+                            <li><a href="/About/">关于|留言</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<a class="fa mail" href="mailto:ephen@live.cn" title="mail"></a>
+					        
+								<a class="fa telegram" href="https://telegram.me/imephen" title="telegram"></a>
+					        
+								<a class="fa twitter" href="https://twitter.com/imephen" title="twitter"></a>
+					        
+								<a class="fa zhihu" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
+					        
+								<a class="fa weibo" href="http://weibo.com/cinderellacici" title="weibo"></a>
+					        
+								<a class="fa rss" href="/atom.xml" title="rss"></a>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/AX记录/" style="font-size: 10px;">AX记录</a> <a href="/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/tags/BlueMix/" style="font-size: 10px;">BlueMix</a> <a href="/tags/CAA/" style="font-size: 10px;">CAA</a> <a href="/tags/CloudXNS/" style="font-size: 15px;">CloudXNS</a> <a href="/tags/DDoS/" style="font-size: 10px;">DDoS</a> <a href="/tags/DNS/" style="font-size: 17.5px;">DNS</a> <a href="/tags/DNSSEC/" style="font-size: 10px;">DNSSEC</a> <a href="/tags/DNSViz/" style="font-size: 10px;">DNSViz</a> <a href="/tags/DNS劫持/" style="font-size: 10px;">DNS劫持</a> <a href="/tags/DNS域转移/" style="font-size: 10px;">DNS域转移</a> <a href="/tags/DNS安全/" style="font-size: 10px;">DNS安全</a> <a href="/tags/DYN/" style="font-size: 10px;">DYN</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/IAM/" style="font-size: 10px;">IAM</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/PL-SQL/" style="font-size: 10px;">PL/SQL</a> <a href="/tags/Public-DNS/" style="font-size: 12.5px;">Public DNS</a> <a href="/tags/RFC/" style="font-size: 10px;">RFC</a> <a href="/tags/Reocar/" style="font-size: 10px;">Reocar</a> <a href="/tags/SOA/" style="font-size: 10px;">SOA</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/UDP/" style="font-size: 10px;">UDP</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/VirtualHost/" style="font-size: 10px;">VirtualHost</a> <a href="/tags/Vmware/" style="font-size: 10px;">Vmware</a> <a href="/tags/Win8/" style="font-size: 10px;">Win8</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/bind/" style="font-size: 12.5px;">bind</a> <a href="/tags/dig/" style="font-size: 10px;">dig</a> <a href="/tags/edns-client-subnet/" style="font-size: 10px;">edns-client-subnet</a> <a href="/tags/hexo/" style="font-size: 15px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/sitemap/" style="font-size: 10px;">sitemap</a> <a href="/tags/v2ex/" style="font-size: 10px;">v2ex</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/产品管理/" style="font-size: 10px;">产品管理</a> <a href="/tags/产品运营/" style="font-size: 12.5px;">产品运营</a> <a href="/tags/公共DNS/" style="font-size: 12.5px;">公共DNS</a> <a href="/tags/分享/" style="font-size: 10px;">分享</a> <a href="/tags/协议/" style="font-size: 10px;">协议</a> <a href="/tags/参考资料/" style="font-size: 10px;">参考资料</a> <a href="/tags/场景/" style="font-size: 10px;">场景</a> <a href="/tags/域名/" style="font-size: 10px;">域名</a> <a href="/tags/域名攻击/" style="font-size: 10px;">域名攻击</a> <a href="/tags/域名格式/" style="font-size: 10px;">域名格式</a> <a href="/tags/备案/" style="font-size: 10px;">备案</a> <a href="/tags/安全/" style="font-size: 10px;">安全</a> <a href="/tags/朝鲜/" style="font-size: 10px;">朝鲜</a> <a href="/tags/本地DNS/" style="font-size: 12.5px;">本地DNS</a> <a href="/tags/泛域名/" style="font-size: 10px;">泛域名</a> <a href="/tags/测试/" style="font-size: 20px;">测试</a> <a href="/tags/渗透/" style="font-size: 10px;">渗透</a> <a href="/tags/版权/" style="font-size: 10px;">版权</a> <a href="/tags/瑞卡/" style="font-size: 10px;">瑞卡</a> <a href="/tags/生活/" style="font-size: 15px;">生活</a> <a href="/tags/用例/" style="font-size: 10px;">用例</a> <a href="/tags/用户鉴权/" style="font-size: 10px;">用户鉴权</a> <a href="/tags/租车/" style="font-size: 10px;">租车</a> <a href="/tags/程序员/" style="font-size: 10px;">程序员</a> <a href="/tags/管理/" style="font-size: 10px;">管理</a> <a href="/tags/网站/" style="font-size: 10px;">网站</a> <a href="/tags/虚拟机/" style="font-size: 10px;">虚拟机</a> <a href="/tags/解析流程/" style="font-size: 10px;">解析流程</a> <a href="/tags/记录类型/" style="font-size: 10px;">记录类型</a> <a href="/tags/设计师/" style="font-size: 10px;">设计师</a> <a href="/tags/负载均衡器/" style="font-size: 10px;">负载均衡器</a> <a href="/tags/资源协作/" style="font-size: 10px;">资源协作</a> <a href="/tags/递归DNS/" style="font-size: 12.5px;">递归DNS</a> <a href="/tags/霸气客服/" style="font-size: 10px;">霸气客服</a> <a href="/tags/霸王条款/" style="font-size: 10px;">霸王条款</a> <a href="/tags/顶级域/" style="font-size: 10px;">顶级域</a> <a href="/tags/项目/" style="font-size: 10px;">项目</a> <a href="/tags/首汽/" style="font-size: 10px;">首汽</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.freejishu.com/">Free技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.lwl12.com/">LWL</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://u.sb">Showfom</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://mritd.me/">漠然</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://kn007.net/">kn007</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://diygod.me/">DIYgod</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.lijian.me/">小李子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.skk.moe/">苏卡卡</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.4spaces.org">四个空格</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.ilemonrain.com">极光星空</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://xuanwo.io/">漩涡</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme"><a target='_blank' href='https://www.qingcloud.com/'>QingCloud 青云</a> 产品汪</div>
+				</section>
+				
+			</div>
+		</div>
+		<!-- <div align="center"><a class="adhd" href="https://psychcentral.com/quizzes/addquiz.htm" target="_blank"><img src="https://g.psychcentral.com/adhd_serious.gif" alt="Serious ADHD Likely!" width="180" height="81" border="0"></a></div> -->
+		
+		<a class="beian" href="http://www.beian.miit.gov.cn" target="_blank">鄂 ICP 备 15003996 号</a>
+				
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Ephen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">Ephen</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">奇葩一朵， IT 废材</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/categories/心情驿站/">心情驿站</a></li>
+		        
+					<li><a href="/About/">关于|留言</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<ul class="social">
+					
+						<a class="fa mail" target="_blank" href="mailto:ephen@live.cn" title="mail"></a>
+			        
+						<a class="fa telegram" target="_blank" href="https://telegram.me/imephen" title="telegram"></a>
+			        
+						<a class="fa twitter" target="_blank" href="https://twitter.com/imephen" title="twitter"></a>
+			        
+						<a class="fa zhihu" target="_blank" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
+			        
+						<a class="fa weibo" target="_blank" href="http://weibo.com/cinderellacici" title="weibo"></a>
+			        
+						<a class="fa rss" target="_blank" href="/atom.xml" title="rss"></a>
+			        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+    <article id="post-PublicDns_1" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/PublicDns_1/" class="article-date">
+  	<time datetime="2017-08-03T16:00:00.000Z" itemprop="datePublished">2017-08-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/PublicDns_1/">使用公共 DNS 上网的弊端（一）</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>作为资深网民的我们都知道，本地 DNS 是非常重要的，它能决定你到底能不能上网。</p>
+<p>由于本地运营商 DNS 常常被大家诟病容易遭到劫持等风险，使得很多人选用公共 DNS 来作为本地上网用的 DNS ，例如 114DNS 、阿里 DNS 等。</p>
+<p>但是，喜欢用公共 DNS 的你，知道公共 DNS 在上网时会有什么弊端吗？</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Public-DNS/">Public DNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/公共DNS/">公共DNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/本地DNS/">本地DNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递归DNS/">递归DNS</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/知识探索/">知识探索</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/PublicDns_1/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-GetPMPCertificate" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/GetPMPCertificate/" class="article-date">
+  	<time datetime="2017-07-24T16:00:00.000Z" itemprop="datePublished">2017-07-25</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/GetPMPCertificate/">成功取得项目管理专业人士资格认证</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p><strong>各位看官请注意：</strong></p>
+<p><strong>此文章涉及本姑娘个人信息，文章公开代表逛到这里的人可以看，但并不代表我同意被传播。</strong></p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/管理/">管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/项目/">项目</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心情驿站/">心情驿站</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/GetPMPCertificate/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-dns_tcp" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/dns_tcp/" class="article-date">
+  	<time datetime="2017-07-16T16:00:00.000Z" itemprop="datePublished">2017-07-17</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/dns_tcp/">什么情况下DNS会使用TCP传输协议？</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>我们知道， DNS 是同时占用 UDP 和 TCP 的 53 端口传输数据的，这种单个应用协议同时使用两种传输协议的情况，在 TCP/IP 栈中也算是个异类。</p>
+<p>当我们在使用 tcpdump 、 WireShark 等抓包工具分析时，会发现几乎所有的 DNS 应用都是在使用 UDP 传输。</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154104.png" alt="DNS查询使用UDP协议传输"></p>
+<p>那么，为什么 DNS 还要占用 TCP 的端口，到底什么情况下才会用到 TCP 呢？</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS/">DNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/TCP/">TCP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/UDP/">UDP</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/协议/">协议</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/知识探索/">知识探索</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/dns_tcp/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-dnsrr-caa" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/dnsrr-caa/" class="article-date">
+  	<time datetime="2017-06-12T16:00:00.000Z" itemprop="datePublished">2017-06-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/dnsrr-caa/">SSL证书颁发机构将对域名强制CAA检查，到底什么是CAA？CAA记录详解</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="强制CAA检查的提议"><a href="#强制CAA检查的提议" class="headerlink" title="强制CAA检查的提议"></a>强制CAA检查的提议</h2><p>2017年3月7日，CA|B Forum （一个全球证书颁发机构与浏览器的技术论坛）发起了一项关于对域名强制检查CAA的一项提议的投票，获得187票支持，投票有效，提议通过。</p>
+<p>提议通过后，将于<strong>2017年9月8日</strong>根据Mozilla的Gervase Markham提出的检查CAA记录作为基准要求来实施。</p>
+<p>详情参见：<a href="https://cabforum.org/2017/03/08/ballot-187-make-caa-checking-mandatory/" target="_blank" rel="noopener">Ballot 187 – Make CAA Checking Mandatory</a></p>
+<h2 id="什么是CAA记录？"><a href="#什么是CAA记录？" class="headerlink" title="什么是CAA记录？"></a>什么是CAA记录？</h2><p>CAA，全称Certificate Authority Authorization，即证书颁发机构授权。它为了改善PKI（Public Key Infrastructure：公钥基础设施）生态系统强度、减少证书意外错误发布的风险，通过DNS机制创建CAA资源记录，从而限定了特定域名颁发的证书和CA（证书颁发机构）之间的联系。从此，再也不能是任意CA都可以为任意域名颁发证书了。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CAA/">CAA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS/">DNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SSL/">SSL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/https/">https</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工作笔记/">工作笔记</a><a class="article-category-link" href="/categories/工作笔记/知识探索/">知识探索</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/dnsrr-caa/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-beian" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/beian/" class="article-date">
+  	<time datetime="2017-02-21T16:00:00.000Z" itemprop="datePublished">2017-02-22</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/beian/">给网站添加备案号展示</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="折腾原因"><a href="#折腾原因" class="headerlink" title="折腾原因"></a>折腾原因</h2><p>由于在公司折腾<a href="https://www.cloudxns.net" target="_blank" rel="noopener">CloudXNS</a>和<a href="https://www.newdefend.com" target="_blank" rel="noopener">牛盾</a>，有个备案比较好开展工作。正好上次公司CDN网监来查，要求我把备案展示出来。想想这事情也该办了，搞起……</p>
+<p>唔，还是提一嘴，姐无任何前端知识储备，大牛路过请点右上红叉关闭。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol>
+<li>备案号放至左侧边栏下方，链接到工信部网站；</li>
+<li>备案号可进入主题<code>_config.yml</code>中配置修改；</li>
+<li>文章页显示目录时不做展示；</li>
+<li>放弃适配移动端。</li>
+</ol>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/备案/">备案</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/博客折腾/">博客折腾</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2017/beian/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-fenghe-blog" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/fenghe-blog/" class="article-date">
+  	<time datetime="2016-12-29T16:00:00.000Z" itemprop="datePublished">2016-12-30</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/fenghe-blog/">几乎花了一个下午的时间参观了风河博客</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>2015 年 CloudXNS “重出江湖”的时候，我们做了个让用户写体验文章的活动，风河博客的一篇《<a href="http://blog.dnsbed.com/?p=1497" target="_blank" rel="noopener">谈谈CloudXNS</a>》吸引了我的眼球。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS/">DNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/泛域名/">泛域名</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心情驿站/">心情驿站</a><a class="article-category-link" href="/categories/心情驿站/知识探索/">知识探索</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/fenghe-blog/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-dyn-crashed" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/dyn-crashed/" class="article-date">
+  	<time datetime="2016-11-03T16:00:00.000Z" itemprop="datePublished">2016-11-04</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/dyn-crashed/">谈谈上月Dyn遭受的DDoS攻击</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>这件事情发森在美国时间的2016年10月21日，到今天大约已经过去了半个多月。</p>
+<p>那几天，新闻铺天盖地，季风从墙外刮过长城，吹到中原，拂过我的耳朵。</p>
+<p>当时看到这个消息时本想立即写一篇蹭它一波热度，一来是时间问题，二来想想我就一小博客也没必要跟风，也就作罢。</p>
+<p>今天我整个回顾了下所有看过的新闻及各类文章分析，还是决定来谈一谈。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DDoS/">DDoS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DYN/">DYN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/域名攻击/">域名攻击</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/当时就被震惊/">当时就被震惊</a><a class="article-category-link" href="/categories/当时就被震惊/知识探索/">知识探索</a><a class="article-category-link" href="/categories/当时就被震惊/知识探索/心情驿站/">心情驿站</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/dyn-crashed/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-change-duty" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/change-duty/" class="article-date">
+  	<time datetime="2016-10-20T16:00:00.000Z" itemprop="datePublished">2016-10-21</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/change-duty/">我又换工作~~内容~~了！</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <p>继在上家公司身兼测试、实施、运维、客服、配置管理、质量管理、培训讲师等多职之后，如今在现任也开启了角色变更模式。</p>
+<p>这次改得更彻底，连公司名也变啦。咱以后是『光载无限（北京）科技有限公司』的人了，不再属于『北京快网科技有限公司』了。</p>
+<p>尽管我还是『武汉快网云计算有限公司』的。</p>
+<p>哈哈，理不清关系吗？其实我也理不太清，不晓得是怎么搞的，反正还是『世纪互联』旗下的。</p>
+<p>『光载无限』要成为『世纪互联』旗下重点品牌了，听说公司正在筹备品牌发布会，也不知道啥时候开。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/产品管理/">产品管理</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/产品运营/">产品运营</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/心情驿站/">心情驿站</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/change-duty/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-dnssec-dnsviz" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/dnssec-dnsviz/" class="article-date">
+  	<time datetime="2016-10-12T16:00:00.000Z" itemprop="datePublished">2016-10-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/dnssec-dnsviz/">使用网页工具 DNSViz 检查域名 DNSSEC 配置</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="关于-DNSSEC"><a href="#关于-DNSSEC" class="headerlink" title="关于 DNSSEC"></a>关于 DNSSEC</h2><p>DNSSEC 全称 Domain Name System Security Extensions，即 DNS安全扩展，是由Internet工程任务组 （IETF）提供的一系列DNS安全认证的机制（可参考<a href="https://tools.ietf.org/html/rfc2535" target="_blank" rel="noopener">RFC2535</a>）。</p>
+<p>它是对DNS提供给DNS客户端（解析器）的DNS数据来源进行认证，并验证不存在性和校验数据完整性验证，但不提供或机密性和可用性。<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E6%89%A9%E5%B1%95" target="_blank" rel="noopener">来源：域名系统安全扩展 - 维基百科，自由的百科全书</a></p>
+<p>一些基础的相关介绍可参考我在 CloudXNS 官网发的文章：</p>
+<ol>
+<li><a href="https://www.cloudxns.net/Support/detail/id/1309.html" target="_blank" rel="noopener">什么是DNSSEC？DNSSEC的概念及作用</a></li>
+<li><a href="https://www.cloudxns.net/Support/detail/id/1311.html" target="_blank" rel="noopener">如何验证DNS服务器是否支持DNSSEC？</a></li>
+</ol>
+<p>通俗点讲， DNSSEC 的主要作用就是防止 DNS劫持，从而保证 DNS安全。</p>
+<p>但在这个保证安全的过程中，DNSSEC 的 RR 和 RRSIG 的传输过程都是未加密的（即：不提供机密性），我们通过一些嗅探工具可以读取 RRSIG记录 以及由 DS记录 建立的信任链。</p>
+<p>今天我们就来聊聊 DNSSEC 信任链的那些事。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNSSEC/">DNSSEC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNSViz/">DNSViz</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS劫持/">DNS劫持</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS安全/">DNS安全</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工具介绍/">工具介绍</a><a class="article-category-link" href="/categories/工具介绍/知识探索/">知识探索</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/dnssec-dnsviz/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-dns-rr" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/dns-rr/" class="article-date">
+  	<time datetime="2016-10-07T16:00:00.000Z" itemprop="datePublished">2016-10-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/dns-rr/">DNS资源记录（Resource Record，简称RR）介绍</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+              <h2 id="DNS-资源记录简介"><a href="#DNS-资源记录简介" class="headerlink" title="DNS 资源记录简介"></a>DNS 资源记录简介</h2><p>DNS server 内的每一个域名都有自己的域文件(zone file)，zone file 是由多个记录组成的，每一个记录就被称为资源记录(Resource Record，简称RR)。</p>
+<p>当在设定 DNS 域名解析、反向解析及其他的管理目的时，往往需要使用不同类型的RR，也就是我们常说的<a href="https://www.cloudxns.net/Support/detail/id/54.html" target="_blank" rel="noopener">记录类型</a>。</p>
+<p>上述CloudXNS的记录类型列表中，除AX、CNAMEX、LINK、DR301X（301跳转）、DR302X（302跳转）以及DRHIDX（隐式跳转）为CloudXNS自研的<a href="https://www.cloudxns.net/Index/Extend.html" target="_blank" rel="noopener">扩展解析记录类型</a>之外，其余都是 DNS 体系中常见的标准RR类型。</p>
+<p>但除了我们系统中支持的这些类型外，事实上还有一些不太常用的目前CloudXNS暂不支持的其他RR类型，感兴趣的朋友可以和灰姑娘一起学习下。</p>
+          
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS/">DNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SOA/">SOA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/参考资料/">参考资料</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/记录类型/">记录类型</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/工作笔记/">工作笔记</a><a class="article-category-link" href="/categories/工作笔记/知识探索/">知识探索</a>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/dns-rr/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
+  
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Ephen | Hosted by <a href="https://pages.coding.me">Coding Pages</a>
+    	</div>
+      <div class="footer-right">
+      	<a href="https://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.js"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+	<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+  </div>
+</body>
+</html>
