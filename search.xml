@@ -19,7 +19,7 @@
 <a id="more"></a>
 <h2 id="友链更新"><a href="#友链更新" class="headerlink" title="友链更新"></a>友链更新</h2><p>一个个的检查现有友链后，将能找到私下联系方式的朋友确认换域名、闭站及撤链情况，将友链都更新好。有些找不到联系方式的朋友，我就直接撤链了。</p>
 <p>因此事实证明，友链这东西，一定要<strong>先友后链</strong>，否则自己是怎么被撤链的都不知道。</p>
-<h2 id="部署问题"><a href="#部署问题" class="headerlink" title="部署问题"></a>部署问题</h2><p>如前文《<a href="https://ephen.me/2016/hello-hexo/">全新出发，正式启用Hexo！</a>》所述，我原本是启用了个人云主机、Github Page 和 Coding Page 多点部署的。</p>
+<h2 id="部署问题"><a href="#部署问题" class="headerlink" title="部署问题"></a>部署问题</h2><p>如前文《<a href="/2016/hello-hexo/">全新出发，正式启用Hexo！</a>》所述，我原本是启用了个人云主机、Github Page 和 Coding Page 多点部署的。</p>
 <p>这次更新完友链后，直接执行 <code>hexo g</code> 和 <code>hexo d</code> 准备发布，发现 Coding 出现报错。去搜索了下，才发现我曾经收到过如下邮件：</p>
 <p><img src="https://imephen.pek3b.qingstor.com/20220216150100.png" alt="Coding Page 服务关闭"></p>
 <p>于是屏蔽掉 Coding deploy 配置，重新执行 <code>hexo d</code> ，发现 Github 提示 <code>nothing commit</code> 。度娘了下，<strong>删除掉 <code>.deploy_git</code> 文件夹后解决</strong>。想来可能是因为我换电脑本地数据迁移时未验证迁移配置的缘故吧~</p>
@@ -40,9 +40,9 @@
 <p>看到是引用的文件 CDN 缓存路径出错后，<strong>找到官方路径和代码引用位置进行替换</strong>后解决。</p>
 <p>再次打开网站，终于折腾完毕，其他的报错暂且也不想再看了。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>太久不更新，问题就是多多呀。</p>
-<p>主要是最近几年真的发生了太多事，精力实在有限。要不是有个什么契机，其实也是不想再去折腾了。毕竟我连常用指令都需要去找度娘解决，还有什么用呢？</p>
+<p>主要是最近几年真的发生了太多事，精力实在有限。要不是有个什么契机，其实也是不想再去折腾了。<del>毕竟我连常用指令都需要去找度娘解决，还有什么用呢？</del></p>
 <p>这里我只是记录下折腾过程，免得日后什么时候弄起来遇到相同问题又要找度娘。</p>
-<p>另外提醒下大家，千万不要学我“暴力 rm”、“未经确认就发布”等行为，要养成好习惯哟！~</p>
+<p>另外提醒下大家，千万不要学我“暴力 rm”、“未经确认就发布”等行为，一定要养成好习惯哟！~</p>
 ]]></content>
       
         <categories>
