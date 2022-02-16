@@ -4,6 +4,69 @@
   
     
     <entry>
+      <title><![CDATA[记录下多年未更新博客的后遗症]]></title>
+      <url>https://ephen.me/2022/blog-sequela/</url>
+      <content type="html"><![CDATA[<p>朋友网站换链接了，到 <a href="https://telegram.me/imephen" target="_blank" rel="noopener">Telegram</a> 上提醒我更新下友链。本以为不就是改个链接嘛，没想到问题接踵而至。果然太长时间没动过的东西，没有想象中那么简单。</p>
+<p>本次更新发现的主要后遗症列表：</p>
+<ol>
+<li>多个朋友发生域名更换及闭站或撤链；</li>
+<li>hexo &amp; git 命令都忘了怎么用；</li>
+<li>hexo g 生成空文件，造成网页白屏；</li>
+<li>Coding Pages 服务已关闭；</li>
+<li>博客头像、标签、菜单和分类均加载失败；</li>
+</ol>
+<p>以下详述。</p>
+<a id="more"></a>
+<h2 id="友链更新"><a href="#友链更新" class="headerlink" title="友链更新"></a>友链更新</h2><p>一个个的检查现有友链后，将能找到私下联系方式的朋友确认换域名、闭站及撤链情况，将友链都更新好。有些找不到联系方式的朋友，我就直接撤链了。</p>
+<p>因此事实证明，友链这东西，一定要<strong>先友后链</strong>，否则自己是怎么被撤链的都不知道。</p>
+<h2 id="部署问题"><a href="#部署问题" class="headerlink" title="部署问题"></a>部署问题</h2><p>如前文《<a href="https://ephen.me/2016/hello-hexo/">全新出发，正式启用Hexo！</a>》所述，我原本是启用了个人云主机、Github Page 和 Coding Page 多点部署的。</p>
+<p>这次更新完友链后，直接执行 <code>hexo g</code> 和 <code>hexo d</code> 准备发布，发现 Coding 出现报错。去搜索了下，才发现我曾经收到过如下邮件：</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20220216150100.png" alt="Coding Page 服务关闭"></p>
+<p>于是屏蔽掉 Coding deploy 配置，重新执行 <code>hexo d</code> ，发现 Github 提示 <code>nothing commit</code> 。度娘了下，<strong>删除掉 <code>.deploy_git</code> 文件夹后解决</strong>。想来可能是因为我换电脑本地数据迁移时未验证迁移配置的缘故吧~</p>
+<p>接着，上云主机运行同步脚本，发现 git 报认证错误。于是<strong>重新执行 <code>ssh-keygen -t rsa -C &quot;github账号邮箱&quot;</code> 生成ssh密钥后添加到 Github Settings –&gt; SSH and GPG Keys 页面</strong>。再次运行脚本后成功。</p>
+<p>最后，上域名服务商删掉使用 Coding Page 的分区解析。</p>
+<h2 id="网页白屏修复"><a href="#网页白屏修复" class="headerlink" title="网页白屏修复"></a>网页白屏修复</h2><p>本以为做完以上操作一切就绪，当我洋洋得意打开我的博客网站时，居然是一片白。本地执行 <code>hexo s</code> 发现又可以正常显示，这让我一个头两个大。。</p>
+<p>去检查云主机发现，上面的文件都是 0KB ，内容全部为空；接着去 GitHub 上看，文件也是空的；最后才发现本地 <code>/public</code> 目录下的文件居然也是空的！</p>
+<p>那么应该是 <code>hexo generate</code> 命令的问题了，又执行了一遍 <code>hexo clean</code> 和 <code>hexo generate</code> 后确认。于是再次求助度娘，原来是本地 hexo 版本和 node 版本不匹配（hexo 版本低了，node 版本高了）。</p>
+<p>于是，<strong>升级 hexo</strong> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p><strong>降级 node</strong> ：登录 <a href="https://nodejs.org/en/download/releases/" target="_blank" rel="noopener">node.js 官网历史版本下载页</a>找到一个 12.x 的版本（我下载的版本是 12.22.10）下载下来，卸载掉本地已安装的 node 后重新安装该版本，然后重新启动。</p>
+<p>再次 <code>hexo clean</code> 后 <code>hexo generate</code> ，<code>/public</code> 目录下的文件已有内容了。</p>
+<p>重新执行 <code>hexo d</code> 成功发布到 Github Page 。到云主机执行脚本时，却一直提示 <code>Already up-to-date</code> ，真是见鬼了。淦！</p>
+<p>直接 <strong><code>rm -rf .</code> 删除掉同步目录，执行 <code>git clone git@github.com:ephen/ephen.github.io.git .</code> 将所有文件重新生成到当前目录</strong>后解决。</p>
+<h2 id="网页-JS-修复"><a href="#网页-JS-修复" class="headerlink" title="网页 JS 修复"></a>网页 JS 修复</h2><p>长吁一口气后再去“欣赏”网站，却怎么也找不到自己的友链入口。仔细一看，头像、标签、分类全都消失了。折腾到此，午饭都没有吃，真是欲哭无泪！</p>
+<p>沉下心来 F12 看看报错，第一个报错如下：</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20220216155418.jpg" alt="require,jquery 调用出错"></p>
+<p>看到是引用的文件 CDN 缓存路径出错后，<strong>找到官方路径和代码引用位置进行替换</strong>后解决。</p>
+<p>再次打开网站，终于折腾完毕，其他的报错暂且也不想再看了。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>太久不更新，问题就是多多呀。</p>
+<p>主要是最近几年真的发生了太多事，精力实在有限。要不是有个什么契机，其实也是不想再去折腾了。毕竟我连常用指令都需要去找度娘解决，还有什么用呢？</p>
+<p>这里我只是记录下折腾过程，免得日后什么时候弄起来遇到相同问题又要找度娘。</p>
+<p>另外提醒下大家，千万不要学我“暴力 rm”、“未经确认就发布”等行为，要养成好习惯哟！~</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 博客折腾 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> node </tag>
+            
+            <tag> git </tag>
+            
+            <tag> jquery </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
       <title><![CDATA[bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）]]></title>
       <url>https://ephen.me/2019/bind9-12-dig/</url>
       <content type="html"><![CDATA[<blockquote>
@@ -1940,8 +2003,6 @@
 ]]></content>
       
         <categories>
-            
-            <category> 心情驿站 </category>
             
             <category> 博客折腾 </category>
             
