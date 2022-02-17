@@ -11,8 +11,8 @@
 <ol>
 <li>多个朋友发生域名更换及闭站或撤链；</li>
 <li>hexo &amp; git 命令都忘了怎么用；</li>
-<li>hexo g 生成空文件，造成网页白屏；</li>
 <li>Coding Pages 服务已关闭；</li>
+<li>hexo generate 生成空文件，造成网页白屏；</li>
 <li>博客头像、标签、菜单和分类均加载失败；</li>
 </ol>
 <p>以下详述。</p>
@@ -90,8 +90,8 @@
 <p><strong>如果你和我一样正在使用 dig 9.12.3-p1 版，为不影响使用，记得将软件升级或回退哦。</strong></p>
 <h2 id="Windows-上如何安装-dig-工具？"><a href="#Windows-上如何安装-dig-工具？" class="headerlink" title="Windows 上如何安装 dig 工具？"></a>Windows 上如何安装 dig 工具？</h2><p>最简单的方法，到官网下载相应版本 Bind 后，解压。</p>
 <p><img src="https://pek3b.qingstor.com/imephen/binddir.jpg" alt=" Bind 源程序解压 "></p>
-<p>使用管理员运行<code>BINDInstall.exe</code> ，指定本地安装目录。</p>
-<p>如果只想安装 dig ，安装选项选择<code>Tools Only</code>即可。如下图所示：</p>
+<p>使用管理员运行 <code>BINDInstall.exe</code> ，指定本地安装目录。</p>
+<p>如果只想安装 dig ，安装选项选择 <code>Tools Only</code> 即可。如下图所示：</p>
 <p><img src="https://pek3b.qingstor.com/imephen/bindinstall.jpg" alt=" 安装 dig "></p>
 <p>是不是很简单鸭~</p>
 <p>不太记得是不是需要自己加下环境变量，要是小伙伴<strong>安装后不能像我一样直接在 CMD 里不指定目录使用 dig ，那就需要添加下 PATH 。</strong></p>
@@ -381,22 +381,22 @@
 <a id="more"></a>
 <h2 id="穷到啥都不剩：别说-ip-了，连主机都买不起"><a href="#穷到啥都不剩：别说-ip-了，连主机都买不起" class="headerlink" title="穷到啥都不剩：别说 ip 了，连主机都买不起"></a>穷到啥都不剩：别说 ip 了，连主机都买不起</h2><p>在云计算行业，虚拟化是一个不陌生的词。只要资源够，一台机器可以生出无数台虚拟机来。</p>
 <p> Web 服务上同样也有类似的概念，人们可以通过创建不同的 VirtualHost 指向不同的域名（或端口）和目录，即可实现同一台机器上生出多个不同的站点。</p>
-<p>以 Apache 为例，Apache 安装好后在默认配置中一般有两个重要的配置文件：<code>httpd.conf</code>和<code>welcome.conf</code></p>
-<p>其中<code>httpd.conf</code>是程序的配置文件，决定了程序将要使用什么组件、监听什么端口、加载什么配置、各类程序文件及日志文件都放到哪里等等；而<code>welcome.conf</code>是程序提供的 Web 配置示例，告诉使用者要搭建网站该怎么配置。</p>
+<p>以 Apache 为例，Apache 安装好后在默认配置中一般有两个重要的配置文件： <code>httpd.conf</code> 和 <code>welcome.conf</code></p>
+<p>其中 <code>httpd.conf</code> 是程序的配置文件，决定了程序将要使用什么组件、监听什么端口、加载什么配置、各类程序文件及日志文件都放到哪里等等；而 <code>welcome.conf</code> 是程序提供的 Web 配置示例，告诉使用者要搭建网站该怎么配置。</p>
 <ul>
-<li>注：Apache 中 Web 站点配置文件名不一定是<code>welcome.conf</code>，只要<code>httpd.conf</code>文件中有指向，可以是任意的文件名。本文仅以<code>welcome.conf</code>做示例。</li>
+<li>注：Apache 中 Web 站点配置文件名不一定是 <code>welcome.conf</code> ，只要 <code>httpd.conf</code> 文件中有指向，可以是任意的文件名。本文仅以 <code>welcome.conf</code> 做示例。</li>
 </ul>
-<p>我们知道，http 服务的默认端口是 80 ，使用 80 端口则用户在访问时不用刻意在浏览器输入端口号，非常方便。<code>httpd.conf</code>文件中默认<code>Listen 80</code>，要使用 80 端口，我们只需要配置好 Web 站点即可。</p>
-<p>默认的<code>welcome.conf</code>文件内容中的 VirtualHost 配置是这样的（截取关键内容）：</p>
+<p>我们知道，http 服务的默认端口是 80 ，使用 80 端口则用户在访问时不用刻意在浏览器输入端口号，非常方便。 <code>httpd.conf</code> 文件中默认 <code>Listen 80</code> ，要使用 80 端口，我们只需要配置好 Web 站点即可。</p>
+<p>默认的 <code>welcome.conf</code> 文件内容中的 VirtualHost 配置是这样的（截取关键内容）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/&quot;</span><br><span class="line">    ServerName ephen.me</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
-<p><code>DocumentRoot</code>后面的目录表示站点搭建目录，<code>ServerName</code> 表示站点域名。</p>
+<p><code>DocumentRoot</code> 后面的目录表示站点搭建目录， <code>ServerName</code> 表示站点域名。</p>
 <p>如果我们需要配置多个不同的站点，将站点搭建到不同的目录，在该文件中多配置几条 VirtualHost 就好：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost ephen.me:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/ephen.me/&quot;</span><br><span class="line">    ServerName ephen.me</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">&lt;VirtualHost demo.com:80&gt;</span><br><span class="line">    DocumentRoot &quot;/var/www/html/demo.com/&quot;</span><br><span class="line">    ServerName demo.com</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
 <p>使用其他的 Web 服务程序，道理是一样的。 Nginx VirtualHost 配置可参考：<a href="http://tabalt.net/blog/nginx-virtual-host/" target="_blank" rel="noopener">http://tabalt.net/blog/nginx-virtual-host/</a></p>
 <h2 id="只是有点小气：不差钱，就是只想用一个-ip"><a href="#只是有点小气：不差钱，就是只想用一个-ip" class="headerlink" title="只是有点小气：不差钱，就是只想用一个 ip"></a>只是有点小气：不差钱，就是只想用一个 ip</h2><p>假设多个不同的网站已经在不同的云主机上已搭建好，而目前能提供服务的可用 ip 只有一个。通常咱们会想到要是前面再有一个分发装置用于绑定这个 ip ，然后通过访问端口或域名区分真正到达的主机，那真真是极好的~</p>
 <p>在云计算行业，这个分发装置肯定是有的，就看你怎么用了。</p>
 <p>下文将以 QingCloud 云平台为例，来解决这个问题。</p>
-<h3 id="负载均衡器（Load-Balancer）"><a href="#负载均衡器（Load-Balancer）" class="headerlink" title="负载均衡器（Load Balancer）"></a>负载均衡器（Load Balancer）</h3><p>创建负载均衡监听器，监听 80 端口，添加多个后端，然后为这些后端分别绑定不同的转发策略，就能成功满足需求。</p>
+<h3 id="负载均衡器（-Load-Balancer-）"><a href="#负载均衡器（-Load-Balancer-）" class="headerlink" title="负载均衡器（ Load Balancer ）"></a>负载均衡器（ Load Balancer ）</h3><p>创建负载均衡监听器，监听 80 端口，添加多个后端，然后为这些后端分别绑定不同的转发策略，就能成功满足需求。</p>
 <p>操作步骤示例：</p>
 <ol>
 <li>创建负载均衡器，绑定仅有的一个公网 ip</li>
@@ -411,7 +411,7 @@
 </ol>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426163314.png" alt="HTTP 监听器"></p>
 <ol start="3">
-<li><p>为对应的后端添加转发策略，让来自<code>ephen.me</code>站点的请求指向对应的后端地址</p>
+<li><p>为对应的后端添加转发策略，让来自 <code>ephen.me</code> 站点的请求指向对应的后端地址</p>
 <ul>
 <li>注意看上面第二步附图中后端列表倒数第 3 个字段——“转发策略”，点击下面对应的“绑定”二字；</li>
 <li>若没有转发策略可绑，会指引创建：</li>
@@ -427,11 +427,11 @@
 <p><img src="https://pek3b.qingstor.com/imephen/20190426163416.png" alt="choose forward"></p>
 </li>
 </ol>
-<p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，若域名为 <code>ephen.me</code>则转发至该后端主机。</strong></p>
+<p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，若域名为 <code>ephen.me</code> 则转发至该后端主机。</strong></p>
 <p>如果有存在多台已配置好不同 Web 服务的云主机要共用这个 ip ，只需要继续往这个负载均衡器添加后端主机并绑定不同规则的转发策略就可以了。</p>
 <p>当然，负载均衡器的作用远不仅仅如此，本文的介绍可以看作是为解决问题而抖个机灵罢了。更多的介绍可参照 QingCloud 官网：<a href="https://www.qingcloud.com/products/loadbalancer/" target="_blank" rel="noopener">负载均衡_LB Cluster | 青云QingCloud</a></p>
 <h3 id="VPC-网络"><a href="#VPC-网络" class="headerlink" title="VPC 网络"></a>VPC 网络</h3><p>“负载均衡器 + 转发策略”的解决方案确实很好用，但如果多个不同业务的站点已经搭建到不同的云主机，除了 ip 没有多的可用外，连域名都想用同一个，只靠端口号来区分，又该怎么办呢？</p>
-<p>当然负载均衡器也是可以解决的，看到这里的小伙伴可以一起思考下。不过这时候容许灰姑娘再抖个机灵，通过创建“VPC 网络 + 端口转发”来解决。</p>
+<p>当然负载均衡器也是可以解决的，看到这里的小伙伴可以一起思考下。不过这时候容许灰姑娘再抖个机灵，通过创建“ VPC 网络 + 端口转发”来解决。</p>
 <p>关于 VPC 网络的介绍，可以先看看：<a href="https://www.qingcloud.com/products/vpc/" target="_blank" rel="noopener">专属私有网络_VPC | 青云QingCloud</a></p>
 <p>懂的童鞋可跳过，且看操作步骤：</p>
 <ol>
@@ -455,7 +455,7 @@
       
         <categories>
             
-            <category> 经验分享 </category>
+            <category> 工作笔记 </category>
             
         </categories>
         
@@ -472,6 +472,8 @@
             
             <tag> VirtualHost </tag>
             
+            <tag> LB </tag>
+            
         </tags>
         
     </entry>
@@ -481,7 +483,7 @@
       <url>https://ephen.me/2018/cloudplatform-iam/</url>
       <content type="html"><![CDATA[<p>AWS 作为云计算行业鼻祖，不论是什么功能，都做得非常完备，且一切可编程。它们能全方位的解决客户的各种问题，甚至想他人之未曾想，真的非常值得业内人士及机构尊敬。</p>
 <p>但，完备的背后离不开大量的人力支持，又因为它的完备使得各业务都极其复杂。我最近才开始好好看一看 AWS ，才知道居然都有专门的 AWS 咨询师这样的职业。真是厉害了~</p>
-<p>目前主要在看的模块是 IAM 以及周边功能，由于本喵的英文水平不太好，云计算行业术语又了解得太少，看得好费劲。不过通过借助谷歌翻译、上手操作以及咨询<a href="https://sb.sb/blog/" target="_blank" rel="noopener">兽兽</a>等大咖，也算是了解了个大概。</p>
+<p>目前主要在看的模块是 IAM 以及周边功能，由于本喵的英文水平不太好，云计算行业术语又了解得太少，看得好费劲。不过通过借助谷歌翻译、上手操作以及咨询<a href="https://u.sb/" target="_blank" rel="noopener">兽兽</a>等大咖，也算是了解了个大概。</p>
 <a id="more"></a>
 <hr>
 <h2 id="IAM-非官方简介"><a href="#IAM-非官方简介" class="headerlink" title="IAM 非官方简介"></a>IAM 非官方简介</h2><p>IAM ，全称 Identity and Access Management ，字面意思就是识别用户身份和接入控制的管理，所以我将其翻译为“用户鉴权”。</p>
@@ -640,12 +642,6 @@
         </categories>
         
         
-        <tags>
-            
-            <tag> 生活 </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -792,12 +788,6 @@
         </categories>
         
         
-        <tags>
-            
-            <tag> 生活 </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
@@ -834,11 +824,11 @@
             
             <tag> Public DNS </tag>
             
-            <tag> 公共DNS </tag>
+            <tag> 公共 DNS </tag>
             
-            <tag> 本地DNS </tag>
+            <tag> 本地 DNS </tag>
             
-            <tag> 递归DNS </tag>
+            <tag> 递归 DNS </tag>
             
             <tag> edns-client-subnet </tag>
             
@@ -864,11 +854,11 @@
 <p>当用户上网时，客户端会向这个集群中的 A 地址请求解析，这个 A 地址被称为 DNS 入口；智能 DNS 在判断网民用户来源时，会使用 DNS 集群中的 B 地址与 IP 库进行比对，这个 B 地址被称为 DNS 出口。</p>
 <p>所以上网过程中，用户将从 DNS 入口获取解析，NS 服务器会向 DNS 出口分配智能解析。如果用户的 DNS 入口没有请求的解析缓存时，将向上级 DNS 请求查询，最终会请求到 NS 服务器，然后用户才获取到解析结果。</p>
 <p>那么当用户的 DNS 入口和 DNS 出口和用户的实际网络不一致时，就可能导致智能 DNS 提供的解析结果并不是最优的。</p>
-<h2 id="测试示例"><a href="#测试示例" class="headerlink" title="测试示例"></a>测试示例</h2><p>北京快网官方门户网站<a href="http://www.fastweb.com.cn" target="_blank" rel="noopener">www.fastweb.com.cn</a>使用了<a href="https://www.newdefend.com" target="_blank" rel="noopener">牛盾云安全</a>作了页面加速和安全防护，正常情况下使用运营商 DNS 在全国各地的解析情况如下图所示：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426154730.png" alt="FastWeb分区解析"></p>
+<h2 id="测试示例"><a href="#测试示例" class="headerlink" title="测试示例"></a>测试示例</h2><p>北京快网官方门户网站 <a href="http://www.fastweb.com.cn" target="_blank" rel="noopener">www.fastweb.com.cn</a> 使用了<a href="https://www.newdefend.com" target="_blank" rel="noopener">牛盾云安全</a>作了页面加速和安全防护，正常情况下使用运营商 DNS 在全国各地的解析情况如下图所示：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154730.png" alt="FastWeb 分区解析"></p>
 <p>这是通过智能 DNS 和 CDN 双剑合璧的最优解析结果。</p>
 <p>例如灰姑娘所在地是湖北武汉，当使用本地运营商 DNS 并存在缓存时，<code>ping www.fastweb.com.cn</code>时延如下：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426154755.png" alt="本地DNS"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426154755.png" alt="本地 DNS "></p>
 <p>而我在本地模拟<code>ping</code>浙江台州的牛盾节点<code>122.226.182.43</code>，会看到时延稍微长一些：</p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426154839.png" alt="牛盾台州"></p>
 <p>那么公共 DNS 的出入口会不会跟实际网络不一致呢？</p>
@@ -876,7 +866,7 @@
 <p>我在本地对阿里 DNS 的做了一个路由跟踪：</p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426154905.png" alt="DNS入口"></p>
 <p>可以发现，阿里 DNS 的入口在浙江杭州，而我本地网络是湖北电信。</p>
-<h3 id="公共-DNS-的出口"><a href="#公共-DNS-的出口" class="headerlink" title="公共 DNS 的出口"></a>公共 DNS 的出口</h3><p>刚刚和北京同事进行远程会议时提到这个议题，正好他的 PC 配置的是阿里公共 DNS ，我们让他访问<a href="http://tools.cloudxns.net/index/diag" target="_blank" rel="noopener"> CloudXNS 运维工具 - 本地DNS优化诊断</a>获取其出口 DNS ，得到的反馈如下：</p>
+<h3 id="公共-DNS-的出口"><a href="#公共-DNS-的出口" class="headerlink" title="公共 DNS 的出口"></a>公共 DNS 的出口</h3><p>刚刚和北京同事进行远程会议时提到这个议题，正好他的 PC 配置的是阿里公共 DNS ，我们让他访问<a href="http://tools.cloudxns.net/index/diag" target="_blank" rel="noopener"> CloudXNS 运维工具 - 本地 DNS 优化诊断</a>获取其出口 DNS ，得到的反馈如下：</p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426154956.png" alt="出口DNS"></p>
 <p>本地网络北京联通，出口 DNS 竟是广东电信，这远远比我前述举例的湖北电信和浙江电信的差距大得多。</p>
 <h3 id="解析影响验证"><a href="#解析影响验证" class="headerlink" title="解析影响验证"></a>解析影响验证</h3><p>该同事分别用阿里和运营商 DNS 对网易域名做了测试对比。</p>
@@ -884,7 +874,7 @@
 <p><img src="https://pek3b.qingstor.com/imephen/20190426155020.png" alt="阿里 DNS"></p>
 <p><em>使用运营商 DNS测试结果：</em></p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426155043.png" alt="运营商 DNS"></p>
-<p>使用运营商 DNS 时，<code>ping</code>值快得多。</p>
+<p>使用运营商 DNS 时，<code>ping</code> 值快得多。</p>
 ]]></content>
       
         <categories>
@@ -898,11 +888,11 @@
             
             <tag> Public DNS </tag>
             
-            <tag> 公共DNS </tag>
+            <tag> 公共 DNS </tag>
             
-            <tag> 本地DNS </tag>
+            <tag> 本地 DNS </tag>
             
-            <tag> 递归DNS </tag>
+            <tag> 递归 DNS </tag>
             
         </tags>
         
@@ -973,16 +963,14 @@
         
         <tags>
             
-            <tag> 项目 </tag>
-            
-            <tag> 管理 </tag>
+            <tag> 项目管理 </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[什么情况下DNS会使用TCP传输协议？]]></title>
+      <title><![CDATA[什么情况下 DNS 会使用 TCP 传输协议？]]></title>
       <url>https://ephen.me/2017/dns_tcp/</url>
       <content type="html"><![CDATA[<p>我们知道， DNS 是同时占用 UDP 和 TCP 的 53 端口传输数据的，这种单个应用协议同时使用两种传输协议的情况，在 TCP/IP 栈中也算是个异类。</p>
 <p>当我们在使用 tcpdump 、 WireShark 等抓包工具分析时，会发现几乎所有的 DNS 应用都是在使用 UDP 传输。</p>
@@ -1027,8 +1015,8 @@
 </tr>
 <tr>
 <td>资源消耗</td>
-<td>需要更多资源以传递更多信息，包头比较大（需要20字节）</td>
-<td>头部只需8个字节</td>
+<td>需要更多资源以传递更多信息，包头比较大（需要 20 字节）</td>
+<td>头部只需 8 个字节</td>
 </tr>
 </tbody>
 </table>
@@ -1038,26 +1026,26 @@
 <p>一方面，要保证用户端的快速响应， TCP 的三次握手则过于繁冗；另一方面， DNS 解析查询即使出现异常，网民用户大不了重新申请一次查询，因而对可靠性的要求并没有那么高。</p>
 <p>所以日常的域名解析需求使用 UDP 传输即可。</p>
 <h3 id="具备特殊要求的域名解析使用-TCP-协议"><a href="#具备特殊要求的域名解析使用-TCP-协议" class="headerlink" title="具备特殊要求的域名解析使用 TCP 协议"></a>具备特殊要求的域名解析使用 TCP 协议</h3><p>由于UDP是按照数据包来传输的，整个包最大只能 512 字节。一般正常情况下，用来 DNS 查询是绰绰有余的。但当解析配置过于复杂，或者记录值过长（如： TXT 、 RRSIG 记录）使得 UDP 无法承载的情况下，就有必要转换 TCP 查询。</p>
-<p>由于基于 TCP 的域名解析非常少见，大多数域名厂商是不支持的， <a href="https://www.cloudxns.net" target="_blank" rel="noopener">CloudXNS</a> 也不例外。然而同域名同主机同线路的同类型解析将会封装到一个 UDP 包传输，如果内容过多（超过 512 字节），该数据包可能会承载不下。</p>
+<p>由于基于 TCP 的域名解析非常少见，大多数域名厂商是不支持的， CloudXNS 也不例外。然而同域名同主机同线路的同类型解析将会封装到一个 UDP 包传输，如果内容过多（超过 512 字节），该数据包可能会承载不下。</p>
 <p>这也是为什么 CloudXNS 中即使 A 、 TXT 、 MX 等类型记录尽管不与自身互斥，我们仍然会对同域名下同一主机同一线路限制解析记录条数的原因。</p>
 <p>当然，国外的一些域名解析商这方面可能比我们严谨些，还是有一部分厂家是支持当数据过长时转用 TCP 传输的。比如：<a href="https://dns.he.net" target="_blank" rel="noopener">He.Net</a></p>
 <blockquote>
 <p>我们来做个测试：</p>
 </blockquote>
 <ol>
-<li>将<code>chinatesters.com</code>配置一个子域名<code>test</code>， NS 指向 He.net 的域名服务器。如图所示：<br><img src="https://pek3b.qingstor.com/imephen/20190426154445.png" alt="子域 DNS 配置"></li>
-<li>将<code>test.chinatesters.com</code>添加到 He.net 的域名控制面板，并添加一条 TXT 记录，值为<code>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</code>（长度： 768 ）。如下图：<br><img src="https://pek3b.qingstor.com/imephen/20190426154534.png" alt="超长 TXT 记录配置"></li>
-<li>配置生效后，使用<code>tcpdump</code>跟踪本地网卡的 53 端口，同时新开窗口用<code>dig</code>命令直接向<code>ns1.he.net</code>请求查询该 TXT 记录。</li>
+<li>将 <code>chinatesters.com</code> 配置一个子域名 <code>test</code> ， NS 指向 He.net 的域名服务器。如图所示：<br><img src="https://pek3b.qingstor.com/imephen/20190426154445.png" alt="子域 DNS 配置"></li>
+<li>将 <code>test.chinatesters.com</code> 添加到 He.net 的域名控制面板，并添加一条 TXT 记录，值为<code>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</code>（长度： 768 ）。如下图：<br><img src="https://pek3b.qingstor.com/imephen/20190426154534.png" alt="超长 TXT 记录配置"></li>
+<li>配置生效后，使用 <code>tcpdump</code> 跟踪本地网卡的 53 端口，同时新开窗口用 <code>dig</code> 命令直接向 <code>ns1.he.net</code> 请求查询该 TXT 记录。</li>
 </ol>
 <p><em>DNS 查询记录：</em></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">#dig aaaaaaaaaa.test.chinatesters.com TXT @ns1.he.net</span><br><span class="line">;; Truncated, retrying in TCP mode.</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6 &lt;&lt;&gt;&gt; aaaaaaaaaa.test.chinatesters.com TXT @ns1.he.net</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 56555</span><br><span class="line">;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</span><br><span class="line">;; WARNING: recursion requested but not available</span><br><span class="line"></span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;aaaaaaaaaa.test.chinatesters.com. IN	TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">aaaaaaaaaa.test.chinatesters.com. 300 IN TXT	&quot;111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;11&quot;</span><br><span class="line"></span><br><span class="line">;; Query time: 221 msec</span><br><span class="line">;; SERVER: 216.218.130.2#53(216.218.130.2)</span><br><span class="line">;; WHEN: Tue Jul 18 13:58:50 2017</span><br><span class="line">;; MSG SIZE  rcvd: 833</span><br></pre></td></tr></table></figure>
 <p><em>tcpdump 网卡跟踪记录：</em></p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426154616.png" alt="tcpdump 网卡跟踪"></p>
-<p>查询记录结果的第一句便提示了<code>Truncated, retrying in TCP mode.</code>，表示启用了 TCP 协议查询。</p>
-<p>网卡抓包也展示了<code>seq</code>、<code>ack</code>等 TCP 协议中的三次握手过程，最后返回了域名<code>aaaaaaaaaa.test.chinatesters.com.</code>的 TXT 记录值。</p>
+<p>查询记录结果的第一句便提示了 <code>Truncated, retrying in TCP mode.</code> ，表示启用了 TCP 协议查询。</p>
+<p>网卡抓包也展示了 <code>seq</code> 、 <code>ack</code> 等 TCP 协议中的三次握手过程，最后返回了域名 <code>aaaaaaaaaa.test.chinatesters.com.</code> 的 TXT 记录值。</p>
 <p>事实上，根据 <a href="https://tools.ietf.org/html/rfc1035" target="_blank" rel="noopener">RFC 1035</a> 章节 4.2 ，<strong>DNS 解析查询优先使用 UDP ，当 UDP 完成不了的情况下，则转换 TCP 查询</strong>。上述展示的就是这样的实例。</p>
 <p>当看完 RFC 的这一章节，我们会发现，基于 TCP 协议的 DNS 应用还有一个更重要的作用。</p>
-<h2 id="DNS-区域传送（zone-transfer）"><a href="#DNS-区域传送（zone-transfer）" class="headerlink" title="DNS 区域传送（zone-transfer）"></a>DNS 区域传送（zone-transfer）</h2><p>由于 DNS 服务器作为互联网基础设施，一般都会分布式的设置多台冗余备份，各个域名的配置在多个服务器之间的同步过程便被称之为区域传送。我在过去的文章《<a href="/2016/dotkp-zone-dns-remove/">隔壁粗事了！朝鲜顶级域.kp域名DNS数据配置可被转移</a>》中提到过“区域传送”的概念，不太了解的童鞋可先查看下。</p>
+<h2 id="DNS-区域传送（zone-transfer）"><a href="#DNS-区域传送（zone-transfer）" class="headerlink" title="DNS 区域传送（zone-transfer）"></a>DNS 区域传送（zone-transfer）</h2><p>由于 DNS 服务器作为互联网基础设施，一般都会分布式的设置多台冗余备份，各个域名的配置在多个服务器之间的同步过程便被称之为区域传送。我在过去的文章《<a href="/2016/dotkp-zone-dns-remove/">隔壁粗事了！朝鲜顶级域 .kp 域名 DNS 数据配置可被转移</a>》中提到过“区域传送”的概念，不太了解的童鞋可先查看下。</p>
 <p>区域传送时，辅域名服务器将向主服务器拉取数据。该数据同步传送的量往往比较大且不容有失，该操作没有较高的时效性要求只需要隔段时间定时执行一遍即可。所以<strong>必须采用可靠性高的 TCP 传输协议</strong>。</p>
 <p>CloudXNS 的 NS 服务器间的区域同步技术是公司自研的一套机制，虽然亦是使用的 TCP 传输，但由于专利技术保密，不便提供示例。下次咱们大概可以在搭建一套开源的 DNS 服务器的折腾过程中再引申下关于区域传送时应用 TCP 协议的知识。</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
@@ -1089,17 +1077,17 @@
     </entry>
     
     <entry>
-      <title><![CDATA[SSL证书颁发机构将对域名强制CAA检查，到底什么是CAA？CAA记录详解]]></title>
+      <title><![CDATA[SSL 证书颁发机构将对域名强制 CAA 检查，到底什么是 CAA ？ CAA 记录详解]]></title>
       <url>https://ephen.me/2017/dnsrr-caa/</url>
-      <content type="html"><![CDATA[<h2 id="强制CAA检查的提议"><a href="#强制CAA检查的提议" class="headerlink" title="强制CAA检查的提议"></a>强制CAA检查的提议</h2><p>2017年3月7日，CA|B Forum （一个全球证书颁发机构与浏览器的技术论坛）发起了一项关于对域名强制检查CAA的一项提议的投票，获得187票支持，投票有效，提议通过。</p>
-<p>提议通过后，将于<strong>2017年9月8日</strong>根据Mozilla的Gervase Markham提出的检查CAA记录作为基准要求来实施。</p>
-<p>详情参见：<a href="https://cabforum.org/2017/03/08/ballot-187-make-caa-checking-mandatory/" target="_blank" rel="noopener">Ballot 187 – Make CAA Checking Mandatory</a></p>
-<h2 id="什么是CAA记录？"><a href="#什么是CAA记录？" class="headerlink" title="什么是CAA记录？"></a>什么是CAA记录？</h2><p>CAA，全称Certificate Authority Authorization，即证书颁发机构授权。它为了改善PKI（Public Key Infrastructure：公钥基础设施）生态系统强度、减少证书意外错误发布的风险，通过DNS机制创建CAA资源记录，从而限定了特定域名颁发的证书和CA（证书颁发机构）之间的联系。从此，再也不能是任意CA都可以为任意域名颁发证书了。</p>
+      <content type="html"><![CDATA[<h2 id="强制-CAA-检查的提议"><a href="#强制-CAA-检查的提议" class="headerlink" title="强制 CAA 检查的提议"></a>强制 CAA 检查的提议</h2><p>2017 年 3 月 7 日， CA|B Forum （一个全球证书颁发机构与浏览器的技术论坛）发起了一项关于对域名强制检查 CAA 的一项提议的投票，获得 187 票支持，投票有效，提议通过。</p>
+<p>提议通过后，将于 <strong>2017 年 9 月 8 日</strong>根据 Mozilla 的 Gervase Markham 提出的检查 CAA 记录作为基准要求来实施。</p>
+<p>详情参见： <a href="https://cabforum.org/2017/03/08/ballot-187-make-caa-checking-mandatory/" target="_blank" rel="noopener">Ballot 187 – Make CAA Checking Mandatory</a></p>
+<h2 id="什么是-CAA-记录？"><a href="#什么是-CAA-记录？" class="headerlink" title="什么是 CAA 记录？"></a>什么是 CAA 记录？</h2><p>CAA ，全称 Certificate Authority Authorization ，即证书颁发机构授权。它为了改善 PKI （ Public Key Infrastructure ：公钥基础设施）生态系统强度、减少证书意外错误发布的风险，通过 DNS 机制创建 CAA 资源记录，从而限定了特定域名颁发的证书和 CA （证书颁发机构）之间的联系。从此，再也不能是任意 CA 都可以为任意域名颁发证书了。</p>
 <a id="more"></a>
-<p>关于CAA记录，其实早在4年前便在<a href="https://datatracker.ietf.org/doc/rfc6844/" target="_blank" rel="noopener">RFC 6844</a>中有定义，但由于种种原因配置该DNS资源记录的网站寥寥无几。如今，SSL证书在颁发之前对域名强制CAA检查，就对想要https访问的网站域名提出了解析配置的要求。</p>
-<h2 id="CAA资源记录详解"><a href="#CAA资源记录详解" class="headerlink" title="CAA资源记录详解"></a>CAA资源记录详解</h2><p>CAA记录可以控制单域名SSL证书的发行，也可以控制通配符证书。当域名存在CAA记录时，则只允许在记录中列出的CA颁发针对该域名（或子域名）的证书。</p>
-<p>在域名解析配置中，咱们可以为整个域（如example.com）或者特定的子域（如subzone.example.com）设置CAA策略。当为整域设置CAA资源记录时，该CAA策略将同时应用于该域名下的任一子域，除非被已设置的子域策略覆盖。</p>
-<h3 id="CAA记录格式"><a href="#CAA记录格式" class="headerlink" title="CAA记录格式"></a>CAA记录格式</h3><p>根据规范（<a href="https://www.rfc-editor.org/rfc/rfc6844.txt" target="_blank" rel="noopener">RFC 6844</a>），CAA记录格式由以下元素组成：</p>
+<p>关于 CAA 记录，其实早在 4 年前便在 <a href="https://datatracker.ietf.org/doc/rfc6844/" target="_blank" rel="noopener">RFC 6844</a> 中有定义，但由于种种原因配置该 DNS 资源记录的网站寥寥无几。如今， SSL 证书在颁发之前对域名强制 CAA 检查，就对想要 https 访问的网站域名提出了解析配置的要求。</p>
+<h2 id="CAA-资源记录详解"><a href="#CAA-资源记录详解" class="headerlink" title="CAA 资源记录详解"></a>CAA 资源记录详解</h2><p>CAA 记录可以控制单域名 SSL 证书的发行，也可以控制通配符证书。当域名存在 CAA 记录时，则只允许在记录中列出的 CA 颁发针对该域名（或子域名）的证书。</p>
+<p>在域名解析配置中，咱们可以为整个域（如 example.com ）或者特定的子域（如 subzone.example.com ）设置 CAA 策略。当为整域设置 CAA 资源记录时，该 CAA 策略将同时应用于该域名下的任一子域，除非被已设置的子域策略覆盖。</p>
+<h3 id="CAA-记录格式"><a href="#CAA-记录格式" class="headerlink" title="CAA 记录格式"></a>CAA 记录格式</h3><p>根据规范（ <a href="https://www.rfc-editor.org/rfc/rfc6844.txt" target="_blank" rel="noopener">RFC 6844</a> ）， CAA 记录格式由以下元素组成：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">CAA &lt;flags&gt; &lt;tag&gt; &lt;value&gt;</span><br></pre></td></tr></table></figure>
 <p>释义：</p>
 <table>
@@ -1112,7 +1100,7 @@
 <tbody>
 <tr>
 <td>CAA</td>
-<td>DNS资源记录类型</td>
+<td>DNS 资源记录类型</td>
 </tr>
 <tr>
 <td><code>&lt;flags&gt;</code></td>
@@ -1128,38 +1116,36 @@
 </tr>
 </tbody>
 </table>
-<p><code>&lt;flags&gt;</code>定义为0~255无符号整型，取值：</p>
+<p><code>&lt;flags&gt;</code> 定义为 0~255 无符号整型，取值：</p>
 <blockquote>
-<p>Issuer Critical Flag：0<br>1~7为保留标记</p>
+<p>Issuer Critical Flag：0<br>1~7 为保留标记</p>
 </blockquote>
-<p><code>&lt;tag&gt;</code>定义为US-ASCII和0~9，取值：</p>
+<p><code>&lt;tag&gt;</code> 定义为 US-ASCII 和 0~9 ，取值：</p>
 <blockquote>
-<p>CA授权任何类型的域名证书（Authorization Entry by Domain） : issue<br>CA授权通配符域名证书（Authorization Entry by Wildcard Domain） : issuewild<br>指定CA可报告策略违规（Report incident by IODEF report） : iodef<br>auth、path和policy为保留标签</p>
+<p>CA 授权任何类型的域名证书（ Authorization Entry by Domain ） : issue<br>CA 授权通配符域名证书（ Authorization Entry by Wildcard Domain ） : issuewild<br>指定 CA 可报告策略违规（ Report incident by IODEF report ） : iodef<br>auth 、 path 和 policy 为保留标签</p>
 </blockquote>
-<p><code>&lt;value&gt;</code>定义为八位字节序列的二进制编码字符串，一般填写格式为：</p>
+<p><code>&lt;value&gt;</code> 定义为八位字节序列的二进制编码字符串，一般填写格式为：</p>
 <blockquote>
 <p>[domain] [“;” * 参数]</p>
 </blockquote>
-<h3 id="CAA资源记录示例"><a href="#CAA资源记录示例" class="headerlink" title="CAA资源记录示例"></a>CAA资源记录示例</h3><p>当需要限制域名<code>example.com</code>及其子域名可由机构<code>letsencrypt</code>颁发不限类型的证书，同时可由<code>Comodo</code>颁发通配符证书，其他一律禁止，并且当违反配置规则时，发送通知邮件到<a href="mailto:`example@example.com" target="_blank" rel="noopener">`example@example.com</a>`。</p>
-<p>配置如下（为便于理解，二进制Value值已经过转码，下同）：</p>
+<h3 id="CAA-资源记录示例"><a href="#CAA-资源记录示例" class="headerlink" title="CAA 资源记录示例"></a>CAA 资源记录示例</h3><p>当需要限制域名 <code>example.com</code> 及其子域名可由机构 <code>letsencrypt</code> 颁发不限类型的证书，同时可由 <code>Comodo</code> 颁发通配符证书，其他一律禁止，并且当违反配置规则时，发送通知邮件到 <a href="mailto:`example@example.com" target="_blank" rel="noopener">`example@example.com</a>` 。</p>
+<p>配置如下（为便于理解，二进制 Value 值已经过转码，下同）：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">example.com.  CAA 0 issue &quot;letsencrypt.org&quot;</span><br><span class="line">example.com.  CAA 0 issuewild &quot;comodoca.com&quot;</span><br><span class="line">example.com.  CAA 0 iodef &quot;mailto:example@example.com&quot;</span><br></pre></td></tr></table></figure>
 <p>如果子域名有单独列出证书颁发要求，例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">example.com.  CAA 0 issue &quot;letsencrypt.org&quot;</span><br><span class="line">alpha.example.com.  CAA 0 issue &quot;comodoca.com&quot;</span><br></pre></td></tr></table></figure>
-<p>那么，因子域策略优先，所以只有Comodo可以为域名<code>alpha.example.com.</code>颁发证书。</p>
-<h3 id="CAA记录查询"><a href="#CAA记录查询" class="headerlink" title="CAA记录查询"></a>CAA记录查询</h3><p>CAA记录是一个相对较新的资源记录，目前很多工具并不支持。以<code>dig</code>为例，不能适用其标准语法。若需要查询CAA记录，<code>dig</code>时需要直接指定RR类型（type257）。</p>
+<p>那么，因子域策略优先，所以只有 Comodo 可以为域名 <code>alpha.example.com.</code> 颁发证书。</p>
+<h3 id="CAA-记录查询"><a href="#CAA-记录查询" class="headerlink" title="CAA 记录查询"></a>CAA 记录查询</h3><p>CAA 记录是一个相对较新的资源记录，目前很多工具并不支持。以 <code>dig</code> 为例，不能适用其标准语法。若需要查询 CAA 记录， <code>dig</code> 时需要直接指定 RR 类型（ type257 ）。</p>
 <p>例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">$ dig google.com type257</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.8.3-P1 &lt;&lt;&gt;&gt; google.com type257</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 64266</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</span><br><span class="line"></span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;google.com.            IN  TYPE257</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">google.com.     86399   IN  TYPE257 \# 19 0005697373756573796D616E7465632E636F6D</span><br><span class="line"></span><br><span class="line">;; Query time: 51 msec</span><br><span class="line">;; SERVER: 8.8.8.8#53(8.8.8.8)</span><br><span class="line">;; WHEN: Thu Dec 29 21:07:18 2016</span><br><span class="line">;; MSG SIZE  rcvd: 59</span><br></pre></td></tr></table></figure>
-<p>该查询的输出是二进制编码记录，需要转码才能知道具体CAA策略。</p>
+<p>该查询的输出是二进制编码记录，需要转码才能知道具体 CAA 策略。</p>
 <h2 id="互联网证书环境前景剖析"><a href="#互联网证书环境前景剖析" class="headerlink" title="互联网证书环境前景剖析"></a>互联网证书环境前景剖析</h2><blockquote>
 <p>以下所有言论仅代表个人观点。</p>
 </blockquote>
-<p>CAA记录规范的提出已4年之久，但从未被普及；如今 CA|B Forum 关于强制CAA检查的提议亦结束3月有余，支持检查CAA的证书颁发机构依旧寥寥无几，支持配置CAA记录的DNS厂商更是少之又少。因而个人认为，这项规范的实施进程预计还是会挺艰难的。</p>
-<p>不过从互联网安全发展来看，互联网受众越来越大，概念、架构越来越复杂，社会的重视程度一直在稳步提高。全面https也推行有一段时间了，强制CAA的普及大概只是时间问题。</p>
+<p>CAA 记录规范的提出已 4 年之久，但从未被普及；如今 CA|B Forum 关于强制 CAA 检查的提议亦结束 3 月有余，支持检查 CAA 的证书颁发机构依旧寥寥无几，支持配置 CAA 记录的 DNS 厂商更是少之又少。因而个人认为，这项规范的实施进程预计还是会挺艰难的。</p>
+<p>不过从互联网安全发展来看，互联网受众越来越大，概念、架构越来越复杂，社会的重视程度一直在稳步提高。全面 https 也推行有一段时间了，强制 CAA 的普及大概只是时间问题。</p>
 ]]></content>
       
         <categories>
-            
-            <category> 工作笔记 </category>
             
             <category> 知识探索 </category>
             
@@ -1183,34 +1169,34 @@
     <entry>
       <title><![CDATA[给网站添加备案号展示]]></title>
       <url>https://ephen.me/2017/beian/</url>
-      <content type="html"><![CDATA[<h2 id="折腾原因"><a href="#折腾原因" class="headerlink" title="折腾原因"></a>折腾原因</h2><p>由于在公司折腾<a href="https://www.cloudxns.net" target="_blank" rel="noopener">CloudXNS</a>和<a href="https://www.newdefend.com" target="_blank" rel="noopener">牛盾</a>，有个备案比较好开展工作。正好上次公司CDN网监来查，要求我把备案展示出来。想想这事情也该办了，搞起……</p>
+      <content type="html"><![CDATA[<h2 id="折腾原因"><a href="#折腾原因" class="headerlink" title="折腾原因"></a>折腾原因</h2><p>由于在公司折腾 <a href="https://www.cloudxns.net" target="_blank" rel="noopener">CloudXNS</a> 和<a href="https://www.newdefend.com" target="_blank" rel="noopener">牛盾</a>，有个备案比较好开展工作。正好上次公司 CDN 网监来查，要求我把备案展示出来。想想这事情也该办了，搞起……</p>
 <p>唔，还是提一嘴，姐无任何前端知识储备，大牛路过请点右上红叉关闭。</p>
 <h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><ol>
 <li>备案号放至左侧边栏下方，链接到工信部网站；</li>
-<li>备案号可进入主题<code>_config.yml</code>中配置修改；</li>
+<li>备案号可进入主题 <code>_config.yml</code> 中配置修改；</li>
 <li>文章页显示目录时不做展示；</li>
 <li>放弃适配移动端。</li>
 </ol>
 <a id="more"></a>
-<h2 id="折腾过程"><a href="#折腾过程" class="headerlink" title="折腾过程"></a>折腾过程</h2><h3 id="添加备案号并写入配置文件"><a href="#添加备案号并写入配置文件" class="headerlink" title="添加备案号并写入配置文件"></a>添加备案号并写入配置文件</h3><p>这部分比我想象中简单多了。照配置文件的<code>AboutMe</code>抄一抄居然就完成了。</p>
-<p><code>left-col.ejs</code>文件中添加以下代码：</p>
+<h2 id="折腾过程"><a href="#折腾过程" class="headerlink" title="折腾过程"></a>折腾过程</h2><h3 id="添加备案号并写入配置文件"><a href="#添加备案号并写入配置文件" class="headerlink" title="添加备案号并写入配置文件"></a>添加备案号并写入配置文件</h3><p>这部分比我想象中简单多了。照配置文件的 <code>AboutMe</code> 抄一抄居然就完成了。</p>
+<p><code>left-col.ejs</code> 文件中添加以下代码：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span> (theme.beian)&#123; %&gt;</span><br><span class="line">    &lt;a <span class="class"><span class="keyword">class</span></span>=<span class="string">"beian"</span> href=<span class="string">"http://www.miitbeian.gov.cn/state/outPortal/loginPortal.action"</span> target=<span class="string">"_blank"</span>&gt;&lt;%=theme.beian%&gt;&lt;/a&gt;</span><br><span class="line">&lt;%&#125;%&gt;</span><br></pre></td></tr></table></figure>
-<p><code>_config.yml</code>中添加：</p>
+<p><code>_config.yml</code> 中添加：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">## 是否展示备案号</span></span><br><span class="line"><span class="comment">### beian: false	# 不开启</span></span><br><span class="line"><span class="attr">beian:</span> <span class="string">鄂ICP备15003996号</span></span><br></pre></td></tr></table></figure>
 <p>功能测试通过！</p>
-<h3 id="备案号模块样式"><a href="#备案号模块样式" class="headerlink" title="备案号模块样式"></a>备案号模块样式</h3><p>样式主体是照抄的博客说明模块，以下是样式代码，续写到<code>main.styl</code>文件中的<code>#header</code>部分：</p>
+<h3 id="备案号模块样式"><a href="#备案号模块样式" class="headerlink" title="备案号模块样式"></a>备案号模块样式</h3><p>样式主体是照抄的博客说明模块，以下是样式代码，续写到 <code>main.styl</code> 文件中的 <code>#header</code> 部分：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.beian</span>&#123;</span><br><span class="line">	<span class="attribute">position</span>: relative;</span><br><span class="line">	<span class="attribute">bottom</span>: <span class="number">15px</span>;</span><br><span class="line">	<span class="attribute">font-weight</span>: <span class="number">300</span>;</span><br><span class="line">	<span class="attribute">cursor</span>: pointer;</span><br><span class="line">	<span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">	<span class="attribute">float</span>:none;</span><br><span class="line">	<span class="attribute">text-align</span>: center;</span><br><span class="line">	<span class="attribute">display</span>: -webkit-box;</span><br><span class="line">	<span class="attribute">-webkit-box-orient</span>: horizontal;</span><br><span class="line">	<span class="attribute">-webkit-box-pack</span>: center;</span><br><span class="line">	<span class="attribute">-webkit-box-align</span>: center;</span><br><span class="line">	li&#123;</span><br><span class="line">		<span class="selector-tag">cursor</span>: <span class="selector-tag">default</span>;</span><br><span class="line">		<span class="selector-tag">a</span>&#123;</span><br><span class="line">			<span class="attribute">font-size</span>: <span class="number">14px</span>;</span><br><span class="line">			<span class="attribute">min-width</span>: <span class="number">300px</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><code>bottom</code>表示在页面底端保留的高度，配合<code>position: relative;</code>以保持在页面底端。</p>
+<p><code>bottom</code> 表示在页面底端保留的高度，配合 <code>position: relative;</code> 以保持在页面底端。</p>
 <h3 id="显示目录时隐藏备案号"><a href="#显示目录时隐藏备案号" class="headerlink" title="显示目录时隐藏备案号"></a>显示目录时隐藏备案号</h3><p>本来不想做这个的，后来发现目录在时摆不好这个位置，同时如果目录过长过多会影响页面的美观，因此还是隐藏比较好。</p>
-<p>目录是否显示的原本样式是在<code>toc.ejs</code>里面添加的<code>&lt;style&gt;&lt;/style&gt;</code>标签，在标签中添加：</p>
+<p>目录是否显示的原本样式是在 <code>toc.ejs</code> 里面添加的 <code>&lt;style&gt;&lt;/style&gt;</code> 标签，在标签中添加：</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-id">#header</span> <span class="selector-class">.beian</span> &#123;</span><br><span class="line"><span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>就可以了。</p>
-<h3 id="点击“显示目录”和“隐藏目录”时切换动画"><a href="#点击“显示目录”和“隐藏目录”时切换动画" class="headerlink" title="点击“显示目录”和“隐藏目录”时切换动画"></a>点击“显示目录”和“隐藏目录”时切换动画</h3><p>侧边栏目录初始状态动画展现在<code>pc.js</code>文件中，把<code>.beian</code>元素加进去：</p>
+<h3 id="点击“显示目录”和“隐藏目录”时切换动画"><a href="#点击“显示目录”和“隐藏目录”时切换动画" class="headerlink" title="点击“显示目录”和“隐藏目录”时切换动画"></a>点击“显示目录”和“隐藏目录”时切换动画</h3><p>侧边栏目录初始状态动画展现在 <code>pc.js</code> 文件中，把 <code>.beian</code> 元素加进去：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> miniArchives = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        $(<span class="string">".post-list"</span>).addClass(<span class="string">"toc-article"</span>);</span><br><span class="line">        $(<span class="string">"#post-nav-button &gt; a:nth-child(2)"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">            $(<span class="string">"#post-nav-button .fa-bars,#post-nav-button .fa-times"</span>).toggle();</span><br><span class="line">            $(<span class="string">".post-list"</span>).toggle(<span class="number">300</span>);</span><br><span class="line">            <span class="keyword">if</span> ($(<span class="string">".toc"</span>).length &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                $(<span class="string">"#toc, #tocButton"</span>).toggle(<span class="number">200</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">                    <span class="keyword">if</span> ($(<span class="string">".switch-area"</span>).is(<span class="string">":visible"</span>)) &#123;</span><br><span class="line">                        $(<span class="string">"#toc, .switch-btn, .switch-area, .beian"</span>).toggle();</span><br><span class="line">                        $(<span class="string">"#tocButton"</span>).attr(<span class="string">"value"</span>, yiliaConfig.toc[<span class="number">0</span>]);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                $(<span class="string">".switch-btn, .switch-area, .beian"</span>).fadeToggle(<span class="number">300</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">&#125;()</span><br></pre></td></tr></table></figure>
-<p>然后<code>toc.js</code>文件中有原本就有其他元素的切换动画，同样加个<code>.beian</code>即可：</p>
+<p>然后 <code>toc.js</code> 文件中有原本就有其他元素的切换动画，同样加个 <code>.beian</code> 即可：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">$(<span class="string">"#tocButton"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ($(<span class="string">"#toc"</span>).is(<span class="string">":hidden"</span>)) &#123;</span><br><span class="line">        $(<span class="string">"#tocButton"</span>).attr(<span class="string">"value"</span>, valueHide);</span><br><span class="line">        $(<span class="string">"#toc"</span>).slideDown(<span class="number">320</span>);</span><br><span class="line">        $(<span class="string">".switch-btn, .switch-area, .beian"</span>).fadeOut(<span class="number">300</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        $(<span class="string">"#tocButton"</span>).attr(<span class="string">"value"</span>, valueShow);</span><br><span class="line">        $(<span class="string">"#toc"</span>).slideUp(<span class="number">350</span>);</span><br><span class="line">        $(<span class="string">".switch-btn, .switch-area, .beian"</span>).fadeIn(<span class="number">500</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 <h3 id="测试成功"><a href="#测试成功" class="headerlink" title="测试成功"></a>测试成功</h3><p>测试时chrome调试外还特地拿移动设备也试了下，并没有备案号，符合预期。</p>
-<p>简单分析看了下，发现移动端的功能基本集中于<code>mobile.js</code>文件中，这个文件我并没有添加备案的相关信息。</p>
+<p>简单分析看了下，发现移动端的功能基本集中于 <code>mobile.js</code> 文件中，这个文件我并没有添加备案的相关信息。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>蛮早就想搞这个备案号展示的，可是因为害怕搞不定拖了两三个月，可真正做起来不到半天就搞完了。所以，哪有那么难？</p>
 <p>总的来说，只要有想法，瞎抄都能抄到答案，差别只在于愿不愿意去做。</p>
 <p>很多其他事情大概也是一样的：<strong>没做的时候以为是大山，做了才发现很简单。</strong></p>
@@ -1236,26 +1222,24 @@
     <entry>
       <title><![CDATA[几乎花了一个下午的时间参观了风河博客]]></title>
       <url>https://ephen.me/2016/fenghe-blog/</url>
-      <content type="html"><![CDATA[<p>2015 年 CloudXNS “重出江湖”的时候，我们做了个让用户写体验文章的活动，风河博客的一篇《<a href="http://blog.dnsbed.com/?p=1497" target="_blank" rel="noopener">谈谈CloudXNS</a>》吸引了我的眼球。</p>
+      <content type="html"><![CDATA[<p>2015 年 CloudXNS “重出江湖”的时候，我们做了个让用户写体验文章的活动，风河博客的一篇《<a href="http://blog.dnsbed.com/?p=1497" target="_blank" rel="noopener">谈谈 CloudXNS </a>》吸引了我的眼球。</p>
 <a id="more"></a>
-<p>和其他人通篇描述智能DNS功能不同，这篇文章着重分析了底层NS服务的问题，并提了一些建议。于是我很感兴趣，翻看起这个博客来。</p>
-<p>也许我并不是一个专业研究DNS的人，但是我却挺乐意学习这样的内容以丰富自己的工作。翻看风河博客发现，该主人也是做DNS的，并且对NS的研究还是蛮多的。所以对CloudXNS来讲，他们也是竞争对手，不过那又有什么关系呢？</p>
+<p>和其他人通篇描述智能 DNS 功能不同，这篇文章着重分析了底层 NS 服务的问题，并提了一些建议。于是我很感兴趣，翻看起这个博客来。</p>
+<p>也许我并不是一个专业研究 DNS 的人，但是我却挺乐意学习这样的内容以丰富自己的工作。翻看风河博客发现，该主人也是做 DNS 的，并且对 NS 的研究还是蛮多的。所以对 CloudXNS 来讲，他们也是竞争对手，不过那又有什么关系呢？</p>
 <p>博客内容很丰富，我看了很久，也学到了不少东西。很赞哦！</p>
 <p>Mark几篇不错的内容（希望作者不会删，我偶尔还能再去看看）：</p>
 <ol>
 <li><a href="http://blog.dnsbed.com/?p=129" target="_blank" rel="noopener">为什么 com 和 net 使用一组相同的名字服务器</a></li>
-<li><a href="http://blog.dnsbed.com/?p=101" target="_blank" rel="noopener">记一次DNS故障：更新NS服务器要随之更新Glue</a></li>
+<li><a href="http://blog.dnsbed.com/?p=101" target="_blank" rel="noopener">记一次 DNS 故障：更新 NS 服务器要随之更新 Glue</a></li>
 <li><a href="http://blog.dnsbed.com/?p=91" target="_blank" rel="noopener">为什么名字服务器必须注册？</a></li>
 <li><a href="http://blog.dnsbed.com/?p=479" target="_blank" rel="noopener">尽量少用泛域名</a></li>
 <li><a href="http://blog.dnsbed.com/?p=1820" target="_blank" rel="noopener">顶级域名启用泛记录的危害性</a></li>
-<li><a href="http://blog.dnsbed.com/?p=442" target="_blank" rel="noopener">一个域名使用多家DNS</a></li>
+<li><a href="http://blog.dnsbed.com/?p=442" target="_blank" rel="noopener">一个域名使用多家 DNS</a></li>
 <li><a href="http://blog.dnsbed.com/?p=1922" target="_blank" rel="noopener"> DNS branding 设置示例</a></li>
 </ol>
 ]]></content>
       
         <categories>
-            
-            <category> 心情驿站 </category>
             
             <category> 知识探索 </category>
             
@@ -1273,45 +1257,41 @@
     </entry>
     
     <entry>
-      <title><![CDATA[谈谈上月Dyn遭受的DDoS攻击]]></title>
+      <title><![CDATA[谈谈上月 Dyn 遭受的 DDoS 攻击]]></title>
       <url>https://ephen.me/2016/dyn-crashed/</url>
-      <content type="html"><![CDATA[<p>这件事情发森在美国时间的2016年10月21日，到今天大约已经过去了半个多月。</p>
+      <content type="html"><![CDATA[<p>这件事情发森在美国时间的 2016 年 10 月 21 日，到今天大约已经过去了半个多月。</p>
 <p>那几天，新闻铺天盖地，季风从墙外刮过长城，吹到中原，拂过我的耳朵。</p>
 <p>当时看到这个消息时本想立即写一篇蹭它一波热度，一来是时间问题，二来想想我就一小博客也没必要跟风，也就作罢。</p>
 <p>今天我整个回顾了下所有看过的新闻及各类文章分析，还是决定来谈一谈。</p>
 <a id="more"></a>
 <h2 id="事件概述"><a href="#事件概述" class="headerlink" title="事件概述"></a>事件概述</h2><p>想必很多人已经了解过了，不过为了看到这里的小伙伴不用再去翻看回忆，我简单描述一下。</p>
-<p>最早刮来的是标题为《北美大半个网络瘫痪 原因竟和中国厂商有关》的新闻，事件当天大量北美用户发现Twitter、Netflix、Paypal、GitHub等常用网站无法访问，随后经过一系列的调查，发现是Dyn这家权威域名解析遭受DDoS攻击致NS节点挂掉。</p>
-<p>本来这事Dyn公告一个事件处理情况就算告一段落了，谁知却被人揪出黑客是通过智能摄像头、DVR等物联网设备做肉鸡发起攻击的。</p>
-<p>参考：<a href="https://zh.wikipedia.org/wiki/2016年Dyn网络攻击" target="_blank" rel="noopener"> 维基百科 - 2016年Dyn网络攻击 </a></p>
-<h2 id="DDoS攻击手段"><a href="#DDoS攻击手段" class="headerlink" title="DDoS攻击手段"></a>DDoS攻击手段</h2><p>DDos攻击，全称“Distributed Denial of Service Attack”，即分布式拒绝服务攻击。</p>
+<p>最早刮来的是标题为《北美大半个网络瘫痪 原因竟和中国厂商有关》的新闻，事件当天大量北美用户发现 Twitter 、 Netflix 、 Paypal 、 GitHub 等常用网站无法访问，随后经过一系列的调查，发现是 Dyn 这家权威域名解析遭受 DDoS 攻击致 NS 节点挂掉。</p>
+<p>本来这事 Dyn 公告一个事件处理情况就算告一段落了，谁知却被人揪出黑客是通过智能摄像头、 DVR 等物联网设备做肉鸡发起攻击的。</p>
+<p>参考：<a href="https://zh.wikipedia.org/wiki/2016年Dyn网络攻击" target="_blank" rel="noopener"> 维基百科 -  2016 年 Dyn 网络攻击 </a></p>
+<h2 id="DDoS-攻击手段"><a href="#DDoS-攻击手段" class="headerlink" title="DDoS 攻击手段"></a>DDoS 攻击手段</h2><p>DDos 攻击，全称“ Distributed Denial of Service Attack ”，即分布式拒绝服务攻击。</p>
 <p>拒绝服务攻击（亦称洪水攻击）作为一种常见的网络攻击手法，其目的在于使目标电脑的网络或系统资源耗尽，使服务暂时中断或停止，导致其正常用户无法访问。当黑客使用网络上两个或以上被攻陷的电脑作为“僵尸”向特定的目标发动“拒绝服务”式攻击时，便称为分布式拒绝服务攻击了。</p>
-<p>去年我刚接触<a href="https://www.newdefend.com/" target="_blank" rel="noopener">牛盾</a>产品时，曾经有了解到有些黑客专门花钱买流量和肉鸡去D其竞争对手，黑市上的流量叫卖价格极低。</p>
+<p>去年我刚接触<a href="https://www.newdefend.com/" target="_blank" rel="noopener">牛盾</a>产品时，曾经有了解到有些黑客专门花钱买流量和肉鸡去 D 其竞争对手，黑市上的流量叫卖价格极低。</p>
 <p>如今科技日渐发达，黑客们也与时俱进，用上了物联网设备，这下连攻击流量都不需要了。只需要其生产时植入后门或是生产程序漏洞就能达到目的。</p>
-<h2 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h2><h3 id="安全问题不容小觑"><a href="#安全问题不容小觑" class="headerlink" title="安全问题不容小觑"></a>安全问题不容小觑</h3><p>据称，事件中的物联网设备由一个叫雄迈科技的公司生产，是由于默认密码被破解而被人利用植入了被公开源码的Mirai程序，于是这个公司莫名其妙被第三者了。</p>
+<h2 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h2><h3 id="安全问题不容小觑"><a href="#安全问题不容小觑" class="headerlink" title="安全问题不容小觑"></a>安全问题不容小觑</h3><p>据称，事件中的物联网设备由一个叫雄迈科技的公司生产，是由于默认密码被破解而被人利用植入了被公开源码的 Mirai 程序，于是这个公司莫名其妙被第三者了。</p>
 <p>人间处处有深坑，只缺一个不留神。</p>
-<p>网络安全问题是老生常谈了，我就问一句，你有没有哪个地方的密码是<code>123456</code>？</p>
-<h3 id="要销量还是要质量？"><a href="#要销量还是要质量？" class="headerlink" title="要销量还是要质量？"></a>要销量还是要质量？</h3><p>物联网设备被利用，总的来说，还是隐射一个质量问题。这事让我不禁联想到年初盗版Xcode事件，就算是优秀的开发者用的是这样的软件来工作也会莫名被第三者……</p>
+<p>网络安全问题是老生常谈了，我就问一句，你有没有哪个地方的密码是 <code>123456</code> ？</p>
+<h3 id="要销量还是要质量？"><a href="#要销量还是要质量？" class="headerlink" title="要销量还是要质量？"></a>要销量还是要质量？</h3><p>物联网设备被利用，总的来说，还是隐射一个质量问题。这事让我不禁联想到年初盗版 Xcode 事件，就算是优秀的开发者用的是这样的软件来工作也会莫名被第三者……</p>
 <p>现在科技发展尤为迅速，一不小心就跟不上时代的步伐。这个社会已经变得浮躁了起来，企业为追求性价比，招来能力修为不够的员工、用上了被植入后门的软硬件，即便产品成型后跟上了市场，那么质量呢？</p>
 <p>反过来，扪心自问，作为消费者，是不是也没有那么在乎质量？</p>
 <h3 id="权威DNS的扛D攻击能力"><a href="#权威DNS的扛D攻击能力" class="headerlink" title="权威DNS的扛D攻击能力"></a>权威DNS的扛D攻击能力</h3><p>DNS 是网络中非常脆弱的一环， CloudXNS 也是攻击不断。犹记得去年 CloudXNS 刚刚被站长们熟悉不久，便引来超大规模的竞争对手恶意攻击，致使我们不得不删除了硬件能力较差的几个海外节点的 Glue Record 配置。此后便是不断的优化运维架构、提升硬件加固防火墙之路。</p>
-<p>不论是 Dyn 也好，CloudXNS 也好，我们作为专业提供解析服务的产品都有些吃力，那些小注册商甚至个人商家提供的自带DNS解析的扛D能力又如何保证呢？</p>
-<h2 id="DDoS攻击应对"><a href="#DDoS攻击应对" class="headerlink" title="DDoS攻击应对"></a>DDoS攻击应对</h2><p>这个不废话，DDoS攻击防范请从以下几点做起：</p>
+<p>不论是 Dyn 也好，CloudXNS 也好，我们作为专业提供解析服务的产品都有些吃力，那些小注册商甚至个人商家提供的自带 DNS 解析的扛 D 能力又如何保证呢？</p>
+<h2 id="DDoS攻击应对"><a href="#DDoS攻击应对" class="headerlink" title="DDoS攻击应对"></a>DDoS攻击应对</h2><p>这个不废话，DDoS 攻击防范请从以下几点做起：</p>
 <ol>
 <li>选择靠谱的域名注册商和域名解析商</li>
-<li>接入主机的选择也需要慎重，并且配置好ACL</li>
-<li>必要时选择一个适合自己的安全CDN产品</li>
-<li>对域名、主机、CDN进行全方位专业的IT维护</li>
+<li>接入主机的选择也需要慎重，并且配置好 ACL</li>
+<li>必要时选择一个适合自己的安全 CDN 产品</li>
+<li>对域名、主机、 CDN 进行全方位专业的 IT 维护</li>
 </ol>
-<h2 id="希望未来有更祥和的网络环境，DDoS坏蛋们见鬼去吧！"><a href="#希望未来有更祥和的网络环境，DDoS坏蛋们见鬼去吧！" class="headerlink" title="希望未来有更祥和的网络环境，DDoS坏蛋们见鬼去吧！"></a>希望未来有更祥和的网络环境，DDoS坏蛋们见鬼去吧！</h2>]]></content>
+<h2 id="希望未来有更祥和的网络环境，-DDoS-坏蛋们见鬼去吧！"><a href="#希望未来有更祥和的网络环境，-DDoS-坏蛋们见鬼去吧！" class="headerlink" title="希望未来有更祥和的网络环境， DDoS 坏蛋们见鬼去吧！"></a>希望未来有更祥和的网络环境， DDoS 坏蛋们见鬼去吧！</h2>]]></content>
       
         <categories>
             
             <category> 当时就被震惊 </category>
-            
-            <category> 知识探索 </category>
-            
-            <category> 心情驿站 </category>
             
         </categories>
         
@@ -1338,22 +1318,22 @@
 <p>『光载无限』要成为『世纪互联』旗下重点品牌了，听说公司正在筹备品牌发布会，也不知道啥时候开。</p>
 <a id="more"></a>
 <hr>
-<p>在武汉快网，我是以软件测试岗在14年中入职的，负责CloudXNS产品测试。</p>
-<p>3个月后，当时的CloudXNS老大“福娃”推荐我转运营，起初测试和运营兼职。</p>
-<p>15年初转运营岗，升做运营主管，专门运营CloudXNS。</p>
-<p>15年中，福娃离职，接着公司组织架构变化，成立产品运营部专门做CloudXNS的产品、开发和运营，然后我又负责产品和运营了。</p>
+<p>在武汉快网，我是以软件测试岗在 14 年中入职的，负责 CloudXNS 产品测试。</p>
+<p>3 个月后，当时的 CloudXNS 老大“福娃”推荐我转运营，起初测试和运营兼职。</p>
+<p>15 年初转运营岗，升做运营主管，专门运营 CloudXNS 。</p>
+<p>15 年中，福娃离职，接着公司组织架构变化，成立产品运营部专门做 CloudXNS 的产品、开发和运营，然后我又负责产品和运营了。</p>
 <p>现在，团队及组织架构又变化了。技术运维和产品市场完全分开，并不再按产品项目划分部门。</p>
 <p>如今，所有产品、市场、售前管理都直属『光载无限』管辖，公司副总裁找我沟通后，我决定只做产品管理了。</p>
 <hr>
 <p>压力好大。做的实事越来越少，压力却越来越大。</p>
-<p>角色变了，不再搞运营了，于是咱大VP又新给了两个产品我。</p>
+<p>角色变了，不再搞运营了，于是咱大 VP 又新给了两个产品我。</p>
 <p>一年多快两年没摸技术，理解起产品来也比以前吃力了好多。</p>
 <p>然后公司新的组织架构，使我又变成了孤身一人奋斗。产品大牛们都在北京，而又因为客户群的不同，似乎也很难跟他们交流学习到什么。</p>
 <p>没人可讨论、全都要靠自己想，然后各种汇报、汇报、还是汇报。</p>
 <p>不得不承认，我也算一个追求完美的人吧。我真的好怕我的想法是错误的，然后把产品带沟里去。</p>
-<p>我同时也是一个非常在意别人看法的人，怕我的想法遭到实现者的抵触，怕我的表现不得VP认可达不到他的要求，于是左右不能愉快的共事下去。</p>
+<p>我同时也是一个非常在意别人看法的人，怕我的想法遭到实现者的抵触，怕我的表现不得 VP 认可达不到他的要求，于是左右不能愉快的共事下去。</p>
 <hr>
-<p>而且还迷茫了。我到底是进化成了IT界的全才，还是一步一步走成IT界的废材呢？</p>
+<p>而且还迷茫了。我到底是进化成了 IT 界的全才，还是一步一步走成 IT 界的废材呢？</p>
 <p>啥都做过，可能别人很多觉得我做得很不错，但是并没有哪一行达到我心理预期的精通。</p>
 <p>对团队管理又停留于概念，几乎没有获得过好的系统的实施机会。</p>
 <p>一遍又一遍的被问啥时候要孩子，真的有种身心俱疲的感觉。</p>
@@ -1383,18 +1363,18 @@
     <entry>
       <title><![CDATA[使用网页工具 DNSViz 检查域名 DNSSEC 配置]]></title>
       <url>https://ephen.me/2016/dnssec-dnsviz/</url>
-      <content type="html"><![CDATA[<h2 id="关于-DNSSEC"><a href="#关于-DNSSEC" class="headerlink" title="关于 DNSSEC"></a>关于 DNSSEC</h2><p>DNSSEC 全称 Domain Name System Security Extensions，即 DNS安全扩展，是由Internet工程任务组 （IETF）提供的一系列DNS安全认证的机制（可参考<a href="https://tools.ietf.org/html/rfc2535" target="_blank" rel="noopener">RFC2535</a>）。</p>
-<p>它是对DNS提供给DNS客户端（解析器）的DNS数据来源进行认证，并验证不存在性和校验数据完整性验证，但不提供或机密性和可用性。<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E6%89%A9%E5%B1%95" target="_blank" rel="noopener">来源：域名系统安全扩展 - 维基百科，自由的百科全书</a></p>
-<p>一些基础的相关介绍可参考我在 CloudXNS 官网发的文章：</p>
+      <content type="html"><![CDATA[<h2 id="关于-DNSSEC"><a href="#关于-DNSSEC" class="headerlink" title="关于 DNSSEC"></a>关于 DNSSEC</h2><p>DNSSEC 全称 Domain Name System Security Extensions，即 DNS安全扩展，是由 Internet 工程任务组 （ IETF ）提供的一系列 DNS 安全认证的机制（可参考 <a href="https://tools.ietf.org/html/rfc2535" target="_blank" rel="noopener">RFC2535</a> ）。</p>
+<p>它是对 DNS 提供给 DNS 客户端（解析器）的 DNS 数据来源进行认证，并验证不存在性和校验数据完整性验证，但不提供或机密性和可用性。<a href="https://zh.wikipedia.org/wiki/%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8%E6%89%A9%E5%B1%95" target="_blank" rel="noopener">来源：域名系统安全扩展 - 维基百科，自由的百科全书</a></p>
+<p>一些基础的相关介绍可参考我在 CloudXNS 官网发的文章（均已迁移至本博）：</p>
 <ol>
-<li><a href="https://www.cloudxns.net/Support/detail/id/1309.html" target="_blank" rel="noopener">什么是DNSSEC？DNSSEC的概念及作用</a></li>
-<li><a href="https://www.cloudxns.net/Support/detail/id/1311.html" target="_blank" rel="noopener">如何验证DNS服务器是否支持DNSSEC？</a></li>
+<li><a href="/2016/dnssec/">什么是 DNSSEC ？ DNSSEC 的概念及作用</a></li>
+<li><a href="/2016/dnssec-verify">如何验证 DNS 服务器是否支持 DNSSEC ？</a></li>
 </ol>
 <p>通俗点讲， DNSSEC 的主要作用就是防止 DNS劫持，从而保证 DNS安全。</p>
-<p>但在这个保证安全的过程中，DNSSEC 的 RR 和 RRSIG 的传输过程都是未加密的（即：不提供机密性），我们通过一些嗅探工具可以读取 RRSIG记录 以及由 DS记录 建立的信任链。</p>
+<p>但在这个保证安全的过程中，DNSSEC 的 RR 和 RRSIG 的传输过程都是未加密的（即：不提供机密性），我们通过一些嗅探工具可以读取 RRSIG 记录以及由 DS 记录建立的信任链。</p>
 <p>今天我们就来聊聊 DNSSEC 信任链的那些事。</p>
 <a id="more"></a>
-<h2 id="DNSSEC-相关的资源记录"><a href="#DNSSEC-相关的资源记录" class="headerlink" title="DNSSEC 相关的资源记录"></a>DNSSEC 相关的资源记录</h2><p>以国际知名的支付平台Paypal为例。</p>
+<h2 id="DNSSEC-相关的资源记录"><a href="#DNSSEC-相关的资源记录" class="headerlink" title="DNSSEC 相关的资源记录"></a>DNSSEC 相关的资源记录</h2><p>以国际知名的支付平台 Paypal 为例。</p>
 <p>Paypal.com 域名配置了 DNSSEC 签名，以下是使用支持 DNSSEC 的 DNS服务器 4.2.2.4 查询 A记录 的解析结果：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">~ dig paypal.com +dnssec @4.2.2.4</span><br><span class="line"></span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;paypal.com.			IN	A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">paypal.com.		204	IN	A	64.4.250.23</span><br><span class="line">paypal.com.		204	IN	A	64.4.250.24</span><br><span class="line">paypal.com.		204	IN	RRSIG	A 5 2 300 20161023213752 20160923205517 11811 paypal.com. lHYZ/5xp9uCfUKGVbvLWr3dA3Ri8X3G1O9fdi6ludo1qYDbYFFyyAdWp szGoszxSRE0jT1ggUOXufBv7nEF++ODkzXB4U4QmKt6ooqQRG8TMDsGw WbJtAgMq0ul8PRPZz8MvkZGxucB2pC4+HwtQaJ/g43sxP9ouHsCePnU7 +H4=</span><br></pre></td></tr></table></figure>
 <h3 id="RRSIG："><a href="#RRSIG：" class="headerlink" title="RRSIG："></a>RRSIG：</h3><p>RRSIG 资源记录值很长，乍一看是一堆乱码，咱们还是对照格式来看：</p>
@@ -1437,22 +1417,22 @@
 <p>它是由 美国Sandia国家实验室 和 Verisign,Inc. 联合推出的专门用于分析域名的 DNSSEC 配置检查的一款分析工具。</p>
 <p>在上图中，鼠标移到上述生成的信任链中的每个椭圆标记的元素上，都能看到很多详细内容。除了包括上面我通过 dig 命令查询到的信息之外，还有服务器信息以及状态是否安全。</p>
 <blockquote>
-<p>点击上方的<code>Response</code>可以查看到各种 DNSSEC 资源记录类型的查询记录以及和根域、NS服务器之间的关系；</p>
-<p>点击切换到<code>Servers</code>可以查看到 Paypal.com 的4个权威域名服务器（NameServer）的信息；</p>
-<p>最后的<code>Analyze</code>用于简洁的展示查询分析过程：</p>
+<p>点击上方的 <code>Response</code> 可以查看到各种 DNSSEC 资源记录类型的查询记录以及和根域、 NS 服务器之间的关系；</p>
+<p>点击切换到 <code>Servers</code> 可以查看到 Paypal.com 的 4 个权威域名服务器（ NameServer ）的信息；</p>
+<p>最后的 <code>Analyze</code> 用于简洁的展示查询分析过程：</p>
 </blockquote>
 <blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Analyzing paypal.com</span><br><span class="line">  Querying paypal.com/NS (referral)...</span><br><span class="line">  Querying paypal.com/NS (auth)...</span><br><span class="line">  Querying paypal.com/A...</span><br><span class="line">  Preparing query jld3x6hmi0.paypal.com/A (NXDOMAIN)...</span><br><span class="line">  Preparing query paypal.com/CNAME (No data)...</span><br><span class="line">  Preparing query paypal.com/MX...</span><br><span class="line">  Preparing query paypal.com/TXT...</span><br><span class="line">  Preparing query paypal.com/SOA...</span><br><span class="line">  Preparing query paypal.com/DNSKEY...</span><br><span class="line">  Preparing query paypal.com/DS...</span><br><span class="line">  Preparing query paypal.com/AAAA...</span><br><span class="line">  Executing queries...</span><br><span class="line">Success!</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>左侧的树形标签可展开，查看各个点的状态汇总及图例。</p>
-<p>更多的图例解释，可点击左侧下方的<a href="http://dnsviz.net/doc/dnssec/" target="_blank" rel="noopener">Full legend</a>。英文太渣，我就不做半调子翻译官了，感兴趣的话自己去看。</p>
+<p>更多的图例解释，可点击左侧下方的 <a href="http://dnsviz.net/doc/dnssec/" target="_blank" rel="noopener">Full legend</a> 。英文太渣，我就不做半调子翻译官了，感兴趣的话自己去看。</p>
 </blockquote>
-<p>既然是配置检查，当存在不正确的配置时，也会根据影响做 Error 或 Warning 的标记。例如我的博客域名 ephen.me，没有配置DNSSEC，查询出来是这样的：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426155455.png" alt="ephen.me的dnssec检查"></p>
+<p>既然是配置检查，当存在不正确的配置时，也会根据影响做 Error 或 Warning 的标记。例如我的博客域名 ephen.me，没有配置 DNSSEC ，查询出来是这样的：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426155455.png" alt=" ephen.me 的 dnssec 检查"></p>
 <p>除了上图中最下一排的各种感叹号外，左边还有一大排的 Error 和 Warning ，描述了我的域名具体的配置出错的地方。</p>
 <blockquote>
-<p>如果以后要给域名部署配置DNSSEC，我会记得再来这个网站查查看。 </p>
+<p>如果以后要给域名部署配置 DNSSEC ，我会记得再来这个网站查查看。 </p>
 </blockquote>
 <h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><h3 id="算法类型列表"><a href="#算法类型列表" class="headerlink" title="算法类型列表"></a>算法类型列表</h3><ul>
 <li>1: RSA/MD5</li>
@@ -1478,10 +1458,10 @@
 <li>4: SHA-384 </li>
 </ul>
 <h2 id="参考资料及其他"><a href="#参考资料及其他" class="headerlink" title="参考资料及其他"></a>参考资料及其他</h2><ol>
-<li><a href="http://support.simpledns.com/kb/a173/check-dnssec-signatures-tool.aspx" target="_blank" rel="noopener">Check DNSSEC Signatures tool</a>（这个也是一DNSSEC配置检查工具，由于看介绍没有DNSViz看起来直观，就没有进一步了解。附：<a href="http://www.simpledns.com/outbox/chksig.zip" target="_blank" rel="noopener">下载链接</a>）</li>
+<li><a href="http://support.simpledns.com/kb/a173/check-dnssec-signatures-tool.aspx" target="_blank" rel="noopener">Check DNSSEC Signatures tool</a>（这个也是一 DNSSEC 配置检查工具，由于看介绍没有 DNSViz 看起来直观，就没有进一步了解。附：<a href="http://www.simpledns.com/outbox/chksig.zip" target="_blank" rel="noopener">下载链接</a>）</li>
 <li><a href="https://msdn.microsoft.com/zh-cn/library/jj200221%28v=ws.11%29.aspx" target="_blank" rel="noopener">Microsoft MSDN - DNSSEC 概述 </a></li>
-<li><a href="https://www.cc.ntu.edu.tw/chinese/epaper/0022/20120920_2206.html" target="_blank" rel="noopener">台湾大学电子报 - DNSSEC安全技術簡介</a></li>
-<li><a href="https://imlonghao.com/41.html" target="_blank" rel="noopener">imlonghao - 我所理解的DNSSEC</a></li>
+<li><a href="https://www.cc.ntu.edu.tw/chinese/epaper/0022/20120920_2206.html" target="_blank" rel="noopener">台湾大学电子报 - DNSSEC 安全技術簡介</a></li>
+<li><a href="https://imlonghao.com/41.html" target="_blank" rel="noopener">imlonghao - 我所理解的 DNSSEC </a></li>
 <li><a href="http://netsec.ccert.edu.cn/duanhx/?p=1479" target="_blank" rel="noopener">DNSSEC 原理、配置与布署简介 | 段海新( Haixin Duan ) @ Tsinghua University</a></li>
 <li><a href="https://www.verisign.com/zh_CN/domain-names/dnssec/index.xhtml" target="_blank" rel="noopener">Verisign - DNSSEC</a></li>
 </ol>
@@ -1491,38 +1471,36 @@
             
             <category> 工具介绍 </category>
             
-            <category> 知识探索 </category>
-            
         </categories>
         
         
         <tags>
             
-            <tag> DNSViz </tag>
-            
             <tag> DNSSEC </tag>
             
-            <tag> DNS劫持 </tag>
+            <tag> 域名劫持 </tag>
             
-            <tag> DNS安全 </tag>
+            <tag> DNSViz </tag>
+            
+            <tag> 安全 </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[DNS资源记录（Resource Record，简称RR）介绍]]></title>
+      <title><![CDATA[DNS 资源记录（ Resource Record ，简称 RR ）介绍]]></title>
       <url>https://ephen.me/2016/dns-rr/</url>
-      <content type="html"><![CDATA[<h2 id="DNS-资源记录简介"><a href="#DNS-资源记录简介" class="headerlink" title="DNS 资源记录简介"></a>DNS 资源记录简介</h2><p>DNS server 内的每一个域名都有自己的域文件(zone file)，zone file 是由多个记录组成的，每一个记录就被称为资源记录(Resource Record，简称RR)。</p>
-<p>当在设定 DNS 域名解析、反向解析及其他的管理目的时，往往需要使用不同类型的RR，也就是我们常说的<a href="https://www.cloudxns.net/Support/detail/id/54.html" target="_blank" rel="noopener">记录类型</a>。</p>
-<p>上述CloudXNS的记录类型列表中，除AX、CNAMEX、LINK、DR301X（301跳转）、DR302X（302跳转）以及DRHIDX（隐式跳转）为CloudXNS自研的<a href="https://www.cloudxns.net/Index/Extend.html" target="_blank" rel="noopener">扩展解析记录类型</a>之外，其余都是 DNS 体系中常见的标准RR类型。</p>
-<p>但除了我们系统中支持的这些类型外，事实上还有一些不太常用的目前CloudXNS暂不支持的其他RR类型，感兴趣的朋友可以和灰姑娘一起学习下。</p>
+      <content type="html"><![CDATA[<h2 id="DNS-资源记录简介"><a href="#DNS-资源记录简介" class="headerlink" title="DNS 资源记录简介"></a>DNS 资源记录简介</h2><p>DNS server 内的每一个域名都有自己的域文件（ zone file ）， zone file 是由多个记录组成的，每一个记录就被称为资源记录（ Resource Record ，简称 RR ）。</p>
+<p>当在设定 DNS 域名解析、反向解析及其他的管理目的时，往往需要使用不同类型的 RR ，也就是我们常说的记录类型。</p>
+<p>上述 CloudXNS 的记录类型列表中，除 AX 、 CNAMEX 、 LINK 、 DR301X （ 301 跳转）、 DR302X （ 302 跳转）以及 DRHIDX （隐式跳转）为 CloudXNS 自研的扩展解析记录类型之外，其余都是 DNS 体系中常见的标准 RR 类型。</p>
+<p>但除了我们系统中支持的这些类型外，事实上还有一些不太常用的目前 CloudXNS 暂不支持的其他 RR 类型，感兴趣的朋友可以和灰姑娘一起学习下。</p>
 <a id="more"></a>
-<h2 id="DNS-体系中的标准RR类型及表示法集合"><a href="#DNS-体系中的标准RR类型及表示法集合" class="headerlink" title="DNS 体系中的标准RR类型及表示法集合"></a>DNS 体系中的标准RR类型及表示法集合</h2><table>
+<h2 id="DNS-体系中的标准-RR-类型及表示法集合"><a href="#DNS-体系中的标准-RR-类型及表示法集合" class="headerlink" title="DNS 体系中的标准 RR 类型及表示法集合"></a>DNS 体系中的标准 RR 类型及表示法集合</h2><table>
 <thead>
 <tr>
 <th style="text-align:center">类型</th>
-<th style="text-align:center">RFC来源</th>
+<th style="text-align:center">RFC 来源</th>
 <th style="text-align:left">描述</th>
 <th style="text-align:left">功能</th>
 </tr>
@@ -1543,20 +1521,20 @@
 <tr>
 <td style="text-align:center">AFSDB</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc1183" target="_blank" rel="noopener">RFC 1183</a></td>
-<td style="text-align:left">AFS文件系统</td>
-<td style="text-align:left">（Andrew File System）数据库核心的位置，于域名以外的 AFS 客户端常用来联系 AFS 核心。这个记录的子类型是被过时的<a href="https://zh.wikipedia.org/wiki/DCE/DFS" target="_blank" rel="noopener">DCE/DFS</a>（DCE Distributed File System）所使用。</td>
+<td style="text-align:left">AFS 文件系统</td>
+<td style="text-align:left">（ Andrew File System ）数据库核心的位置，于域名以外的 AFS 客户端常用来联系 AFS 核心。这个记录的子类型是被过时的 <a href="https://zh.wikipedia.org/wiki/DCE/DFS" target="_blank" rel="noopener">DCE/DFS</a>（ DCE Distributed File System ）所使用。</td>
 </tr>
 <tr>
 <td style="text-align:center">APL</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc3123" target="_blank" rel="noopener">RFC 3123</a></td>
 <td style="text-align:left">地址前缀列表</td>
-<td style="text-align:left">指定地址列表的范围，例如：CIDR 格式为各个类型的地址（试验性）。</td>
+<td style="text-align:left">指定地址列表的范围，例如： CIDR 格式为各个类型的地址（试验性）。</td>
 </tr>
 <tr>
 <td style="text-align:center">CERT</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc4398" target="_blank" rel="noopener">RFC 4398</a></td>
 <td style="text-align:left">证书记录</td>
-<td style="text-align:left">存储 PKIX、SPKI、PGP等。</td>
+<td style="text-align:left">存储 PKIX 、 SPKI 、PGP 等。</td>
 </tr>
 <tr>
 <td style="text-align:center">CNAME</td>
@@ -1567,38 +1545,38 @@
 <tr>
 <td style="text-align:center">DHCID</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc4701" target="_blank" rel="noopener">RFC 4701</a></td>
-<td style="text-align:left">DHCP（动态主机设置协议）识别码</td>
-<td style="text-align:left">用于将 FQDN 选项结合至 DHCP。</td>
+<td style="text-align:left">DHCP （动态主机设置协议）识别码</td>
+<td style="text-align:left">用于将 FQDN 选项结合至 DHCP 。</td>
 </tr>
 <tr>
 <td style="text-align:center">DLV</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc4431" target="_blank" rel="noopener">RFC 4431</a></td>
-<td style="text-align:left">DNSSEC（域名系统安全扩展）来源验证记录</td>
-<td style="text-align:left">为不在DNS委托者内发布DNSSEC的信任锚点，与 DS 记录使用相同的格式，<a href="https://tools.ietf.org/html/rfc5074" target="_blank" rel="noopener">RFC 5074</a>介绍了如何使用这些记录。</td>
+<td style="text-align:left">DNSSEC （域名系统安全扩展）来源验证记录</td>
+<td style="text-align:left">为不在 DNS 委托者内发布 DNSSEC 的信任锚点，与 DS 记录使用相同的格式，<a href="https://tools.ietf.org/html/rfc5074" target="_blank" rel="noopener">RFC 5074</a> 介绍了如何使用这些记录。</td>
 </tr>
 <tr>
 <td style="text-align:center">DNAME</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc2672" target="_blank" rel="noopener">RFC 2672</a></td>
 <td style="text-align:left">代表名称</td>
-<td style="text-align:left">DNAME 会为名称和其子名称产生别名，与 CNAME 不同，在其标签别名不会重复。但与 CNAME 记录相同的是，DNS将会继续尝试查找新的名字。</td>
+<td style="text-align:left">DNAME 会为名称和其子名称产生别名，与 CNAME 不同，在其标签别名不会重复。但与 CNAME 记录相同的是， DNS 将会继续尝试查找新的名字。</td>
 </tr>
 <tr>
 <td style="text-align:center">DNSKEY</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc4034" target="_blank" rel="noopener">RFC 4034</a></td>
 <td style="text-align:left">DNS 关键记录</td>
-<td style="text-align:left">于DNSSEC内使用的关键记录，与 KEY 使用相同格式。</td>
+<td style="text-align:left">于 DNSSEC 内使用的关键记录，与 KEY 使用相同格式。</td>
 </tr>
 <tr>
 <td style="text-align:center">DS</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc4034" target="_blank" rel="noopener">RFC 4034</a></td>
 <td style="text-align:left">委托签发者</td>
-<td style="text-align:left">此记录用于鉴定DNSSEC已授权区域的签名密钥。</td>
+<td style="text-align:left">此记录用于鉴定 DNSSEC 已授权区域的签名密钥。</td>
 </tr>
 <tr>
 <td style="text-align:center">HIP</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc5205" target="_blank" rel="noopener">RFC 5205</a></td>
 <td style="text-align:left">主机鉴定协议</td>
-<td style="text-align:left">将端点标识符及IP 地址定位的分开的方法。</td>
+<td style="text-align:left">将端点标识符及 IP 地址定位的分开的方法。</td>
 </tr>
 <tr>
 <td style="text-align:center">IPSECKEY</td>
@@ -1610,7 +1588,7 @@
 <td style="text-align:center">KEY</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc2535" target="_blank" rel="noopener">RFC 2535</a> 和 <a href="https://tools.ietf.org/html/rfc2930" target="_blank" rel="noopener">RFC 2930</a></td>
 <td style="text-align:left">关键记录</td>
-<td style="text-align:left">只用于 SIG(0)（<a href="https://tools.ietf.org/html/rfc2931" target="_blank" rel="noopener">RFC 2931</a>）及 TKEY（<a href="https://tools.ietf.org/html/rfc2930" target="_blank" rel="noopener">RFC 2930</a>。<a href="https://tools.ietf.org/html/rfc3455" target="_blank" rel="noopener">RFC 3455</a> 否定其作为应用程序键及限制DNSSEC的使用。<a href="https://tools.ietf.org/html/rfc3755" target="_blank" rel="noopener">RFC 3755</a> 指定了 DNSKEY 作为DNSSEC的代替。</td>
+<td style="text-align:left">只用于 SIG(0) （ <a href="https://tools.ietf.org/html/rfc2931" target="_blank" rel="noopener">RFC 2931</a> ）及 TKEY （ <a href="https://tools.ietf.org/html/rfc2930" target="_blank" rel="noopener">RFC 2930</a> 。 <a href="https://tools.ietf.org/html/rfc3455" target="_blank" rel="noopener">RFC 3455</a> 否定其作为应用程序键及限制 DNSSEC 的使用。 <a href="https://tools.ietf.org/html/rfc3755" target="_blank" rel="noopener">RFC 3755</a> 指定了 DNSKEY 作为 DNSSEC 的代替。</td>
 </tr>
 <tr>
 <td style="text-align:center">LOC</td>
@@ -1622,7 +1600,7 @@
 <td style="text-align:center">MX</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc1035" target="_blank" rel="noopener">RFC 1035</a></td>
 <td style="text-align:left">电邮交互记录</td>
-<td style="text-align:left">引导域名到该域名的邮件传输代理（MTA, Message Transfer Agents）列表。</td>
+<td style="text-align:left">引导域名到该域名的邮件传输代理（ MTA, Message Transfer Agents ）列表。</td>
 </tr>
 <tr>
 <td style="text-align:center">NAPTR</td>
@@ -1634,7 +1612,7 @@
 <td style="text-align:center">NS</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc1035" target="_blank" rel="noopener">RFC 1035</a></td>
 <td style="text-align:left">名称服务器记录</td>
-<td style="text-align:left">委托 DNS 域（DNS zone）使用已提供的权威域名服务器。</td>
+<td style="text-align:left">委托 DNS 域（ DNS zone ）使用已提供的权威域名服务器。</td>
 </tr>
 <tr>
 <td style="text-align:center">NSEC</td>
@@ -1658,7 +1636,7 @@
 <td style="text-align:center">PTR</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc1035" target="_blank" rel="noopener">RFC 1035</a></td>
 <td style="text-align:left">指针记录</td>
-<td style="text-align:left">引导至一个规范名称（Canonical Name）。与 CNAME 记录不同，DNS“不会”进行进程，只会传回名称。最常用来运行反向 DNS 查找，其他用途包括引作DNS-SD。</td>
+<td style="text-align:left">引导至一个规范名称（ Canonical Name ）。与 CNAME 记录不同， DNS “不会”进行进程，只会传回名称。最常用来运行反向 DNS 查找，其他用途包括引作 DNS-SD。</td>
 </tr>
 <tr>
 <td style="text-align:center">RRSIG</td>
@@ -1670,19 +1648,19 @@
 <td style="text-align:center">RP</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc1183" target="_blank" rel="noopener">RFC 1183</a></td>
 <td style="text-align:left">负责人</td>
-<td style="text-align:left">有关域名负责人的信息，电邮地址的 <strong>@</strong> 通常写为 <strong>a</strong>。</td>
+<td style="text-align:left">有关域名负责人的信息，电邮地址的 <strong><code>@</code></strong> 通常写为 <strong><code>a</code></strong>。</td>
 </tr>
 <tr>
 <td style="text-align:center">SIG</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc2535" target="_blank" rel="noopener">RFC 2535</a></td>
 <td style="text-align:left">证书</td>
-<td style="text-align:left">SIG(0)（<a href="https://tools.ietf.org/html/rfc2931" target="_blank" rel="noopener">RFC 2931</a>）及 TKEY（<a href="https://tools.ietf.org/html/rfc2930" target="_blank" rel="noopener">RFC 2930</a>）使用的证书。<a href="https://tools.ietf.org/html/rfc3755" target="_blank" rel="noopener">RFC 3755</a> designated RRSIG as the replacement for SIG for use within DNSSEC.</td>
+<td style="text-align:left">SIG(0) （ <a href="https://tools.ietf.org/html/rfc2931" target="_blank" rel="noopener">RFC 2931</a> ）及 TKEY （ <a href="https://tools.ietf.org/html/rfc2930" target="_blank" rel="noopener">RFC 2930</a> ）使用的证书。 <a href="https://tools.ietf.org/html/rfc3755" target="_blank" rel="noopener">RFC 3755</a> designated RRSIG as the replacement for SIG for use within DNSSEC.</td>
 </tr>
 <tr>
 <td style="text-align:center">SOA</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc1035" target="_blank" rel="noopener">RFC 1035</a></td>
 <td style="text-align:left">权威记录的起始</td>
-<td style="text-align:left">指定有关DNS区域的权威性信息，包含主要名称服务器、域名管理员的电邮地址、域名的流水式编号、和几个有关刷新区域的定时器。</td>
+<td style="text-align:left">指定有关 DNS 区域的权威性信息，包含主要名称服务器、域名管理员的电邮地址、域名的流水式编号、和几个有关刷新区域的定时器。</td>
 </tr>
 <tr>
 <td style="text-align:center">SPF</td>
@@ -1694,13 +1672,13 @@
 <td style="text-align:center">SRV</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc2782" target="_blank" rel="noopener">RFC 2782</a></td>
 <td style="text-align:left">服务定位器</td>
-<td style="text-align:left">广义为服务定位记录，被新式协议使用而避免产生特定协议的记录，例如：MX 记录。</td>
+<td style="text-align:left">广义为服务定位记录，被新式协议使用而避免产生特定协议的记录，例如： MX 记录。</td>
 </tr>
 <tr>
 <td style="text-align:center">SSHFP</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc4255" target="_blank" rel="noopener">RFC 4255</a></td>
 <td style="text-align:left">SSH 公共密钥指纹</td>
-<td style="text-align:left">DNS 系统用来发布SSH公共密钥指纹的资源记录，以用作辅助验证服务器的真实性。</td>
+<td style="text-align:left">DNS 系统用来发布 SSH 公共密钥指纹的资源记录，以用作辅助验证服务器的真实性。</td>
 </tr>
 <tr>
 <td style="text-align:center">TA</td>
@@ -1718,13 +1696,13 @@
 <td style="text-align:center">TSIG</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc2845" target="_blank" rel="noopener">RFC 2845</a></td>
 <td style="text-align:left">交易证书</td>
-<td style="text-align:left">用以认证动态更新（Dynamic DNS）是来自合法的客户端，或与 DNSSEC 一样是验证回应是否来自合法的递归名称服务器。</td>
+<td style="text-align:left">用以认证动态更新（ Dynamic DNS ）是来自合法的客户端，或与 DNSSEC 一样是验证回应是否来自合法的递归名称服务器。</td>
 </tr>
 <tr>
 <td style="text-align:center">TXT</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc1035" target="_blank" rel="noopener">RFC 1035</a></td>
 <td style="text-align:left">文本记录</td>
-<td style="text-align:left">最初是为任意可读的文本 DNS 记录。自1990年起，些记录更经常地带有机读数据，以 <a href="https://tools.ietf.org/html/rfc1464" target="_blank" rel="noopener">RFC 1464</a>指定：opportunistic encryption、Sender Policy Framework（虽然这个临时使用的 TXT 记录在 SPF 记录推出后不被推荐）、DomainKeys、DNS-SD等。</td>
+<td style="text-align:left">最初是为任意可读的文本 DNS 记录。自 1990 年起，些记录更经常地带有机读数据，以 <a href="https://tools.ietf.org/html/rfc1464" target="_blank" rel="noopener">RFC 1464</a> 指定： opportunistic encryption 、 Sender Policy Framework （虽然这个临时使用的 TXT 记录在 SPF 记录推出后不被推荐）、 DomainKeys 、 DNS-SD 等。</td>
 </tr>
 </tbody>
 </table>
@@ -1754,22 +1732,22 @@
 <td style="text-align:center">IXFR</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc1995" target="_blank" rel="noopener">RFC 1995</a></td>
 <td style="text-align:left">增量区域转移</td>
-<td style="text-align:left">请求只有与先前流水式编号不同的特定区域的区域转移。此请求有机会被拒绝，如果权威服务器由于配置或缺乏必要的数据而无法履行请求，一个完整的（AXFR）会被发送以作回应。</td>
+<td style="text-align:left">请求只有与先前流水式编号不同的特定区域的区域转移。此请求有机会被拒绝，如果权威服务器由于配置或缺乏必要的数据而无法履行请求，一个完整的（ AXFR ）会被发送以作回应。</td>
 </tr>
 <tr>
 <td style="text-align:center">OPT</td>
 <td style="text-align:center"><a href="https://tools.ietf.org/html/rfc2671" target="_blank" rel="noopener">RFC 2671</a></td>
 <td style="text-align:left">选项</td>
-<td style="text-align:left">这是一个“伪 DNS 记录类型”以支持EDNS。</td>
+<td style="text-align:left">这是一个“伪 DNS 记录类型”以支持 EDNS 。</td>
 </tr>
 </tbody>
 </table>
-<h2 id="什么是SOA？"><a href="#什么是SOA？" class="headerlink" title="什么是SOA？"></a>什么是SOA？</h2><p>SOA，即Start Of Authority，放在 zone file 中，用于描述这个 zone 负责的 name server，version number…等资料，以及当 slave server 要备份这个 zone 时的一些参数。</p>
+<h2 id="什么是-SOA-？"><a href="#什么是-SOA-？" class="headerlink" title="什么是 SOA ？"></a>什么是 SOA ？</h2><p>SOA ，即 Start Of Authority ，放在 zone file 中，用于描述这个 zone 负责的 name server ， version number… 等资料，以及当 slave server 要备份这个 zone 时的一些参数。</p>
 <p>每个 zone file 中必须有且仅有一条 SOARR ，并在 zone file 中作为第一条资源记录保存。</p>
 <p>举个栗子：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">@ IN SOA lv3ns1.ffdns.net. webmaster.ffdns.net. (</span><br><span class="line">    2009092868 ; Serial</span><br><span class="line">    604800 ; Refresh</span><br><span class="line">    3600 ; Retry</span><br><span class="line">    2419200 ; Expire</span><br><span class="line">    3600 ) ; Minimum</span><br></pre></td></tr></table></figure>
 <blockquote>
-<p><strong>第一行：</strong><code>@</code>指代该 zone ； <code>lv3ns1.ffdns.net.</code>是该 zone 的授权主机；<code>webmaster.ffdns.net.</code>代表<a href="mailto:`webmaster@ffdns.net" target="_blank" rel="noopener">`webmaster@ffdns.net</a>`，即该 zone 的管理者信箱。</p>
+<p><strong>第一行：</strong> <code>@</code> 指代该 zone ；  <code>lv3ns1.ffdns.net.</code> 是该 zone 的授权主机； <code>webmaster.ffdns.net.</code> 代表 <a href="mailto:`webmaster@ffdns.net" target="_blank" rel="noopener">`webmaster@ffdns.net</a>` ，即该 zone 的管理者信箱。</p>
 <p><strong>Serial：</strong>代表 zone file 的版本，每当 zone file 内容有变动，name server 管理者就应该增加这个号码，因为 slave 会将这个号码与其 copy 的那份比对以便决定是否要再 copy 一次（即进行 zone transfer ）。</p>
 <p><strong>Refresh：</strong> slave server 每隔这段时间(秒)，就去检查 master server 上的 serial number 。</p>
 <p><strong>Retry：</strong>当 slave server 无法和 master 进行 serial check 时，要每隔这段时间（秒） retry 一次。</p>
@@ -1785,8 +1763,6 @@
       
         <categories>
             
-            <category> 工作笔记 </category>
-            
             <category> 知识探索 </category>
             
         </categories>
@@ -1800,41 +1776,39 @@
             
             <tag> SOA </tag>
             
-            <tag> 参考资料 </tag>
-            
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[隔壁粗事了！朝鲜顶级域.kp域名DNS数据配置可被转移]]></title>
+      <title><![CDATA[隔壁粗事了！朝鲜顶级域 .kp 域名 DNS 数据配置可被转移]]></title>
       <url>https://ephen.me/2016/dotkp-zone-dns-remove/</url>
-      <content type="html"><![CDATA[<p>9月20日上午10点左右，朝鲜的一台顶级域名服务器ns2.kptc.kp不小心配置<a href="https://github.com/mandatoryprogrammer/NorthKoreaDNSLeak" target="_blank" rel="noopener">允许全球DNS区域转移</a>，任何人都可以向这台域名服务器发出区域转移请求，获取到一份朝鲜的顶级DNS数据拷贝。朝鲜泄漏的DNS数据显示，它的互联网/局域网规模确实非常小，域名寥寥无几。</p>
+      <content type="html"><![CDATA[<p>9 月 20 日上午 10 点左右，朝鲜的一台顶级域名服务器 <code>ns2.kptc.kp</code> 不小心配置<a href="https://github.com/mandatoryprogrammer/NorthKoreaDNSLeak" target="_blank" rel="noopener">允许全球 DNS 区域转移</a>，任何人都可以向这台域名服务器发出区域转移请求，获取到一份朝鲜的顶级 DNS 数据拷贝。朝鲜泄漏的 DNS 数据显示，它的互联网/局域网规模确实非常小，域名寥寥无几。</p>
 <a id="more"></a>
-<p>DNS数据披露了28个可访问的.KP域名：</p>
+<p>DNS 数据披露了 28 个可访问的 <code>.KP</code> 域名：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">airkoryo.com.kp.</span><br><span class="line">cooks.org.kp.</span><br><span class="line">friend.com.kp.</span><br><span class="line">gnu.rep.kp.</span><br><span class="line">kass.org.kp.</span><br><span class="line">kcna.kp.</span><br><span class="line">kiyctc.com.kp.</span><br><span class="line">knic.com.kp.</span><br><span class="line">koredufund.org.kp.</span><br><span class="line">korelcfund.org.kp.</span><br><span class="line">korfilm.com.kp.</span><br><span class="line">ma.gov.kp.</span><br><span class="line">masikryong.com.kp.</span><br><span class="line">naenara.com.kp.</span><br><span class="line">nta.gov.kp.</span><br><span class="line">portal.net.kp.</span><br><span class="line">rcc.net.kp.</span><br><span class="line">rep.kp.</span><br><span class="line">rodong.rep.kp.</span><br><span class="line">ryongnamsan.edu.kp.</span><br><span class="line">sdprk.org.kp.</span><br><span class="line">silibank.net.kp.</span><br><span class="line">star-co.net.kp.</span><br><span class="line">star-di.net.kp.</span><br><span class="line">star.co.kp.</span><br><span class="line">star.edu.kp.</span><br><span class="line">star.net.kp.</span><br><span class="line">vok.rep.kp.</span><br></pre></td></tr></table></figure>
 <p>嗯，三胖家的域名果然有够少。（至于他们国家的那些“机密信息”，本宝宝着实不感兴趣</p>
-<p>各位一定要警惕DNS数据安全，配置的严谨性不能忽视。</p>
+<p>各位一定要警惕 DNS 数据安全，配置的严谨性不能忽视。</p>
 <hr>
 <p>下面分享一点相关知识。</p>
-<h2 id="关于DNS区域传送（DNS-zone-transfer）"><a href="#关于DNS区域传送（DNS-zone-transfer）" class="headerlink" title="关于DNS区域传送（DNS zone transfer）"></a>关于DNS区域传送（DNS zone transfer）</h2><p>它指的是一台备用服务器使用来自主服务器的数据刷新自己的域（zone）数据库。</p>
-<p>这为运行中的DNS服务提供了一定的冗余度，其目的是为了防止主的域名服务器因意外故障变得不可用时影响到整个域名的解析。</p>
-<p>一般来说，DNS区域传送操作只在网络里真的有备用域名DNS服务器时才有必要用到，但许多DNS服务器却被错误地配置成只要有client发出请求，就会向对方提供一个zone数据库的详细信息，所以说<strong>允许不受信任的因特网用户执行DNS区域传送（zone transfer）操作是后果最为严重的错误配置之一</strong>。</p>
+<h2 id="关于-DNS-区域传送（-DNS-zone-transfer-）"><a href="#关于-DNS-区域传送（-DNS-zone-transfer-）" class="headerlink" title="关于 DNS 区域传送（ DNS zone transfer ）"></a>关于 DNS 区域传送（ DNS zone transfer ）</h2><p>它指的是一台备用服务器使用来自主服务器的数据刷新自己的域（ zone ）数据库。</p>
+<p>这为运行中的 DNS 服务提供了一定的冗余度，其目的是为了防止主的域名服务器因意外故障变得不可用时影响到整个域名的解析。</p>
+<p>一般来说， DNS 区域传送操作只在网络里真的有备用域名 DNS 服务器时才有必要用到，但许多 DNS 服务器却被错误地配置成只要有 client 发出请求，就会向对方提供一个 zone 数据库的详细信息，所以说<strong>允许不受信任的因特网用户执行 DNS 区域传送（ zone transfer ）操作是后果最为严重的错误配置之一</strong>。</p>
 <p>区域传送漏洞的危害：</p>
 <blockquote>
-<p>黑客可以快速的判定出某个特定zone的所有主机，收集域信息，选择攻击目标，找出未使用的IP地址，黑客可以绕过基于网络的访问控制。</p>
+<p>黑客可以快速的判定出某个特定 zone 的所有主机，收集域信息，选择攻击目标，找出未使用的 IP 地址，黑客可以绕过基于网络的访问控制。</p>
 </blockquote>
-<h2 id="DNS-zone-transfer-的正确配置"><a href="#DNS-zone-transfer-的正确配置" class="headerlink" title="DNS zone transfer 的正确配置"></a>DNS zone transfer 的正确配置</h2><p>要知道，区域传送是DNS常用的功能，只有正确的配置才将发挥有利的作用。</p>
+<h2 id="DNS-zone-transfer-的正确配置"><a href="#DNS-zone-transfer-的正确配置" class="headerlink" title="DNS zone transfer 的正确配置"></a>DNS zone transfer 的正确配置</h2><p>要知道，区域传送是 DNS 常用的功能，只有正确的配置才将发挥有利的作用。</p>
 <p>为避免被利用该漏洞，一般常用两种方法：</p>
 <h3 id="方法一：严格限制允许区域传送（zone-transfer）的主机IP"><a href="#方法一：严格限制允许区域传送（zone-transfer）的主机IP" class="headerlink" title="方法一：严格限制允许区域传送（zone transfer）的主机IP"></a>方法一：严格限制允许区域传送（zone transfer）的主机IP</h3><blockquote>
-<p>针对bind，可以在 Global 选项或 zone 选项中增加<code>allow-transfer</code>参数来控制</p>
+<p>针对 bind ，可以在 Global 选项或 zone 选项中增加 <code>allow-transfer</code> 参数来控制</p>
 </blockquote>
 <blockquote>
 <p>例如：</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">allow-transfer ｛192.168.1.1; 202.103.24.68;｝;</span><br></pre></td></tr></table></figure>
 <h3 id="方法二：使用-TSIG-key-来严格定义区域传送的关系"><a href="#方法二：使用-TSIG-key-来严格定义区域传送的关系" class="headerlink" title="方法二：使用 TSIG key 来严格定义区域传送的关系"></a>方法二：使用 TSIG key 来严格定义区域传送的关系</h3><blockquote>
-<p>使用基于IP地址的访问控制列表可能会被某些“意志坚定”黑客绕过，最好加上 TSIG key 的配置</p>
+<p>使用基于 IP 地址的访问控制列表可能会被某些“意志坚定”黑客绕过，最好加上 TSIG key 的配置</p>
 </blockquote>
 <blockquote>
 <p>例如：</p>
@@ -1856,11 +1830,13 @@
         
         <tags>
             
+            <tag> DNS </tag>
+            
             <tag> 朝鲜 </tag>
             
             <tag> 顶级域 </tag>
             
-            <tag> DNS域转移 </tag>
+            <tag> 域转移 </tag>
             
             <tag> bind </tag>
             
@@ -1894,99 +1870,93 @@
         </categories>
         
         
-        <tags>
-            
-            <tag> 生活 </tag>
-            
-        </tags>
-        
     </entry>
     
     <entry>
       <title><![CDATA[全新出发，正式启用Hexo！]]></title>
       <url>https://ephen.me/2016/hello-hexo/</url>
-      <content type="html"><![CDATA[<p><strong>郑重声明：原网站<a href="http://www.chinatesters.com" target="_blank" rel="noopener">http://www.chinatesters.com</a>已正式停止更新，内容已全部转移至这里，未来所有的更新也都在这里。新的站点，新的开始，新的旅程！~</strong><br><a id="more"></a></p>
+      <content type="html"><![CDATA[<p><strong>郑重声明：原网站 <a href="http://www.chinatesters.com" target="_blank" rel="noopener">http://www.chinatesters.com</a> 已正式停止更新，内容已全部转移至这里，未来所有的更新也都在这里。新的站点，新的开始，新的旅程！~</strong><br><a id="more"></a></p>
 <hr>
-<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>最早看到有人推荐Hexo已经是很久以前甚至不太记得是什么时候的事了，印象中那会儿才弄懂什么静态网站、动态网站之类的词语，只听说Hexo是个基于node.js开发的静态博客框架。当时有点感兴趣，但因为没有时间又担心技术不足就没有再去做过多了解。</p>
-<p>今年5月，公司内部测试尝试量子加速的加速效果时，其产品经理告诉我量子加速对静态资源的加速效果是尤其明显的，可以搭建个静态博客比如Hexo什么的和Wordpress对比试试看。至此，我开启了Hexo折腾模式，但因为没接触过git又不了解node.js，等我搭建好时已经浪费了很多时间。而我依然很忙，加之又想换域名又想导入原博客的内容还想找个看得顺眼的主题，觉得折腾起来实在有些麻烦就先搁着，等什么时候有空了在做。</p>
+<h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>最早看到有人推荐 Hexo 已经是很久以前甚至不太记得是什么时候的事了，印象中那会儿才弄懂什么静态网站、动态网站之类的词语，只听说 Hexo 是个基于 node.js 开发的静态博客框架。当时有点感兴趣，但因为没有时间又担心技术不足就没有再去做过多了解。</p>
+<p>今年 5 月，公司内部测试尝试量子加速的加速效果时，其产品经理告诉我量子加速对静态资源的加速效果是尤其明显的，可以搭建个静态博客比如 Hexo 什么的和 Wordpress 对比试试看。至此，我开启了 Hexo 折腾模式，但因为没接触过 git 又不了解 node.js ，等我搭建好时已经浪费了很多时间。而我依然很忙，加之又想换域名又想导入原博客的内容还想找个看得顺眼的主题，觉得折腾起来实在有些麻烦就先搁着，等什么时候有空了在做。</p>
 <p>直到有一天……</p>
 <blockquote>
-<p>卧槽！CloudXNS监控提醒我网站宕掉了……<br>-“运维兄弟，我的虚拟机咋了？ip是xxx.xxx.xxx.xxx”<br>-“我问了没人回应我就下架了呢，这个是你的啊？”<br>-“对呀对呀，我不在你们群里，可以恢复么？我都没备份……”<br>-“……”</p>
+<p>淦！ CloudXNS 监控提醒我网站宕掉了……<br>-“运维兄弟，我的虚拟机咋了？ ip 是 xxx.xxx.xxx.xxx ”<br>-“我问了没人回应我就下架了呢，这个是你的啊？”<br>-“对呀对呀，我不在你们群里，可以恢复么？我都没备份……”<br>-“……”</p>
 </blockquote>
-<p>最后，公司运维小哥费了很大劲周末加班给我恢复了数据。为了避免未来数据备份的麻烦，我决定开始正式整理好Hexo并启用Github page服务了。</p>
+<p>最后，公司运维小哥费了很大劲周末加班给我恢复了数据。为了避免未来数据备份的麻烦，我决定开始正式整理好 Hexo 并启用 Github page 服务了。</p>
 <h2 id="环境准备（折腾前必须掌握的）"><a href="#环境准备（折腾前必须掌握的）" class="headerlink" title="环境准备（折腾前必须掌握的）"></a>环境准备（折腾前必须掌握的）</h2><p>有一些知识和条件是需要准备的，我这里简单说下，具体可依赖搜索引擎在不会的时候轻松完成。<del>其实我能说是快忘掉了好吗？</del></p>
-<h3 id="开通Github-Page服务"><a href="#开通Github-Page服务" class="headerlink" title="开通Github Page服务"></a>开通Github Page服务</h3><p>在自己的github主页中创建一个名为<code>用户名.github.io</code>的 Repository 即可。</p>
-<h3 id="本地安装Git并了解一些常用git命令"><a href="#本地安装Git并了解一些常用git命令" class="headerlink" title="本地安装Git并了解一些常用git命令"></a>本地安装Git并了解一些常用git命令</h3><p>到<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git官网</a>下载Git并安装，windows安装过程中记得勾选 git bash，这个是执行git命令的入口。</p>
-<p>安装好后，启动 git bash 通过执行命令<code>ssh-keygen -t rsa -C &quot;github账号邮箱&quot;</code>生成ssh密钥用来关联github账号。</p>
-<p>到系统用户文档页（Linux系统请去<code>~/.ssh</code>目录找）找到id_rsa文件，打开将内容复制，登陆github账号设置中添加SSH Key并复制进去。</p>
-<h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>Hexo就是基于node.js的，所以这个必须得安装了，安装了它才能执行后面的npm命令。<br>可以自行到<a href="https://nodejs.org" target="_blank" rel="noopener">Node.js官网</a>下载自己需要的版本，Windows建议下载最多用户使用的稳定版，我试过最新版好像有点问题。</p>
-<h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>Git和node.js安装好后，在本地创建一个文件夹例如<code>E:\Hexo</code>。<br>进入该文件夹，打开git bash，执行命令<code>npm install -g hexo-cli</code> 即可将Hexo安装到该目录。</p>
+<h3 id="开通-Github-Page-服务"><a href="#开通-Github-Page-服务" class="headerlink" title="开通 Github Page 服务"></a>开通 Github Page 服务</h3><p>在自己的 github 主页中创建一个名为<code>用户名.github.io</code>的 Repository 即可。</p>
+<h3 id="本地安装-Git-并了解一些常用-git-命令"><a href="#本地安装-Git-并了解一些常用-git-命令" class="headerlink" title="本地安装 Git 并了解一些常用 git 命令"></a>本地安装 Git 并了解一些常用 git 命令</h3><p>到 <a href="https://git-scm.com/downloads" target="_blank" rel="noopener">Git 官网</a>下载 Git 并安装， windows 安装过程中记得勾选 git bash ，这个是执行 git 命令的入口。</p>
+<p>安装好后，启动 git bash 通过执行命令 <code>ssh-keygen -t rsa -C &quot;github账号邮箱&quot;</code> 生成 ssh 密钥用来关联 github 账号。</p>
+<p>到系统用户文档页（ Linux 系统请去 <code>~/.ssh</code> 目录找）找到 id_rsa 文件，打开将内容复制，登陆 github 账号设置中添加 SSH Key 并复制进去。</p>
+<h3 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h3><p>Hexo 就是基于 node.js 的，所以这个必须得安装了，安装了它才能执行后面的 npm 命令。<br>可以自行到 <a href="https://nodejs.org" target="_blank" rel="noopener">Node.js 官网</a>下载自己需要的版本， Windows 建议下载最多用户使用的稳定版，我试过最新版好像有点问题。</p>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><p>Git 和 node.js 安装好后，在本地创建一个文件夹例如 <code>E:\Hexo</code> 。<br>进入该文件夹，打开 git bash ，执行命令 <code>npm install -g hexo-cli</code> 即可将 Hexo 安装到该目录。</p>
 <blockquote>
-<p>Linux安装过程请直接参考<a href="https://hexo.io/docs/" target="_blank" rel="noopener">Hexo官方操作文档</a>，照给出的命令执行就好了。当然，如果要放到 github page 上同样需要生成 ssh key 与github账号关联并创建一个github主页。</p>
+<p>Linux 安装过程请直接参考<a href="https://hexo.io/docs/" target="_blank" rel="noopener"> Hexo 官方操作文档</a>，照给出的命令执行就好了。当然，如果要放到 github page 上同样需要生成 ssh key 与 github 账号关联并创建一个 github 主页。</p>
 </blockquote>
 <p>然后用如下命令启动博客：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ hexo init</span><br><span class="line">$ npm install</span><br><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>启动后就可以在本机通过<code>http://loaclhost:4000</code>查看效果了。</p>
+<p>启动后就可以在本机通过 <code>http://loaclhost:4000</code> 查看效果了。</p>
 <h2 id="折腾模式开启"><a href="#折腾模式开启" class="headerlink" title="折腾模式开启"></a>折腾模式开启</h2><p>本次折腾，主要做了以下事情：</p>
 <ol>
-<li>主题安装，选用了<a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a>主题，但又根据<a href="https://github.com/MOxFIVE/hexo-theme-yelee.git" target="_blank" rel="noopener">yelee</a>主题代码做了微量调整；</li>
-<li>导入原来Wordpress博客中的文章、页面和评论；</li>
-<li>github、coding、云主机多点部署并对新购买的域名做分区解析；</li>
-<li>生成RSS订阅、站点地图并将链接主动提交到百度站长平台等利于搜索引擎的优化工作。</li>
+<li>主题安装，选用了 <a href="https://github.com/litten/hexo-theme-yilia" target="_blank" rel="noopener">yilia</a> 主题，但又根据 <a href="https://github.com/MOxFIVE/hexo-theme-yelee.git" target="_blank" rel="noopener">yelee</a> 主题代码做了微量调整；</li>
+<li>导入原来 Wordpress 博客中的文章、页面和评论；</li>
+<li>github 、 coding 、云主机多点部署并对新购买的域名做分区解析；</li>
+<li>生成 RSS 订阅、站点地图并将链接主动提交到百度站长平台等利于搜索引擎的优化工作。</li>
 </ol>
-<h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>执行命令<code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code>和<code>git clone https://github.com/MOxFIVE/hexo-theme-yelee.git</code>下载上述两个主题，然后复制yilia创建名为ephen的主题副本，修改Hexo博客根目录（我的是<code>E:\Hexo</code>）的_config.xml文件将theme修改为ephen。</p>
+<h3 id="主题安装"><a href="#主题安装" class="headerlink" title="主题安装"></a>主题安装</h3><p>执行命令 <code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code> 和 <code>git clone https://github.com/MOxFIVE/hexo-theme-yelee.git</code> 下载上述两个主题，然后复制 yilia 创建名为 ephen 的主题副本，修改 Hexo 博客根目录（我的是 <code>E:\Hexo</code> ）的 _config.xml 文件将 theme 修改为 ephen 。</p>
 <p>修改完工后删掉下载的两个主题目录。<del>诶诶，怎么有种卸磨杀驴的感觉？</del></p>
 <p>本主题的主要修改点：</p>
 <ol>
-<li>增加Telegram图标，和Telegram配置；</li>
+<li>增加 Telegram 图标，和 Telegram 配置；</li>
 <li>增加显示和隐藏文章目录的支持；</li>
-<li>原来的评论框代码不够整齐好看，把yelee的评论框移植了过来；</li>
-<li>增加文章搜索的支持（需要安装插件：<code>npm install hexo-generator-search --save</code>，并添加插件设置）；</li>
+<li>原来的评论框代码不够整齐好看，把 yelee 的评论框移植了过来；</li>
+<li>增加文章搜索的支持（需要安装插件： <code>npm install hexo-generator-search --save</code> ，并添加插件设置）；</li>
 <li>增加文章左右边栏按钮；</li>
 <li>其他看起来不太整齐的小部分代码；</li>
 </ol>
-<p>另外，我还想收藏下这个：<a href="http://www.tuicool.com/articles/fYZ7Zrj" target="_blank" rel="noopener">http://www.tuicool.com/articles/fYZ7Zrj</a> 什么时候有空了再改。</p>
+<p>另外，我还想收藏下这个： <a href="http://www.tuicool.com/articles/fYZ7Zrj" target="_blank" rel="noopener">http://www.tuicool.com/articles/fYZ7Zrj</a> 什么时候有空了再改。</p>
 <blockquote>
 <p>如果有人喜欢我改后的主题，可以在下面留言</p>
 </blockquote>
-<h3 id="导入WordPress的页面-文章和评论"><a href="#导入WordPress的页面-文章和评论" class="headerlink" title="导入WordPress的页面/文章和评论"></a>导入WordPress的页面/文章和评论</h3><p>导入文章和页面需要安装这个插件：<code>npm install hexo-migrator-wordpress --save</code></p>
-<p>登陆Wordpress管理控制台，导出WXR文件，如下图所示：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162220.png" alt="导出wp文件"></p>
-<p>将导出的文件保存为<code>wordpress.xml</code>，执行命令<code>hexo migrate wordpress wordpress.xml</code>即可完成文章导入。</p>
+<h3 id="导入WordPress的页面-文章和评论"><a href="#导入WordPress的页面-文章和评论" class="headerlink" title="导入WordPress的页面/文章和评论"></a>导入WordPress的页面/文章和评论</h3><p>导入文章和页面需要安装这个插件： <code>npm install hexo-migrator-wordpress --save</code></p>
+<p>登陆 Wordpress 管理控制台，导出 WXR 文件，如下图所示：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162220.png" alt="导出 wp 文件"></p>
+<p>将导出的文件保存为 <code>wordpress.xml</code> ，执行命令 <code>hexo migrate wordpress wordpress.xml</code> 即可完成文章导入。</p>
 <blockquote>
 <p>注意：</p>
 </blockquote>
 <blockquote>
 <ol>
-<li>如果新站和老站的域名和链接不同，导入之前需要先修改xml文件中类似<code>&lt;link&gt;</code>和<code>&lt;...url&gt;</code>之类的Label内容，以保持和预期站点一致</li>
-<li>导入文件如果是中文标题，可能会出现文件乱码，只能手工去修改了。完成导入后插件的光荣任务结束，处女座星人可以选择卸载它了：<code>npm remove hexo-migrator-wordpress</code></li>
+<li>如果新站和老站的域名和链接不同，导入之前需要先修改 xml 文件中类似 <code>&lt;link&gt;</code> 和 <code>&lt;...url&gt;</code> 之类的 Label 内容，以保持和预期站点一致</li>
+<li>导入文件如果是中文标题，可能会出现文件乱码，只能手工去修改了。完成导入后插件的光荣任务结束，处女座星人可以选择卸载它了： <code>npm remove hexo-migrator-wordpress</code></li>
 <li>这个操作并不会导入评论，导入评论请继续往下看</li>
 </ol>
 </blockquote>
-<p>由于Hexo的评论都是使用的社会化评论框，所以评论需要往社会化评论框（我用的是Disqus）中导入才能显示。这类工具一般都是支持转移的，向Disqus导入评论的操作如下：</p>
+<p>由于 Hexo 的评论都是使用的社会化评论框，所以评论需要往社会化评论框（我用的是 Disqus ）中导入才能显示。这类工具一般都是支持转移的，向 Disqus 导入评论的操作如下：</p>
 <ol>
-<li>登陆WP控制台，导出时选择“文章”，导出文件命名为<code>comments.xml</code>，注意检查下文件中每篇文章的URL是不是和预期的URL一致（不一致会导致评论无法显示！）</li>
-<li>登陆Disqus后台，进入这个页面：<code>https://用户名.disqus.com/admin/discussions/import/platform/wordpress/</code></li>
+<li>登陆 WP 控制台，导出时选择“文章”，导出文件命名为 <code>comments.xml</code> ，注意检查下文件中每篇文章的 URL 是不是和预期的 URL 一致（不一致会导致评论无法显示！）</li>
+<li>登陆 Disqus 后台，进入这个页面： <code>https://用户名.disqus.com/admin/discussions/import/platform/wordpress/</code></li>
 <li>选择刚才编辑好的文件导入</li>
 </ol>
 <p>这样，就完成了文章和评论的迁移了。</p>
 <blockquote>
 <p>不过有点小遗憾，评论者头像都丢失，变更为默认头像了。</p>
 </blockquote>
-<h3 id="多点部署和分区解析"><a href="#多点部署和分区解析" class="headerlink" title="多点部署和分区解析"></a>多点部署和分区解析</h3><p>博客发布到github page和coding page需要安装这个插件：<code>npm install hexo-deployer-git --save</code></p>
-<p>然后到博客根目录找到<code>_config.yml</code>文件打开，将以下代码添加到最后：</p>
+<h3 id="多点部署和分区解析"><a href="#多点部署和分区解析" class="headerlink" title="多点部署和分区解析"></a>多点部署和分区解析</h3><p>博客发布到 github page 和 coding page 需要安装这个插件： <code>npm install hexo-deployer-git --save</code></p>
+<p>然后到博客根目录找到 <code>_config.yml</code> 文件打开，将以下代码添加到最后：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"># Deployment</span><br><span class="line">## Docs: https://hexo.io/docs/deployment.html</span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo:</span><br><span class="line">    github: https://github.com/用户名/用户名.github.io.git</span><br><span class="line">    coding: https://git.coding.net/用户名/用户名.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>设置好后，只需要在Hexo根目录执行<code>hexo g</code>后再执行<code>hexo d</code>便可完成页面的部署。</p>
-<p>和Github上一样，Coding上也要预先安装 SSH Key 并开通 Page 服务。SSH Key 不需要重新生成，将之前在github上用的内容复制过去即可；开通Page服务时注意将部署分支修改成master（默认分支是Coding-page）。</p>
-<p>然后去Github和Coding相应Page项目设置中绑定自己的域名，如图所示：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162332.png" alt="Github绑定域名"></p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162355.png" alt="Coding绑定域名"></p>
-<p>如果希望在自己的云主机中也部署一份，那么可登陆主机生成 SSH Key，将Key添加到Github或者Coding中（我添加到了Github），到网站文件根目录关联项目链接后执行<code>git pull origin master</code>即可完成站点部署。</p>
-<p>最后，登陆<a href="https://www.cloudxns.net" target="_blank" rel="noopener">CloudXNS</a>做<a href="https://www.cloudxns.net/Index/dns.html" target="_blank" rel="noopener">域名解析</a>，我的解析设置如下图：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162423.png" alt="CloudXNS域名解析"></p>
-<h3 id="RSS、站点地图及搜索引擎优化"><a href="#RSS、站点地图及搜索引擎优化" class="headerlink" title="RSS、站点地图及搜索引擎优化"></a>RSS、站点地图及搜索引擎优化</h3><p>这里不用多说，就是几个插件的安装和设置了。它们分别是：<code>hexo-generator-feed</code>，<code>hexo-generator-sitemap</code>和<code>hexo-generator-baidu-sitemap</code>。（两个sitemap一个是谷歌格式，一个是百度格式）</p>
-<p>RSS不需要做其他的操作，插件安装好后每次<code>hexo g</code>就会生成对应的RSS文件，需要时引用这个文件路径即可（比如主题设置中）。</p>
-<p>针对Sitemap，需要到博客根目录去修改<code>_config.yml</code>文件，在<code>plugins：</code>下添加以下内容：</p>
+<p>设置好后，只需要在 Hexo 根目录执行 <code>hexo g</code> 后再执行 <code>hexo d</code> 便可完成页面的部署。</p>
+<p>和 Github 上一样， Coding 上也要预先安装 SSH Key 并开通 Page 服务。SSH Key 不需要重新生成，将之前在 github 上用的内容复制过去即可；开通 Page 服务时注意将部署分支修改成 master （默认分支是 Coding-page ）。</p>
+<p>然后去 Github 和 Coding 相应 Page 项目设置中绑定自己的域名，如图所示：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162332.png" alt=" Github 绑定域名"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162355.png" alt=" Coding 绑定域名"></p>
+<p>如果希望在自己的云主机中也部署一份，那么可登陆主机生成 SSH Key，将 Key 添加到 Github 或者 Coding 中（我添加到了 Github ），到网站文件根目录关联项目链接后执行 <code>git pull origin master</code> 即可完成站点部署。</p>
+<p>最后，登陆 CloudXNS 做域名解析，我的解析设置如下图：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162423.png" alt=" CloudXNS 域名解析"></p>
+<h3 id="RSS-、站点地图及搜索引擎优化"><a href="#RSS-、站点地图及搜索引擎优化" class="headerlink" title="RSS 、站点地图及搜索引擎优化"></a>RSS 、站点地图及搜索引擎优化</h3><p>这里不用多说，就是几个插件的安装和设置了。它们分别是： <code>hexo-generator-feed</code> ， <code>hexo-generator-sitemap</code> 和 <code>hexo-generator-baidu-sitemap</code> 。（两个 sitemap 一个是谷歌格式，一个是百度格式）</p>
+<p>RSS 不需要做其他的操作，插件安装好后每次 <code>hexo g</code> 就会生成对应的 RSS 文件，需要时引用这个文件路径即可（比如主题设置中）。</p>
+<p>针对 Sitemap ，需要到博客根目录去修改 <code>_config.yml</code> 文件，在 <code>plugins：</code> 下添加以下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#sitemap</span><br><span class="line">sitemap:</span><br><span class="line">	path: sitemap.xml</span><br><span class="line">baidusitemap:</span><br><span class="line">	path: baidusitemap.xml</span><br></pre></td></tr></table></figure>
 <p>分别登陆谷歌站长平台和百度站长平台添加自己的新域名和站点地图。</p>
 <p>按照百度站长平台的指引添加站点地图的位置：</p>
@@ -1994,9 +1964,9 @@
 <p>也可以到自己的云主机平台上执行命令手动提交，这种提交方式百度响应是最快的了。</p>
 <p>因此我在我的云主机上写了个脚本，用于每次同步网站内容后将新链接提交到百度：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">DIR=<span class="string">'/var/www/html'</span></span><br><span class="line">SITE=<span class="string">'http://ephen.me/'</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;DIR&#125;</span>/</span><br><span class="line">git pull origin master &gt; <span class="variable">$&#123;DIR&#125;</span>/.gitpull.log</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">cat /dev/null &gt; <span class="variable">$&#123;DIR&#125;</span>/freshurls.txt </span><br><span class="line">grep <span class="string">'/index.html'</span> .gitpull.log | grep -v <span class="string">'\"'</span> | awk <span class="string">'&#123;print $1&#125;'</span> |<span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span>  <span class="string">"<span class="variable">$&#123;SITE&#125;</span><span class="variable">$&#123;line&#125;</span>"</span> &gt;&gt; <span class="variable">$&#123;DIR&#125;</span>/freshurls.txt </span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">curl -H <span class="string">'Content-Type:text/plain'</span> --data-binary @freshurls.txt <span class="string">"http://data.zz.baidu.com/urls?site=ephen.me&amp;token=xxxxxxxxxx"</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
-<p>如果有人也想使用此脚本，替换自己的目录、站点链接以及百度站长TokenID即可。</p>
+<p>如果有人也想使用此脚本，替换自己的目录、站点链接以及百度站长 TokenID 即可。</p>
 <blockquote>
-<p>注意：该脚本不支持URL链接为中文的情况！！</p>
+<p>注意：该脚本不支持 URL 链接为中文的情况！！</p>
 </blockquote>
 <h2 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h2><p>这次折腾花了不小的精力，毕竟是自己的事情，所以为不占用工作时间多次加班到很晚才走。</p>
 <p>本来不想记录的，担心下次出什么状况又要花大力气折腾，所以趁热记录下，同时也希望我的折腾过程能帮助到其他的新手。</p>
@@ -2020,50 +1990,165 @@
     </entry>
     
     <entry>
-      <title><![CDATA[Jmeter以non-gui模式进行分布式测试]]></title>
-      <url>https://ephen.me/2016/Jmeter-NonGUI-Test/</url>
-      <content type="html"><![CDATA[<p>由于Jmeter是一个纯JAVA的应用，用GUI模式运行压力测试时，对客户端的资源消耗是相当惊人的，所以在进行正式的压测时一定要使用non-gui模式运行，如果并发数很高或者客户端的硬件资源比较一般的话，还可以以server模式用多个client进行分布式测试。</p>
-<p>下面以武汉快网CMCC项目为例，结合官方文档和自己的实际经验来谈一谈，Jmeter如何以non-gui模式进行分布式测试。</p>
+      <title><![CDATA[什么是 DNSSEC ？ DNSSEC 的概念及作用]]></title>
+      <url>https://ephen.me/2016/dnssec/</url>
+      <content type="html"><![CDATA[<p>我们知道，过去由于环境良好，互联网先驱者们“ Too simple, Too Naive ”，他们设计了域名系统（ Domain Name System ，DNS ）。就像互联网的其他协议或系统一样，在过去可信的、纯净的环境里运行得很好。</p>
+<p>而随着互联网的发展，如今充斥着各种欺诈、攻击，使得今天的互联网环境异常复杂，DNS 协议的脆弱性也就浮出水面。</p>
+<p>DNS 最大的缺陷就是解析的请求者无法验证它所收到的应答信息的真实性，一些坏人对 DNS 的攻击可能导致互联网大面积的瘫痪，这种事件在国内外都屡见不鲜。</p>
 <a id="more"></a>
-<h2 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h2><h3 id="linux下安装jdk1-7"><a href="#linux下安装jdk1-7" class="headerlink" title="linux下安装jdk1.7"></a>linux下安装jdk1.7</h3><p>负载机使用的是CentOS 6.7版本的linux系统， 自带有OpenJDK runtime environment (openjdk),它是一个在linux上实现开源的java 平台。</p>
-<p>1 . <strong>查看CentOs自带的JDK是否已安装</strong>，输入：<code>yum list installed |grep java</code></p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426152046.png" alt="查看JDK是否安装"></p>
-<p>2 . 若有自带安装的JDK，则表示JAVA环境已经安装成功，可以<strong>查看安装的java版本信息</strong></p>
-<p>输入：<code>java -version</code>可查看Java版本；</p>
-<p><img src="https://imephen.pek3b.qingstor.com/20190426152205.png" alt="查看Java版本"></p>
-<p>3 . 如果想<strong>卸载CentOS系统自带Java环境</strong>，可输入：<code>yum -y remove java1.7.0-openjdk*</code> （*表示卸载掉java1.7.0的所有openjdk相关文件）</p>
-<p>4 . <strong>卸载tzdata-java</strong>输入：<code>yum -y remove tzdatajava.noarch</code>，当结果显示为Complete,即卸载完毕。</p>
-<p>5 . <strong>检查CentOS系统网络连接是否正常</strong>。</p>
-<p>使用yum方式安装需要连接网络下载相应安装文件，故需要使用ping命令测试网络，如<code>ping www.baidu.com</code></p>
+<h2 id="DNSSEC-是什么？"><a href="#DNSSEC-是什么？" class="headerlink" title="DNSSEC 是什么？"></a>DNSSEC 是什么？</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>DNSSEC 全称 Domain Name System Security Extensions ，即 DNS 安全扩展，是由 IETF 提供的一系列 DNS 安全认证的机制（可参考 <a href="https://tools.ietf.org/html/rfc2535" target="_blank" rel="noopener">RFC2535</a> ）。它提供一种可以验证应答信息真实性和完整性的机制，利用密码技术，使得域名解析服务器可以验证它所收到的应答(包括域名不存在的应答)是否来自于真实的服务器，或者是否在传输过程中被篡改过。</p>
+<p>通过 DNSSEC 的部署，可以增强对 DNS 域名服务器的身份认证，进而帮助防止 DNS 缓存污染等攻击。</p>
+<p>DNSSEC 给解析服务器提供了防止上当受骗的武器，是实现 DNS 安全的重要一步和必要组成部分。</p>
+<h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>DNSSEC 通过公钥密码技术对 DNS 中的信息创建密码签名，为 DNS 信息同时提供认证和信息完整性检查，它的实施步骤如下：</p>
+<ol>
+<li>DNS 服务器收到 DNS 查询请求后，用散列函数将要回复 DNS 报文的内容进行散列运算，得到“内容摘要”，使用私匙加密后再附加到 DNS 报文中；</li>
+<li>DNS 查询请求者接收到报文后，利用公匙解密收到的“内容摘要”，再利用散列函数计算一次 DNS 查询请求报文中的“内容摘要”，两者对比；</li>
+<li>若相同，就可以确认接收到的 DNS 信息是正确的 DNS 响应；若验证失败，则表明这一报文可能是假冒的，或者在传输过程、缓存过程中被篡改了。</li>
+</ol>
+<h2 id="DNSSEC-相关术语"><a href="#DNSSEC-相关术语" class="headerlink" title="DNSSEC 相关术语"></a>DNSSEC 相关术语</h2><h3 id="DNSKEY-RRSIG-DS-NSEC-资源记录"><a href="#DNSKEY-RRSIG-DS-NSEC-资源记录" class="headerlink" title="DNSKEY/RRSIG/DS/NSEC 资源记录"></a>DNSKEY/RRSIG/DS/NSEC 资源记录</h3><p>为了实现资源记录的签名和验证，DNSSEC增加了四种类型的资源记录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">RRSIG 记录： Resource Record Signature ，存储资源记录集合（ RRSets ）的数字签名</span><br><span class="line">DNSKEY 记录： DNS Public Key ，存储公开密钥</span><br><span class="line">DS 记录： Delegation Signer ，存储 DNSKEY 的散列值，用于验证 DNSKEY 的真实性，从而建立一个信任链</span><br><span class="line">NSEC 记录： Next Secure ，用于应答那些不存在的资源记录</span><br></pre></td></tr></table></figure>
+<h3 id="信任锚（-Trust-anchor-）"><a href="#信任锚（-Trust-anchor-）" class="headerlink" title="信任锚（ Trust anchor ）"></a>信任锚（ Trust anchor ）</h3><p>DNSSEC 需要一个信任链，必须有一个或多个开始就信任的公钥（或公钥的散列值），称这些初始信任的公开密钥或散列值为“信任锚（ Trust anchors ）”。</p>
+<h3 id="DLV-DNSSEC-Lookaside-Validation"><a href="#DLV-DNSSEC-Lookaside-Validation" class="headerlink" title="DLV(DNSSEC Lookaside Validation)"></a>DLV(DNSSEC Lookaside Validation)</h3><p>即 DNSSEC 旁路信任源。</p>
+<h3 id="KSK-ZSK-与-Signed-zone"><a href="#KSK-ZSK-与-Signed-zone" class="headerlink" title="KSK/ZSK 与 Signed zone"></a>KSK/ZSK 与 Signed zone</h3><p>权威域的管理员通常用两个密钥配合完成对区数据的签名，一个是 Zone-Signing Key(ZSK) ，另一个是 Key-Signing Key(KSK) 。</p>
+<p>ZSK 用于签名区数据，而 KSK 用于对 ZSK 进行签名，被签名的区数据则被称为 Signed zone 。</p>
+<h2 id="DNSSEC的应用场景"><a href="#DNSSEC的应用场景" class="headerlink" title="DNSSEC的应用场景"></a>DNSSEC的应用场景</h2><h3 id="一、配置安全的域名解析服务器（-Resolver-）"><a href="#一、配置安全的域名解析服务器（-Resolver-）" class="headerlink" title="一、配置安全的域名解析服务器（ Resolver ）"></a>一、配置安全的域名解析服务器（ Resolver ）</h3><p>即用户使用的 DNS ，常被称为本地 DNS （ Local DNS ）或公众 DNS。</p>
+<p>通过该 Resolver 服务器可以保护使用它的用户，防止被 DNS 欺骗攻击， DNSSEC 在这里只涉及数字签名的验证工作。</p>
+<h3 id="二、配置安全的权威域名服务器（-Name-Server-）"><a href="#二、配置安全的权威域名服务器（-Name-Server-）" class="headerlink" title="二、配置安全的权威域名服务器（ Name Server ）"></a>二、配置安全的权威域名服务器（ Name Server ）</h3><p>也被称为授权 DNS ，例如 CloudXNS 。</p>
+<p>DNSSEC 对权威域的资源记录进行签名，保护服务器不被域名欺骗攻击。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 知识探索 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DNSSEC </tag>
+            
+            <tag> DNS 安全 </tag>
+            
+            <tag> DNS 攻击 </tag>
+            
+            <tag> 域名劫持 </tag>
+            
+            <tag> DNS 污染 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[如何验证 DNS 服务器是否支持 DNSSEC ？]]></title>
+      <url>https://ephen.me/2016/dnssec-verify/</url>
+      <content type="html"><![CDATA[<p>众所周知，DNSSEC 对于 DNS 劫持虽然有极强的防御性，但由于被劫持的数据都会在验证失败后被丢弃，因而并不能让我们在 DNS 劫持的情况下获得正确的解析结果。（请先参考：<a href="/2016/dnssec/">什么是 DNSSEC ？ DNSSEC 的概念及作用</a>）</p>
+<p>所以，我们需要 DNS 安全传输的前提是加固客户端到 DNS 服务器之间的网络连接的安全性。</p>
+<p>也就是说， DNSSEC 除了客户端支持之外，更重要的是 DNS 服务器本身必须有部署 DNSSEC 的支持。</p>
+<p>否则：</p>
+<ol>
+<li>客户端没有配置 dnssec-check-unsigned 而 DNS 服务器支持 DNSSEC ，此时 DNSSEC 默认信赖所有没签名的数据，等于没有提供任何防护；</li>
+<li>客户端配置启用了 dnssec-check-unsigned 而 DNS 服务器不支持 DNSSEC ， dnsmasq 因为不能获取任何 DNSSEC 签名信息导致不信任全部解析结果，进而使得整个 DNS 解析服务完全无法工作。</li>
+</ol>
+<p>那么…</p>
+<a id="more"></a>
+<h2 id="如何判定一台-DNS-服务器是否支持-DNSSEC-呢？"><a href="#如何判定一台-DNS-服务器是否支持-DNSSEC-呢？" class="headerlink" title="如何判定一台 DNS 服务器是否支持 DNSSEC 呢？"></a>如何判定一台 DNS 服务器是否支持 DNSSEC 呢？</h2><p>很简单，还是用 dig 命令。 <a href="http://linux.51yip.com/search/dig" target="_blank" rel="noopener">dig 命令参考手册</a></p>
+<h3 id="方法-A-：检查一个有-DNSSEC-签名的域名的-RRSIG-Resource-Record-Signature"><a href="#方法-A-：检查一个有-DNSSEC-签名的域名的-RRSIG-Resource-Record-Signature" class="headerlink" title="方法 A ：检查一个有 DNSSEC 签名的域名的 RRSIG(Resource Record Signature)"></a>方法 A ：检查一个有 DNSSEC 签名的域名的 RRSIG(Resource Record Signature)</h3><p>为了让结果看得更清楚，我们找一个配置了 DNSSEC 签名的域名（ paypal.com ），一个支持 DNSSEC 的 DNS 服务器（ 4.2.2.4 ），和一个不支持  DNSSEC 的 DNS 服务器（ 114.114.114.114 ）。</p>
+<p><em>使用支持 DNSSEC 的 4.2.2.4 查询结果如下：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">root@OpenWrt:~# dig paypal.com +dnssec @4.2.2.4</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.9.4 &lt;&lt;&gt;&gt; paypal.com +dnssec @4.2.2.4</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 48979</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags: do; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;paypal.com.                    IN      A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">paypal.com.             293     IN      A       66.211.169.3</span><br><span class="line">paypal.com.             293     IN      A       66.211.169.66</span><br><span class="line">paypal.com.             293     IN      RRSIG   A 5 2 300 20140728175119 20140628172604 11811 paypal.com. ka3J7csLBUiZIrh7YTKJ7eUBzpACe7jmr6M2wURsNCQ/dFjB9Jl018OZ 6i3BzzSYqSS2jw9TmVZMKxRLH3cmt5jc1BNI6Q9uB46DLpJJoAmXQ1rQ ss37Mb4BlK8dD4rxLJmEJh19+Kg8xXxE8iGYwLM7tkyayIjVdxbt80TE vgg=</span><br><span class="line"></span><br><span class="line">;; Query time: 224 msec</span><br><span class="line">;; SERVER: 4.2.2.4#53(4.2.2.4)</span><br><span class="line">;; WHEN: Tue Jul 15 21:49:25 CST 2014</span><br><span class="line">;; MSG SIZE  rcvd: 241</span><br></pre></td></tr></table></figure>
+<p><em>使用不支持 DNSSEC 的 114.114.114.114 查询结果如下：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">root@OpenWrt:~# dig paypal.com +dnssec @114.114.114.114</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.9.4 &lt;&lt;&gt;&gt; paypal.com +dnssec @114.114.114.114</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 12717</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 2, AUTHORITY: 0, ADDITIONAL: 0</span><br><span class="line"></span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;paypal.com.                    IN      A</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">paypal.com.             300     IN      A       66.211.169.3</span><br><span class="line">paypal.com.             300     IN      A       66.211.169.66</span><br><span class="line"></span><br><span class="line">;; Query time: 577 msec</span><br><span class="line">;; SERVER: 114.114.114.114#53(114.114.114.114)</span><br><span class="line">;; WHEN: Tue Jul 15 21:49:57 CST 2014</span><br><span class="line">;; MSG SIZE  rcvd: 60</span><br></pre></td></tr></table></figure>
+<p>我们可以看到，支持 DNSSEC 的服务器多返回了一串非常长的 RRSIG(Resource Record Signature) ，这就是 DNSSEC 中非常重要的数据签名。</p>
+<p>而不支持 DNSSEC 的服务器就完全没有返回这些信息了，由此我们可以很容易区分一台 DNS 服务器是否支持 DNSSEC 。</p>
+<p>不过，目前配置了 DNSSEC 签名的域名非常少，据我所知一般有些国外政府域名有，当然 paypal 也有，而国内几乎没有（国内的支付宝并没有）。</p>
+<p>如果一个域名本身就没有配置 DNSSEC 签名，那么无论你是通过什么样的 DNS 服务器查询 dnssec 数据，结果都是一样的。</p>
+<p>那如果我们不知道哪些域名配置了 DNSSEC 签名，难道就无法验证 DNS 服务器是否支持 DNSSEC 了？</p>
+<p>当然不是！我们有…</p>
+<h3 id="方法-B-：自残测试法！"><a href="#方法-B-：自残测试法！" class="headerlink" title="方法 B ：自残测试法！"></a>方法 B ：自残测试法！</h3><p>由于当我们启用了 Dnsmasq 的 dnssec–check–unsigned 选项， Dnsmasq 就会检查 DNS 返回的数据是否经过签名。（注意，这个签名是 DNS 服务器本身对发出的数据包的签名，用于证明这个数据包确实发送自我这个服务器且没有被修改，和域名本身是否有 DNSSEC 签名毫无关系。）</p>
+<p>如果 DNS 服务器返回的数据包没有经过 DNS 服务器签名，那么 Dnsmasq 就会丢弃这个解析结果，因为启用这个选项后它只接受签名过的数据。</p>
+<p>所以，做法就是：</p>
+<ol>
+<li>把 Dnsmasq 的 DNS 设置为你要测试的那个 DNS 服务器（注意！只写这一个 DNS ，别的都不写）；</li>
+<li>启用 Dnsmasq 的 dnssec-check-unsigned 选项；</li>
+<li>域名解析验证。</li>
+</ol>
+<p>如果你还可以解析域，说明这个 DNS 支持 DNSSEC ；如果你发现什么域名都解析不了了，那么就是因为这个 DNS 服务器不支持 DNSSEC ，导致 Dnsmasq 不信任返回的所有数据了。</p>
+<p>国内目前支持 DNSSEC 的服务器，不能说稀少吧，只能说我一个都没发现。而国外的公共 DNS ，我们熟知的那些除了 OpenDNS 有它自己的一套 DNScrypt 加密体系而没有采用 DNSSEC 其他倒基本都是支持的。</p>
+<p><em>我测试过支持 DNSSEC 的国外公共 DNS 如下：</em></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Google Public DNS： 8.8.8.8 | 8.8.4.4</span><br><span class="line">Norton DNS： 199.85.126.20 | 199.85.127.20</span><br><span class="line">Comodo DNS： 8.26.56.26 | 8.20.247.20</span><br><span class="line">DNS Advantage： 156.154.70.1 | 156.154.71.1</span><br><span class="line">NTT DNS： 129.250.35.250 | 129.250.35.251</span><br><span class="line">Verizon DNS： 4.2.2.1 | 4.2.2.2 | 4.2.2.3 | 4.2.2.5 | 4.2.2.6</span><br></pre></td></tr></table></figure>
+<p>目前，由于国内并没有支持 DNSSEC 的公共 DNS ，也几乎没有配置了 DNSSEC 签名的域名，因此 CloudXNS 暂无支持 DNSSEC 的打算。</p>
+<p>不过，在未来产品优化提升足够美好的时候，不排除会率先在国内支持 DNSSEC 的可能。</p>
+<p>原文系转载，出处：LifeTyper</p>
+<p>灰姑娘在此基础上略有改动。</p>
+]]></content>
+      
+        <categories>
+            
+            <category> 知识探索 </category>
+            
+        </categories>
+        
+        
+        <tags>
+            
+            <tag> DNSSEC </tag>
+            
+            <tag> DNS 安全 </tag>
+            
+            <tag> 域名劫持 </tag>
+            
+            <tag> DNS 污染 </tag>
+            
+        </tags>
+        
+    </entry>
+    
+    <entry>
+      <title><![CDATA[Jmeter 以 non-gui 模式进行分布式测试]]></title>
+      <url>https://ephen.me/2016/Jmeter-NonGUI-Test/</url>
+      <content type="html"><![CDATA[<p>由于 Jmeter 是一个纯 JAVA 的应用，用 GUI 模式运行压力测试时，对客户端的资源消耗是相当惊人的，所以在进行正式的压测时一定要使用 non-gui 模式运行，如果并发数很高或者客户端的硬件资源比较一般的话，还可以以 server 模式用多个 client 进行分布式测试。</p>
+<p>下面以武汉快网 CMCC 项目为例，结合官方文档和自己的实际经验来谈一谈， Jmeter 如何以 non-gui 模式进行分布式测试。</p>
+<a id="more"></a>
+<h2 id="前置工作"><a href="#前置工作" class="headerlink" title="前置工作"></a>前置工作</h2><h3 id="linux-下安装-jdk1-7"><a href="#linux-下安装-jdk1-7" class="headerlink" title="linux 下安装 jdk1.7"></a>linux 下安装 jdk1.7</h3><p>负载机使用的是 CentOS 6.7 版本的 linux 系统， 自带有 OpenJDK runtime environment (openjdk) ，它是一个在 linux 上实现开源的 java 平台。</p>
+<p>1 . <strong>查看 CentOs 自带的 JDK 是否已安装</strong>，输入： <code>yum list installed |grep java</code></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152046.png" alt="查看 JDK 是否安装"></p>
+<p>2 . 若有自带安装的 JDK ，则表示 JAVA 环境已经安装成功，可以<strong>查看安装的 java 版本信息</strong></p>
+<p>输入： <code>java -version</code> 可查看 Java 版本；</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20190426152205.png" alt="查看 Java 版本"></p>
+<p>3 . 如果想<strong>卸载 CentOS 系统自带 Java 环境</strong>，可输入： <code>yum -y remove java1.7.0-openjdk*</code> （ <code>*</code> 表示卸载掉 java1.7.0 的所有 openjdk 相关文件）</p>
+<p>4 . <strong>卸载 tzdata-java</strong> 输入： <code>yum -y remove tzdatajava.noarch</code> ，当结果显示为 Complete ，即卸载完毕。</p>
+<p>5 . <strong>检查 CentOS 系统网络连接是否正常</strong>。</p>
+<p>使用 yum 方式安装需要连接网络下载相应安装文件，故需要使用 ping 命令测试网络，如 <code>ping www.baidu.com</code></p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426152436.png" alt="测试网络"></p>
-<p>6 . <strong>查看yum库中的java安装包</strong>，输入：<code>yum -y list java*</code></p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426152504.png" alt="查看yum中java安装包"></p>
-<p>7 . <strong>使用yum安装java环境</strong>，输入：<code>yum -y install java1.7.0-openjdk*</code>，当结果显示为Complete，即安装完毕。</p>
-<h3 id="安装JMeter"><a href="#安装JMeter" class="headerlink" title="安装JMeter"></a>安装JMeter</h3><p>安装好java环境，就可以在此基础之上安装jmeter。</p>
-<p>1 . <strong>将jmeter安装包上传到服务器指定目录</strong>，比如：<code>/root/mobile/</code></p>
-<p>2 . <strong>解压zip安装包</strong>，输入：<code>unzip apache-jmeter-2.13.zip</code></p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426152540.png" alt="解压jmeter安装包"></p>
-<h2 id="非GUI模式下运行Jmeter"><a href="#非GUI模式下运行Jmeter" class="headerlink" title="非GUI模式下运行Jmeter"></a>非GUI模式下运行Jmeter</h2><p>JMeter远程测试原理图如下：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426152614.png" alt="Jmeter远程测试原理图"></p>
-<p>如果运行JMeter客户端的机器性能不能满足测试需要，那么测试人员可以通过单个JMeter客户端来控制多个远程JMeter服务器，以便对服务器进行压力测试，模拟足够多的并发用户。通过远程运行JMeter，测试人员可以跨越多台低端计算机复制测试，这样就可以模拟一个比较大的服务器压力。</p>
-<p>用一台机器（称为JMeter客户端）上的jmeter同时启动另外几台机器（称为JMeter远程服务器）上的jmeter。</p>
-<p>1 . 保证jmeter客户端和jmeter远程服务器采用相同版本的jmeter和JVM。<br>2 . jmeter客户端和jmeter远程服务器最好在同一个网段内。<br>3 . 在jmeter远程服务器上运行<code>root/mobile/apache/jmeter-2.13/bin/jmeter-servere</code>脚本。指定server的ip，如：<code>./jmeter-server -Djava.rmi.server.hostname=118.192.6.15</code>，jmeter-server正常启动会提示”创建远程服务”<br>4 . 在jmeter客户端上修改<code>/bin/jmeter.properties</code>文件，找到属性<code>&quot;remote_hosts&quot;</code>，使用JMeter远程服务器的IP地址作为其属性值。可以添加多个服务器的IP地址，以逗号作为分隔。</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426152641.png" alt="找到Jmeter属性文件"></p>
+<p>6 . <strong>查看 yum 库中的 java 安装包</strong>，输入： <code>yum -y list java*</code></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152504.png" alt="查看 yum 中 java 安装包"></p>
+<p>7 . <strong>使用 yum 安装 java 环境</strong>，输入： <code>yum -y install java1.7.0-openjdk*</code> ，当结果显示为 Complete ，即安装完毕。</p>
+<h3 id="安装-JMeter"><a href="#安装-JMeter" class="headerlink" title="安装 JMeter"></a>安装 JMeter</h3><p>安装好 java 环境，就可以在此基础之上安装 jmeter 。</p>
+<p>1 . <strong>将 jmeter 安装包上传到服务器指定目录</strong>，比如： <code>/root/mobile/</code></p>
+<p>2 . <strong>解压 zip 安装包</strong>，输入： <code>unzip apache-jmeter-2.13.zip</code></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152540.png" alt="解压 jmeter 安装包"></p>
+<h2 id="非-GUI-模式下运行-Jmeter"><a href="#非-GUI-模式下运行-Jmeter" class="headerlink" title="非 GUI 模式下运行 Jmeter"></a>非 GUI 模式下运行 Jmeter</h2><p>JMeter 远程测试原理图如下：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152614.png" alt="Jmeter 远程测试原理图"></p>
+<p>如果运行 JMeter 客户端的机器性能不能满足测试需要，那么测试人员可以通过单个 JMeter 客户端来控制多个远程 JMeter 服务器，以便对服务器进行压力测试，模拟足够多的并发用户。通过远程运行 JMeter ，测试人员可以跨越多台低端计算机复制测试，这样就可以模拟一个比较大的服务器压力。</p>
+<p>用一台机器（称为 JMeter 客户端）上的 jmeter 同时启动另外几台机器（称为 JMeter 远程服务器）上的 jmeter 。</p>
+<p>1 . 保证 jmeter 客户端和 jmeter 远程服务器采用相同版本的 jmeter 和 JVM 。<br>2 . jmeter 客户端和 jmeter 远程服务器最好在同一个网段内。<br>3 . 在 jmeter 远程服务器上运行 <code>root/mobile/apache/jmeter-2.13/bin/jmeter-servere</code> 脚本。指定 server 的 ip ，如： <code>./jmeter-server -Djava.rmi.server.hostname=118.192.6.15</code> ， jmeter-server 正常启动会提示”创建远程服务”<br>4 . 在 jmeter 客户端上修改 <code>/bin/jmeter.properties</code> 文件，找到属性 <code>&quot;remote_hosts&quot;</code> ，使用 JMeter 远程服务器的 IP 地址作为其属性值。可以添加多个服务器的 IP 地址，以逗号作为分隔。</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152641.png" alt="找到 Jmeter 属性文件"></p>
 <p>例如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">remote_hosts=118.192.6.15:1099,118.192.6.16:1099   #RMI port to be used by the server (must start rmiregistry with same port)</span><br><span class="line">server_port=1099</span><br></pre></td></tr></table></figure>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426152709.png" alt="修改Jmeter属性"></p>
-<p>5 . 在jmeter客户端上启动jmeter。</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426152709.png" alt="修改 Jmeter 属性"></p>
+<p>5 . 在 jmeter 客户端上启动 jmeter 。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./jmeter -n -t plan.jmx -l result.jtl -r</span><br></pre></td></tr></table></figure>
-<p><code>plan.jmx</code>测试计划可以在windows环境下先创建，最好不要添加监听器，应为命令行启动的话监听器可能会占用资源而且有没有任何视图效果。</p>
+<p><code>plan.jmx</code> 测试计划可以在 windows 环境下先创建，最好不要添加监听器，应为命令行启动的话监听器可能会占用资源而且有没有任何视图效果。</p>
 <blockquote>
 <p>参数说明 :</p>
-<p>-n  告诉jmeter使用nogui模式运行测试</p>
+<p>-n  告诉 jmeter 使用 nogui 模式运行测试</p>
 <p>-t  执行的测试脚本名</p>
 <p>-l  后面跟着测试结果记录的路径与文件名 </p>
 <p>-r  表示远程启动 (remote) </p>
-<p>jmeter客户端会自动向jmeter远程服务器上分发测试计划。</p>
+<p>jmeter 客户端会自动向 jmeter 远程服务器上分发测试计划。</p>
 </blockquote>
-<p>最后，可以将result.jtl结果文件下载到windows机上在不同的监听器上分析测试结果。</p>
+<p>最后，可以将 result.jtl 结果文件下载到 windows 机上在不同的监听器上分析测试结果。</p>
 ]]></content>
       
         <categories>
@@ -2165,8 +2250,8 @@
 <p>提供渗透测试的厂商一般都是自己买什么防护设备，以自己防护设备针对的威胁为主要渗透点，找到你有类似的问题，解决方案就以卖对应的防护设备作为手段，针对具体的威胁，通过防护设备采取被动的防护。而安全测试的厂商，则从整体系统 架构，安全编码，安全测试，安全测试覆盖性，安全度量等多个因素去考虑问题，提出的解决方法则是逐步帮助客户引入安全开发过程，提供相应的工具支撑，目标是最后让客户提升业务系统自身实质性安全问题。</p>
 <p>安全测试不关注漏洞如何被真实利用的技术，这当中有几个因素：</p>
 <p>成本因素：对攻击者来说，利用漏洞的收益是系统所保护的资产，所以可以投入更多的成本来研究漏洞的利用，包括时间，人员，手段。但是对安全测试来说，整个收益是客户愿意投入的成本，系统所保护的资产远大于系统开发投入，安全投入又只占系统开发投入的百分之三左右，所以从成本角度考虑，安全测试只关注评估漏洞 被利用的可能性，而不应该具体去研究漏洞如何被利用且展示给客户。</p>
-<p>视角因素：安全测试是帮助客户降低安全威胁，减少安全漏洞。本身是一种防护技术，尽量发现安全问题并指导客户修复安全问题是关键，沿着的路径是发现 安全问题-&gt;分析评估安全问题-〉提出修补建议-〉度量安全，而不是以攻击者视角发现安全问题-〉利用安全问题-〉获得非法收益的路径。对防护方最 有价值的是发现问题，解决问题，而不是发现问题，利用问题。防护方关注都漏洞是否可被利用确定安全漏洞和修复级别就够了，研究再多的具体攻击利用技术，对 操作系统级别的防护是有意义的，但是对普通应用系统的开发与使用者则是无价值的。</p>
-<p>假定因素：客户面临的风险不仅来自于外部，也可能来自于攻击者通过客户端主机的渗透（如通过对某员工笔记本挂马再接入内网的方式），还有可能来自于内部。安 全要保护全面的安全，我们不能假定攻击者路径就一定处于同渗透测试一样的纯外部严密防护中，也无法假定攻击者通过时间积累社工或自身特性（员工）获取到一 些信息。同时攻击利用技术发展到现在，已经和具体应用的特性结合起来，攻击者时刻有可能发现以前我们认为低危，不好利用的漏洞的利用方法。因此安全测试关 注点是业务系统在失去所有外部防护之后，自身实现的安全性，关注高覆盖的安全测试和安全度量，而不是单一的渗透测试。</p>
+<p>视角因素：安全测试是帮助客户降低安全威胁，减少安全漏洞。本身是一种防护技术，尽量发现安全问题并指导客户修复安全问题是关键，沿着的路径是发现安全问题 -&gt; 分析评估安全问题 -&gt; 提出修补建议 -&gt; 度量安全，而不是以攻击者视角发现安全问题 -&gt; 利用安全问题 -&gt; 获得非法收益的路径。对防护方最 有价值的是发现问题，解决问题，而不是发现问题，利用问题。防护方关注都漏洞是否可被利用确定安全漏洞和修复级别就够了，研究再多的具体攻击利用技术，对 操作系统级别的防护是有意义的，但是对普通应用系统的开发与使用者则是无价值的。</p>
+<p>假定因素：客户面临的风险不仅来自于外部，也可能来自于攻击者通过客户端主机的渗透（如通过对某员工笔记本挂马再接入内网的方式），还有可能来自于内部。安 全要保护全面的安全，我们不能假定攻击者路径就一定处于同渗透测试一样的纯外部严密防护中，也无法假定攻击者通过时间积累社工或自身特性（员工）获取到一些信息。同时攻击利用技术发展到现在，已经和具体应用的特性结合起来，攻击者时刻有可能发现以前我们认为低危，不好利用的漏洞的利用方法。因此安全测试关 注点是业务系统在失去所有外部防护之后，自身实现的安全性，关注高覆盖的安全测试和安全度量，而不是单一的渗透测试。</p>
 <p>当然目前，由于用户对安全的理解还存在很多认识误区，还需要慢慢改善。</p>
 <p>举个例子，有个项目，用户的目标是希望能业务系统上线之前，通过测试改善安全，用户以前的安全主要是某国际大公司提供流程咨询一套，但难以解决安全问题， 因此用户希望引入安全测试来全面提升安全。其实这是很符合安全测试目标的，但是在选型之后，给予几家厂商PK的项目则是纯网站渗透测试性的，评价标准也只是在谁最后真实入侵了谁牛的标准。虽然最后也渗透成功，但是出具的报告则是针对某个页面具体的威胁分析，改进建议，没有去放置破坏性实质入侵的东西，用户反倒觉得没其他做渗透测试厂商报告漂亮，抓了WEBSHELL的屏，拿了敏感文件什么的，其实就和安全测试的本意就远了。当然既然用户的认识只在这个阶段，也没办法，后面的测试就只能以渗透利用的方式去做和出报告了。</p>
 <p>但我认为，用户需要的是提升自身业务系统的安全，继续渗透这套方法，难道又要回到卖防护设备被动防护的方式吗？其实技术发展到现在，安全漏洞具体怎么利用成为了一门艺术，但是漏洞理论上是否可被利用却是基本可以定性的，只要理论上可以被利用的漏洞，厂商都应该修补，因为我们不能假设攻击者不能通过深 入研究达到实质可利用，厂商也没必要花费大量的成本去研究实质可利用。</p>
@@ -2192,19 +2277,19 @@
     </entry>
     
     <entry>
-      <title><![CDATA[分享一个win平台记录重现步骤的录屏小工具：ScreenToGif]]></title>
+      <title><![CDATA[分享一个 win 平台记录重现步骤的录屏小工具： ScreenToGif]]></title>
       <url>https://ephen.me/2015/ScreenToGif/</url>
-      <content type="html"><![CDATA[<p>我们在测试过程中，经常会需要记录Bug，用于体现测试成果价值、方便产品管理和异步协同工作。其中重现步骤是bug记录中重要元素之一，如果操作步骤较为复杂，一般开发人员会看不下去太多文字描述，这时辅以操作步骤录屏会大大减少文字描述以及开发&amp;测试之间的沟通成本。</p>
-<p>试过很多录屏工具，有专业级的，也有轻量级的，但是唯独ScreenToGif是我认为最适用于测试人员记录重现步骤的。</p>
+      <content type="html"><![CDATA[<p>我们在测试过程中，经常会需要记录 Bug ，用于体现测试成果价值、方便产品管理和异步协同工作。其中重现步骤是 bug 记录中重要元素之一，如果操作步骤较为复杂，一般开发人员会看不下去太多文字描述，这时辅以操作步骤录屏会大大减少文字描述以及开发和测试之间的沟通成本。</p>
+<p>试过很多录屏工具，有专业级的，也有轻量级的，但是唯独 ScreenToGif 是我认为最适用于测试人员记录重现步骤的。</p>
 <p>它有不同于其他录屏工具的以下特点：</p>
 <a id="more"></a>
 <ol>
-<li>录制的并不是视频，而是gif图片格式，可在录制前调节gif动画帧的切换速度，占用空间小，易于传播；</li>
+<li>录制的并不是视频，而是 gif 图片格式，可在录制前调节 gif 动画帧的切换速度，占用空间小，易于传播；</li>
 <li>画质高，所见即所得，以前尝试过的录屏工具为了缩小占用空间都会损伤画质，甚至会出现关键文字看不清楚的情况；</li>
-<li>录制完成可回放和编辑，可以把操作过程中思考时间占据的无用帧删除，只保留重要部分，亦可在gif图片上涂鸦、写描述文字、打马赛克、加入已有图片等；</li>
+<li>录制完成可回放和编辑，可以把操作过程中思考时间占据的无用帧删除，只保留重要部分，亦可在 gif 图片上涂鸦、写描述文字、打马赛克、加入已有图片等；</li>
 </ol>
-<p>下载及更多介绍请到ScreenToGif官网：<a href="https://www.screentogif.com/" target="_blank" rel="noopener">https://www.screentogif.com/</a></p>
-<p>以下是一个ScreenToGif录制操作步骤的示例：<img src="https://imephen.pek3b.qingstor.com/screentogifdemo.gif" alt=" ScreenToGifDemo "></p>
+<p>下载及更多介绍请到 ScreenToGif 官网：<a href="https://www.screentogif.com/" target="_blank" rel="noopener">https://www.screentogif.com/</a></p>
+<p>以下是一个 ScreenToGif 录制操作步骤的示例：<img src="https://imephen.pek3b.qingstor.com/screentogifdemo.gif" alt=" ScreenToGifDemo "></p>
 ]]></content>
       
         <categories>
@@ -2218,8 +2303,6 @@
             
             <tag> 测试 </tag>
             
-            <tag> 分享 </tag>
-            
         </tags>
         
     </entry>
@@ -2227,38 +2310,38 @@
     <entry>
       <title><![CDATA[做CloudXNS产品运营的这半年]]></title>
       <url>https://ephen.me/2015/opration-halfyear/</url>
-      <content type="html"><![CDATA[<p>2014年11月26日，CloudXNS产品2.0版本以全新的面貌上线，作为主要测试人之一的我因为对产品的熟悉程度较为全面，又比较关心产品的发展，在与BOSS的沟通下我转做了CloudXNS的产品运营。</p>
+      <content type="html"><![CDATA[<p>2014 年 11 月 26 日， CloudXNS 产品 2.0 版本以全新的面貌上线，作为主要测试人之一的我因为对产品的熟悉程度较为全面，又比较关心产品的发展，在与 BOSS 的沟通下我转做了 CloudXNS 的产品运营。</p>
 <p>然而，产品运营是什么，我一点头绪都没有。在网上找了一些产品和运营相关资料学习，然后观察优秀的互联网产品的运作方式。</p>
-<p>我们尝试着做微博转发活动。2月携手牛盾上线CDN，微博转发获取体验名额，由于准备不足，大家都手忙脚乱。不过值得欣慰的是，活动带来了一小波的有效用户增长。</p>
-<p>我们寻找着目标用户可能聚集的地方，尽可能多的让CloudXNS产品的名字出现在未来用户的眼睛里。3月我让CloudXNS闯进了<a href="https://www.v2ex.com/t/176809" target="_blank" rel="noopener">V2EX</a>er的视线，那两天大概是至目前止我们有效用户增长的最高峰吧。</p>
-<p>听说每一个站长本身都是优秀的运营者，于是我做了一个站，用于体会下作为一个站长会抱有的心态。我以站长和CloudXNS产品运营的双重身份，结识了不少朋友，在此后的很长一段时间内，都与他们共同交流与进步，并且倾听到了不少来自用户对CloudXNS评价的声音。</p>
+<p>我们尝试着做微博转发活动。 2 月携手牛盾上线 CDN ，微博转发获取体验名额，由于准备不足，大家都手忙脚乱。不过值得欣慰的是，活动带来了一小波的有效用户增长。</p>
+<p>我们寻找着目标用户可能聚集的地方，尽可能多的让 CloudXNS 产品的名字出现在未来用户的眼睛里。 3 月我让 CloudXNS 闯进了 <a href="https://www.v2ex.com/t/176809" target="_blank" rel="noopener">V2EX</a>er 的视线，那两天大概是至目前止我们有效用户增长的最高峰吧。</p>
+<p>听说每一个站长本身都是优秀的运营者，于是我做了一个站，用于体会下作为一个站长会抱有的心态。我以站长和 CloudXNS 产品运营的双重身份，结识了不少朋友，在此后的很长一段时间内，都与他们共同交流与进步，并且倾听到了不少来自用户对 CloudXNS 评价的声音。</p>
 <a id="more"></a>
 <hr>
-<p>如今，CloudXNS有效用户一直在稳步增长，而我却感觉很累很累。我的全力付出，虽然有所收获，但是感觉和付出并不成正比。我知道如果不想办法解决这个问题，这种不成正比的差距只会越拉越大。</p>
-<p>为什么dnspod他们知名度那么高了，仍难以撼动万网解析量第一的地位？</p>
-<p>为什么来CloudXNS的用户大多都是通过朋友介绍（或强行安利），而不是自己搜索过来的？</p>
+<p>如今， CloudXNS 有效用户一直在稳步增长，而我却感觉很累很累。我的全力付出，虽然有所收获，但是感觉和付出并不成正比。我知道如果不想办法解决这个问题，这种不成正比的差距只会越拉越大。</p>
+<p>为什么 dnspod 他们知名度那么高了，仍难以撼动万网解析量第一的地位？</p>
+<p>为什么来 CloudXNS 的用户大多都是通过朋友介绍（或强行安利），而不是自己搜索过来的？</p>
 <p>为什么相同的问题会从不同的人向技术支持反馈得到？</p>
-<p>我想了很久，从CloudXNS产品和我的运营工作全面思考造成这些问题的所在。</p>
+<p>我想了很久，从 CloudXNS 产品和我的运营工作全面思考造成这些问题的所在。</p>
 <p><strong>1. 我们在极力的告诉用户我们有什么，而不是去了解用户到底需要什么；</strong></p>
 <p>我们的功能很多，基本上具备智能解析的所有优势，并且还有一些额外的好用功能。当我们兴高采烈的去告诉用户的时候，很多用户反馈给我们一个字“哦”。因为这些他们几乎用不上。</p>
 <p><strong>2. 我们的思考点位和用户的点位不在一个平面；</strong></p>
-<p>上周看了一篇文章：<a href="http://mp.weixin.qq.com/s/RRm1iuZIX8ByFNspvf7fLQ" target="_blank" rel="noopener">《文案分2种，一种是自嗨型，另一种是…》</a> 里面很多地方讲得很好，我们CloudXNS产品中也存在这种问题。也许我们在大谈特谈我们的优势在哪里的时候，别人还根本不知道CloudXNS是用来做什么的。</p>
+<p>上周看了一篇文章：<a href="http://mp.weixin.qq.com/s/RRm1iuZIX8ByFNspvf7fLQ" target="_blank" rel="noopener">《文案分 2 种，一种是自嗨型，另一种是…》</a> 里面很多地方讲得很好，我们 CloudXNS 产品中也存在这种问题。也许我们在大谈特谈我们的优势在哪里的时候，别人还根本不知道 CloudXNS 是用来做什么的。</p>
 <p><strong>3. 我们的产品和运营对用户的反馈还不够及时；</strong></p>
 <p>因为前期的一直尝试寻找社区，以及和各种站长的交流，加之多个官方技术支持渠道，导致收集到的反馈可能是重复的。而如果这些反馈没有得到及时进行合理处理的话，就一定还会循环着困扰下去。</p>
 <hr>
 <p>也许我们该暂停一下脚步，尝试着以用户的角度去思考了。</p>
-<p>假如我第一次接触CloudXNS，我想我得先知道CloudXNS是干什么的，它有些什么背景，与别的同类产品最大的不同点是什么，收费如何；了解了CloudXNS之后，我便会想知道这个产品如何使用，有没有相关的手册和文档，遇到疑问该如何查询和反馈；注册成为了用户之后，功能体验如何，客户服务怎样；成为熟识用户后，有没有什么优惠活动，客户回馈礼品之类。</p>
-<p>而我们从一开始就把用户定位为已经了解CloudXNS的前提下了，我们优秀的功能体验和客户服务也就只能真正体验过的用户才知道了，这也大概就是为什么我们大多是通过朋友介绍来CloudXNS的原因。</p>
-<p>如果我是新生代90后个人站长，那么我会更喜欢追求新鲜事物，这个新不仅体现在功能上，还有与时俱进的网站模式。哦当然，还有情怀。而如果我是企业的门户站长，我会希望在可承受的价格范围内DNS产品更稳定，解析效率更高，且便于多人协同工作。</p>
-<p>为什么万网和dnspod会各占半壁江山？用万网的，很多都是因为不了解或者不需要智能DNS，剩下的大多是求稳定不想换或者不需要那么多新功能罢了。</p>
+<p>假如我第一次接触 CloudXNS ，我想我得先知道 CloudXNS 是干什么的，它有些什么背景，与别的同类产品最大的不同点是什么，收费如何；了解了 CloudXNS 之后，我便会想知道这个产品如何使用，有没有相关的手册和文档，遇到疑问该如何查询和反馈；注册成为了用户之后，功能体验如何，客户服务怎样；成为熟识用户后，有没有什么优惠活动，客户回馈礼品之类。</p>
+<p>而我们从一开始就把用户定位为已经了解 CloudXNS 的前提下了，我们优秀的功能体验和客户服务也就只能真正体验过的用户才知道了，这也大概就是为什么我们大多是通过朋友介绍来 CloudXNS 的原因。</p>
+<p>如果我是新生代 90 后个人站长，那么我会更喜欢追求新鲜事物，这个新不仅体现在功能上，还有与时俱进的网站模式。哦当然，还有情怀。而如果我是企业的门户站长，我会希望在可承受的价格范围内 DNS 产品更稳定，解析效率更高，且便于多人协同工作。</p>
+<p>为什么万网和 dnspod 会各占半壁江山？用万网的，很多都是因为不了解或者不需要智能 DNS ，剩下的大多是求稳定不想换或者不需要那么多新功能罢了。</p>
 <p>要是使用中出现疑问，没有办法找到这个疑问的原因，那么就会放弃或者向技术支持求助。有些问题确实是我们产品中不予解决的，我们就要通过其他方式让用户去了解这一点。</p>
 <hr>
 <p>所以，我们接下来该做些什么样的改进呢？以下是个人愚见：</p>
 <p><strong>产品方面</strong>：</p>
 <ol>
-<li>网站首页要能让人明白我们这个产品是干什么的，有些什么背景，有哪些优势，并明确给出“帮助中心”、“增值服务”、“开发者中心”的入口，以及我们各种官方的联系方式，可参考<a href="https://sendcloud.sohu.com/" target="_blank" rel="noopener">SendCloud</a></li>
+<li>网站首页要能让人明白我们这个产品是干什么的，有些什么背景，有哪些优势，并明确给出“帮助中心”、“增值服务”、“开发者中心”的入口，以及我们各种官方的联系方式，可参考 <a href="https://sendcloud.sohu.com/" target="_blank" rel="noopener">SendCloud</a></li>
 <li>改进错误提示信息，让普通用户能看懂</li>
-<li>完善和推出VIP及增值服务，其实能建站的用户根本不差那几个钱，但是太高了就得斟酌下了。</li>
+<li>完善和推出 VIP 及增值服务，其实能建站的用户根本不差那几个钱，但是太高了就得斟酌下了。</li>
 </ol>
 <p><strong>运营方面</strong>：</p>
 <ol>
@@ -2278,8 +2361,6 @@
         
         <tags>
             
-            <tag> CloudXNS </tag>
-            
             <tag> 产品运营 </tag>
             
             <tag> v2ex </tag>
@@ -2296,11 +2377,10 @@
 <a id="more"></a>
 <hr>
 <p>去年下半年打酱油考了个软件评测师，竟然通过了。</p>
-<p>不得不说国家单位效率低，到现在5月份证才做出来，然后必须工作日才能领。由于请假扣钱钱好心疼，所以在今天趁请假上医院看病的时间来领证…..QAQ…..地方真尼玛难找啊，破百度导航还给我指远路，坑爹。。</p>
+<p>不得不说国家单位效率低，到现在 5 月份证才做出来，然后必须工作日才能领。由于请假扣钱钱好心疼，所以在今天趁请假上医院看病的时间来领证…..QAQ…..地方真尼玛难找啊，破百度导航还给我指远路，坑爹。。</p>
 <p>不过最后总算是领到啦。。话不多说，晒图！</p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426162715.png" alt="软件评测师证书封面"></p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426162735.png" alt="软件评测师证书内页"></p>
-<p>&nbsp;</p>
 <p>某些说我是伪娘的，泥萌垢了！！</p>
 <hr>
 <p><strong>未经允许，不得传播此文中图片及任何个人信息。</strong></p>
@@ -2323,29 +2403,28 @@
     </entry>
     
     <entry>
-      <title><![CDATA[网站API测试工具：chrome插件 - Postman]]></title>
+      <title><![CDATA[网站 API 测试工具： chrome 插件 - Postman]]></title>
       <url>https://ephen.me/2015/Postman/</url>
-      <content type="html"><![CDATA[<h2 id="一、插件介绍"><a href="#一、插件介绍" class="headerlink" title="一、插件介绍"></a>一、插件介绍</h2><p>当你在调试一个网页是否运行正常时，除了简单地调试网页的HTML、CSS、脚本等信息之外，还需要检查网页能否正确处理各种HTTP请求。</p>
-<p>网页的HTTP请求是网站与用户之间进行交互的非常重要的一种方式，在动态网站中，用户的大部分数据都需要通过HTTP请求来与服务器进行交互。</p>
-<p>Postman插件就充当着这种交互方式的“桥梁”，它可以利用Chrome插件的形式把各种模拟用户HTTP请求的数据发送到服务器，以便开发人员能够及时地作出正确的响应，或者是对产品发布之前的错误信息提前处理，进而保证产品上线之后的稳定性和安全性。</p>
+      <content type="html"><![CDATA[<h2 id="一、插件介绍"><a href="#一、插件介绍" class="headerlink" title="一、插件介绍"></a>一、插件介绍</h2><p>当你在调试一个网页是否运行正常时，除了简单地调试网页的 HTML 、 CSS 、脚本等信息之外，还需要检查网页能否正确处理各种 HTTP 请求。</p>
+<p>网页的 HTTP 请求是网站与用户之间进行交互的非常重要的一种方式，在动态网站中，用户的大部分数据都需要通过 HTTP 请求来与服务器进行交互。</p>
+<p>Postman 插件就充当着这种交互方式的“桥梁”，它可以利用 Chrome 插件的形式把各种模拟用户 HTTP 请求的数据发送到服务器，以便开发人员能够及时地作出正确的响应，或者是对产品发布之前的错误信息提前处理，进而保证产品上线之后的稳定性和安全性。</p>
 <a id="more"></a>
-<h2 id="二、插件安装"><a href="#二、插件安装" class="headerlink" title="二、插件安装"></a>二、插件安装</h2><p>用chrome浏览器并且能轻松绕过qiang的童鞋，可以直接通过应用商店搜索Postman-REST-Client来安装。</p>
-<p>然而用360极速浏览器等chrome核心浏览器的、或者不想绕qiang的童鞋，可下载插件后使用开发者模式加载（有些插件可以直接将crx文件拖到浏览器便自动安装了，但是postman不行，拖进去会提示要前往应用商店下载，所以只能采用开发者模式安装）。以chrome为例，安装步骤如下：</p>
+<h2 id="二、插件安装"><a href="#二、插件安装" class="headerlink" title="二、插件安装"></a>二、插件安装</h2><p>用 chrome 浏览器并且能轻松绕过qiang的童鞋，可以直接通过应用商店搜索 Postman-REST-Client 来安装。</p>
+<p>然而用 360 极速浏览器等 chrome 核心浏览器的、或者不想绕 qiang 的童鞋，可下载插件后使用开发者模式加载（有些插件可以直接将 crx 文件拖到浏览器便自动安装了，但是 postman 不行，拖进去会提示要前往应用商店下载，所以只能采用开发者模式安装）。以 chrome 为例，安装步骤如下：</p>
 <ol>
-<li>下载Postman-REST-Client_v0.8.1.crx扩展程序，<del>版本已更新，下载链接已失效，请自行上网搜索</del>；</li>
-<li>修改crx后缀为rar，然后解压到指定文件夹，比如D:\crx\Postman-REST-Client_v0.8.1；</li>
-<li>进入chrome://extensions/页，勾选右上角的“开发者模式”，点击“加载正在开发的扩展程序”按钮，载入上一步保存的文件夹，然后启用插件即可；</li>
+<li>下载 Postman-REST-Client_v0.8.1.crx 扩展程序，<del>版本已更新，下载链接已失效，请自行上网搜索</del>；</li>
+<li>修改 crx 后缀为 rar ，然后解压到指定文件夹，比如 <code>D:\crx\Postman-REST-Client_v0.8.1</code> ；</li>
+<li>进入 <code>chrome://extensions/</code> 页，勾选右上角的“开发者模式”，点击“加载正在开发的扩展程序”按钮，载入上一步保存的文件夹，然后启用插件即可；</li>
 </ol>
-<h2 id="三、API测试"><a href="#三、API测试" class="headerlink" title="三、API测试"></a>三、API测试</h2><p>以CloudXNS的API版本1.0为例。<br><span style="font-size: 8pt; color: #800080;">『现在CloudXNS的API已经升级到2.0了，不日1.0会被废弃，请小伙伴们不要再尝试使用，同时注意更新自己已经在用的API版本代码。传送门：<a href="https://www.cloudxns.net/AccountManage/apimanage.html" target="_blank" rel="noopener">https://www.cloudxns.net/AccountManage/apimanage.html </a>，请登陆CloudXNS账户后访问。』</span></p>
+<h2 id="三、-API-测试"><a href="#三、-API-测试" class="headerlink" title="三、 API 测试"></a>三、 API 测试</h2><p>以 CloudXNS 的 API 版本 1.0 为例。<br><span style="font-size: 8pt; color: #800080;">『现在 CloudXNS 的 API 已经升级到2.0了，不日1.0会被废弃，请小伙伴们不要再尝试使用，同时注意更新自己已经在用的 API 版本代码。传送门：<a href="https://www.cloudxns.net/AccountManage/apimanage.html" target="_blank" rel="noopener">https://www.cloudxns.net/AccountManage/apimanage.html </a>，请登陆 CloudXNS 账户后访问。』</span></p>
 <p>一张图描述各个区域的作用和测试方法：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162846.png" alt="postman各区域功能图解"></p>
-<h2 id="四、保存配置"><a href="#四、保存配置" class="headerlink" title="四、保存配置"></a>四、保存配置</h2><p>经常测试的内容可以保存下来以后即可在左侧边栏“collections”中的列表一键调用。</p>
-<p>保存很简单，点击测试时“send”按钮那排最右边的“collection”按钮即可。</p>
-<p>如果是第一次保存，需要顺便创建一个collection文件夹。</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162940.png" alt="postman_addcollection测试数据保存"></p>
-<p>&nbsp;</p>
-<p>如果担心插件重装内容会丢失，或是想将自己的测试内容分享给同事使用，可以将collection导出成json文件或者上传到postman服务器提供分享链接。导入和导出操作入口如下：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162959.png" alt="postman测试数据导出备份"></p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162846.png" alt=" postman 各区域功能图解"></p>
+<h2 id="四、保存配置"><a href="#四、保存配置" class="headerlink" title="四、保存配置"></a>四、保存配置</h2><p>经常测试的内容可以保存下来以后即可在左侧边栏“ collections ”中的列表一键调用。</p>
+<p>保存很简单，点击测试时“ send ”按钮那排最右边的“ collection ”按钮即可。</p>
+<p>如果是第一次保存，需要顺便创建一个 collection 文件夹。</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162940.png" alt="postman_addcollection 测试数据保存"></p>
+<p>如果担心插件重装内容会丢失，或是想将自己的测试内容分享给同事使用，可以将 collection 导出成 json 文件或者上传到 postman 服务器提供分享链接。导入和导出操作入口如下：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426162959.png" alt="postman 测试数据导出备份"></p>
 ]]></content>
       
         <categories>
@@ -2359,8 +2438,6 @@
             
             <tag> 测试 </tag>
             
-            <tag> CloudXNS </tag>
-            
             <tag> postman </tag>
             
             <tag> api </tag>
@@ -2372,19 +2449,19 @@
     </entry>
     
     <entry>
-      <title><![CDATA[CloudXNS中的AX记录类型测试]]></title>
+      <title><![CDATA[CloudXNS 中的 AX 记录类型测试]]></title>
       <url>https://ephen.me/2015/cloudxns-ax/</url>
       <content type="html"><![CDATA[<p><img src="https://pek3b.qingstor.com/imephen/20190426151836.png" alt="CloudXNS Logo"></p>
-<h2 id="首先，简单介绍下CloudXNS中的AX记录类型："><a href="#首先，简单介绍下CloudXNS中的AX记录类型：" class="headerlink" title="首先，简单介绍下CloudXNS中的AX记录类型："></a>首先，简单介绍下CloudXNS中的AX记录类型：</h2><p>X意为eXtend，AX即表示扩展的A记录解析，具体表现为将多个A记录进行任意指定比例的负载均衡。我们知道，Local DNS服务器集群会对用户的请求进行缓存，当您有多个A记录时，它会随机将这些缓存的A记录其中一条反馈给用户。这样我们就无法预估每个ip被用户请求到的数量，或许久而久之这些ip的访问量会被平均。而使用CloudXNS的AX记录，就能当有Local DNS对CloudXNS进行请求时，按照预设比例返回给它其中一个值传递给用户，而这个比例是由站长您自己来控制的。</p>
+<h2 id="首先，简单介绍下-CloudXNS-中的-AX-记录类型："><a href="#首先，简单介绍下-CloudXNS-中的-AX-记录类型：" class="headerlink" title="首先，简单介绍下 CloudXNS 中的 AX 记录类型："></a>首先，简单介绍下 CloudXNS 中的 AX 记录类型：</h2><p>X 意为 eXtend ， AX 即表示扩展的 A 记录解析，具体表现为将多个 A 记录进行任意指定比例的负载均衡。我们知道， Local DNS 服务器集群会对用户的请求进行缓存，当您有多个 A 记录时，它会随机将这些缓存的 A 记录其中一条反馈给用户。这样我们就无法预估每个 ip 被用户请求到的数量，或许久而久之这些 ip 的访问量会被平均。而使用 CloudXNS 的 AX 记录，就能当有 Local DNS 对 CloudXNS 进行请求时，按照预设比例返回给它其中一个值传递给用户，而这个比例是由站长您自己来控制的。</p>
 <a id="more"></a>
-<h2 id="然后，开始测试："><a href="#然后，开始测试：" class="headerlink" title="然后，开始测试："></a>然后，开始测试：</h2><p>首先将<a href="http://www.chinatesters.cn域名在CloudXNS系统中做如下图所示配置：" target="_blank" rel="noopener">www.chinatesters.cn域名在CloudXNS系统中做如下图所示配置：</a></p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426151910.png" alt="CloudXNS解析配置"></p>
-<p>优先级即代表预设比例，上图配置中表示记录值2.2.2.1、1.1.1.2和1.1.1.1出现的比例为30:100:50。灰姑娘写了个脚本通过多次执行同一个dig命令获取每个结果的出现次数。测试代码示例如下：</p>
+<h2 id="然后，开始测试："><a href="#然后，开始测试：" class="headerlink" title="然后，开始测试："></a>然后，开始测试：</h2><p>首先将 <code>www.chinatesters.cn</code> 域名在 CloudXNS 系统中做如下图所示配置：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426151910.png" alt="CloudXNS 解析配置"></p>
+<p>优先级即代表预设比例，上图配置中表示记录值 <code>2.2.2.1</code> 、 <code>1.1.1.2</code> 和 <code>1.1.1.1</code> 出现的比例为 <code>30:100:50</code> 。灰姑娘写了个脚本通过多次执行同一个 <code>dig</code> 命令获取每个结果的出现次数。测试代码示例如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">i=0;</span><br><span class="line">rm -f .xtest_tmp.log</span><br><span class="line"><span class="keyword">while</span> [ <span class="variable">$i</span> -lt <span class="variable">$1</span> ]</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">  dig www.chinatesters.cn @lv3ns4.ffdns.net +short &gt;&gt; .xtest_tmp.log</span><br><span class="line">  i=expr <span class="variable">$i</span> + 1</span><br><span class="line"><span class="keyword">done</span></span><br><span class="line">awk ‘&#123;name[<span class="variable">$1</span>]++&#125;;END&#123;<span class="keyword">for</span>(count <span class="keyword">in</span> name)<span class="built_in">print</span> count,name[count]&#125;’ .xtest_tmp.log</span><br></pre></td></tr></table></figure>
-<p>将脚本带参数200，表示执行200次命令。等待执行完毕后，得到结果如下：</p>
+<p>将脚本带参数 200 ，表示执行 200 次命令。等待执行完毕后，得到结果如下：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost 02_mytest]<span class="comment"># ./xtest.sh 200</span></span><br><span class="line">2.2.2.1 38</span><br><span class="line">1.1.1.1 60</span><br><span class="line">1.1.1.2 102</span><br></pre></td></tr></table></figure>
-<p>我们可以看到，与配置的30:50:100非常接近。经过多次测试之后就会发现，当Local DNS向CloudXNS请求次数越来越多时，这个值就越来越接近于配置值。因此，当您的网站有多个服务器但他们的硬件资源悬殊较大时，就可以采用AX记录将域名解析设置为不同的负载比例，以充分利用您现有的资源进行负载均衡。</p>
-<p>同样的，CloudXNS中的CNAMEX、301跳转、302跳转和隐式跳转记录中的优先级设置和上述AX记录设置是一样的效果，有需要的用户可以一试。</p>
+<p>我们可以看到，与配置的 <code>30:50:100</code> 非常接近。经过多次测试之后就会发现，当 Local DNS 向 CloudXNS 请求次数越来越多时，这个值就越来越接近于配置值。因此，当您的网站有多个服务器但他们的硬件资源悬殊较大时，就可以采用 AX 记录将域名解析设置为不同的负载比例，以充分利用您现有的资源进行负载均衡。</p>
+<p>同样的， CloudXNS 中的 CNAMEX 、 301 跳转、 302 跳转和隐式跳转记录中的优先级设置和上述 AX 记录设置是一样的效果，有需要的用户可以一试。</p>
 ]]></content>
       
         <categories>
@@ -2398,54 +2475,47 @@
             
             <tag> 测试 </tag>
             
-            <tag> CloudXNS </tag>
+            <tag> AX </tag>
             
-            <tag> AX记录 </tag>
+            <tag> DNS </tag>
             
         </tags>
         
     </entry>
     
     <entry>
-      <title><![CDATA[win8 64位+Oracle 11g 64位下使用PL/SQL Developer 的解决办法]]></title>
+      <title><![CDATA[win8 x64 + Oracle 11g 64 位下使用 PL/SQL Developer 的解决办法]]></title>
       <url>https://ephen.me/2015/win8x64-oracle-plsql/</url>
-      <content type="html"><![CDATA[<h2 id="安装Oracle-11g-64位"><a href="#安装Oracle-11g-64位" class="headerlink" title="安装Oracle 11g 64位"></a>安装Oracle 11g 64位</h2><p>注意：<strong>不要安装在中文目录！！！</strong></p>
+      <content type="html"><![CDATA[<p>win8 64 位操作系统在安装 Oracle 11g 和 PL/SQl 时有两个非常重要的坑！</p>
+<p>一个是 Oracle 安装环境检测没有支持到 win8 会提示不符合系统要求的最低配置，另一个就是 PL/SQL 没有 x64 位的软件版本导致不能读取 Oracle x64 位客户端配置。</p>
+<p>本文将通过巧妙的方式解决这两个问题。同时，市面上大多 SQL 客户端软件都没有 x64 位的版本（比如 Navicat ），也不能方便的和 Oracle x64 客户端一起使用，经测试也可以通过本文同样的方式解决。</p>
+<a id="more"></a>
+<h2 id="安装-Oracle-11g-64-位"><a href="#安装-Oracle-11g-64-位" class="headerlink" title="安装 Oracle 11g 64 位"></a>安装 Oracle 11g 64 位</h2><p>注意：<strong>不要安装在中文目录！！！</strong></p>
 <ol>
-<li><p>解压安装包，以管理员身份运行cmd；</p>
-</li>
-<li><p><code>cd</code>到你解压安装文件的目录，运行<code>setup.exe   -ignoreSysPrereqs</code>；</p>
-</li>
-<li><p>提示不符合系统最低配置，选择仍然继续；</p>
-</li>
-<li><p>选“管理员模式”，安装成功；</p>
-</li>
+<li>解压安装包，以管理员身份运行 cmd ；</li>
+<li><code>cd</code> 到你解压安装文件的目录，运行 <code>setup.exe   -ignoreSysPrereqs</code> ；</li>
+<li>提示不符合系统最低配置，选择仍然继续；</li>
+<li>选“管理员模式”，安装成功；</li>
 </ol>
-<h2 id="32位Oracle客户端文件合并到安装目录"><a href="#32位Oracle客户端文件合并到安装目录" class="headerlink" title="32位Oracle客户端文件合并到安装目录"></a>32位Oracle客户端文件合并到安装目录</h2><ol>
-<li><p>到官网下载一个32位的instantclient客户端到任意非中文目录安装好（如果以前装过32位客户端并且目录保留在机器上则跳过此步，也可以直接从别人电脑上拷贝这个已安装好的目录）；</p>
-</li>
-<li><p>将32位的Oracle客户端文件目录client_1移动到和64位目录一起，例如：</p>
-</li>
+<h2 id="32-位-Oracle-客户端文件合并到安装目录"><a href="#32-位-Oracle-客户端文件合并到安装目录" class="headerlink" title="32 位 Oracle 客户端文件合并到安装目录"></a>32 位 Oracle 客户端文件合并到安装目录</h2><ol>
+<li>到官网下载一个 32 位的 instantclient 客户端到任意非中文目录安装好（如果以前装过 32 位客户端并且目录保留在机器上则跳过此步，也可以直接从别人电脑上拷贝这个已安装好的目录）；</li>
+<li>将 32 位的 Oracle 客户端文件目录 client_1 移动到和 64 位目录一起，例如：</li>
 </ol>
 <blockquote>
-<p>32位客户端文件夹为<code>E:\app\Cinderella\product\11.2.0\client_x86</code></p>
-<p>64位客户端文件夹位<code>E:\app\Cinderella\product\11.2.0\client_1</code></p>
+<p>32 位客户端文件夹为 <code>E:\app\Cinderella\product\11.2.0\client_x86</code></p>
+<p>64 位客户端文件夹位 <code>E:\app\Cinderella\product\11.2.0\client_1</code></p>
 </blockquote>
 <h2 id="安装PL-SQL-Developer"><a href="#安装PL-SQL-Developer" class="headerlink" title="安装PL/SQL Developer"></a>安装PL/SQL Developer</h2><h2 id="配置PL-SQL-Developer的OCI-Library和Oracle-Home"><a href="#配置PL-SQL-Developer的OCI-Library和Oracle-Home" class="headerlink" title="配置PL/SQL Developer的OCI Library和Oracle_Home"></a>配置PL/SQL Developer的OCI Library和Oracle_Home</h2><p>以上面的安装路径为例：</p>
-<p>英文版：perference-&gt;Connection</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Oracle Home ：E:\app\Cinderella\product\11.2.0\client_x86</span><br><span class="line">OCI Library ：E:\app\Cinderella\product\11.2.0\client_x86\bin\oci.dll</span><br></pre></td></tr></table></figure>
-<p>汉化版：工具-&gt;首选项-&gt;连接</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Oracle主目录名(自动检测为空) ：E:\app\Cinderella\product\11.2.0\client_x86</span><br><span class="line">OCI库(自动检测为空) ：E:\app\Cinderella\product\11.2.0\client_x86\bin\oci.dll</span><br></pre></td></tr></table></figure>
+<p>英文版： perference-&gt;Connection</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Oracle Home ： E:\app\Cinderella\product\11.2.0\client_x86</span><br><span class="line">OCI Library ： E:\app\Cinderella\product\11.2.0\client_x86\bin\oci.dll</span><br></pre></td></tr></table></figure>
+<p>汉化版：工具 -&gt; 首选项 -&gt; 连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Oracle 主目录名（自动检测为空）： E:\app\Cinderella\product\11.2.0\client_x86</span><br><span class="line">OCI 库（自动检测为空） ： E:\app\Cinderella\product\11.2.0\client_x86\bin\oci.dll</span><br></pre></td></tr></table></figure>
 <h2 id="设置操作系统环境变量"><a href="#设置操作系统环境变量" class="headerlink" title="设置操作系统环境变量"></a>设置操作系统环境变量</h2><ol>
-<li><p>右击”我的电脑” - “属性” - “高级系统设置” - “环境变量” ，可以看到上面是“用户环境变量”，下面是“系统环境变量”；</p>
-</li>
-<li><p>在“系统环境变量”中找到Path，将<code>E:\app\Cinderella\product\11.2.0\client_x86;</code>添加到最前面（<strong>有分号</strong>）；</p>
-</li>
-<li><p>“系统环境变量”中点击”新建”, 变量名设置为”TNS_ADMIN”, 变量值设置为<code>E:\app\Cinderella\product\11.2.0\client_x86\NETWORK\ADMIN</code>, 点击”确定”（<strong>无分号</strong>）；</p>
-</li>
-<li><p>“系统环境变量”中点击”新建”, 变量名设置为<code>NLS_LANG</code>, 变量值设置为<code>SIMPLIFIED CHINESE_CHINA.ZHS16GBK</code>, 点击“确定”；</p>
-</li>
-<li><p>设置完成，启动 PL/SQL Developer ，运行无问题。</p>
-</li>
+<li>右击”我的电脑” - “属性” - “高级系统设置” - “环境变量” ，可以看到上面是“用户环境变量”，下面是“系统环境变量”；</li>
+<li>在“系统环境变量”中找到 Path ，将 <code>E:\app\Cinderella\product\11.2.0\client_x86;</code> 添加到最前面（<strong>有分号</strong>）；</li>
+<li>“系统环境变量”中点击”新建”, 变量名设置为 <code>TNS_ADMIN</code> , 变量值设置为 <code>E:\app\Cinderella\product\11.2.0\client_x86\NETWORK\ADMIN</code> , 点击”确定”（<strong>无分号</strong>）；</li>
+<li>“系统环境变量”中点击”新建”, 变量名设置为 <code>NLS_LANG</code> , 变量值设置为 <code>SIMPLIFIED CHINESE_CHINA.ZHS16GBK</code> , 点击“确定”；</li>
+<li>设置完成，启动 PL/SQL Developer ，运行无问题。</li>
 </ol>
 ]]></content>
       
@@ -2472,37 +2542,22 @@
       <title><![CDATA[桥接模式下如何设置虚拟机和本机在同一网段]]></title>
       <url>https://ephen.me/2015/VmwareNetSet/</url>
       <content type="html"><![CDATA[<ol>
-<li>打开VMware软件，开启要设置的虚拟机，用root用户登录；</li>
-<li>点击VMware软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“NAT模式”）；</li>
-<li>进入Linux虚拟机修改网卡设置：</li>
+<li>打开 VMware 软件，开启要设置的虚拟机，用 root 用户登录；</li>
+<li>点击 VMware 软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“ NAT 模式”）；</li>
+<li>进入 Linux 虚拟机修改网卡设置：</li>
 </ol>
 <h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><a id="more"></a>
-<p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 通过键盘上下键选择“Network Configuration”，Tab到Run tool后回车；<br>3 . “Device Configuration”高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入ip设置界面；<br>4 . 默认情况下“Use DHCP”是自动获取，图形界面上展示为*，下面的静态IP不能进行设置。如下图：</p>
+<p>1 . 桌面右击 <code>open in terminal`</code>，输入 setup 命令后回车；<br>2 . 通过键盘上下键选择 <code>Network Configuration</code>， Tab 到 <code>Run tool</code> 后回车；<br>3 . <code>Device Configuration</code> 高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入 ip 设置界面；<br>4 . 默认情况下 <code>Use DHCP</code> 是自动获取，图形界面上展示为 <code>*</code>，下面的静态 IP 不能进行设置。如下图：</p>
 <p><img src="https://pek3b.qingstor.com/imephen/20190426161737.png" alt="虚拟网卡图形界面配置"></p>
-<p>5 . 将光标移动到“Use DHCP”的[*]上，点击空格键，即可开始设置下面的静态IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的ip设置，将虚拟客户机Linux设置成一样即可（除IP外，IP设置到同一网段）；如下图：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426161803.png" alt="本机IP设置"><img src="https://pek3b.qingstor.com/imephen/20190426161823.png" alt="虚拟机IP设置"></p>
-<p>7 . Tab到“Save”、“Save&amp;Quit”保存本次设置；</p>
-<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击“open in terminal”，输入setup命令后回车；<br>2 . 一般虚拟机网卡是eth0，修改文件vi /etc/sysconfig/network-scripts/ifcfg-eth0</p>
-<blockquote>
-<p>DEVICE=eth0 <em>#描述网卡对应的设备别名，例如ifcfg-eth0的文件中它为eth0</em></p>
-<p>BOOTPROTO=static <em>#设置网卡获得ip地址的方式，可能的选项为static，dhcp或bootp，分别对应静态指定的ip地址，通过dhcp协议获得的ip地址，通过bootp协议获得的ip地址</em></p>
-<p>BROADCAST=192.168.0.255 <em>#对应的子网广播地址</em></p>
-<p>HWADDR=00:07:E9:05:E8:B4 <em>#对应的网卡物理地址</em></p>
-<p>IPADDR=192.168.14.120 <em>#如果设置网卡获得ip地址的方式为静态指定，此字段就指定了网卡对应的ip地址</em></p>
-<p>IPV6INIT=no</p>
-<p>IPV6_AUTOCONF=no</p>
-<p>NETMASK=255.255.255.0 <em>#网卡对应的网络掩码</em></p>
-<p>NETWORK=192.168.0.0 <em>#网卡对应的网络地址</em></p>
-<p>ONBOOT=yes <em>#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</em></p>
-</blockquote>
-<p>3 . 修改对应网卡的网关的配置文件vi /etc/sysconfig/network</p>
-<blockquote>
-<p>NETWORKING=yes <em>#系统是否使用网络（一般设置为yes。如果设为no，则不能使用网络，而且很多系统服务程序将无法启）</em></p>
-<p>HOSTNAME=localhost <em>#本机的主机名（这里设置的主机名要和/etc/hosts中设置的主机名对应）</em></p>
-<p>GATEWAY=192.168.14.1 <em>#本机连接的网关IP地址</em></p>
-</blockquote>
+<p>5 . 将光标移动到 <code>Use DHCP</code> 的<code>[*]</code>上，点击空格键，即可开始设置下面的静态 IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的 ip 设置，将虚拟客户机 Linux 设置成一样即可（除 IP 外， IP 设置到同一网段）；如下图：</p>
+<p><img src="https://pek3b.qingstor.com/imephen/20190426161803.png" alt="本机 IP 设置"><img src="https://pek3b.qingstor.com/imephen/20190426161823.png" alt="虚拟机IP设置"></p>
+<p>7 . Tab 到 <code>Save</code> 、 <code>Save&amp;Quit</code> 保存本次设置；</p>
+<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击 <code>open in terminal</code> ，输入 <code>setup</code> 命令后回车；<br>2 . 一般虚拟机网卡是 eth0 ，修改文件 <code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=eth0   <span class="comment">#描述网卡对应的设备别名，例如 ifcfg-eth0 的文件中它为 eth0</span></span><br><span class="line">BOOTPROTO=static    <span class="comment">#设置网卡获得 ip 地址的方式，可能的选项为 static/dhcp/bootp （分别对应静态指定的 ip 地址 / 通过 dhcp 协议获得的 ip 地址 / bootp 协议获得的 ip 地址）</span></span><br><span class="line">BROADCAST=192.168.0.255   <span class="comment">#对应的子网广播地址</span></span><br><span class="line">HWADDR=00:07:E9:05:E8:B4    <span class="comment">#对应的网卡物理地址</span></span><br><span class="line">IPADDR=192.168.14.120   <span class="comment">#如果设置网卡获得 ip 地址的方式为静态指定，此字段就指定了网卡对应的ip地址</span></span><br><span class="line">IPV6INIT=no</span><br><span class="line">IPV6_AUTOCONF=no</span><br><span class="line">NETMASK=255.255.255.0   <span class="comment">#网卡对应的网络掩码</span></span><br><span class="line">NETWORK=192.168.0.0   <span class="comment">#网卡对应的网络地址</span></span><br><span class="line">ONBOOT=yes    <span class="comment">#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</span></span><br></pre></td></tr></table></figure>
+<p>3 . 修改对应网卡的网关的配置文件 <code>vi /etc/sysconfig/network</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=yes    <span class="comment">#系统是否使用网络（一般设置为 yes 。如果设为 no ，则不能使用网络，而且很多系统服务程序将无法启）</span></span><br><span class="line">HOSTNAME=localhost    <span class="comment">#本机的主机名（这里设置的主机名要和 /etc/hosts 中设置的主机名对应）</span></span><br><span class="line">GATEWAY=192.168.14.1    <span class="comment">#本机连接的网关 IP 地址</span></span><br></pre></td></tr></table></figure>
 <p>4 . 重启网卡或重启机器以应用上述修改。</p>
-<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以eth0为例）：先关闭（命令：ifdown eth0），再开启（命令：ifup eth0）</p>
+<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以 eth0 为例）：先关闭（命令： <code>ifdown eth0</code> ），再开启（命令： <code>ifup eth0</code> ）</p>
 ]]></content>
       
         <categories>
@@ -2562,10 +2617,6 @@
         <tags>
             
             <tag> 测试 </tag>
-            
-            <tag> 用例 </tag>
-            
-            <tag> 场景 </tag>
             
         </tags>
         
