@@ -618,11 +618,11 @@
     
       <category term="DNSSEC" scheme="https://ephen.me/tags/DNSSEC/"/>
     
+      <category term="安全" scheme="https://ephen.me/tags/%E5%AE%89%E5%85%A8/"/>
+    
       <category term="域名劫持" scheme="https://ephen.me/tags/%E5%9F%9F%E5%90%8D%E5%8A%AB%E6%8C%81/"/>
     
       <category term="DNSViz" scheme="https://ephen.me/tags/DNSViz/"/>
-    
-      <category term="安全" scheme="https://ephen.me/tags/%E5%AE%89%E5%85%A8/"/>
     
   </entry>
   

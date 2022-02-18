@@ -1478,11 +1478,11 @@
             
             <tag> DNSSEC </tag>
             
+            <tag> 安全 </tag>
+            
             <tag> 域名劫持 </tag>
             
             <tag> DNSViz </tag>
-            
-            <tag> 安全 </tag>
             
         </tags>
         
@@ -2026,15 +2026,17 @@
         
         <tags>
             
+            <tag> DNS </tag>
+            
             <tag> DNSSEC </tag>
             
-            <tag> DNS 安全 </tag>
+            <tag> 安全 </tag>
             
             <tag> DNS 攻击 </tag>
             
-            <tag> 域名劫持 </tag>
-            
             <tag> DNS 污染 </tag>
+            
+            <tag> 域名劫持 </tag>
             
         </tags>
         
@@ -2092,13 +2094,13 @@
         
         <tags>
             
+            <tag> DNS </tag>
+            
             <tag> DNSSEC </tag>
             
-            <tag> DNS 安全 </tag>
+            <tag> 安全 </tag>
             
             <tag> 域名劫持 </tag>
-            
-            <tag> DNS 污染 </tag>
             
         </tags>
         
@@ -2473,11 +2475,11 @@
         
         <tags>
             
+            <tag> DNS </tag>
+            
             <tag> 测试 </tag>
             
             <tag> AX </tag>
-            
-            <tag> DNS </tag>
             
         </tags>
         
