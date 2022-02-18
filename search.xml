@@ -822,6 +822,8 @@
         
         <tags>
             
+            <tag> DNS </tag>
+            
             <tag> Public DNS </tag>
             
             <tag> 公共 DNS </tag>
@@ -885,6 +887,8 @@
         
         
         <tags>
+            
+            <tag> DNS </tag>
             
             <tag> Public DNS </tag>
             
@@ -1298,11 +1302,11 @@
         
         <tags>
             
+            <tag> 域名攻击 </tag>
+            
             <tag> DYN </tag>
             
             <tag> DDoS </tag>
-            
-            <tag> 域名攻击 </tag>
             
         </tags>
         
@@ -2032,9 +2036,9 @@
             
             <tag> 安全 </tag>
             
-            <tag> DNS 攻击 </tag>
-            
             <tag> DNS 污染 </tag>
+            
+            <tag> 域名攻击 </tag>
             
             <tag> 域名劫持 </tag>
             
