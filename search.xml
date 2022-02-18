@@ -56,9 +56,9 @@
             
             <tag> hexo </tag>
             
-            <tag> node </tag>
-            
             <tag> git </tag>
+            
+            <tag> node </tag>
             
             <tag> jquery </tag>
             
@@ -353,6 +353,8 @@
             
             <category> 知识探索 </category>
             
+            <category> 工作笔记 </category>
+            
         </categories>
         
         
@@ -556,6 +558,8 @@
         <categories>
             
             <category> 工作笔记 </category>
+            
+            <category> 心情驿站 </category>
             
         </categories>
         
@@ -1247,6 +1251,8 @@
             
             <category> 知识探索 </category>
             
+            <category> 心情驿站 </category>
+            
         </categories>
         
         
@@ -1282,9 +1288,9 @@
 <h3 id="要销量还是要质量？"><a href="#要销量还是要质量？" class="headerlink" title="要销量还是要质量？"></a>要销量还是要质量？</h3><p>物联网设备被利用，总的来说，还是隐射一个质量问题。这事让我不禁联想到年初盗版 Xcode 事件，就算是优秀的开发者用的是这样的软件来工作也会莫名被第三者……</p>
 <p>现在科技发展尤为迅速，一不小心就跟不上时代的步伐。这个社会已经变得浮躁了起来，企业为追求性价比，招来能力修为不够的员工、用上了被植入后门的软硬件，即便产品成型后跟上了市场，那么质量呢？</p>
 <p>反过来，扪心自问，作为消费者，是不是也没有那么在乎质量？</p>
-<h3 id="权威DNS的扛D攻击能力"><a href="#权威DNS的扛D攻击能力" class="headerlink" title="权威DNS的扛D攻击能力"></a>权威DNS的扛D攻击能力</h3><p>DNS 是网络中非常脆弱的一环， CloudXNS 也是攻击不断。犹记得去年 CloudXNS 刚刚被站长们熟悉不久，便引来超大规模的竞争对手恶意攻击，致使我们不得不删除了硬件能力较差的几个海外节点的 Glue Record 配置。此后便是不断的优化运维架构、提升硬件加固防火墙之路。</p>
+<h3 id="权威-DNS-的扛-D-攻击能力"><a href="#权威-DNS-的扛-D-攻击能力" class="headerlink" title="权威 DNS 的扛 D 攻击能力"></a>权威 DNS 的扛 D 攻击能力</h3><p>DNS 是网络中非常脆弱的一环， CloudXNS 也是攻击不断。犹记得去年 CloudXNS 刚刚被站长们熟悉不久，便引来超大规模的竞争对手恶意攻击，致使我们不得不删除了硬件能力较差的几个海外节点的 Glue Record 配置。此后便是不断的优化运维架构、提升硬件加固防火墙之路。</p>
 <p>不论是 Dyn 也好，CloudXNS 也好，我们作为专业提供解析服务的产品都有些吃力，那些小注册商甚至个人商家提供的自带 DNS 解析的扛 D 能力又如何保证呢？</p>
-<h2 id="DDoS攻击应对"><a href="#DDoS攻击应对" class="headerlink" title="DDoS攻击应对"></a>DDoS攻击应对</h2><p>这个不废话，DDoS 攻击防范请从以下几点做起：</p>
+<h2 id="DDoS-攻击应对"><a href="#DDoS-攻击应对" class="headerlink" title="DDoS 攻击应对"></a>DDoS 攻击应对</h2><p>这个不废话，DDoS 攻击防范请从以下几点做起：</p>
 <ol>
 <li>选择靠谱的域名注册商和域名解析商</li>
 <li>接入主机的选择也需要慎重，并且配置好 ACL</li>
@@ -1294,6 +1300,8 @@
 <h2 id="希望未来有更祥和的网络环境，-DDoS-坏蛋们见鬼去吧！"><a href="#希望未来有更祥和的网络环境，-DDoS-坏蛋们见鬼去吧！" class="headerlink" title="希望未来有更祥和的网络环境， DDoS 坏蛋们见鬼去吧！"></a>希望未来有更祥和的网络环境， DDoS 坏蛋们见鬼去吧！</h2>]]></content>
       
         <categories>
+            
+            <category> 心情驿站 </category>
             
             <category> 当时就被震惊 </category>
             
@@ -1825,9 +1833,9 @@
       
         <categories>
             
-            <category> 当时就被震惊 </category>
-            
             <category> 知识探索 </category>
+            
+            <category> 当时就被震惊 </category>
             
         </categories>
         
@@ -1988,6 +1996,8 @@
             <tag> hexo </tag>
             
             <tag> sitemap </tag>
+            
+            <tag> git </tag>
             
         </tags>
         
@@ -2360,6 +2370,8 @@
       
         <categories>
             
+            <category> 工作笔记 </category>
+            
             <category> 心情驿站 </category>
             
         </categories>
@@ -2434,6 +2446,8 @@
 ]]></content>
       
         <categories>
+            
+            <category> 工作笔记 </category>
             
             <category> 工具介绍 </category>
             
@@ -2614,6 +2628,8 @@
 <h3 id="第二个问题，属于用户感知层面的。如果你实在假装用户做不到，那么不妨自己做一个真用户，看看是不是会发现不一样的东西。"><a href="#第二个问题，属于用户感知层面的。如果你实在假装用户做不到，那么不妨自己做一个真用户，看看是不是会发现不一样的东西。" class="headerlink" title="第二个问题，属于用户感知层面的。如果你实在假装用户做不到，那么不妨自己做一个真用户，看看是不是会发现不一样的东西。"></a>第二个问题，属于用户感知层面的。如果你实在假装用户做不到，那么不妨自己做一个真用户，看看是不是会发现不一样的东西。</h3>]]></content>
       
         <categories>
+            
+            <category> 工作笔记 </category>
             
             <category> 心情驿站 </category>
             
