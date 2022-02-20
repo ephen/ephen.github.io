@@ -1,0 +1,85 @@
+title:
+  archive: 归档
+  category: 分类
+  tag: 标签
+
+menu:
+  menu: 菜单
+  home: 首页
+  archives: 归档
+  categories: 分类
+  tags: 标签
+  about: 关于我
+  search: 搜索
+  link: 友情链接
+
+sidebar:
+  overview: 站点概览
+  toc: 文章目录
+
+toc:
+  title: 文章目录
+  hide: 隐藏目录
+  show: 显示目录
+
+tooltip:
+  tocButton: 点击按钮隐藏或者显示文章目录
+  back2home: 回到主页
+  nextPost: 下一篇
+  prePost: 上一篇
+  miniArchives: 文章列表
+  back2top: 返回顶部
+  jump2comments: 查看评论
+  go2bottom: 转到底部
+  copyPath: 点击复制文章链接
+
+post:
+  posted: 发表于
+  in: 分类于
+  read_more: 阅读全文
+  untitled: 未命名
+  toc_empty: 此文章未包含目录
+  share: 分享到
+
+page:
+  totally: 共有
+  tags: 标签
+
+footer:
+  powered: "由 %s 强力驱动"
+  theme: 主题
+
+
+counter:
+  tag_cloud:
+    zero: 暂无标签
+    one: 目前共计 1 个标签
+    other: "目前共计 %d 个标签"
+
+  categories:
+    zero: 暂无分类
+    one: 目前共计 1 个分类
+    other: "目前共计 %d 个分类"
+
+  archive_posts:
+    zero: 暂无日志。
+    one: 目前共计 1 篇日志。
+    other: "目前共计 %d 篇日志。"
+
+state:
+  posts: 日志
+  pages: 页面
+  tags: 标签
+  categories: 分类
+
+copyright_info:
+  title: 本文标题
+  author: 文章作者
+  date: 发布时间
+  updated: 最后更新
+  url: 原始链接
+  from: "原文:"
+  by: "作者:"
+  license: 许可协议
+  cc: "署名-非商用-相同方式共享 4.0"
+  notice: "转载请保留原文链接及作者。"

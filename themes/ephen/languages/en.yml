@@ -1,0 +1,84 @@
+title:
+  archive: Archive
+  category: Category
+  tag: Tag
+
+menu:
+  menu: Menu
+  home: Home
+  archives: Archives
+  categories: Categories
+  tags: Tags
+  about: About
+  search: Search
+  link : Links
+
+sidebar:
+  overview: Overview
+  toc: Table Of Contents
+
+toc:
+  title: Contents
+  hide: Hide
+  show: Show
+
+tooltip:
+  tocButton: Show or Hide Table of Contents
+  back2home: Back to Homepage
+  nextPost: Next
+  prePost: Pre
+  miniArchives: Mini Archives
+  back2top: Back to Top
+  jump2comments: Comments
+  go2bottom: Go to Bottom
+  copyPath: "Copy Article's Link & Author"
+
+post:
+  posted: Posted on
+  in: In
+  read_more: Read more
+  untitled: Untitled
+  toc_empty: This post does not have a Table Of Contents
+  share: Share to
+
+page:
+  totally: Totally
+  tags: tags
+
+footer:
+  powered: "Powered by %s"
+  theme: Theme
+
+counter:
+  tag_cloud:
+    zero: No tags
+    one: 1 tag in total
+    other: "%d tags in total"
+
+  categories:
+    zero: No categories
+    one: 1 category in total
+    other: "%d categories in total"
+
+  archive_posts:
+    zero: No posts.
+    one: 1 post.
+    other: "%d posts in total."
+
+state:
+  posts: posts
+  pages: pages
+  tags: tags
+  categories: categories
+
+copyright_info:
+  title: Title
+  author: Author
+  date: Created
+  updated: Updated
+  url: Full URL
+  from: From
+  by: By
+  license: License
+  cc: "CC BY-NC-SA 4.0"
+  notice: "Keep Link & Author if Distribute."

@@ -1,0 +1,104 @@
+#tocButton 
+    position fixed
+    border none
+    left 210px
+    top 385px
+    background none
+    font-size 14px
+    color lightgray
+    cursor pointer
+    font-family inherit
+    outline none
+    -webkit-appearance none
+    &:hover 
+        color: #88acdb
+ 
+.toc-article 
+  position fixed
+  width 240px
+  top 385px
+  bottom 1em
+  left 0
+  margin-left 2em
+  padding 6px 10px 10px 50 +4
+  border-radius 2.8%
+  overflow auto
+
+#toc 
+    float right
+    font-size 12px
+    line-height 1.65em
+    a {
+        color: gray;
+        &:visited {
+            color: #258fb8;
+        } 
+        &:hover {
+            color: #88acdb;
+            text-decoration: none;
+        }
+    }
+    li:hover {
+        background: none;
+        li:hover {
+            background: rgba(158, 188, 226, .21);
+        }
+    }
+    .toc-title {
+        font-weight: bold;
+        color: gray;
+    &.clickable { 
+	cursor: pointer;
+	&:hover {
+		color: #88acdb;
+		}
+	&:active {
+		color: lightgray;
+		}
+	}
+    }
+    .toc 
+        padding .7em
+        padding-right 0
+        li.toc-item
+            list-style-type none
+            i
+                display inline-block
+                margin-left -.9em
+                width .9em
+                color hsl(0, 0%, 70%)
+                font-weight: bold
+                cursor pointer
+                &:hover
+                    color black
+            i.hide
+                display none
+            &:hover 
+                background none
+        a.toc-link
+            color: gray
+            &:visited 
+                color #258fb8
+            &:hover 
+                color #88acdb
+                text-decoration none
+                background rgba(158, 188, 226, .21)
+    ol {
+        margin-left: 1em;
+    }
+    .toc-child 
+        padding-left 1.25em
+        margin 4px 0
+
+if toc-nowrap
+	a.toc-link 
+		display inline-block
+		width 100% 
+		text-overflow ellipsis
+		white-space nowrap
+		overflow-x hidden
+	li.toc-item
+		line-height: 1.45em
+		& > i
+		position: relative
+                bottom: .35em

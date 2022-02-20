@@ -1,0 +1,82 @@
+title:
+  archive: 歸檔
+  category: 分類
+  tag: 標籤
+
+menu:
+  home: 首頁
+  archives: 歸檔
+  categories: 分類
+  tags: 標籤
+  about: 關於
+  search: 檢索
+
+sidebar:
+  overview: 本站概覽
+  toc: 文章目錄
+
+toc:
+  title: 文章目錄
+  hide: 隱藏目錄
+  show: 顯示目錄
+
+tooltip:
+  tocButton: 點擊按鈕隱藏或者顯示文章目錄
+  back2home: 回到主頁
+  nextPost: 下一篇
+  prePost: 上一篇
+  miniArchives: 文章列表
+  back2top: 返回頂部
+  jump2comments: 查看評論
+  go2bottom: 轉到底部
+  copyPath: 點擊複製文章鏈接
+
+post:
+  posted: 發表於
+  in: 分類於
+  read_more: 閱讀全文
+  untitled: 未命名
+  toc_empty: 此文章未包含目錄
+
+page:
+  totally: 共有
+  tags: 標籤
+
+footer:
+  powered: "由 %s 強力驅動"
+  theme: 主題
+
+
+counter:
+  tag_cloud:
+    zero: 暫無標籤
+    one: 目前共計 1 個標籤
+    other: "目前共計 %d 個標籤"
+
+  categories:
+    zero: 暫無分類
+    one: 目前共計 1 個分類
+    other: "目前共計 %d 個分類"
+
+  archive_posts:
+    zero: 暫無文章。
+    one: 目前共計 1 篇文章。
+    other: "目前共計 %d 篇文章。"
+
+state:
+  posts: 文章
+  pages: 頁面
+  tags: 標籤
+  categories: 分類
+
+copyright_info:
+  title: 本文標題
+  author: 文章作者
+  date: 發布時間
+  updated: 最後更新
+  url: 原始鏈接
+  from: "原文:"
+  by: "作者:"
+  license: 許可協議
+  cc: "姓名標示-非商業性-相同方式分享 4.0 國際"
+  notice: "轉載請保留原文鏈接及作者。"

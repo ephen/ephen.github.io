@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<% if (theme.rss){ %>
+	<link rel="alternative" href="<%- theme.rss %>" title="<%= config.title %>" type="application/atom+xml">
+<% } %>
+<% if (theme.favicon){ %>
+  <link rel="icon" href="<%- theme.favicon %>">
+<% } %>
+<% if (theme.animate){ %>
+	<link href="<%- theme.CDN.animate_css %>" rel="stylesheet">
+<% } %>
+<% if (theme.fancybox){ %>
+	<link href="<%- theme.CDN.fancybox_css %>" rel="stylesheet">
+<% } %>
+<%- css('css/style') %>
+<% if (is_home() && theme.animate){ %>
+	<style> .article { opacity: 1;} </style>
+<% } %>
+<link href="<%- theme.CDN.fontawesome %>" rel="stylesheet">
+
+<%
+	var title = page.title;
+	if (is_archive()){
+		title = 'Archives';
+		if (is_month()){
+			title += ': ' + page.year + '/' + page.month;
+		} else if (is_year()){
+			title += ': ' + page.year;
+		}
+	} else if (is_category()){
+		title = 'Category: ' + page.category;
+	} else if (is_tag()){
+		title = 'Tag: ' + page.tag;
+	}
+%>
+
+<title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+
+<script src="<%- theme.CDN.jquery %>"></script>
+<script src="<%- theme.CDN.clipboard %>"></script>
+
+<script>
+	var yiliaConfig = {
+		fancybox: <%=theme.fancybox%>,
+		mathjax: <%=theme.mathjax%>,
+		animate: <%=theme.animate%>,
+		isHome: <%=is_home()%>,
+		isPost: <%=is_post()%>,
+		isArchive: <%=is_archive()%>,
+		isTag: <%=is_tag()%>,
+		isCategory: <%=is_category()%>,
+		fancybox_js: "<%- theme.CDN.fancybox_js %>",
+		scrollreveal: "<%- theme.CDN.scrollreveal %>",
+		search: <%= theme.search.on %>,
+		open_in_new: <%=theme.open_in_new%>
+	}
+</script>
+
+<% if (theme.jquery_ui) { %>
+	<script>
+		yiliaConfig.jquery_ui = [true, "<%- theme.CDN.jquery_ui_js %>", "<%- theme.CDN.jquery_ui_css %>"];
+	</script>
+<% } else { %>
+	<script> yiliaConfig.jquery_ui = [false]; </script>
+<% } %>
+
+<%- open_graph({twitter_id: theme.twitter, google_plus: theme.google_plus, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104686993-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e818eaeb03db00e8a2fd123b0cb5d63e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>

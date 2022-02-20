@@ -1,0 +1,11 @@
+<% if (theme.fancybox){ %>
+  <%- css('fancybox/jquery.fancybox') %>
+<% } %>
+<%- js('https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.6/require.js') %>
+<%- js('https://code.jquery.com/jquery-1.9.1.min.js') %>
+<%- js('js/main') %>
+<%- partial('google-analytics') %>
+<% if (theme.mathjax){ %>
+	<%- partial('mathjax') %>
+<% } %>
+<%- partial('scrolling-button') %>
