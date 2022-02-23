@@ -69,13 +69,10 @@ pagination_dir: page
 plugins:
 #- hexo-generator-feed
 #- hexo-generator-sitemap
-#- hexo-generator-baidu-sitemap
 
 #sitemap
 sitemap:
 	path: sitemap.xml
-baidusitemap:
-	path: baidusitemap.xml
 
 #search
 search:
