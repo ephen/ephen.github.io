@@ -49,7 +49,41 @@ highlight:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  博客折腾: MyBlog
+  当时就被震惊: shocking
+  工具介绍: tools
+  工作笔记: MyWork
+  心情驿站: emo
+  知识探索: knowledge
 tag_map:
+  安全: sec
+  版权: copyright
+  测试: testing
+  程序员: coder
+  设计师: designer
+  网站: website
+  虚拟机: vm
+  本地-DNS: Local-DNS
+  公共-DNS: Public-DNS
+  递归-DNS: Recursion-DNS
+  记录类型: rr-type
+  产品管理: product-management
+  项目管理: project-management
+  产品运营: product-operation
+  负载均衡器: lb
+  备案: beian
+  顶级域: root-zone
+  泛域名: generic-domain
+  解析流程: parsing-process
+  域名: domain
+  域名格式: zone-format
+  协议: protocol
+  域转移: zone-transfer
+  用户鉴权: user-auth
+  域名攻击: attack
+  域名劫持: hijacking
+  资源协作: co-work
+
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
