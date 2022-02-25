@@ -89,6 +89,6 @@ disqus_shortname: ephen
 deploy:
 	type: git
 	repo:
-		github: https://github.com/ephen/ephen.github.io.git
+		github: git@github.com:ephen/ephen.github.io.git
 #		coding: https://git.coding.net/ephen/ephen.git
 	branch: master
