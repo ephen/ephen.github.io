@@ -89,7 +89,7 @@ INFO  Validating config
 WARN  Deprecated config detected: "external_link" with a Boolean value is deprecated. See https://hexo.io/docs/configuration for more details.
 ```
 
-尽管只是个 WARN 报错，但我自然是不甘心的。想来我从 `v3.9.0` 一步跨越到 `v6.0.0` ，光大版本就跳了三级。
+尽管只是个 WARN 报错，但我自然是不甘心的。想来我从 `v3.9.0` 一步跨越到 `v6.0.0` ，仅大版本就跳了三级。
 
 于是去找下 Hexo 官方有没有 Release Notes，一个个的看。终于在 `2020-7-29` 发布的 [Hexo 5.0.0 Released](https://hexo.io/news/2020/07/29/hexo-5-released/) 中找到了关于 `external_link` 配置的大变化。
 
@@ -114,7 +114,7 @@ external_link:
 
 我查看了 `_config.yml` 文件后，发现其中配置并没有问题。既然如此，我删掉其中一篇博文的 `permalink` 标签后测试，发现年份是回来了，但博文路径变成了中文。这下明白了，原来 `_config.yml` 文件中 `permalink` 的 `:title` 变量取的是我的 Markdown 源文件的文件名。
 
-于是修改所有的博文，删掉每篇博文中的 `permalink` 标签，然后将 `.md` 源文件名字改为原来链接上的 `permalink` 值。
+于是修改所有的博文，删掉每篇博文中的 `permalink` 标签，然后将 `.md` 源文件名字改为对应被删除的 `permalink` 值。
 
 如下图所示：
 
@@ -142,7 +142,7 @@ language: zh-Hans
 timezone:
 ```
 
-于是将 `subtitle` 和 `author` 移动到主题的配置文件中，测试通过。
+于是将 `subtitle` 和 `author` 复制到主题的配置文件中，测试通过。
 
 ### 翻页转义字符显示异常
 
