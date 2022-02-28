@@ -63,9 +63,6 @@ tag_map:
   设计师: designer
   网站: website
   虚拟机: vm
-  本地-DNS: Local-DNS
-  公共-DNS: Public-DNS
-  递归-DNS: Recursion-DNS
   记录类型: rr-type
   产品管理: product-management
   项目管理: project-management

@@ -6,9 +6,8 @@ categories:
 tags: 
   - DNS
   - Public DNS
-  - 公共 DNS
-  - 本地 DNS
-  - 递归 DNS
+  - Local DNS
+  - Recursion DNS
   - edns-client-subnet
 toc: true
 toc_list_number: true
