@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge" >
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <link rel="icon" href="/favicon.ico">
+
+
+	<link href="//cdn.bootcss.com/animate.css/3.5.1/animate.min.css" rel="stylesheet">
+
+
+	<link href="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet">
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+
+<link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
+
+
+
+<title>转载：从理论到实践，全方位认识 DNS （理论篇） | Ephen‘s Blog</title>
+
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+<script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		fancybox_js: "//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.min.js",
+		scrollreveal: "//cdn.bootcss.com/scrollReveal.js/3.1.4/scrollreveal.min.js",
+		search: true,
+		open_in_new: false
+	}
+</script>
+
+
+	<script> yiliaConfig.jquery_ui = [false]; </script>
+
+
+<meta name="description" content="对于 DNS(Domain Name System) 大家肯定不陌生，不就是用来将一个网站的域名转换为对应的 IP 吗。当我们发现可以上 QQ 但不能浏览网页时，我们会想到可能是域名服务器挂掉了；当我们用别人提供的 hosts 文件浏览到一个“不存在”的网页时，我们会了解到域名解析系统的脆弱。 然而关于 DNS 还有一大堆故事值得我们去倾听，去思考。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="转载：从理论到实践，全方位认识 DNS （理论篇）">
+<meta property="og:url" content="https://ephen.me/2015/dns-theory/index.html">
+<meta property="og:site_name" content="Ephen‘s Blog">
+<meta property="og:description" content="对于 DNS(Domain Name System) 大家肯定不陌生，不就是用来将一个网站的域名转换为对应的 IP 吗。当我们发现可以上 QQ 但不能浏览网页时，我们会想到可能是域名服务器挂掉了；当我们用别人提供的 hosts 文件浏览到一个“不存在”的网页时，我们会了解到域名解析系统的脆弱。 然而关于 DNS 还有一大堆故事值得我们去倾听，去思考。">
+<meta property="og:locale">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/20151105_hosts_local.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/20151105_dns_concept.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/20151105_domain_tree.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/20151105_domain_zone.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/20151105_name_servers.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/20151105_root_servers.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/20151105_servers_tree.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/20151105_name_resolution.png">
+<meta property="article:published_time" content="2015-11-15T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-23T02:41:46.291Z">
+<meta property="article:author" content="Ephen">
+<meta property="article:tag" content="DNS">
+<meta property="article:tag" content="协议">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/20151105_hosts_local.png">
+
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104686993-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?e818eaeb03db00e8a2fd123b0cb5d63e";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<meta name="generator" content="Hexo 6.0.0"><link rel="alternate" href="/atom.xml" title="Ephen‘s Blog" type="application/atom+xml">
+</head>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Ephen</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">奇葩一朵， IT 废材</p>
+		
+		
+			<form id="search-form">
+				<input type="text" id="local-search-input" name="q" placeholder="search..." class="search form-control" autocomplete="off" autocorrect="off" searchonload="false" />
+				<i class="fa fa-times" onclick="resetSearch()"></i>
+			</form>
+			<div id="local-search-result"></div>
+			<p class='no-result'>No results found <i class='fa fa-spinner fa-pulse'></i></p>
+		        
+
+		
+            <div id="switch-btn" class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+        <div id="switch-area" class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+                            <li><a href="/">主页</a></li>
+				        
+                            <li><a href="/archives/">所有文章</a></li>
+				        
+                            <li><a href="/categories/emo/">心情驿站</a></li>
+				        
+                            <li><a href="/About/">关于</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<ul class="social">
+							
+								<a class="fa mail" href="mailto:ephen@live.cn" title="mail"></a>
+					        
+								<a class="fa telegram" target="_blank" rel="noopener" href="https://telegram.me/imephen" title="telegram"></a>
+					        
+								<a class="fa twitter" target="_blank" rel="noopener" href="https://twitter.com/imephen" title="twitter"></a>
+					        
+								<a class="fa zhihu" target="_blank" rel="noopener" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
+					        
+								<a class="fa weibo" target="_blank" rel="noopener" href="http://weibo.com/cinderellacici" title="weibo"></a>
+					        
+								<a class="fa rss" href="/atom.xml" title="rss"></a>
+					        
+						</ul>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/AWS/" style="font-size: 10px;">AWS</a> <a href="/tags/AX/" style="font-size: 10px;">AX</a> <a href="/tags/Azure/" style="font-size: 10px;">Azure</a> <a href="/tags/BlueMix/" style="font-size: 10px;">BlueMix</a> <a href="/tags/CAA/" style="font-size: 10px;">CAA</a> <a href="/tags/DDoS/" style="font-size: 10px;">DDoS</a> <a href="/tags/DNS/" style="font-size: 20px;">DNS</a> <a href="/tags/DNSSEC/" style="font-size: 13.33px;">DNSSEC</a> <a href="/tags/DNSViz/" style="font-size: 10px;">DNSViz</a> <a href="/tags/DYN/" style="font-size: 10px;">DYN</a> <a href="/tags/GCP/" style="font-size: 10px;">GCP</a> <a href="/tags/IAM/" style="font-size: 10px;">IAM</a> <a href="/tags/Jmeter/" style="font-size: 10px;">Jmeter</a> <a href="/tags/LB/" style="font-size: 10px;">LB</a> <a href="/tags/Local-DNS/" style="font-size: 11.67px;">Local DNS</a> <a href="/tags/Network/" style="font-size: 10px;">Network</a> <a href="/tags/Oracle/" style="font-size: 10px;">Oracle</a> <a href="/tags/PL-SQL/" style="font-size: 10px;">PL/SQL</a> <a href="/tags/Public-DNS/" style="font-size: 11.67px;">Public DNS</a> <a href="/tags/RFC/" style="font-size: 10px;">RFC</a> <a href="/tags/Recursion-DNS/" style="font-size: 11.67px;">Recursion DNS</a> <a href="/tags/SOA/" style="font-size: 10px;">SOA</a> <a href="/tags/SSL/" style="font-size: 10px;">SSL</a> <a href="/tags/TCP/" style="font-size: 10px;">TCP</a> <a href="/tags/UDP/" style="font-size: 10px;">UDP</a> <a href="/tags/UML/" style="font-size: 10px;">UML</a> <a href="/tags/VPC/" style="font-size: 10px;">VPC</a> <a href="/tags/VSCode/" style="font-size: 10px;">VSCode</a> <a href="/tags/VirtualHost/" style="font-size: 10px;">VirtualHost</a> <a href="/tags/Vmware/" style="font-size: 10px;">Vmware</a> <a href="/tags/Win8/" style="font-size: 10px;">Win8</a> <a href="/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/tags/api/" style="font-size: 10px;">api</a> <a href="/tags/bind/" style="font-size: 11.67px;">bind</a> <a href="/tags/dig/" style="font-size: 10px;">dig</a> <a href="/tags/edns-client-subnet/" style="font-size: 10px;">edns-client-subnet</a> <a href="/tags/git/" style="font-size: 13.33px;">git</a> <a href="/tags/hexo/" style="font-size: 16.67px;">hexo</a> <a href="/tags/https/" style="font-size: 10px;">https</a> <a href="/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/node/" style="font-size: 11.67px;">node</a> <a href="/tags/npm/" style="font-size: 10px;">npm</a> <a href="/tags/postman/" style="font-size: 10px;">postman</a> <a href="/tags/sitemap/" style="font-size: 10px;">sitemap</a> <a href="/tags/stylus/" style="font-size: 10px;">stylus</a> <a href="/tags/v2ex/" style="font-size: 10px;">v2ex</a> <a href="/tags/web/" style="font-size: 10px;">web</a> <a href="/tags/product-management/" style="font-size: 10px;">产品管理</a> <a href="/tags/product-operation/" style="font-size: 11.67px;">产品运营</a> <a href="/tags/protocol/" style="font-size: 11.67px;">协议</a> <a href="/tags/domain/" style="font-size: 10px;">域名</a> <a href="/tags/hijacking/" style="font-size: 13.33px;">域名劫持</a> <a href="/tags/attack/" style="font-size: 11.67px;">域名攻击</a> <a href="/tags/zone-format/" style="font-size: 10px;">域名格式</a> <a href="/tags/zone-transfer/" style="font-size: 10px;">域转移</a> <a href="/tags/beian/" style="font-size: 10px;">备案</a> <a href="/tags/sec/" style="font-size: 15px;">安全</a> <a href="/tags/generic-domain/" style="font-size: 10px;">泛域名</a> <a href="/tags/testing/" style="font-size: 18.33px;">测试</a> <a href="/tags/copyright/" style="font-size: 10px;">版权</a> <a href="/tags/user-auth/" style="font-size: 10px;">用户鉴权</a> <a href="/tags/coder/" style="font-size: 10px;">程序员</a> <a href="/tags/website/" style="font-size: 10px;">网站</a> <a href="/tags/vm/" style="font-size: 10px;">虚拟机</a> <a href="/tags/parsing-process/" style="font-size: 10px;">解析流程</a> <a href="/tags/rr-type/" style="font-size: 10px;">记录类型</a> <a href="/tags/designer/" style="font-size: 10px;">设计师</a> <a href="/tags/lb/" style="font-size: 10px;">负载均衡器</a> <a href="/tags/co-work/" style="font-size: 10px;">资源协作</a> <a href="/tags/root-zone/" style="font-size: 10px;">顶级域</a> <a href="/tags/project-management/" style="font-size: 10px;">项目管理</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://imququ.com/">Jerry Qu</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.freejishu.com/">Free技术</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.lwl12.com/">LWL</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://u.sb">Showfom</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://mritd.me/">漠然</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://kn007.net/">kn007</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://diygod.me/">DIYgod</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.lijian.me/">小李子</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.skk.moe/">苏卡卡</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://www.4spaces.org">四个空格</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://blog.ilemonrain.com">极光星空</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="https://xuanwo.io/">漩涡</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme"><a target='_blank' href='https://www.qingcloud.com/'>QingCloud 青云</a> 产品汪</div>
+				</section>
+				
+			</div>
+		</div>
+		<!-- <div align="center"><a class="adhd" href="https://psychcentral.com/quizzes/addquiz.htm" target="_blank"><img src="https://g.psychcentral.com/adhd_serious.gif" alt="Serious ADHD Likely!" width="180" height="81" border="0"></a></div> -->
+		
+		<a class="beian" href="http://www.beian.miit.gov.cn" target="_blank">鄂 ICP 备 15003996 号</a>
+				
+	</header>
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Ephen</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="/img/avatar.jpg" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author"><a href="/" title="回到主页">Ephen</a></h1>
+			</hgroup>
+			
+			<p class="header-subtitle">奇葩一朵， IT 废材</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives/">所有文章</a></li>
+		        
+					<li><a href="/categories/emo/">心情驿站</a></li>
+		        
+					<li><a href="/About/">关于</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<ul class="social">
+					
+						<a class="fa mail" target="_blank" href="mailto:ephen@live.cn" title="mail"></a>
+			        
+						<a class="fa telegram" target="_blank" href="https://telegram.me/imephen" title="telegram"></a>
+			        
+						<a class="fa twitter" target="_blank" href="https://twitter.com/imephen" title="twitter"></a>
+			        
+						<a class="fa zhihu" target="_blank" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
+			        
+						<a class="fa weibo" target="_blank" href="http://weibo.com/cinderellacici" title="weibo"></a>
+			        
+						<a class="fa rss" target="_blank" href="/atom.xml" title="rss"></a>
+			        
+				</ul>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-dns-theory" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/dns-theory/" class="article-date">
+  	<time datetime="2015-11-15T16:00:00.000Z" itemprop="datePublished">2015-11-16</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      转载：从理论到实践，全方位认识 DNS （理论篇）
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/DNS/" rel="tag">DNS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/protocol/" rel="tag">协议</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/knowledge/">知识探索</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+          
+        <p>对于 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Domain_Name_System">DNS(Domain Name System)</a> 大家肯定不陌生，不就是用来将一个网站的域名转换为对应的 IP 吗。当我们发现可以上 QQ 但不能浏览网页时，我们会想到可能是域名服务器挂掉了；当我们用别人提供的 hosts 文件浏览到一个“<code>不存在</code>”的网页时，我们会了解到域名解析系统的脆弱。</p>
+<p>然而关于 DNS 还有一大堆故事值得我们去倾听，去思考。</p>
+<span id="more"></span>
+
+<h2 id="DNS-源起"><a href="#DNS-源起" class="headerlink" title="DNS 源起"></a>DNS 源起</h2><p>要想访问网络上的一台计算机，我们必须要知道它的 IP 地址。但是这些地址（比如 <code>243.185.187.39</code> ）只是一串数字，没有规律，因此我们很难记住。并且如果一台计算机变更 IP 后，它必须通知所有的人。</p>
+<p>显然，直接使用 IP 地址是一个愚蠢的方案。于是人们想出了一个替代的方法，即为每一台计算机起一个名字，然后建立计算机名字到地址的一个映射关系。我们访问计算机的名字，剩下的名字到地址的转换过程则由计算机自动完成。</p>
+<h3 id="hosts-映射"><a href="#hosts-映射" class="headerlink" title="hosts 映射"></a>hosts 映射</h3><p>早期，名字到地址的转换过程十分简单。每台计算机保存一个 <code>hosts</code> 文件，里面列出所有计算机名字和对应的 IP 地址，然后定期从一个维护此文件的站点更新里面的记录。当我们访问某个计算机名字时，先在 <code>hosts</code> 文件找到对应的 IP ，然后就可以建立连接。</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20151105_hosts_local.png" alt="hosts 管理主机"></p>
+<p>早期的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ARPANET">ARPANET</a> 就是这样做的，但是随着网络规模的扩大，这种方法渐渐吃不消了。主要有以下三个原因：</p>
+<ol>
+<li><code>hosts</code> 文件变得非常大；</li>
+<li>主机名字会冲突；</li>
+<li>集中的维护站点会不堪重负（需要给几百万机器提供 <code>hosts</code> 文件，想想就可怕）。</li>
+</ol>
+<h3 id="域名系统"><a href="#域名系统" class="headerlink" title="域名系统"></a>域名系统</h3><p>为了解决上面的问题，1983 年 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Paul_Mockapetris">Paul Mockapetris</a> 提出了域名系统（ DNS, Domain Name System ）。这是一种<strong>层次的、基于域</strong>的命名方案，并且用一个分布式数据库系统加以实现。当我们需要访问一个域名（其实就是前面说的计算机的名字）时，应用程序会向 DNS 服务器发起一个 DNS 请求， DNS 服务器返回该域名对应的 IP 地址。通过下面三种手段解决了上面的问题：</p>
+<ol>
+<li>用户计算机上并没有存储所有的名字到 IP 的映射，这样避免了 <code>hosts</code> 文件过于庞大（现在各操作系统中 <code>hosts</code> 文件默认都是空的）。</li>
+<li>规定了域名的命名规则，保证主机名字不会重复。</li>
+<li>DNS 服务器不再是单一的一台机器，而是一个层次的、合理组织的服务器集群。</li>
+</ol>
+<p>这样访问一个域名的过程可以简化为下图：</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20151105_dns_concept.png" alt="域名hosts解析过程"></p>
+<h2 id="DNS-协议"><a href="#DNS-协议" class="headerlink" title="DNS 协议"></a>DNS 协议</h2><p>那么如何具体实现这个所谓的域名系统呢？要知道管理一个超大型并且不断变化的域名到 IP 的映射集合可不是一个简单的事，况且还要去应付成千上万的 DNS 查询请求。人们最终想出了一套不错的协议，规定如何来实现这个系统，下面我们一起来看看吧。</p>
+<h3 id="域名空间"><a href="#域名空间" class="headerlink" title="域名空间"></a>域名空间</h3><p>首先我们需要制定一套命名规则，防止域名出现重复。DNS 关于域名的规则和我们生活中的快递系统类似，使用层次的地址结构。快递系统中要给某人邮寄物品，地址可能是这样：中国、广东省、广州市、番禺区、中山西路 12 号 XXX 。而一个域名看起来则是这样的 <code>groups.google.com</code> （为什么不是 <code>com.google.groups</code> ？我猜可能和老外写地址的习惯有关）。</p>
+<p>对于 Internet 来说，域名层次结构的顶级（相当于国际快递地址中的国家部分）由 <a target="_blank" rel="noopener" href="https://www.icann.org/">ICANN</a> （互联网名称与数字地址分配机构）负责管理。目前，已经有超过 250 个顶级域名，每个顶级域名可以进一步划为一些子域（二级域名），这些子域可被再次划分（三级域名），依此类推。所有这些域名可以组织成一棵树，如下图所示（图片来自 Computer Networks: 7-1 ）：</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20151105_domain_tree.png" alt="域名空间树"></p>
+<h3 id="域名资源记录"><a href="#域名资源记录" class="headerlink" title="域名资源记录"></a>域名资源记录</h3><p>DNS 设计之初是用来建立域名到 IP 地址的映射，理论上对于每一个域名我们只需要在域名服务器上保存一条记录即可。这里的记录一般叫作域名资源记录，它是一个五元组，可以用以下格式表示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Domain_name Time_to_live Class Type Value</span><br></pre></td></tr></table></figure>
+
+<p>其中：</p>
+<ol>
+<li>Domain_name: 指出这条记录适用于哪个域名；</li>
+<li>Time_to_live: 用来表明记录的生存周期，也就是说最多可以缓存该记录多长时间（后面会讲到缓存机制）；</li>
+<li>Class: 一般总是 IN ；</li>
+<li>Type: 记录的类型；</li>
+<li>Value: 记录的值，如果是 A 记录，则 value 是一个 IPv4 地址。</li>
+</ol>
+<p>我们看到域名资源记录有一个 Type 字段，用来表明记录的类型。这是为什么呢？因为对于一个域名来说，通常并非只记录其 IP 地址，还可能需要一些其他种类的记录，一些常见的记录类型如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">记录类型</th>
+<th align="left">含义</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">A</td>
+<td align="left">主机的IPv4地址</td>
+</tr>
+<tr>
+<td align="left">AAAA</td>
+<td align="left">主机的IPv6地址</td>
+</tr>
+<tr>
+<td align="left">NS</td>
+<td align="left">该域名所在域的权威域名服务器</td>
+</tr>
+<tr>
+<td align="left">MX</td>
+<td align="left">接受特定域名电子邮件的服务器域名</td>
+</tr>
+<tr>
+<td align="left">CNAME</td>
+<td align="left">当前域名的一个别名</td>
+</tr>
+</tbody></table>
+<p>关于这些域名资源记录的实例我们将在下一篇文章（实践篇）看到。</p>
+<h3 id="域名服务器"><a href="#域名服务器" class="headerlink" title="域名服务器"></a>域名服务器</h3><p>我们知道不能只用一台域名服务器来响应所有的 DNS 查询，因为没有一台机器能够给全球的用户提供查询服务，计算能力、存储、带宽都不允许。只能合理组织一个域名服务器集群，使他们协同工作，共同提供域名解析服务。接下来首先要面对的一个问题是如何合理地将所有的域名资源记录存储到不同的域名服务器上。</p>
+<p>前面说过域名的名字空间可以组织为一棵树，这里我们可以进一步将其划分为不重叠的区域（<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/DNS_zone">DNS zone</a>），针对上图的域名空间，一种可能的域名划分如下图：</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20151105_domain_zone.png" alt="域名划分"></p>
+<p>然后将每个区域与多个域名服务器（其中一个是 <code>master</code> ，其他 <code>slave</code> 服务器则用来提供数据备份、加快解析速度、保证服务可用性）关联起来，称这些域名服务器为该区域的<code>权威域名服务器（ Authoritative Name Servers ）</code>，它保存两类域名资源记录：</p>
+<ol>
+<li>该区域内所有域名的域名资源记录。</li>
+<li>父区域和子区域的域名服务器对应的域名资源记录（主要是 NS 记录）。</li>
+</ol>
+<p>这样，所有的域名资源记录都保存在多个域名服务器中，并且所有的域名服务器也组成了一个层次的索引结构，便于我们后面进行域名解析。下面以一个简化的域名空间为例子，说明域名资源记录是如何保存在域名服务器中的，如下图a：</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20151105_name_servers.png" alt="域名服务器"></p>
+<p>图中域名空间划分为 A, B, C, D, E, F, G 七个 DNS 区域，每个 DNS 区域都有多个权威域名服务器，这些域名服务器里面保存了许多域名解析记录。对于上图的 DNS区域 E 来说，它的权威域名服务器里面保存的记录如图中表格所示。</p>
+<p>仔细观察上图你可能会发现区域 A、B 并没有父区域，他们之间并没有一条路径连在一起。这将导致一个很麻烦的问题，那就是区域 A 的权威域名服务器可能根本不知道区域 B 的存在。认识到这一点后，你可能会想出一个很自然的解决方案，就是在 A 中记录 B 域名服务器的地址，同时在 B 中记录 A 的，这样它们两个就联系起来了。但是考虑到我们有超过 250 个顶级域名，这样做并不是很恰当。</p>
+<p>而我们使用的域名系统则采用了一种更加聪明的方法，那就是引入<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Root_name_server">根域名服务器</a>，它保存了所有顶级区域的权威域名服务器记录。现在通过根域名服务器，我们可以找到所有的顶级区域的权威域名服务器，然后就可以往下一级一级找下去了。下图为全球根域名服务器的分布图，可以在<a target="_blank" rel="noopener" href="http://www.root-servers.org/">这里</a>找到。</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20151105_root_servers.png" alt="顶级域名服务器"></p>
+<p>现在为止，我们的权威域名服务器和根域名服务器其实组成了一个树，树根为根域名服务器，下面每个节点都是一个区域的权威域名服务器，对于图a中各个 DNS 区域的权威域名服务器，它们组成了下面这棵树（<strong>实际中，一个权威域名服务器可能保存有多个 DNS 区域的记录，因此权威域名服务器之间的联系并不构成一棵树。这部分的详细内容可以参考 RFC 1034: 4. NAME SERVERS。下面为了容易理解，将其简化为一棵树</strong>）：</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20151105_servers_tree.png" alt="域名服务器树"></p>
+<h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><p>我们已经有了一个域名服务器集群，该集群合理地保存了域名空间和域名资源记录的对应关系。现在我们要做的就是发送一个 DNS 请求给域名服务器，然后坐等它返回正确的域名资源记录，这个过程叫作域名解析。</p>
+<p>严格来说，域名解析的过程最早要追溯到建立网络连接。因为每当连接上网络之后，计算机会自动获得一个默认的 DNS 服务器，当然你也可以用自己信任的 DNS 服务器，比如 <code>8.8.8.8</code> （ DNS 服务器也有信任不信任之分，是的，实践篇会讲到），我们把这个域名服务器也叫作<code>本地域名服务器</code>。接下来当我们需要知道一个域名对应的资源记录时，会向本地域名服务器发起请求，如果该域名恰好在本地域名服务器所辖属的域名区域（ DNS zone ）内，那么可以直接返回记录。</p>
+<p>如果在本地域名服务器没有发现该域名的资源记录，就需要在整个域名空间搜索该域名。而整个域名空间的资源记录存储在一个分层的、树状联系的一系列域名服务器上，所以本地域名服务器首先要从根域名服务器开始往下搜索。这里有一个问题就是<strong>本地域名服务器如何找到根域名服务器在哪里呢</strong>？其实域名服务器启动的时候，就会加载一个配置文件，里面保存了根域名服务器的 NS 记录（要知道根域名服务器地址一般非常稳定，不会轻易改变，并且数量很少，所以这个配置文件会很小）。找到根域名服务器之后，就可以一级一级地往下查找啦。</p>
+<p>仍然以我们的图a为例，现在假设区域 E 内的某个用户想访问 <code>math.sysu.edu.cn</code> ，那么请求的过程如下：</p>
+<p><img src="https://imephen.pek3b.qingstor.com/20151105_name_resolution.png" alt="域名解析过程"></p>
+<p>用语言简单描述如下：</p>
+<ol>
+<li>用户：喂，本地域名服务器，告诉我 <code>math.sysu.edu.cn</code> 的地址；</li>
+<li>本地域名服务器：哎呀，我不知道啊，不在我的辖区，容我去问问老大哥吧。 <code>root</code> 老大，能告诉我 <code>math.sysu.edu.cn</code> 的地址吗；</li>
+<li>根域名服务器：忙着呢，你去问 B （ <code>.cn</code> ）；</li>
+<li>本地域名服务器：喂，B，告诉我<code>math.sysu.edu.cn</code>的地址；</li>
+<li>B：你去问 D （ <code>.edu.cn</code> ）；</li>
+<li>本地域名服务器：喂，D，告诉我<code>math.sysu.edu.cn</code>的地址；</li>
+<li>D：你去问 F （ <code>sysu.edu.cn</code> ）；</li>
+<li>本地域名服务器：喂，F，告诉我<code>math.sysu.edu.cn</code>的地址；</li>
+<li>F：容老衲看看，哎呀，找到了，是 <code>X.X.X.X</code>；</li>
+<li>本地域名服务器：踏破铁鞋终于找到啦，喂用户，出来啊，我找到了，是 <code>X.X.X.X</code></li>
+</ol>
+<p>仔细想想，这和我们邮寄快递实在是如出一辙啊，假设你从美国邮东西到广州市番禺区，首先快递送到中国（不过这里没有一个类似根域名服务器的中转站而已），然后往下到广东省，接下来是广州市，再往下是番禺了。</p>
+<p>上面的是本地域名服务器的迭代解析过程，其实也可以递归查询，这里就不说了，道理差不多。</p>
+<h2 id="缓存机制"><a href="#缓存机制" class="headerlink" title="缓存机制"></a>缓存机制</h2><p>现在整个域名系统已经可以为我们提供域名解析服务了，当我们输入域名，计算机发送 DNS 请求，然后 DNS 服务器返回给我们解析的结果，一切看起来很完美。然而是不是可以更完美呢？</p>
+<p>回顾一下平时浏览网站的情况，我们会发现两个比较有意思的结论：</p>
+<ol>
+<li>80% 的时间我们都在看那些 20% 的网站，这就是大名鼎鼎的 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Pareto_principle">80&#x2F;20 Rule</a>；</li>
+<li>我们会在一个网站的不同网页之间跳转，也就是不断地访问同一个域名，类似程序访问的局部性原理。</li>
+</ol>
+<p>这两条结论很容易让我们联想到<code>缓存机制</code>。如果我们将已经访问过的那些域名的解析结果缓存在自己的计算机上，那么下次访问的时候可以直接读取结果，不用再次重复 DNS 查询过程，给自己和域名服务器都节省了麻烦。</p>
+<p>当然，这样做的一个前提是要缓存的解析结果不会频繁更改，也就是说我十分钟后解析一个域名的结果和现在解析的结果是一样的。对大多数域名来说，这都是一个不争的事实。但是难免有一些“善变”的域名，他们可能会频繁更改自己的解析结果。为了使缓存机制适应这两类情况，我们在域名资源记录里面添加一个 <code>Time_to_live</code> 字段，表明这条记录最多可以缓存多久。对于那些“稳如泰山”的域名，给一个比较大的值，而那些“朝三暮四”的域名，则可以给定一个小的值。</p>
+<p>我们既然可以在本机利用缓存，那么可不可以在域名服务器上也利用缓存机制呢，答案当然是可以的。因为对于域名服务器来说，上面的两条有意思的结论仍然有效。所以，域名服务器可以将那些访问过的域名资源记录缓存，用户再次发起请求时，可以直接返回缓存结果，不用去迭代或者递归解析。</p>
+<p>关于 DNS 理论部分，更多内容还可以参考这两个文本：</p>
+<p><a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1034">RFC 1034: Domain Names - Concepts and Facilities</a></p>
+<h2 id="并没有结束"><a href="#并没有结束" class="headerlink" title="并没有结束"></a>并没有结束</h2><p>上面一大堆理论，看上去有点不明所以是吧，没事，接下来会结合实践来更加清晰地认识 DNS 这一最基础的系统。</p>
+<p>其实不止是 DNS ，还有 HTTPS 、 TCP 、 UDP 这些很基础的协议，都值得我们静下心去好好认识它们。因为，写 DNS 之前，我以为我已经完全搞明白了它，但是写的过程发现好多地方自己根本就不知道，之前完全是停留在一个很浮夸的层面上。所以，是时候找时间好好把这些协议过一遍，用自己的语言，从<code>解决问题</code>的角度，记录下这些经典协议的故事了。</p>
+<p>本文系转载，原文请戳：《<a target="_blank" rel="noopener" href="https://selfboot.cn/2015/11/05/dns_theory/">Just For Fun - 从理论到实践，全方位认识DNS（理论篇）</a>》</p>
+
+      
+    </div>
+    
+  </div>
+  
+    
+
+
+<nav id="article-nav">
+  
+    <a href="/2016/Jmeter-NonGUI-Test/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Jmeter 以 non-gui 模式进行分布式测试
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/AB-test/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">不会 A/B 测试的 Web 设计师不是好程序员</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+    
+	<div id="toc" class="toc-article">
+		<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS-%E6%BA%90%E8%B5%B7"><span class="toc-number">1.</span> <span class="toc-text">DNS 源起</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#hosts-%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.</span> <span class="toc-text">hosts 映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.2.</span> <span class="toc-text">域名系统</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DNS-%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">DNS 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E7%A9%BA%E9%97%B4"><span class="toc-number">2.1.</span> <span class="toc-text">域名空间</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%B5%84%E6%BA%90%E8%AE%B0%E5%BD%95"><span class="toc-number">2.2.</span> <span class="toc-text">域名资源记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.3.</span> <span class="toc-text">域名服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90"><span class="toc-number">2.4.</span> <span class="toc-text">域名解析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6"><span class="toc-number">3.</span> <span class="toc-text">缓存机制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B9%B6%E6%B2%A1%E6%9C%89%E7%BB%93%E6%9D%9F"><span class="toc-number">4.</span> <span class="toc-text">并没有结束</span></a></li></ol>
+		
+	</div>
+	<style>
+		.left-col .switch-btn,
+		.left-col .switch-area {
+		display: none;
+		}
+		#header .beian {
+		display: none;
+		}
+		#header .adhd {
+		display: none;
+		}
+		.toc-level-3 i,
+		.toc-level-3 ol {
+			display: none !important;
+		}
+	</style>
+	
+	<input type="button" id="tocButton" value="隐藏目录"  title="点击按钮隐藏或者显示文章目录">
+	
+	<script>
+		yiliaConfig.toc = ["隐藏目录", "显示目录", !!"false"];
+	</script>
+
+
+
+
+
+
+<div class="share_addthis">
+  <div class="sharing addthis_toolbox share">
+    <a class="addthis_button_facebook_like"></a>
+    <a class="addthis_button_tweet"></a>
+    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
+    <a class="addthis_counter addthis_pill_style"></a>
+  </div>
+  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
+</div>
+
+
+
+
+    
+        <section id="comments">
+  <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    var disqus_config = function(){
+    	this.page.url = 'https://ephen.me/2015/dns-theory/';
+	this.page.identifier = '2015/dns-theory/';
+    };
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function(){
+    var d = document, s = d.createElement('script');
+    s.src = '//ephen.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);      
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" rel="noopener" href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</section>
+    
+
+
+
+
+    <div class="scroll" id="post-nav-button">
+        
+            <a href="/2016/Jmeter-NonGUI-Test/" title="上一篇: Jmeter 以 non-gui 模式进行分布式测试">
+                <i class="fa fa-angle-left"></i>
+            </a>
+        
+
+        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
+
+        
+            <a href="/2015/AB-test/" title="下一篇: 不会 A/B 测试的 Web 设计师不是好程序员">
+                <i class="fa fa-angle-right"></i>
+            </a>
+        
+    </div>
+
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/blog-updates-plus/">NodeJS 和 Hexo 版本升级记，继续填坑博客配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/hexo-syn/">博客 Hexo 工作区同步至 Mac ，多个电脑可同时写博客啦～</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/blog-sequela/">记录下多年未更新博客的后遗症</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/bind9-12-dig/">bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/laji-reocar/">首汽瑞卡便利租车怎么样？辣鸡霸王条款霸气客服气哭灰姑娘！</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/blog-update/">又来折腾博客了</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/zone-format/">闲聊 DNS 系统中域名的格式标准：下划线“_”是被允许的吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/mutisite-oneip/">需要上线多个域名（网站）却只有一个公网 IP 怎么办？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/cloudplatform-iam/">关于云平台用户鉴权管理（ IAM ）的一些总结和思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/First-Surgery/">记生平第一次手术经历</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/VSCode_PlantUML/">VSCode 中使用 PlantUML 插件生成 UML</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Goodbye-Orthodontic/">告别“牙套妹”称号</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/PublicDns_2/">使用公共 DNS 上网的弊端（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/PublicDns_1/">使用公共 DNS 上网的弊端（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/GetPMPCertificate/">成功取得项目管理专业人士资格认证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/dns-tcp/">什么情况下 DNS 会使用 TCP 传输协议？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/dnsrr-caa/">SSL 证书颁发机构将对域名强制 CAA 检查，到底什么是 CAA ？ CAA 记录详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/beian/">给网站添加备案号展示</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/fenghe-blog/">几乎花了一个下午的时间参观了风河博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dyn-crashed/">谈谈上月 Dyn 遭受的 DDoS 攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/change-duty/">我又换工作~~内容~~了！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dnssec-dnsviz/">使用网页工具 DNSViz 检查域名 DNSSEC 配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dns-rr/">DNS 资源记录（ Resource Record ，简称 RR ）介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dotkp-zone-dns-remove/">隔壁粗事了！朝鲜顶级域 .kp 域名 DNS 数据配置可被转移</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/GetDriverLicense/">我又领证了！~</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/hello-hexo/">全新出发，正式启用 Hexo！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dnssec-verify/">如何验证 DNS 服务器是否支持 DNSSEC ？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dnssec/">什么是 DNSSEC ？ DNSSEC 的概念及作用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/Jmeter-NonGUI-Test/">Jmeter 以 non-gui 模式进行分布式测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/dns-theory/">转载：从理论到实践，全方位认识 DNS （理论篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/AB-test/">不会 A/B 测试的 Web 设计师不是好程序员</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/SercurityTest/">安全测试与渗透测试区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/ScreenToGif/">分享一个 win 平台记录重现步骤的录屏小工具： ScreenToGif</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/opration-halfyear/">做 CloudXNS 产品运营的这半年</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/GetTestingCertificate/">终于领证了！~</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/Postman/">网站 API 测试工具： chrome 插件 - Postman</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/cloudxns-ax/">CloudXNS 中的 AX 记录类型测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/VmwareNetSet/">桥接模式下如何设置虚拟机和本机在同一网段</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/win8x64-oracle-plsql/">win8 x64 + Oracle 11g 64 位下使用 PL/SQL Developer 的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/InvoidOfInvalidCase/">怎么避免无效的软件测试场景？</a></li></ul>
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2022 Ephen | Hosted by <a target="_blank" rel="noopener" href="https://pages.coding.me">Coding Pages</a>
+    	</div>
+      <div class="footer-right">
+      	<a href="https://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      </div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script src="//cdn.bootcss.com/require.js/2.2.0/require.min.js"></script>
+<script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+
+<script src="/js/main.js"></script>
+
+
+
+
+	<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<!-- <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+
+
+<div class="scroll" id="scroll">
+    <a href="#" title="返回顶部"><i class="fa fa-arrow-up"></i></a>
+    <a href="#comments" title="查看评论"><i class="fa fa-comments-o"></i></a>
+    <a href="#footer" title="转到底部"><i class="fa fa-arrow-down"></i></a>
+</div>
+
+  </div>
+</body>
+</html>
