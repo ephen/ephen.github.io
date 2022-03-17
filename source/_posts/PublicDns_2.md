@@ -29,7 +29,7 @@ Edns-Client-Subnet，简称 ECS，是由 Google 提交的一份 DNS 扩展协议
 
 关于 ECS 的 RFC 草案提出了很多年，直到 2016 年 5 月才被纳入正式 [RFC 7871](https://tools.ietf.org/html/rfc7871)。
 
-过去我曾在 CloudXNS 官方文章 《【CloudXNS 教您几招】如何让多 ip 域名配置游刃有余？[1]](https://www.cloudxns.net/Support/detail/id/116.html)》中侧面提到过关于 ECS 的概念及测试示例，感兴趣的小伙伴可以先去看看。
+过去我曾在 CloudXNS 官方文章 《【CloudXNS 教您几招】如何让多 ip 域名配置游刃有余？[1]》中侧面提到过关于 ECS 的概念及测试示例，感兴趣的小伙伴可以先去看看。
 
 ### ECS 支持现状
 
@@ -61,4 +61,4 @@ Edns-Client-Subnet，简称 ECS，是由 Google 提交的一份 DNS 扩展协议
 
 事实上，网络延迟和 DNS 解析是网站访问中很重要但可能并不会明显拖慢速度的环节。我们仍可以综合考虑访问速度和安全等多方面来选择使用本地递归 DNS：净网大使选个优质的公共 DNS，懒癌患者就自动获取 DNS，某 DNS 的钟情粉丝就继续抱住你那家那位去吧。
 
-要是你是个仅仅只追求速度的 Windows PC 用户，CloudXNS 提供的“_**一键优化 DNS 设置**_”（[点击下载](http://tools.cloudxns.net/DNS一键优化v1.0.16.919.zip)）工具可以一用。
+要是你是个仅仅只追求速度的 Windows PC 用户，CloudXNS 提供的“_**一键优化 DNS 设置**_”（[点击下载](http://d3.yjyiy.com:806/1408/cloudxnsyjyh.bkill.com.zip)）工具可以一用。
