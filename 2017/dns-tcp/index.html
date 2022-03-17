@@ -60,7 +60,7 @@
 <meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426154534.png">
 <meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426154616.png">
 <meta property="article:published_time" content="2017-07-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-23T02:30:57.236Z">
+<meta property="article:modified_time" content="2022-03-17T07:04:30.981Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="DNS">
 <meta property="article:tag" content="TCP">
@@ -414,7 +414,7 @@ var _hmt = _hmt || [];
 </tbody></table>
 <p>通过上述区别，我们不难看出， TCP 主要应用在对可靠性比较高的场合，比如 Telnet 、 FTP 等；而 UDP 主要应用于实时性较高的场合，例如即时聊天。</p>
 <h2 id="DNS-查询用的传输协议"><a href="#DNS-查询用的传输协议" class="headerlink" title="DNS 查询用的传输协议"></a>DNS 查询用的传输协议</h2><p>前面提到，一般我们看到的绝大多数 DNS 查询是用的 UDP 传输。</p>
-<h3 id="域名解析时大多使用-UDP-协议"><a href="#域名解析时大多使用-UDP-协议" class="headerlink" title="域名解析时大多使用 UDP 协议"></a>域名解析时大多使用 UDP 协议</h3><p>客户端在请求一个域名的解析结果时，实际上需要经过重重 DNS 查询。（对 DNS 不太了解的童鞋可以先学下这个：<a href="/2015/dns_theory/">转载：从理论到实践，全方位认识DNS（理论篇）</a>）</p>
+<h3 id="域名解析时大多使用-UDP-协议"><a href="#域名解析时大多使用-UDP-协议" class="headerlink" title="域名解析时大多使用 UDP 协议"></a>域名解析时大多使用 UDP 协议</h3><p>客户端在请求一个域名的解析结果时，实际上需要经过重重 DNS 查询。（对 DNS 不太了解的童鞋可以先学下这个：<a href="/2015/dns-theory/">转载：从理论到实践，全方位认识DNS（理论篇）</a>）</p>
 <p>一方面，要保证用户端的快速响应， TCP 的三次握手则过于繁冗；另一方面， DNS 解析查询即使出现异常，网民用户大不了重新申请一次查询，因而对可靠性的要求并没有那么高。</p>
 <p>所以日常的域名解析需求使用 UDP 传输即可。</p>
 <h3 id="具备特殊要求的域名解析使用-TCP-协议"><a href="#具备特殊要求的域名解析使用-TCP-协议" class="headerlink" title="具备特殊要求的域名解析使用 TCP 协议"></a>具备特殊要求的域名解析使用 TCP 协议</h3><p>由于UDP是按照数据包来传输的，整个包最大只能 512 字节。一般正常情况下，用来 DNS 查询是绰绰有余的。但当解析配置过于复杂，或者记录值过长（如： TXT 、 RRSIG 记录）使得 UDP 无法承载的情况下，就有必要转换 TCP 查询。</p>
@@ -458,7 +458,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2017/dns-tcp/">什么情况下 DNS 会使用 TCP 传输协议？</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2017-07-17, 00:00:00</p>
-      <p><span>最后更新:</span>2022-02-23, 10:30:57</p>
+      <p><span>最后更新:</span>2022-03-17, 15:04:30</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2017/dns-tcp/" title="什么情况下 DNS 会使用 TCP 传输协议？">https://ephen.me/2017/dns-tcp/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2017/dns-tcp/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
