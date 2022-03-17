@@ -56,7 +56,7 @@
 <meta property="og:description" content="上一篇文章《使用公共 DNS 上网的弊端（一）》我讲到当我们使用公共 DNS 上网时可能会因为该 DNS 的出口与本地实际网络所属区域和运营商不一致而导致调度不准，进而影响连接速度可能变慢。这篇文章同时发到了咱们 CloudXNS 的微信公众号上，不少小伙伴与我们产生了互动。 有的小伙伴就问到：“如果是支持 Edns-Client-Subnet 的公共 DNS，还会存在我说的问题吗？” 不得不佩服">
 <meta property="og:locale">
 <meta property="article:published_time" content="2017-08-17T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-28T03:14:02.531Z">
+<meta property="article:modified_time" content="2022-03-17T06:51:02.955Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="DNS">
 <meta property="article:tag" content="Public DNS">
@@ -368,7 +368,7 @@ var _hmt = _hmt || [];
 
 <h2 id="什么是-Edns-Client-Subnet-？"><a href="#什么是-Edns-Client-Subnet-？" class="headerlink" title="什么是 Edns-Client-Subnet ？"></a>什么是 Edns-Client-Subnet ？</h2><p>Edns-Client-Subnet，简称 ECS，是由 Google 提交的一份 DNS 扩展协议，主要作用是允许 DNS resolver 传递用户的 IP 地址给权威 DNS 服务器。</p>
 <p>关于 ECS 的 RFC 草案提出了很多年，直到 2016 年 5 月才被纳入正式 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7871">RFC 7871</a>。</p>
-<p>过去我曾在 CloudXNS 官方文章 《【CloudXNS 教您几招】如何让多 ip 域名配置游刃有余？[1]](<a target="_blank" rel="noopener" href="https://www.cloudxns.net/Support/detail/id/116.html)%E3%80%8B%E4%B8%AD%E4%BE%A7%E9%9D%A2%E6%8F%90%E5%88%B0%E8%BF%87%E5%85%B3%E4%BA%8E">https://www.cloudxns.net/Support/detail/id/116.html)》中侧面提到过关于</a> ECS 的概念及测试示例，感兴趣的小伙伴可以先去看看。</p>
+<p>过去我曾在 CloudXNS 官方文章 《【CloudXNS 教您几招】如何让多 ip 域名配置游刃有余？[1]》中侧面提到过关于 ECS 的概念及测试示例，感兴趣的小伙伴可以先去看看。</p>
 <h3 id="ECS-支持现状"><a href="#ECS-支持现状" class="headerlink" title="ECS 支持现状"></a>ECS 支持现状</h3><p>过去 ECS 一直作为一个 RFC 草案存在，真正成为规范至今也仅仅一年。</p>
 <p>如果要让域名的来访用户真正能访问到正确的区域和运营商站点，不仅仅用户使用的本地 DNS 要支持 ECS，同时域名使用的权威 DNS 也要支持。</p>
 <p>而事实上，ECS 的普及程度并不高。目前市场上支持 ECS 的权威 DNS 不多，支持 ECS 的递归 DNS 更是少之又少。像在中国，就并没有哪个运营商的本地 DNS 支持。 </p>
@@ -379,7 +379,7 @@ var _hmt = _hmt || [];
 <h3 id="ECS-可能也并不能解决网络归属问题"><a href="#ECS-可能也并不能解决网络归属问题" class="headerlink" title="ECS 可能也并不能解决网络归属问题"></a>ECS 可能也并不能解决网络归属问题</h3><p>在 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc7871">RFC 7871</a> 中有提到，当增加 ECS 信息后将可能带来生日攻击（章节 11.2）。为了解决这个问题，当响应包中的 ECS 选项不够完整时，则应该被丢弃该 ECS 回复，即使请求中有 ECS 信息。</p>
 <p>那么一旦这种例外的情况在用户的一般使用中出现，这个 DNS 便依然解决不了用户网络归属的问题。</p>
 <h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>事实上，网络延迟和 DNS 解析是网站访问中很重要但可能并不会明显拖慢速度的环节。我们仍可以综合考虑访问速度和安全等多方面来选择使用本地递归 DNS：净网大使选个优质的公共 DNS，懒癌患者就自动获取 DNS，某 DNS 的钟情粉丝就继续抱住你那家那位去吧。</p>
-<p>要是你是个仅仅只追求速度的 Windows PC 用户，CloudXNS 提供的“_<strong>一键优化 DNS 设置</strong>_”（<a target="_blank" rel="noopener" href="http://tools.cloudxns.net/DNS%E4%B8%80%E9%94%AE%E4%BC%98%E5%8C%96v1.0.16.919.zip">点击下载</a>）工具可以一用。</p>
+<p>要是你是个仅仅只追求速度的 Windows PC 用户，CloudXNS 提供的“_<strong>一键优化 DNS 设置</strong>_”（<a target="_blank" rel="noopener" href="http://d3.yjyiy.com:806/1408/cloudxnsyjyh.bkill.com.zip">点击下载</a>）工具可以一用。</p>
 
       
     </div>
@@ -392,7 +392,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2017/PublicDns_2/">使用公共 DNS 上网的弊端（二）</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2017-08-18, 00:00:00</p>
-      <p><span>最后更新:</span>2022-02-28, 11:14:02</p>
+      <p><span>最后更新:</span>2022-03-17, 14:51:02</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2017/PublicDns_2/" title="使用公共 DNS 上网的弊端（二）">https://ephen.me/2017/PublicDns_2/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2017/PublicDns_2/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
