@@ -22,7 +22,7 @@
 
 
 
-<title>桥接模式下如何设置虚拟机和本机在同一网段 | Ephen‘s Blog</title>
+<title>Ephen‘s Blog</title>
 
 <script src="//cdn.bootcdn.net/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcdn.net/ajax/libs/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -33,7 +33,7 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
@@ -48,24 +48,17 @@
 	<script> yiliaConfig.jquery_ui = [false]; </script>
 
 
-<meta name="description" content="打开 VMware 软件，开启要设置的虚拟机，用 root 用户登录； 点击 VMware 软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“ NAT 模式”）； 进入 Linux 虚拟机修改网卡设置：  方法一，使用图形界面修改">
-<meta property="og:type" content="article">
-<meta property="og:title" content="桥接模式下如何设置虚拟机和本机在同一网段">
-<meta property="og:url" content="https://ephen.me/2015/VmwareNetSet/index.html">
+<meta name="description" content="说明：如遇作品带访问密码，请与我本人沟通。 产品需求   时间 简述 附件    2022.04-2022.05 IfCloud 标准化产品提供腾讯云和 Zstack 纳管。 下载   2022.02-2022.06 中国农业大学混合云平台定制化 HPC 业务运营。 下载   2020.12-2021.02 QingCloud 标准产品 IAM V1.5 组策略设计。 下载   2020.04-2">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ephen‘s Blog">
+<meta property="og:url" content="https://ephen.me/Works/index.html">
 <meta property="og:site_name" content="Ephen‘s Blog">
-<meta property="og:description" content="打开 VMware 软件，开启要设置的虚拟机，用 root 用户登录； 点击 VMware 软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“ NAT 模式”）； 进入 Linux 虚拟机修改网卡设置：  方法一，使用图形界面修改">
+<meta property="og:description" content="说明：如遇作品带访问密码，请与我本人沟通。 产品需求   时间 简述 附件    2022.04-2022.05 IfCloud 标准化产品提供腾讯云和 Zstack 纳管。 下载   2022.02-2022.06 中国农业大学混合云平台定制化 HPC 业务运营。 下载   2020.12-2021.02 QingCloud 标准产品 IAM V1.5 组策略设计。 下载   2020.04-2">
 <meta property="og:locale">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426161737.png">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426161803.png">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426161823.png">
-<meta property="article:published_time" content="2015-03-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-24T03:47:24.977Z">
+<meta property="article:published_time" content="2022-06-19T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-06-24T03:49:05.648Z">
 <meta property="article:author" content="Ephen">
-<meta property="article:tag" content="Vmware">
-<meta property="article:tag" content="Network">
-<meta property="article:tag" content="虚拟机">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426161737.png">
 
 <script>
 (function(){
@@ -323,11 +316,11 @@ var _hmt = _hmt || [];
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-VmwareNetSet" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/VmwareNetSet/" class="article-date">
-  	<time datetime="2015-03-30T16:00:00.000Z" itemprop="datePublished">2015-03-31</time>
+      <a href="/Works/index.html" class="article-date">
+  	<time datetime="2022-06-19T16:00:00.000Z" itemprop="datePublished">2022-06-20</time>
 </a>
     </div>
   
@@ -336,104 +329,76 @@ var _hmt = _hmt || [];
       <input type="hidden" class="isFancy" />
     
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      桥接模式下如何设置虚拟机和本机在同一网段
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Network/" rel="tag">Network</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vmware/" rel="tag">Vmware</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/vm/" rel="tag">虚拟机</a></li></ul>
-	</div>
-
-        
-	<div class="article-category tagcloud">
-	<a class="article-category-link" href="/categories/MyWork/">工作笔记</a>
-	</div>
-
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
     <div class="article-entry" itemprop="articleBody">
       
           
-        <ol>
-<li>打开 VMware 软件，开启要设置的虚拟机，用 root 用户登录；</li>
-<li>点击 VMware 软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“ NAT 模式”）；</li>
-<li>进入 Linux 虚拟机修改网卡设置：</li>
-</ol>
-<h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><span id="more"></span>
+              <style>
+    .article-meta { display: none; }
+    #container .article .article-title { padding-right: 0; }
+    .article-header {
+        padding: 0;
+        padding-top: 26px;
+        border-left: none;
+        text-align: center;
+    }
+    .article-header:hover { border-left: none; }
+    .article-title { font-size: 1.6em }
+    .article-entry hr { margin: 0;}
+    .article-meta,
+    #container .article-info-post.article-info { display: none;}
+    #container .article .article-title { padding: 0; }
+</style>
 
-<p>1 . 桌面右击 <code>open in terminal``，输入 setup 命令后回车； 2 . 通过键盘上下键选择 </code>Network Configuration<code>， Tab 到 </code>Run tool<code>后回车； 3 .</code>Device Configuration<code>高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入 ip 设置界面； 4 . 默认情况下</code>Use DHCP<code>是自动获取，图形界面上展示为</code>*&#96;，下面的静态 IP 不能进行设置。如下图：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426161737.png" alt="虚拟网卡图形界面配置"></p>
-<p>5 . 将光标移动到 <code>Use DHCP</code> 的<code>[*]</code>上，点击空格键，即可开始设置下面的静态 IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的 ip 设置，将虚拟客户机 Linux 设置成一样即可（除 IP 外， IP 设置到同一网段）；如下图：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426161803.png" alt="本机 IP 设置"><img src="https://imephen.pek3b.qingstor.com/b_image/20190426161823.png" alt="虚拟机IP设置"></p>
-<p>7 . Tab 到 <code>Save</code> 、 <code>Save&amp;Quit</code> 保存本次设置；</p>
-<h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击 <code>open in terminal</code> ，输入 <code>setup</code> 命令后回车；<br>2 . 一般虚拟机网卡是 eth0 ，修改文件 <code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=eth0   <span class="comment">#描述网卡对应的设备别名，例如 ifcfg-eth0 的文件中它为 eth0</span></span><br><span class="line">BOOTPROTO=static    <span class="comment">#设置网卡获得 ip 地址的方式，可能的选项为 static/dhcp/bootp （分别对应静态指定的 ip 地址 / 通过 dhcp 协议获得的 ip 地址 / bootp 协议获得的 ip 地址）</span></span><br><span class="line">BROADCAST=192.168.0.255   <span class="comment">#对应的子网广播地址</span></span><br><span class="line">HWADDR=00:07:E9:05:E8:B4    <span class="comment">#对应的网卡物理地址</span></span><br><span class="line">IPADDR=192.168.14.120   <span class="comment">#如果设置网卡获得 ip 地址的方式为静态指定，此字段就指定了网卡对应的ip地址</span></span><br><span class="line">IPV6INIT=no</span><br><span class="line">IPV6_AUTOCONF=no</span><br><span class="line">NETMASK=255.255.255.0   <span class="comment">#网卡对应的网络掩码</span></span><br><span class="line">NETWORK=192.168.0.0   <span class="comment">#网卡对应的网络地址</span></span><br><span class="line">ONBOOT=<span class="built_in">yes</span>    <span class="comment">#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</span></span><br></pre></td></tr></table></figure>
 
-<p>3 . 修改对应网卡的网关的配置文件 <code>vi /etc/sysconfig/network</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">NETWORKING=<span class="built_in">yes</span>    <span class="comment">#系统是否使用网络（一般设置为 yes 。如果设为 no ，则不能使用网络，而且很多系统服务程序将无法启）</span></span><br><span class="line">HOSTNAME=localhost    <span class="comment">#本机的主机名（这里设置的主机名要和 /etc/hosts 中设置的主机名对应）</span></span><br><span class="line">GATEWAY=192.168.14.1    <span class="comment">#本机连接的网关 IP 地址</span></span><br></pre></td></tr></table></figure>
-
-<p>4 . 重启网卡或重启机器以应用上述修改。</p>
-<h3 id="重启网卡方式"><a href="#重启网卡方式" class="headerlink" title="重启网卡方式"></a>重启网卡方式</h3><p>（以 eth0 为例）：先关闭（命令： <code>ifdown eth0</code> ），再开启（命令： <code>ifup eth0</code> ）</p>
-
+          
+        <p><strong>说明：如遇作品带访问密码，请与我本人沟通。</strong></p>
+<h2 id="产品需求"><a href="#产品需求" class="headerlink" title="产品需求"></a>产品需求</h2><table>
+<thead>
+<tr>
+<th align="center">时间</th>
+<th align="left">简述</th>
+<th align="left">附件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">2022.04-2022.05</td>
+<td align="left">IfCloud 标准化产品提供腾讯云和 Zstack 纳管。</td>
+<td align="left"><a href="">下载</a></td>
+</tr>
+<tr>
+<td align="center">2022.02-2022.06</td>
+<td align="left">中国农业大学混合云平台定制化 HPC 业务运营。</td>
+<td align="left"><a href="">下载</a></td>
+</tr>
+<tr>
+<td align="center">2020.12-2021.02</td>
+<td align="left">QingCloud 标准产品 IAM V1.5 组策略设计。</td>
+<td align="left"><a href="">下载</a></td>
+</tr>
+<tr>
+<td align="center">2020.04-2020.10</td>
+<td align="left">QingCloud Account 流程重构以及账户相关过往需求合集。</td>
+<td align="left"><a href="">下载</a></td>
+</tr>
+<tr>
+<td align="center">2020.06-2020.10</td>
+<td align="left">IAM 运维运营产品需求。</td>
+<td align="left"><a href="">下载</a></td>
+</tr>
+<tr>
+<td align="center">2020.02-2020.07</td>
+<td align="left">基于 DNS 和 SLB 附监控，制定全球负载均衡策略方案。</td>
+<td align="left"><a href="">下载</a></td>
+</tr>
+</tbody></table>
+<h2 id="PPT-及思维导图"><a href="#PPT-及思维导图" class="headerlink" title="PPT 及思维导图"></a>PPT 及思维导图</h2><h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2>
       
     </div>
     
   </div>
   
     
-  <div class="wrapper">
-    <div class="copyright">
-      <p><span>本文标题:</span><a href="/2015/VmwareNetSet/">桥接模式下如何设置虚拟机和本机在同一网段</a></p>
-      <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
-      <p><span>发布时间:</span>2015-03-31, 00:00:00</p>
-      <p><span>最后更新:</span>2022-06-24, 11:47:24</p>
-      <p>
-        <span>原始链接:</span><a class="post-url" href="/2015/VmwareNetSet/" title="桥接模式下如何设置虚拟机和本机在同一网段">https://ephen.me/2015/VmwareNetSet/</a>
-        <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2015/VmwareNetSet/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
-        <script> var clipboard = new Clipboard('.copy-path'); </script>
-      </p>
-      <p>
-        <span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
-      </p>
-  </div>
-  <div class="qrcode">
-      <p>
-        <img src="/img/qrcode.png"></img>
-      </p>
-  </div> 
-</div>
 
-
-
-<nav id="article-nav">
-  
-    <a href="/2015/cloudxns-ax/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          CloudXNS 中的 AX 记录类型测试
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/win8x64-oracle-plsql/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">win8 x64 + Oracle 11g 64 位下使用 PL/SQL Developer 的解决办法</div>
-      <strong class="article-nav-caption">></strong>
-    </a>
-  
-</nav>
 
   
 </article>
@@ -460,8 +425,8 @@ var _hmt = _hmt || [];
   <div id="disqus_thread"></div>
     <script type="text/javascript">
     var disqus_config = function(){
-    	this.page.url = 'https://ephen.me/2015/VmwareNetSet/';
-	this.page.identifier = '2015/VmwareNetSet/';
+    	this.page.url = 'https://ephen.me/Works/index.html';
+	this.page.identifier = 'Works/index.html';
     };
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function(){
@@ -475,26 +440,6 @@ var _hmt = _hmt || [];
 </section>
     
 
-
-
-
-    <div class="scroll" id="post-nav-button">
-        
-            <a href="/2015/cloudxns-ax/" title="上一篇: CloudXNS 中的 AX 记录类型测试">
-                <i class="fa fa-angle-left"></i>
-            </a>
-        
-
-        <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
-
-        
-            <a href="/2015/win8x64-oracle-plsql/" title="下一篇: win8 x64 + Oracle 11g 64 位下使用 PL/SQL Developer 的解决办法">
-                <i class="fa fa-angle-right"></i>
-            </a>
-        
-    </div>
-
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/blog-updates-plus/">NodeJS 和 Hexo 版本升级记，继续填坑博客配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/hexo-syn/">博客 Hexo 工作区同步至 Mac ，多个电脑可同时写博客啦～</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/blog-sequela/">记录下多年未更新博客的后遗症</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/bind9-12-dig/">bind 9.12 stable 版 dig 工具有问题，请更新或回退！（附 Windows dig 安装方法）</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/laji-reocar/">首汽瑞卡便利租车怎么样？辣鸡霸王条款霸气客服气哭灰姑娘！</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/blog-update/">又来折腾博客了</a></li><li class="post-list-item"><a class="post-list-link" href="/2019/zone-format/">闲聊 DNS 系统中域名的格式标准：下划线“_”是被允许的吗？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/mutisite-oneip/">需要上线多个域名（网站）却只有一个公网 IP 怎么办？</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/cloudplatform-iam/">关于云平台用户鉴权管理（ IAM ）的一些总结和思考</a></li><li class="post-list-item"><a class="post-list-link" href="/2018/First-Surgery/">记生平第一次手术经历</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/VSCode_PlantUML/">VSCode 中使用 PlantUML 插件生成 UML</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/Goodbye-Orthodontic/">告别“牙套妹”称号</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/PublicDns_2/">使用公共 DNS 上网的弊端（二）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/PublicDns_1/">使用公共 DNS 上网的弊端（一）</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/GetPMPCertificate/">成功取得项目管理专业人士资格认证</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/dns-tcp/">什么情况下 DNS 会使用 TCP 传输协议？</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/dnsrr-caa/">SSL 证书颁发机构将对域名强制 CAA 检查，到底什么是 CAA ？ CAA 记录详解</a></li><li class="post-list-item"><a class="post-list-link" href="/2017/beian/">给网站添加备案号展示</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/fenghe-blog/">几乎花了一个下午的时间参观了风河博客</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dyn-crashed/">谈谈上月 Dyn 遭受的 DDoS 攻击</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/change-duty/">我又换工作~~内容~~了！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dnssec-dnsviz/">使用网页工具 DNSViz 检查域名 DNSSEC 配置</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dns-rr/">DNS 资源记录（ Resource Record ，简称 RR ）介绍</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dotkp-zone-dns-remove/">隔壁粗事了！朝鲜顶级域 .kp 域名 DNS 数据配置可被转移</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/GetDriverLicense/">我又领证了！~</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/hello-hexo/">全新出发，正式启用 Hexo！</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dnssec-verify/">如何验证 DNS 服务器是否支持 DNSSEC ？</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/dnssec/">什么是 DNSSEC ？ DNSSEC 的概念及作用</a></li><li class="post-list-item"><a class="post-list-link" href="/2016/Jmeter-NonGUI-Test/">Jmeter 以 non-gui 模式进行分布式测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/dns-theory/">转载：从理论到实践，全方位认识 DNS （理论篇）</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/AB-test/">不会 A/B 测试的 Web 设计师不是好程序员</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/SercurityTest/">安全测试与渗透测试区别</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/ScreenToGif/">分享一个 win 平台记录重现步骤的录屏小工具： ScreenToGif</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/opration-halfyear/">做 CloudXNS 产品运营的这半年</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/GetTestingCertificate/">终于领证了！~</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/Postman/">网站 API 测试工具： chrome 插件 - Postman</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/cloudxns-ax/">CloudXNS 中的 AX 记录类型测试</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/VmwareNetSet/">桥接模式下如何设置虚拟机和本机在同一网段</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/win8x64-oracle-plsql/">win8 x64 + Oracle 11g 64 位下使用 PL/SQL Developer 的解决办法</a></li><li class="post-list-item"><a class="post-list-link" href="/2015/InvoidOfInvalidCase/">怎么避免无效的软件测试场景？</a></li></ul>
 
 
 </div>

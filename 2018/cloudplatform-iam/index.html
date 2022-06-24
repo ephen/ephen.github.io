@@ -55,14 +55,14 @@
 <meta property="og:site_name" content="Ephen‘s Blog">
 <meta property="og:description" content="AWS 作为云计算行业鼻祖，不论是什么功能，都做得非常完备，且一切可编程。它们能全方位的解决客户的各种问题，甚至想他人之未曾想，真的非常值得业内人士及机构尊敬。 但，完备的背后离不开大量的人力支持，又因为它的完备使得各业务都极其复杂。我最近才开始好好看一看 AWS ，才知道居然都有专门的 AWS 咨询师这样的职业。真是厉害了~ 目前主要在看的模块是 IAM 以及周边功能，由于本喵的英文水平不太好，">
 <meta property="og:locale">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426155745.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426155850.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426155920.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426160008.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426160029.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426160053.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426155745.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426155850.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426155920.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426160008.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426160029.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426160053.png">
 <meta property="article:published_time" content="2018-05-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-22T06:01:06.605Z">
+<meta property="article:modified_time" content="2022-06-24T03:44:31.089Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="用户鉴权">
 <meta property="article:tag" content="IAM">
@@ -72,7 +72,7 @@
 <meta property="article:tag" content="GCP">
 <meta property="article:tag" content="BlueMix">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pek3b.qingstor.com/imephen/20190426155745.png">
+<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426155745.png">
 
 <script>
 (function(){
@@ -386,32 +386,32 @@ var _hmt = _hmt || [];
 <p>既然是分散管理，那么就会对这些用户有不同的类别，就好比 A、B 是开发人员，C、D 是产品经理，各类人群关注点不同，于是给用户创建不同的分组。</p>
 <p>然而，可以访问资源的，不仅仅是人，也可能是其他资源、外部应用，或者其他的根。于是，这些被统称为“角色”。</p>
 <p>简单的用一个关系图来展示下：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426155745.png" alt="IAM who"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426155745.png" alt="IAM who"></p>
 <h3 id="接入方式（How）"><a href="#接入方式（How）" class="headerlink" title="接入方式（How）"></a>接入方式（How）</h3><p>用户可以控制台登陆，可以用私有 API 封装到程序连结，亦可以通过 CLI 命令行方式登陆，这个登陆相当于永久性密钥。</p>
 <p>而对于各类不同的角色，它们会直接具备某些资源的访问及操作权限。那么每个资源可能需要开通接口，以提供给不同的角色做临时访问鉴权。</p>
 <p>于是构成了云平台的接入体系。</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426155850.png" alt="IAM How"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426155850.png" alt="IAM How"></p>
 <h3 id="权限（Authority）"><a href="#权限（Authority）" class="headerlink" title="权限（Authority）"></a>权限（Authority）</h3><p>可以说，权限是整个 IAM 的核心，控制着这个账户下所有的用户及角色对其资源的访问程度。允许还是拒绝？可访问？可管理？增删改查……对象是某个资源 or 某一类资源？</p>
 <p>在 AWS 中，所有可能的权限都事先设计好，只需要绑定到用户、组或者角色就可以生效了。这些设计好的权限被称之为策略（Policy）。</p>
 <p>AWS IAM 内置了一系列的 Policy ，已足够客户使用。万一不够，还可以创建属于自己的 Policy 。</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426155920.png" alt="IAM Authority"><font size=1>（该图片系转载，侵删致歉。来源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9ac6f557dd97"> Alchemist - AWS IAM 学习总结 </a>）</font></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426155920.png" alt="IAM Authority"><font size=1>（该图片系转载，侵删致歉。来源：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/9ac6f557dd97"> Alchemist - AWS IAM 学习总结 </a>）</font></p>
 <hr>
 <h2 id="不同平台用户管理机制对比"><a href="#不同平台用户管理机制对比" class="headerlink" title="不同平台用户管理机制对比"></a>不同平台用户管理机制对比</h2><p>目前几乎所有的云平台都有基于资源协作的用户权限管理体系，国内的大厂像阿里云、腾讯云基本就是精简版的 AWS IAM ，而国外的产品倒是各有各的特色。</p>
 <h3 id="Google-Cloud-Platform"><a href="#Google-Cloud-Platform" class="headerlink" title="Google Cloud Platform"></a>Google Cloud Platform</h3><p>GCP 在用户添加时便为其设定具备某种权限的角色，当然后期可编辑和更改。</p>
 <p>角色即代表了权限 Map ，一个用户可以有多种角色，而角色策略本身内置不可编辑。</p>
 <p>其他资源或应用需要接入时在第一次接入时自动创建基于 IAM 的成员，这样看来，应用获取的可能也是永久接入权限。</p>
 <p>配置相对简单，但可扩展性一般。</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426160008.png" alt="GCP IAM"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426160008.png" alt="GCP IAM"></p>
 <h3 id="Azure"><a href="#Azure" class="headerlink" title="Azure"></a>Azure</h3><p>Azure 将客户按订阅方式划分不同的套餐，在每个订阅中配置用户角色和用户组。</p>
 <p>和 GCP 类似，有一系列的资源控制内置权限。</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426160029.png" alt="Azure"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426160029.png" alt="Azure"></p>
 <p>值得一提的是，Azure 还有 Win Server 中的那套 Active Directory （活动目录）类似机制，使用域控制器将用户分域、分组并针对应用、控件、设备等（而非系统中的云资源）做一些安全权限配置。</p>
 <p>但关于 Azure AD 我暂时理解得不够，未来可能还需要多花时间研究一下。</p>
 <h3 id="IBM-Cloud-（BlueMix）"><a href="#IBM-Cloud-（BlueMix）" class="headerlink" title="IBM Cloud （BlueMix）"></a>IBM Cloud （BlueMix）</h3><p>BlueMix 在访问管理上看起来并没有使用统一的认证接口，它为资源创建服务标识以提供给内部其他资源或外部应用接入，同时亦可类似 GCP 那样直接为用户和组授权，也有直接为内部资源之间创建连结权限。</p>
 <p>用户是邀请其他账号过来参与本账户的资源协作，没有子账号，不支持权限策略的编辑和制定。</p>
 <p>不过，在其用户的管理配置界面，有提到“未来支持 IAM ”字样。</p>
 <p>看来 AWS 行业鼻祖的地位影响还是很大的。</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426160053.png" alt="BlueMix"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426160053.png" alt="BlueMix"></p>
 <p>BlueMix 给人的感觉，虽然除了子账号，其他各功能也都有，就是比较凌乱，没有统一管控起来。</p>
 <hr>
 <h2 id="基于-AWS-IAM-的一些思考"><a href="#基于-AWS-IAM-的一些思考" class="headerlink" title="基于 AWS IAM 的一些思考"></a>基于 AWS IAM 的一些思考</h2><h3 id="用户模型"><a href="#用户模型" class="headerlink" title="用户模型"></a>用户模型</h3><p>账户安全问题不容小觑，AWS 在 IAM 控制台首页就提示客户删除根密钥创建 IAM 管理员账户是最佳实践。</p>
@@ -455,7 +455,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2018/cloudplatform-iam/">关于云平台用户鉴权管理（ IAM ）的一些总结和思考</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2018-05-10, 00:00:00</p>
-      <p><span>最后更新:</span>2022-02-22, 14:01:06</p>
+      <p><span>最后更新:</span>2022-06-24, 11:44:31</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2018/cloudplatform-iam/" title="关于云平台用户鉴权管理（ IAM ）的一些总结和思考">https://ephen.me/2018/cloudplatform-iam/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2018/cloudplatform-iam/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

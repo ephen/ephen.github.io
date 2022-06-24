@@ -55,17 +55,17 @@
 <meta property="og:site_name" content="Ephen‘s Blog">
 <meta property="og:description" content="以前做 DNS ，推出过一个系列的《如何让多 ip 域名配置游刃有余》的几篇文章，毕竟作为智能 DNS ，站点多 ip 的配置是其职责所在。 然而最近，有的小伙伴问题又来了：  没那么多钱申请那么多不同机房的公网 ip ，但又有必要部署多个不咋占资源的站点，又该怎么办呢？   别急，穷人不止你一个，自然有又穷又聪明的 PM &amp; 技术给出解决方案，啥都能给变出来。">
 <meta property="og:locale">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163201.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163253.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163314.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163335.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163354.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163416.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163448.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163534.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426163552.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163201.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163253.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163314.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163335.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163354.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163416.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163448.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163534.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163552.png">
 <meta property="article:published_time" content="2018-08-31T12:01:32.000Z">
-<meta property="article:modified_time" content="2022-02-22T06:11:55.220Z">
+<meta property="article:modified_time" content="2022-06-24T03:46:15.297Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="域名">
 <meta property="article:tag" content="网站">
@@ -74,7 +74,7 @@
 <meta property="article:tag" content="VirtualHost">
 <meta property="article:tag" content="LB">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pek3b.qingstor.com/imephen/20190426163201.png">
+<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426163201.png">
 
 <script>
 (function(){
@@ -379,7 +379,7 @@ var _hmt = _hmt || [];
 <blockquote>
 <p>没那么多钱申请那么多不同机房的公网 ip ，但又有必要部署多个不咋占资源的站点，又该怎么办呢？</p>
 </blockquote>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426163201.png" alt=" 穷到变形 "></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426163201.png" alt=" 穷到变形 "></p>
 <p>别急，穷人不止你一个，自然有又穷又聪明的 PM &amp; 技术给出解决方案，啥都能给变出来。</p>
 <span id="more"></span>
 
@@ -407,14 +407,14 @@ var _hmt = _hmt || [];
 <ol>
 <li>创建负载均衡器，绑定仅有的一个公网 ip</li>
 </ol>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426163253.png" alt="Load Balancer"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426163253.png" alt="Load Balancer"></p>
 <ol start="2">
 <li>为该负载均衡器创建基于 80 端口的 HTTP 监听器，并将已搭建好的几个网站添加为该监听器的后端</li>
 </ol>
 <ul>
 <li>注：我只有一个站点，但不影响后续的示例</li>
 </ul>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426163314.png" alt="HTTP 监听器"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426163314.png" alt="HTTP 监听器"></p>
 <ol start="3">
 <li>为对应的后端添加转发策略，让来自 <code>ephen.me</code> 站点的请求指向对应的后端地址</li>
 </ol>
@@ -422,15 +422,15 @@ var _hmt = _hmt || [];
 <li>注意看上面第二步附图中后端列表倒数第 3 个字段——“转发策略”，点击下面对应的“绑定”二字；</li>
 <li>若没有转发策略可绑，会指引创建：</li>
 </ul>
-<p>  <img src="https://pek3b.qingstor.com/imephen/20190426163335.png" alt="create forward"></p>
+<p>  <img src="https://imephen.pek3b.qingstor.com/b_image/20190426163335.png" alt="create forward"></p>
 <ul>
 <li>为转发策略添加规则，选择“按域名转发”：</li>
 </ul>
-<p>  <img src="https://pek3b.qingstor.com/imephen/20190426163354.png" alt="add rules"></p>
+<p>  <img src="https://imephen.pek3b.qingstor.com/b_image/20190426163354.png" alt="add rules"></p>
 <ul>
 <li>回到负载均衡监听器，为对应后端添加转发策略</li>
 </ul>
-<p>  <img src="https://pek3b.qingstor.com/imephen/20190426163416.png" alt="choose forward"></p>
+<p>  <img src="https://imephen.pek3b.qingstor.com/b_image/20190426163416.png" alt="choose forward"></p>
 <p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，若域名为 <code>ephen.me</code> 则转发至该后端主机。</strong></p>
 <p>如果有存在多台已配置好不同 Web 服务的云主机要共用这个 ip ，只需要继续往这个负载均衡器添加后端主机并绑定不同规则的转发策略就可以了。</p>
 <p>当然，负载均衡器的作用远不仅仅如此，本文的介绍可以看作是为解决问题而抖个机灵罢了。更多的介绍可参照 QingCloud 官网：<a target="_blank" rel="noopener" href="https://www.qingcloud.com/products/loadbalancer/">负载均衡_LB Cluster | 青云QingCloud</a></p>
@@ -441,15 +441,15 @@ var _hmt = _hmt || [];
 <ol>
 <li>创建 VPC 网络，绑定仅有的一个公网 ip</li>
 </ol>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426163448.png" alt="VPC"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426163448.png" alt="VPC"></p>
 <ol start="2">
 <li>在 VPC 网络中创建一个 vxnet 私有网络，并将业务承载主机加入到这个网络，在开启 DHCP 服务的情况下，它将自动分配到一个私有网络地址</li>
 </ol>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426163534.png" alt="VxNet"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426163534.png" alt="VxNet"></p>
 <ol start="3">
 <li>管理 VPC 网络配置，添加端口转发，将来自 80 端口的业务转发到私有网络中的这台云主机上</li>
 </ol>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426163552.png" alt="Port Forward"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426163552.png" alt="Port Forward"></p>
 <p>通过应用上述配置后，即可完成：<strong>用户访问对应 ip 的 80 端口 HTTP 服务，则转发至私有网络中 ip 地址为<code>192.168.128.2</code>的主机。</strong></p>
 <p>同理，其他业务的云主机，可以都加入到前面已创建好的私有网络并获得各自的私有网络 ip 地址，再设置不同的端口转发到不同的地址就好了。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>以上只是灰姑娘的个人想法，其实标题所描述的问题解法还有很多，欢迎相互交流。</p>
@@ -467,7 +467,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2018/mutisite-oneip/">需要上线多个域名（网站）却只有一个公网 IP 怎么办？</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2018-08-31, 20:01:32</p>
-      <p><span>最后更新:</span>2022-02-22, 14:11:55</p>
+      <p><span>最后更新:</span>2022-06-24, 11:46:15</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2018/mutisite-oneip/" title="需要上线多个域名（网站）却只有一个公网 IP 怎么办？">https://ephen.me/2018/mutisite-oneip/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2018/mutisite-oneip/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

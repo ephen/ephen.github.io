@@ -55,19 +55,19 @@
 <meta property="og:site_name" content="Ephen‘s Blog">
 <meta property="og:description" content="我们知道， DNS 是同时占用 UDP 和 TCP 的 53 端口传输数据的，这种单个应用协议同时使用两种传输协议的情况，在 TCP&#x2F;IP 栈中也算是个异类。 当我们在使用 tcpdump 、 WireShark 等抓包工具分析时，会发现几乎所有的 DNS 应用都是在使用 UDP 传输。  那么，为什么 DNS 还要占用 TCP 的端口，到底什么情况下才会用到 TCP 呢？">
 <meta property="og:locale">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426154104.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426154445.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426154534.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426154616.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426154104.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426154445.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426154534.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426154616.png">
 <meta property="article:published_time" content="2017-07-16T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-03-17T07:04:30.981Z">
+<meta property="article:modified_time" content="2022-06-24T03:44:48.684Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="DNS">
 <meta property="article:tag" content="TCP">
 <meta property="article:tag" content="UDP">
 <meta property="article:tag" content="协议">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pek3b.qingstor.com/imephen/20190426154104.png">
+<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426154104.png">
 
 <script>
 (function(){
@@ -369,7 +369,7 @@ var _hmt = _hmt || [];
           
         <p>我们知道， DNS 是同时占用 UDP 和 TCP 的 53 端口传输数据的，这种单个应用协议同时使用两种传输协议的情况，在 TCP&#x2F;IP 栈中也算是个异类。</p>
 <p>当我们在使用 tcpdump 、 WireShark 等抓包工具分析时，会发现几乎所有的 DNS 应用都是在使用 UDP 传输。</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426154104.png" alt="DNS查询使用UDP协议传输"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426154104.png" alt="DNS查询使用UDP协议传输"></p>
 <p>那么，为什么 DNS 还要占用 TCP 的端口，到底什么情况下才会用到 TCP 呢？</p>
 <span id="more"></span>
 
@@ -427,15 +427,15 @@ var _hmt = _hmt || [];
 <p>我们来做个测试：</p>
 </blockquote>
 <ol>
-<li>将 <code>chinatesters.com</code> 配置一个子域名 <code>test</code> ， NS 指向 He.net 的域名服务器。如图所示：<br><img src="https://pek3b.qingstor.com/imephen/20190426154445.png" alt="子域 DNS 配置"></li>
-<li>将 <code>test.chinatesters.com</code> 添加到 He.net 的域名控制面板，并添加一条 TXT 记录，值为<code>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</code>（长度： 768 ）。如下图：<br><img src="https://pek3b.qingstor.com/imephen/20190426154534.png" alt="超长 TXT 记录配置"></li>
+<li>将 <code>chinatesters.com</code> 配置一个子域名 <code>test</code> ， NS 指向 He.net 的域名服务器。如图所示：<br><img src="https://imephen.pek3b.qingstor.com/b_image/20190426154445.png" alt="子域 DNS 配置"></li>
+<li>将 <code>test.chinatesters.com</code> 添加到 He.net 的域名控制面板，并添加一条 TXT 记录，值为<code>11111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111110111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111</code>（长度： 768 ）。如下图：<br><img src="https://imephen.pek3b.qingstor.com/b_image/20190426154534.png" alt="超长 TXT 记录配置"></li>
 <li>配置生效后，使用 <code>tcpdump</code> 跟踪本地网卡的 53 端口，同时新开窗口用 <code>dig</code> 命令直接向 <code>ns1.he.net</code> 请求查询该 TXT 记录。</li>
 </ol>
 <p><em>DNS 查询记录：</em></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#dig aaaaaaaaaa.test.chinatesters.com TXT @ns1.he.net</span><br><span class="line">;; Truncated, retrying in TCP mode.</span><br><span class="line"></span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.8.2rc1-RedHat-9.8.2-0.47.rc1.el6 &lt;&lt;&gt;&gt; aaaaaaaaaa.test.chinatesters.com TXT @ns1.he.net</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 56555</span><br><span class="line">;; flags: qr aa rd; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0</span><br><span class="line">;; WARNING: recursion requested but not available</span><br><span class="line"></span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;aaaaaaaaaa.test.chinatesters.com. IN	TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">aaaaaaaaaa.test.chinatesters.com. 300 IN TXT	&quot;111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;011111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;101111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111&quot; &quot;11&quot;</span><br><span class="line"></span><br><span class="line">;; Query time: 221 msec</span><br><span class="line">;; SERVER: 216.218.130.2#53(216.218.130.2)</span><br><span class="line">;; WHEN: Tue Jul 18 13:58:50 2017</span><br><span class="line">;; MSG SIZE  rcvd: 833</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p><em>tcpdump 网卡跟踪记录：</em></p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426154616.png" alt="tcpdump 网卡跟踪"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426154616.png" alt="tcpdump 网卡跟踪"></p>
 <p>查询记录结果的第一句便提示了 <code>Truncated, retrying in TCP mode.</code> ，表示启用了 TCP 协议查询。</p>
 <p>网卡抓包也展示了 <code>seq</code> 、 <code>ack</code> 等 TCP 协议中的三次握手过程，最后返回了域名 <code>aaaaaaaaaa.test.chinatesters.com.</code> 的 TXT 记录值。</p>
 <p>事实上，根据 <a target="_blank" rel="noopener" href="https://tools.ietf.org/html/rfc1035">RFC 1035</a> 章节 4.2 ，<strong>DNS 解析查询优先使用 UDP ，当 UDP 完成不了的情况下，则转换 TCP 查询</strong>。上述展示的就是这样的实例。</p>
@@ -460,7 +460,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2017/dns-tcp/">什么情况下 DNS 会使用 TCP 传输协议？</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2017-07-17, 00:00:00</p>
-      <p><span>最后更新:</span>2022-03-17, 15:04:30</p>
+      <p><span>最后更新:</span>2022-06-24, 11:44:48</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2017/dns-tcp/" title="什么情况下 DNS 会使用 TCP 传输协议？">https://ephen.me/2017/dns-tcp/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2017/dns-tcp/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

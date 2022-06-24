@@ -55,19 +55,19 @@
 <meta property="og:site_name" content="Ephen‘s Blog">
 <meta property="og:description" content="郑重声明：原网站 www.chinatesters.com 已正式停止更新，内容已全部转移至这里，未来所有的更新也都在这里。新的站点，新的开始，新的旅程！~">
 <meta property="og:locale">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426162220.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426162332.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426162355.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426162423.png">
-<meta property="og:image" content="https://pek3b.qingstor.com/imephen/20190426162507.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426162220.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426162332.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426162355.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426162423.png">
+<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426162507.png">
 <meta property="article:published_time" content="2016-07-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-02-22T06:12:29.192Z">
+<meta property="article:modified_time" content="2022-06-24T03:45:47.048Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="sitemap">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://pek3b.qingstor.com/imephen/20190426162220.png">
+<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426162220.png">
 
 <script>
 (function(){
@@ -416,7 +416,7 @@ var _hmt = _hmt || [];
 </blockquote>
 <h3 id="导入WordPress的页面-x2F-文章和评论"><a href="#导入WordPress的页面-x2F-文章和评论" class="headerlink" title="导入WordPress的页面&#x2F;文章和评论"></a>导入WordPress的页面&#x2F;文章和评论</h3><p>导入文章和页面需要安装这个插件： <code>npm install hexo-migrator-wordpress --save</code></p>
 <p>登陆 Wordpress 管理控制台，导出 WXR 文件，如下图所示：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162220.png" alt="导出 wp 文件"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426162220.png" alt="导出 wp 文件"></p>
 <p>将导出的文件保存为 <code>wordpress.xml</code> ，执行命令 <code>hexo migrate wordpress wordpress.xml</code> 即可完成文章导入。</p>
 <blockquote>
 <p>注意：</p>
@@ -445,11 +445,11 @@ var _hmt = _hmt || [];
 <p>设置好后，只需要在 Hexo 根目录执行 <code>hexo g</code> 后再执行 <code>hexo d</code> 便可完成页面的部署。</p>
 <p>和 Github 上一样， Coding 上也要预先安装 SSH Key 并开通 Page 服务。SSH Key 不需要重新生成，将之前在 github 上用的内容复制过去即可；开通 Page 服务时注意将部署分支修改成 master （默认分支是 Coding-page ）。</p>
 <p>然后去 Github 和 Coding 相应 Page 项目设置中绑定自己的域名，如图所示：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162332.png" alt=" Github 绑定域名"></p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162355.png" alt=" Coding 绑定域名"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426162332.png" alt=" Github 绑定域名"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426162355.png" alt=" Coding 绑定域名"></p>
 <p>如果希望在自己的云主机中也部署一份，那么可登陆主机生成 SSH Key，将 Key 添加到 Github 或者 Coding 中（我添加到了 Github ），到网站文件根目录关联项目链接后执行 <code>git pull origin master</code> 即可完成站点部署。</p>
 <p>最后，登陆 CloudXNS 做域名解析，我的解析设置如下图：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162423.png" alt=" CloudXNS 域名解析"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426162423.png" alt=" CloudXNS 域名解析"></p>
 <h3 id="RSS-、站点地图及搜索引擎优化"><a href="#RSS-、站点地图及搜索引擎优化" class="headerlink" title="RSS 、站点地图及搜索引擎优化"></a>RSS 、站点地图及搜索引擎优化</h3><p>这里不用多说，就是几个插件的安装和设置了。它们分别是： <code>hexo-generator-feed</code> ， <code>hexo-generator-sitemap</code> 和 <code>hexo-generator-baidu-sitemap</code> 。（两个 sitemap 一个是谷歌格式，一个是百度格式）</p>
 <p>RSS 不需要做其他的操作，插件安装好后每次 <code>hexo g</code> 就会生成对应的 RSS 文件，需要时引用这个文件路径即可（比如主题设置中）。</p>
 <p>针对 Sitemap ，需要到博客根目录去修改 <code>_config.yml</code> 文件，在 <code>plugins：</code> 下添加以下内容：</p>
@@ -457,7 +457,7 @@ var _hmt = _hmt || [];
 
 <p>分别登陆谷歌站长平台和百度站长平台添加自己的新域名和站点地图。</p>
 <p>按照百度站长平台的指引添加站点地图的位置：</p>
-<p><img src="https://pek3b.qingstor.com/imephen/20190426162507.png" alt="百度站点地图"></p>
+<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426162507.png" alt="百度站点地图"></p>
 <p>也可以到自己的云主机平台上执行命令手动提交，这种提交方式百度响应是最快的了。</p>
 <p>因此我在我的云主机上写了个脚本，用于每次同步网站内容后将新链接提交到百度：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line"></span><br><span class="line">DIR=<span class="string">&#x27;/var/www/html&#x27;</span></span><br><span class="line">SITE=<span class="string">&#x27;http://ephen.me/&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$&#123;DIR&#125;</span>/</span><br><span class="line">git pull origin master &gt; <span class="variable">$&#123;DIR&#125;</span>/.gitpull.log</span><br><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line"><span class="built_in">cat</span> /dev/null &gt; <span class="variable">$&#123;DIR&#125;</span>/freshurls.txt </span><br><span class="line">grep <span class="string">&#x27;/index.html&#x27;</span> .gitpull.log | grep -v <span class="string">&#x27;\&quot;&#x27;</span> | awk <span class="string">&#x27;&#123;print $1&#125;&#x27;</span> |<span class="keyword">while</span> <span class="built_in">read</span> line</span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">	<span class="built_in">echo</span>  <span class="string">&quot;<span class="variable">$&#123;SITE&#125;</span><span class="variable">$&#123;line&#125;</span>&quot;</span> &gt;&gt; <span class="variable">$&#123;DIR&#125;</span>/freshurls.txt </span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">curl -H <span class="string">&#x27;Content-Type:text/plain&#x27;</span> --data-binary @freshurls.txt <span class="string">&quot;http://data.zz.baidu.com/urls?site=ephen.me&amp;token=xxxxxxxxxx&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">exit</span></span><br></pre></td></tr></table></figure>
@@ -480,7 +480,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2016/hello-hexo/">全新出发，正式启用 Hexo！</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2016-07-26, 00:00:00</p>
-      <p><span>最后更新:</span>2022-02-22, 14:12:29</p>
+      <p><span>最后更新:</span>2022-06-24, 11:45:47</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2016/hello-hexo/" title="全新出发，正式启用 Hexo！">https://ephen.me/2016/hello-hexo/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2016/hello-hexo/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
