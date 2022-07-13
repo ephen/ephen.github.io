@@ -87,7 +87,7 @@ PMP ，全称 Project Management Professional，由美国项目管理协会（Pr
 
 证书证书，这肯定是要晒的咯！
 
-![PMP证书](https://pek3b.qingstor.com/imephen/20190426161446.png)
+![PMP证书](https://imephen.pek3b.qingstor.com/b_image/20190426161446.png)
 
 ----
 

@@ -44,7 +44,7 @@ PlantUML 本身只是一个脚本语言，如果要生成图片，是基于 [Gra
 
 将 GraphViz 可执行程序路径配置到 `$path`：
 
-![GraphViz 环境变量](https://pek3b.qingstor.com/imephen/20190426152846.png)
+![GraphViz 环境变量](https://imephen.pek3b.qingstor.com/b_image/20190426152846.png)
 
 **后面的所有配置（ dot 配置和 VSCode 插件配置）都是基于 GraphViz 的安装路径，需要参照的小伙伴请注意。**
 
@@ -52,7 +52,7 @@ PlantUML 本身只是一个脚本语言，如果要生成图片，是基于 [Gra
 
 添加环境变量 `$GRAPHVIZ_DOT`。如下图所示：
 
-![Dot 环境变量](https://pek3b.qingstor.com/imephen/20190426152918.png)
+![Dot 环境变量](https://imephen.pek3b.qingstor.com/b_image/20190426152918.png)
 
 配置完毕后启动 Windows Shell 执行 `dot -v` 命令查看 Dot 版本，以确定 GraphViz 和 Dot 环境是否准备成功。
 
@@ -64,7 +64,7 @@ VSCode 需要安装两个插件： `PlantUML` 和  `Graphviz Preview`
 
 点击 VSCode 左下角齿轮按钮进入设置，在用户设置脚本中添加 `"graphviz-preview.dotPath": "D:/program files/Graphviz/bin/dot.exe"` 并保存设置：
 
-![graphviz-preview.dotPath](https://pek3b.qingstor.com/imephen/20190426152953.png)
+![graphviz-preview.dotPath](https://imephen.pek3b.qingstor.com/b_image/20190426152953.png)
 
 ### 5.环境配置测试
 
@@ -88,11 +88,11 @@ State2 --> [*]
 
 同时按下 `Alt` 键和字母 `D` 键，预览生成的 UML 状态图。
 
-![PlantUML 测试](https://pek3b.qingstor.com/imephen/20190426153029.png)
+![PlantUML 测试](https://imephen.pek3b.qingstor.com/b_image/20190426153029.png)
 
 如果出现如图所示的错误，检查下是不是前面 GraphViz 安装和配置没做好。
 
-![GraphViz 报错](https://pek3b.qingstor.com/imephen/20190426153134.png)
+![GraphViz 报错](https://imephen.pek3b.qingstor.com/b_image/20190426153134.png)
 
 ## 分享： DNS 解析流程图
 
@@ -102,7 +102,7 @@ State2 --> [*]
 
 最后图是勉强画出来了，看看画得咋样？
 
-![DNS 解析流程图](https://pek3b.qingstor.com/imephen/20190426153216.png)
+![DNS 解析流程图](https://imephen.pek3b.qingstor.com/b_image/20190426153216.png)
 
 上图源代码分享如下：
 

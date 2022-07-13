@@ -24,12 +24,12 @@ toc: false
 3 . `Device Configuration` 高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入 ip 设置界面；
 4 . 默认情况下 `Use DHCP` 是自动获取，图形界面上展示为 `*`，下面的静态 IP 不能进行设置。如下图：
 
-![虚拟网卡图形界面配置](https://pek3b.qingstor.com/imephen/20190426161737.png)
+![虚拟网卡图形界面配置](https://imephen.pek3b.qingstor.com/b_image/20190426161737.png)
 
 5 . 将光标移动到 `Use DHCP` 的`[*]`上，点击空格键，即可开始设置下面的静态 IP；
 6 . 查看本机（连到路由器上的网络而非虚拟网络）的 ip 设置，将虚拟客户机 Linux 设置成一样即可（除 IP 外， IP 设置到同一网段）；如下图：
 
-![本机 IP 设置](https://pek3b.qingstor.com/imephen/20190426161803.png)![虚拟机IP设置](https://pek3b.qingstor.com/imephen/20190426161823.png)
+![本机 IP 设置](https://imephen.pek3b.qingstor.com/b_image/20190426161803.png)![虚拟机IP设置](https://imephen.pek3b.qingstor.com/b_image/20190426161823.png)
 
 7 . Tab 到 `Save` 、 `Save&Quit` 保存本次设置；
 

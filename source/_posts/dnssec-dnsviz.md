@@ -135,7 +135,7 @@ DS，是 Delegation Signer 的缩写，即“委派签名者”，用于构建�
 
 下图是用 DNSViz 查询到的 Paypal.com 的信任链：
 
-![Paypal.com 的 DNSSEC 信任链](https://pek3b.qingstor.com/imephen/20190426155405.png)
+![Paypal.com 的 DNSSEC 信任链](https://imephen.pek3b.qingstor.com/b_image/20190426155405.png)
 
 图中展示的三个框，从上至下依次代表域名`.`、`com.`和`paypal.com.`，每个框中间的内容分别对应这三个 zone 的 DNSKey 和 DS 的传递关系。
 
@@ -178,7 +178,7 @@ Success!
 
 既然是配置检查，当存在不正确的配置时，也会根据影响做 Error 或 Warning 的标记。例如我的博客域名 ephen.me，没有配置 DNSSEC ，查询出来是这样的：
 
-![ ephen.me 的 dnssec 检查](https://pek3b.qingstor.com/imephen/20190426155455.png)
+![ ephen.me 的 dnssec 检查](https://imephen.pek3b.qingstor.com/b_image/20190426155455.png)
 
 除了上图中最下一排的各种感叹号外，左边还有一大排的 Error 和 Warning ，描述了我的域名具体的配置出错的地方。
 

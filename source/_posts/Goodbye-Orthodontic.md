@@ -134,11 +134,11 @@ toc: false
 
 先来一张拆掉牙套次日的灰姑娘美照镇楼：
 
-![拆掉牙套次日](https://pek3b.qingstor.com/imephen/20190426161220.png)
+![拆掉牙套次日](https://imephen.pek3b.qingstor.com/b_image/20190426161220.png)
 
 牙套前后脸型对比：
 
-![牙套前后脸型对比照](https://pek3b.qingstor.com/imephen/20190426161335.png)
+![牙套前后脸型对比照](https://imephen.pek3b.qingstor.com/b_image/20190426161335.png)
 
 我不太喜欢拍照（所以我某种意义上不太像个女生），也没写过什么牙套日记，找张照片还挺难，凑合着看吧。希望没吓到路过的你。
 

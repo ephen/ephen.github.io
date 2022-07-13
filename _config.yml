@@ -115,6 +115,10 @@ theme: ephen
 #disqus
 disqus_shortname: ephen
 
+# Security
+encrypt:
+    enable: true
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:

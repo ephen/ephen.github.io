@@ -38,7 +38,7 @@ comments: true
 
 这次更新完友链后，直接执行 `hexo g` 和 `hexo d` 准备发布，发现 Coding 出现报错。去搜索了下，才发现我曾经收到过如下邮件：
 
-![Coding Page 服务关闭](https://imephen.pek3b.qingstor.com/20220216150100.png)
+![Coding Page 服务关闭](https://imephen.pek3b.qingstor.com/b_image/20220216150100.png)
 
 于是屏蔽掉 Coding deploy 配置，重新执行 `hexo d` ，发现 Github 提示 `nothing commit` 。度娘了下，**删除掉 `.deploy_git` 文件夹后解决**。想来可能是因为我换电脑本地数据迁移时未验证迁移配置的缘故吧~
 
@@ -74,7 +74,7 @@ npm install -g hexo-cli
 
 沉下心来 F12 看看报错，第一个报错如下：
 
-![require,jquery 调用出错](https://imephen.pek3b.qingstor.com/20220216155418.jpg)
+![require,jquery 调用出错](https://imephen.pek3b.qingstor.com/b_image/20220216155418.jpg)
 
 看到是引用的文件 CDN 缓存路径出错后，**找到官方路径和代码引用位置进行替换**后解决。
 

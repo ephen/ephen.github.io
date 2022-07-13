@@ -29,7 +29,7 @@ original: false
 
 早期，名字到地址的转换过程十分简单。每台计算机保存一个 `hosts` 文件，里面列出所有计算机名字和对应的 IP 地址，然后定期从一个维护此文件的站点更新里面的记录。当我们访问某个计算机名字时，先在 `hosts` 文件找到对应的 IP ，然后就可以建立连接。
 
-![hosts 管理主机](https://imephen.pek3b.qingstor.com/20151105_hosts_local.png)
+![hosts 管理主机](https://imephen.pek3b.qingstor.com/b_image/20151105_hosts_local.png)
 
 早期的 [ARPANET](https://en.wikipedia.org/wiki/ARPANET) 就是这样做的，但是随着网络规模的扩大，这种方法渐渐吃不消了。主要有以下三个原因：
 
@@ -47,7 +47,7 @@ original: false
 
 这样访问一个域名的过程可以简化为下图：
 
-![域名hosts解析过程](https://imephen.pek3b.qingstor.com/20151105_dns_concept.png)
+![域名hosts解析过程](https://imephen.pek3b.qingstor.com/b_image/20151105_dns_concept.png)
 
 ## DNS 协议
 
@@ -59,7 +59,7 @@ original: false
 
 对于 Internet 来说，域名层次结构的顶级（相当于国际快递地址中的国家部分）由 [ICANN](https://www.icann.org/) （互联网名称与数字地址分配机构）负责管理。目前，已经有超过 250 个顶级域名，每个顶级域名可以进一步划为一些子域（二级域名），这些子域可被再次划分（三级域名），依此类推。所有这些域名可以组织成一棵树，如下图所示（图片来自 Computer Networks: 7-1 ）：
 
-![域名空间树](https://imephen.pek3b.qingstor.com/20151105_domain_tree.png)
+![域名空间树](https://imephen.pek3b.qingstor.com/b_image/20151105_domain_tree.png)
 
 ### 域名资源记录
 
@@ -95,7 +95,7 @@ Domain_name Time_to_live Class Type Value
 
 前面说过域名的名字空间可以组织为一棵树，这里我们可以进一步将其划分为不重叠的区域（[DNS zone](https://en.wikipedia.org/wiki/DNS_zone)），针对上图的域名空间，一种可能的域名划分如下图：
 
-![域名划分](https://imephen.pek3b.qingstor.com/20151105_domain_zone.png)
+![域名划分](https://imephen.pek3b.qingstor.com/b_image/20151105_domain_zone.png)
 
 然后将每个区域与多个域名服务器（其中一个是 `master` ，其他 `slave` 服务器则用来提供数据备份、加快解析速度、保证服务可用性）关联起来，称这些域名服务器为该区域的`权威域名服务器（ Authoritative Name Servers ）`，它保存两类域名资源记录：
 
@@ -104,7 +104,7 @@ Domain_name Time_to_live Class Type Value
 
 这样，所有的域名资源记录都保存在多个域名服务器中，并且所有的域名服务器也组成了一个层次的索引结构，便于我们后面进行域名解析。下面以一个简化的域名空间为例子，说明域名资源记录是如何保存在域名服务器中的，如下图a：
 
-![域名服务器](https://imephen.pek3b.qingstor.com/20151105_name_servers.png)
+![域名服务器](https://imephen.pek3b.qingstor.com/b_image/20151105_name_servers.png)
 
 图中域名空间划分为 A, B, C, D, E, F, G 七个 DNS 区域，每个 DNS 区域都有多个权威域名服务器，这些域名服务器里面保存了许多域名解析记录。对于上图的 DNS区域 E 来说，它的权威域名服务器里面保存的记录如图中表格所示。
 
@@ -112,11 +112,11 @@ Domain_name Time_to_live Class Type Value
 
 而我们使用的域名系统则采用了一种更加聪明的方法，那就是引入[根域名服务器](https://en.wikipedia.org/wiki/Root_name_server)，它保存了所有顶级区域的权威域名服务器记录。现在通过根域名服务器，我们可以找到所有的顶级区域的权威域名服务器，然后就可以往下一级一级找下去了。下图为全球根域名服务器的分布图，可以在[这里](http://www.root-servers.org/)找到。
 
-![顶级域名服务器](https://imephen.pek3b.qingstor.com/20151105_root_servers.png)
+![顶级域名服务器](https://imephen.pek3b.qingstor.com/b_image/20151105_root_servers.png)
 
 现在为止，我们的权威域名服务器和根域名服务器其实组成了一个树，树根为根域名服务器，下面每个节点都是一个区域的权威域名服务器，对于图a中各个 DNS 区域的权威域名服务器，它们组成了下面这棵树（**实际中，一个权威域名服务器可能保存有多个 DNS 区域的记录，因此权威域名服务器之间的联系并不构成一棵树。这部分的详细内容可以参考 RFC 1034: 4. NAME SERVERS。下面为了容易理解，将其简化为一棵树**）：
 
-![域名服务器树](https://imephen.pek3b.qingstor.com/20151105_servers_tree.png)
+![域名服务器树](https://imephen.pek3b.qingstor.com/b_image/20151105_servers_tree.png)
 
 ### 域名解析
 我们已经有了一个域名服务器集群，该集群合理地保存了域名空间和域名资源记录的对应关系。现在我们要做的就是发送一个 DNS 请求给域名服务器，然后坐等它返回正确的域名资源记录，这个过程叫作域名解析。
@@ -127,7 +127,7 @@ Domain_name Time_to_live Class Type Value
 
 仍然以我们的图a为例，现在假设区域 E 内的某个用户想访问 `math.sysu.edu.cn` ，那么请求的过程如下：
 
-![域名解析过程](https://imephen.pek3b.qingstor.com/20151105_name_resolution.png)
+![域名解析过程](https://imephen.pek3b.qingstor.com/b_image/20151105_name_resolution.png)
 
 用语言简单描述如下：
 

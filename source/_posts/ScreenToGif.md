@@ -23,4 +23,4 @@ toc: false
 
 下载及更多介绍请到 ScreenToGif 官网：[https://www.screentogif.com/](https://www.screentogif.com/)
 
-以下是一个 ScreenToGif 录制操作步骤的示例：![ ScreenToGifDemo ](https://imephen.pek3b.qingstor.com/screentogifdemo.gif)
+以下是一个 ScreenToGif 录制操作步骤的示例：![ ScreenToGifDemo ](https://imephen.pek3b.qingstor.com/b_image/screentogifdemo.gif)

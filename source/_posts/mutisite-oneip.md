@@ -19,7 +19,7 @@ toc: true
 
   > 没那么多钱申请那么多不同机房的公网 ip ，但又有必要部署多个不咋占资源的站点，又该怎么办呢？
 
-![ 穷到变形 ](https://pek3b.qingstor.com/imephen/20190426163201.png)
+![ 穷到变形 ](https://imephen.pek3b.qingstor.com/b_image/20190426163201.png)
 
 别急，穷人不止你一个，自然有又穷又聪明的 PM & 技术给出解决方案，啥都能给变出来。
 
@@ -82,28 +82,28 @@ toc: true
 
 1. 创建负载均衡器，绑定仅有的一个公网 ip
 
-![Load Balancer](https://pek3b.qingstor.com/imephen/20190426163253.png)
+![Load Balancer](https://imephen.pek3b.qingstor.com/b_image/20190426163253.png)
 
 2. 为该负载均衡器创建基于 80 端口的 HTTP 监听器，并将已搭建好的几个网站添加为该监听器的后端
 
   - 注：我只有一个站点，但不影响后续的示例
 
-![HTTP 监听器](https://pek3b.qingstor.com/imephen/20190426163314.png)
+![HTTP 监听器](https://imephen.pek3b.qingstor.com/b_image/20190426163314.png)
 
 3. 为对应的后端添加转发策略，让来自 `ephen.me` 站点的请求指向对应的后端地址
 
   - 注意看上面第二步附图中后端列表倒数第 3 个字段——“转发策略”，点击下面对应的“绑定”二字；
   - 若没有转发策略可绑，会指引创建：
 
-  ![create forward](https://pek3b.qingstor.com/imephen/20190426163335.png)
+  ![create forward](https://imephen.pek3b.qingstor.com/b_image/20190426163335.png)
 
   - 为转发策略添加规则，选择“按域名转发”：
 
-  ![add rules](https://pek3b.qingstor.com/imephen/20190426163354.png)
+  ![add rules](https://imephen.pek3b.qingstor.com/b_image/20190426163354.png)
 
   - 回到负载均衡监听器，为对应后端添加转发策略
 
-  ![choose forward](https://pek3b.qingstor.com/imephen/20190426163416.png)
+  ![choose forward](https://imephen.pek3b.qingstor.com/b_image/20190426163416.png)
 
 通过应用上述配置后，即可完成：**用户访问对应 ip 的 80 端口 HTTP 服务，若域名为 `ephen.me` 则转发至该后端主机。**
 
@@ -123,15 +123,15 @@ toc: true
 
 1. 创建 VPC 网络，绑定仅有的一个公网 ip
 
-![VPC](https://pek3b.qingstor.com/imephen/20190426163448.png)
+![VPC](https://imephen.pek3b.qingstor.com/b_image/20190426163448.png)
 
 2. 在 VPC 网络中创建一个 vxnet 私有网络，并将业务承载主机加入到这个网络，在开启 DHCP 服务的情况下，它将自动分配到一个私有网络地址
 
-![VxNet](https://pek3b.qingstor.com/imephen/20190426163534.png)
+![VxNet](https://imephen.pek3b.qingstor.com/b_image/20190426163534.png)
 
 3. 管理 VPC 网络配置，添加端口转发，将来自 80 端口的业务转发到私有网络中的这台云主机上
 
-![Port Forward](https://pek3b.qingstor.com/imephen/20190426163552.png)
+![Port Forward](https://imephen.pek3b.qingstor.com/b_image/20190426163552.png)
 
 通过应用上述配置后，即可完成：**用户访问对应 ip 的 80 端口 HTTP 服务，则转发至私有网络中 ip 地址为`192.168.128.2`的主机。**
 

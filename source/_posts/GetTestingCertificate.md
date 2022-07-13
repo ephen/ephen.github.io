@@ -23,9 +23,9 @@ tags:
 
 不过最后总算是领到啦。。话不多说，晒图！
 
-![软件评测师证书封面](https://pek3b.qingstor.com/imephen/20190426162715.png)
+![软件评测师证书封面](https://imephen.pek3b.qingstor.com/b_image/20190426162715.png)
 
-![软件评测师证书内页](https://pek3b.qingstor.com/imephen/20190426162735.png)
+![软件评测师证书内页](https://imephen.pek3b.qingstor.com/b_image/20190426162735.png)
 
 某些说我是伪娘的，泥萌垢了！！
 

@@ -21,7 +21,7 @@ top: false
 
 随后我在**使用这个版本的 dig 时，只要不指定 DNS 服务器就没有返回，每次使用该工具时必须指定 DNS 服务器。**
 
-![ dig 12 版本有问题 ](https://imephen.pek3b.qingstor.com/digproblem.jpg)
+![ dig 12 版本有问题 ](https://imephen.pek3b.qingstor.com/b_image/digproblem.jpg)
 
 <!--more-->
 

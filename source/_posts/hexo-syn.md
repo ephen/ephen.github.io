@@ -36,13 +36,13 @@ Github 是个很好的代码协同平台，我的博客本身也是放 GitHub Pa
 
 登录 GitHub 后进入到我博客所在项目查看源代码，基于 `master` 新建一个名为 `suorce` 的分支，并将该分支设置为默认分支。
 
-![GitHub 分支管理](https://imephen.pek3b.qingstor.com/20220220144314.png)
+![GitHub 分支管理](https://imephen.pek3b.qingstor.com/b_image/20220220144314.png)
 
 回到工作电脑上，新建一个工作区目录，执行 `git clone 项目地址 .` 将 github 上的代码下载下来。由于默认分支现在是 `source` ，因此本地工作区也默认为 `source` 分支。
 
 由于远程分支是基于原分支复制的，因此内容和 master 一样，都是博客 html 文件。我除了保留此目录下隐藏的 `.git` 文件夹外，删除其他所有文件，再把之前工作目录下所有文件（含隐藏文件）复制过来。
 
-![文件夹对比](https://imephen.pek3b.qingstor.com/20220220160320.png)
+![文件夹对比](https://imephen.pek3b.qingstor.com/b_image/20220220160320.png)
 
 测试下新的工作目录是否能正确运行 hexo 及 Node.js 相关指令，并本地预览确认无误。
 
@@ -85,7 +85,7 @@ git push
 
 登录 [node.js 官网历史版本下载页](https://nodejs.org/en/download/releases/)搜索 v12.22.10 （保持与工作电脑上的版本一致）下载 `.pkg` 的程序安装包，按提示步骤完成安装。
 
-![Node.js MAC 安装包下载](https://imephen.pek3b.qingstor.com/20220220153316.png)
+![Node.js MAC 安装包下载](https://imephen.pek3b.qingstor.com/b_image/20220220153316.png)
 
 ### 项目同步
 

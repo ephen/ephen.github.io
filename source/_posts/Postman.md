@@ -40,7 +40,7 @@ Postman 插件就充当着这种交互方式的“桥梁”，它可以利用 Ch
 
 一张图描述各个区域的作用和测试方法：
 
-![ postman 各区域功能图解](https://pek3b.qingstor.com/imephen/20190426162846.png)
+![ postman 各区域功能图解](https://imephen.pek3b.qingstor.com/b_image/20190426162846.png)
 
 ## 四、保存配置
 
@@ -50,8 +50,8 @@ Postman 插件就充当着这种交互方式的“桥梁”，它可以利用 Ch
 
 如果是第一次保存，需要顺便创建一个 collection 文件夹。
 
-![postman_addcollection 测试数据保存](https://pek3b.qingstor.com/imephen/20190426162940.png)
+![postman_addcollection 测试数据保存](https://imephen.pek3b.qingstor.com/b_image/20190426162940.png)
 
 如果担心插件重装内容会丢失，或是想将自己的测试内容分享给同事使用，可以将 collection 导出成 json 文件或者上传到 postman 服务器提供分享链接。导入和导出操作入口如下：
 
-![postman 测试数据导出备份](https://pek3b.qingstor.com/imephen/20190426162959.png)
+![postman 测试数据导出备份](https://imephen.pek3b.qingstor.com/b_image/20190426162959.png)
