@@ -6,7 +6,7 @@
   <link href="https://ephen.me/atom.xml" rel="self"/>
   
   <link href="https://ephen.me/"/>
-  <updated>2022-06-24T03:41:42.150Z</updated>
+  <updated>2023-05-15T08:12:27.819Z</updated>
   <id>https://ephen.me/</id>
   
   <author>
@@ -15,6 +15,39 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>不用破解注册，也许可以永久试用订阅式的 Axure RP 10 软件</title>
+    <link href="https://ephen.me/2023/Reg-Axure10/"/>
+    <id>https://ephen.me/2023/Reg-Axure10/</id>
+    <published>2023-05-12T16:00:00.000Z</published>
+    <updated>2023-05-15T08:12:27.819Z</updated>
+    
+    <content type="html"><![CDATA[<p>众所周知，Axure 9 升级到 Axure 10 后，就从原本的永久授权变更为订阅授权。同时 Axure 10 的订阅注册激活码与 Axure Cloud 的用户账号强绑定，激活时将根据登录账号在线跳转到官方网站实时获取注册状态。</p><p>一直以来，我还挺喜欢尝试新鲜事物的，尤其是各种软件、网站、科技产品等。Axure 作为互联网产品经理的必备软件，在 Axure 10 正式版诞生后，它默认提供一个月的试用期，于是我就早早的参与到试用大军中。</p><p>别说还挺好用的，尤其是动态面板多状态一起编辑，以及一键将表单转换成中继器并将中继器表格直接浮于内容区，真的有惊艳到我。（虽然工作中这俩功能其实并不常用hhh</p><p>尽管被惊艳到，但由于我已经习惯了 Axure 9 ，试用期一过就没有再去尝试了。并且由于高版本文件无法用低版本打开，所以也没敢将 Axure 10 作为正式的生产力工具。</p><p>前段时间心情不错，突然又想折腾一番～</p><span id="more"></span><h2 id="背景原理"><a href="#背景原理" class="headerlink" title="背景原理"></a>背景原理</h2><p>既然可以免费试用一个月，那么验证时一定跟你打开软件的时间有关系。</p><p>Axure 这款软件性质是本地软件，正常来讲除了原型发布时其他时间均无需联网。</p><p>尝试了下：</p><blockquote><p>将电脑断网后通过离线修改 PC 本地的系统时间到可试用时间，再打开 Axure RP 10 确实可以继续试用。而且只要当前运行的软件不退出（窗口不关闭），即使恢复联网电脑系统时间被同步到正确到时间，依然还可以正常使用。</p></blockquote><p>可是，咱总不能为了使用这款软件每次去断网修改系统时间后再联网吧？那可多麻烦。</p><p>就没有什么办法可以让这个软件启动的时候就自动完成这些操作吗？</p><p>答案当然是“有”，而且可能比咱想象的更好用。</p><h2 id="Windows-环境"><a href="#Windows-环境" class="headerlink" title="Windows 环境"></a>Windows 环境</h2><p>要说我能找到这样的工具，得益于软件测试的出身。当遇到有关时间的测试时，总会去获得一些奇怪的知识。</p><p>Windows 兼容性高，逆向工程较成熟，反编译的成本相对来说比较低，所以能为软件修改启动时间的工具还挺多的。</p><p>下面就以 Axure 10 的使用为例，挑几个比较知名的工具介绍下。</p><h3 id="RunAsDate"><a href="#RunAsDate" class="headerlink" title="RunAsDate"></a>RunAsDate</h3><p>官方网站：<a href="https://www.nirsoft.net/utils/run_as_date.html">https://www.nirsoft.net/utils/run_as_date.html</a></p><p>RunAsDate 是一个绿色便携的软件，不用安装也不写注册表，就地执行即可。</p><p>为了方便永久试用目标软件，它可以在指定目标软件后创建新的目标软件快捷方式。此后点击该快捷方式即可运行目标软件，并且目标软件的系统启动时间就是你设置的时间。以下是我本地的软件配置：</p><p><img src="https://iephen.pek3b.qingstor.com/b_image/Axure-RunAsDate-1.png" alt="RunAsDate"></p><p>完成快捷方式创建后启动 Axure RP 10 的效果，右上角提示还有 11 天过期（我是 2022 年 3 月份申请试用的）：</p><p><img src="https://iephen.pek3b.qingstor.com/b_image/Axure-RunAsDate-2.png" alt="RunAsDate"></p><p>PS：创建快捷方式后会在同目录生成 RunAsDate 的启动参数配置文件 <code>RunAsDate.cfg</code> ，另外也可以在同目录通过写一个名为 <code>RunAsDate_lng.ini</code> 的语言配置文件达到为 RunAsDate 汉化的目的（官方网站上有提供汉化配置下载）。因此建议将 RunAsDate 工具及其配置放到一个独立的目录，然后可将该目录和目标软件目录放到一起。</p><h3 id="CrackLock"><a href="#CrackLock" class="headerlink" title="CrackLock"></a>CrackLock</h3><p>官方网站：<a href="https://william.famille-blum.org/software/cracklock/">https://william.famille-blum.org/software/cracklock/</a></p><p>CrackLock 多年前用来做过测试，原理是一样的，也是改程序运行时的虚拟时间来实现。</p><p>因为这个软件需要安装，所以我个人更倾向使用 RunAsDate 。不过它有个优点是可以直接修改替换掉可执行程序（当软件禁止注入时就可能是缺点了），我没有在 Axure 10 上试用，感兴趣的童鞋可以试试看。</p><h2 id="MAC-环境"><a href="#MAC-环境" class="headerlink" title="MAC 环境"></a>MAC 环境</h2><h3 id="libfaketime"><a href="#libfaketime" class="headerlink" title="libfaketime"></a>libfaketime</h3><p>这是一个开源的程序库，其 GitHub 地址：<a href="https://github.com/wolfcw/libfaketime">https://github.com/wolfcw/libfaketime</a></p><p>这个库在 Linux 和 MAC 上都可以用，通常用来测试 Linux 上开发的软件。虽然 MAC 上可能会惯常用 UI 应用程序（就像 Axure 一样），其实也是可以找到对应的可执行程序来使用的。</p><p>话不多说，先安装起来。</p><p>打开终端，在本地创建一个目录后，<code>git clone https://github.com/wolfcw/libfaketime.git</code> 下载源码，然后进入目录执行 <code>sudo make install</code> 输入本机登录密码即可安装成功。</p><p>安装成功后，可通过 <code>faketime</code> 命令测试软件是否能达到效果。例如在 <code>date</code> 命令前置 <code>faketime</code> 以输出时间：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">~ » faketime -f &#x27;2022-04-01 00:00:00&#x27; date                            </span><br><span class="line">2022年 4月 1日 星期五 00时00分00秒 CST</span><br></pre></td></tr></table></figure><p>然后同样的道理可以用到应用程序上，将上面的 <code>date</code> 命令替换为 App 的全路径可执行程序即可。例如可以试试将 Axure RP 10 的可执行路径 <code>/Applications/Axure\ RP\ 10.app/Contents/MacOS/Axure\ RP\ 10</code> 放到 <code>faketime</code> 后执行：</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~ » faketime -f &#x27;@2022-04-01 00:00:00&#x27; /Applications/Axure\ RP\ 10.app/Contents/MacOS/Axure\ RP\ 10 </span><br><span class="line">Environment version 6.0.0</span><br><span class="line">Framework description .NET 6.0.0-rtm.21522.10</span><br></pre></td></tr></table></figure><p>可以看到已正常启动软件，并且右上角也是提示还有 11 天过期：</p><p><img src="https://iephen.pek3b.qingstor.com/b_image/AxureRP10-184716.png" alt="Axure RP 10"></p><p>可如果每次都要这样启动，是不是未免也太麻烦了点？</p><p>其实也不用。</p><p>我们进入到应用程序列表，双指点击 <code>Axure RP 10</code> 后单指点击“显示包内容”：</p><p><img src="https://iephen.pek3b.qingstor.com/b_image/Axure-190101.png" alt="Axure RP 10"></p><p>打开后会看到当前目录下有一个名为 <code>info.plist</code> 的文件：</p><p><img src="https://iephen.pek3b.qingstor.com/b_image/Axure-191824.png" alt="Axure RP 10"></p><p>然后编辑这个文件，在 <code>&lt;dict&gt;</code> 内加入如下代码后保存：</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">key</span>&gt;</span>LSEnvironment<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dict</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>DYLD_FORCE_FLAT_NAMESPACE<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>1<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>DYLD_INSERT_LIBRARIES<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>/usr/local/lib/faketime/libfaketime.1.dylib<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>FAKETIME<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>@2022-04-01 00:00:00<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">key</span>&gt;</span>FAKETIME_STOP_AFTER_SECONDS<span class="tag">&lt;/<span class="name">key</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">string</span>&gt;</span>10<span class="tag">&lt;/<span class="name">string</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dict</span>&gt;</span></span><br></pre></td></tr></table></figure><p><img src="https://iephen.pek3b.qingstor.com/b_image/Axure-192011.png" alt="Axure RP 10"></p><p>编辑完后重启电脑，或者打开终端执行命令： <code>/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -v -f /Applications/Axure\ RP\ 10.app</code></p><p>设置完成后，打开启动台点击 Axure RP 10 的图标即可正常使用咯。</p><p>不过，此方法可能会在软件更新或升级后因重置了 <code>info.plist</code> 而失效，需要再次做上述操作后才可使用。</p><h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以上方法仅供个人测试，商业使用还请寻找官方渠道获得授权。</p><p>由于各软件的验证机制的原因，不保证通用，也无法保证以上方法永久有效，还请低调试用。</p><p>PS：若试用不成功请自行解决或购买授权，本人不会提供任何技术解答。</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;众所周知，Axure 9 升级到 Axure 10 后，就从原本的永久授权变更为订阅授权。同时 Axure 10 的订阅注册激活码与 Axure Cloud 的用户账号强绑定，激活时将根据登录账号在线跳转到官方网站实时获取注册状态。&lt;/p&gt;
+&lt;p&gt;一直以来，我还挺喜欢尝试新鲜事物的，尤其是各种软件、网站、科技产品等。Axure 作为互联网产品经理的必备软件，在 Axure 10 正式版诞生后，它默认提供一个月的试用期，于是我就早早的参与到试用大军中。&lt;/p&gt;
+&lt;p&gt;别说还挺好用的，尤其是动态面板多状态一起编辑，以及一键将表单转换成中继器并将中继器表格直接浮于内容区，真的有惊艳到我。（虽然工作中这俩功能其实并不常用hhh&lt;/p&gt;
+&lt;p&gt;尽管被惊艳到，但由于我已经习惯了 Axure 9 ，试用期一过就没有再去尝试了。并且由于高版本文件无法用低版本打开，所以也没敢将 Axure 10 作为正式的生产力工具。&lt;/p&gt;
+&lt;p&gt;前段时间心情不错，突然又想折腾一番～&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="工作笔记" scheme="https://ephen.me/categories/MyWork/"/>
+    
+    <category term="工具介绍" scheme="https://ephen.me/categories/tools/"/>
+    
+    
+    <category term="Axure" scheme="https://ephen.me/tags/Axure/"/>
+    
+    <category term="PM" scheme="https://ephen.me/tags/PM/"/>
+    
+    <category term="RunAsDate" scheme="https://ephen.me/tags/RunAsDate/"/>
+    
+    <category term="libfaketime" scheme="https://ephen.me/tags/libfaketime/"/>
+    
+  </entry>
   
   <entry>
     <title>NodeJS 和 Hexo 版本升级记，继续填坑博客配置</title>
@@ -567,36 +600,6 @@
     <category term="DNS" scheme="https://ephen.me/tags/DNS/"/>
     
     <category term="泛域名" scheme="https://ephen.me/tags/generic-domain/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>谈谈上月 Dyn 遭受的 DDoS 攻击</title>
-    <link href="https://ephen.me/2016/dyn-crashed/"/>
-    <id>https://ephen.me/2016/dyn-crashed/</id>
-    <published>2016-11-03T16:00:00.000Z</published>
-    <updated>2022-02-22T06:10:49.952Z</updated>
-    
-    <content type="html"><![CDATA[<p>这件事情发森在美国时间的 2016 年 10 月 21 日，到今天大约已经过去了半个多月。</p><p>那几天，新闻铺天盖地，季风从墙外刮过长城，吹到中原，拂过我的耳朵。</p><p>当时看到这个消息时本想立即写一篇蹭它一波热度，一来是时间问题，二来想想我就一小博客也没必要跟风，也就作罢。</p><p>今天我整个回顾了下所有看过的新闻及各类文章分析，还是决定来谈一谈。</p><span id="more"></span><h2 id="事件概述"><a href="#事件概述" class="headerlink" title="事件概述"></a>事件概述</h2><p>想必很多人已经了解过了，不过为了看到这里的小伙伴不用再去翻看回忆，我简单描述一下。</p><p>最早刮来的是标题为《北美大半个网络瘫痪 原因竟和中国厂商有关》的新闻，事件当天大量北美用户发现 Twitter 、 Netflix 、 Paypal 、 GitHub 等常用网站无法访问，随后经过一系列的调查，发现是 Dyn 这家权威域名解析遭受 DDoS 攻击致 NS 节点挂掉。</p><p>本来这事 Dyn 公告一个事件处理情况就算告一段落了，谁知却被人揪出黑客是通过智能摄像头、 DVR 等物联网设备做肉鸡发起攻击的。</p><p>参考：<a href="https://zh.wikipedia.org/wiki/2016%E5%B9%B4Dyn%E7%BD%91%E7%BB%9C%E6%94%BB%E5%87%BB"> 维基百科 -  2016 年 Dyn 网络攻击 </a></p><h2 id="DDoS-攻击手段"><a href="#DDoS-攻击手段" class="headerlink" title="DDoS 攻击手段"></a>DDoS 攻击手段</h2><p>DDos 攻击，全称“ Distributed Denial of Service Attack ”，即分布式拒绝服务攻击。</p><p>拒绝服务攻击（亦称洪水攻击）作为一种常见的网络攻击手法，其目的在于使目标电脑的网络或系统资源耗尽，使服务暂时中断或停止，导致其正常用户无法访问。当黑客使用网络上两个或以上被攻陷的电脑作为“僵尸”向特定的目标发动“拒绝服务”式攻击时，便称为分布式拒绝服务攻击了。</p><p>去年我刚接触<code>牛盾</code>产品时，曾经有了解到有些黑客专门花钱买流量和肉鸡去 D 其竞争对手，黑市上的流量叫卖价格极低。</p><p>如今科技日渐发达，黑客们也与时俱进，用上了物联网设备，这下连攻击流量都不需要了。只需要其生产时植入后门或是生产程序漏洞就能达到目的。</p><h2 id="一些思考"><a href="#一些思考" class="headerlink" title="一些思考"></a>一些思考</h2><h3 id="安全问题不容小觑"><a href="#安全问题不容小觑" class="headerlink" title="安全问题不容小觑"></a>安全问题不容小觑</h3><p>据称，事件中的物联网设备由一个叫雄迈科技的公司生产，是由于默认密码被破解而被人利用植入了被公开源码的 Mirai 程序，于是这个公司莫名其妙被第三者了。</p><p>人间处处有深坑，只缺一个不留神。</p><p>网络安全问题是老生常谈了，我就问一句，你有没有哪个地方的密码是 <code>123456</code> ？</p><h3 id="要销量还是要质量？"><a href="#要销量还是要质量？" class="headerlink" title="要销量还是要质量？"></a>要销量还是要质量？</h3><p>物联网设备被利用，总的来说，还是隐射一个质量问题。这事让我不禁联想到年初盗版 Xcode 事件，就算是优秀的开发者用的是这样的软件来工作也会莫名被第三者……</p><p>现在科技发展尤为迅速，一不小心就跟不上时代的步伐。这个社会已经变得浮躁了起来，企业为追求性价比，招来能力修为不够的员工、用上了被植入后门的软硬件，即便产品成型后跟上了市场，那么质量呢？</p><p>反过来，扪心自问，作为消费者，是不是也没有那么在乎质量？</p><h3 id="权威-DNS-的扛-D-攻击能力"><a href="#权威-DNS-的扛-D-攻击能力" class="headerlink" title="权威 DNS 的扛 D 攻击能力"></a>权威 DNS 的扛 D 攻击能力</h3><p>DNS 是网络中非常脆弱的一环， CloudXNS 也是攻击不断。犹记得去年 CloudXNS 刚刚被站长们熟悉不久，便引来超大规模的竞争对手恶意攻击，致使我们不得不删除了硬件能力较差的几个海外节点的 Glue Record 配置。此后便是不断的优化运维架构、提升硬件加固防火墙之路。</p><p>不论是 Dyn 也好，CloudXNS 也好，我们作为专业提供解析服务的产品都有些吃力，那些小注册商甚至个人商家提供的自带 DNS 解析的扛 D 能力又如何保证呢？</p><h2 id="DDoS-攻击应对"><a href="#DDoS-攻击应对" class="headerlink" title="DDoS 攻击应对"></a>DDoS 攻击应对</h2><p>这个不废话，DDoS 攻击防范请从以下几点做起：</p><ol><li>选择靠谱的域名注册商和域名解析商</li><li>接入主机的选择也需要慎重，并且配置好 ACL</li><li>必要时选择一个适合自己的安全 CDN 产品</li><li>对域名、主机、 CDN 进行全方位专业的 IT 维护</li></ol><h2 id="希望未来有更祥和的网络环境，-DDoS-坏蛋们见鬼去吧！"><a href="#希望未来有更祥和的网络环境，-DDoS-坏蛋们见鬼去吧！" class="headerlink" title="希望未来有更祥和的网络环境， DDoS 坏蛋们见鬼去吧！"></a>希望未来有更祥和的网络环境， DDoS 坏蛋们见鬼去吧！</h2>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;这件事情发森在美国时间的 2016 年 10 月 21 日，到今天大约已经过去了半个多月。&lt;/p&gt;
-&lt;p&gt;那几天，新闻铺天盖地，季风从墙外刮过长城，吹到中原，拂过我的耳朵。&lt;/p&gt;
-&lt;p&gt;当时看到这个消息时本想立即写一篇蹭它一波热度，一来是时间问题，二来想想我就一小博客也没必要跟风，也就作罢。&lt;/p&gt;
-&lt;p&gt;今天我整个回顾了下所有看过的新闻及各类文章分析，还是决定来谈一谈。&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="心情驿站" scheme="https://ephen.me/categories/emo/"/>
-    
-    <category term="当时就被震惊" scheme="https://ephen.me/categories/shocking/"/>
-    
-    
-    <category term="域名攻击" scheme="https://ephen.me/tags/attack/"/>
-    
-    <category term="DYN" scheme="https://ephen.me/tags/DYN/"/>
-    
-    <category term="DDoS" scheme="https://ephen.me/tags/DDoS/"/>
     
   </entry>
   
