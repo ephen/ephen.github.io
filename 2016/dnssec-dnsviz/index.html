@@ -55,17 +55,17 @@
 <meta property="og:site_name" content="Ephen‘s Blog">
 <meta property="og:description" content="关于 DNSSECDNSSEC 全称 Domain Name System Security Extensions，即 DNS安全扩展，是由 Internet 工程任务组 （ IETF ）提供的一系列 DNS 安全认证的机制（可参考 RFC2535 ）。 它是对 DNS 提供给 DNS 客户端（解析器）的 DNS 数据来源进行认证，并验证不存在性和校验数据完整性验证，但不提供或机密性和可用性。来源">
 <meta property="og:locale">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426155405.png">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426155455.png">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20190426155405.png">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20190426155455.png">
 <meta property="article:published_time" content="2016-10-12T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-24T03:45:03.061Z">
+<meta property="article:modified_time" content="2023-05-25T06:00:36.361Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="安全">
-<meta property="article:tag" content="DNSViz">
 <meta property="article:tag" content="DNSSEC">
 <meta property="article:tag" content="域名劫持">
+<meta property="article:tag" content="DNSViz">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426155405.png">
+<meta name="twitter:image" content="https://iephen.pek3b.qingstor.com/b_image/20190426155405.png">
 
 <script>
 (function(){
@@ -198,11 +198,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="fa telegram" target="_blank" rel="noopener" href="https://telegram.me/imephen" title="telegram"></a>
 					        
-								<a class="fa twitter" target="_blank" rel="noopener" href="https://twitter.com/imephen" title="twitter"></a>
-					        
 								<a class="fa zhihu" target="_blank" rel="noopener" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
-					        
-								<a class="fa weibo" target="_blank" rel="noopener" href="http://weibo.com/cinderellacici" title="weibo"></a>
 					        
 								<a class="fa rss" href="/atom.xml" title="rss"></a>
 					        
@@ -309,11 +305,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="fa telegram" target="_blank" href="https://telegram.me/imephen" title="telegram"></a>
 			        
-						<a class="fa twitter" target="_blank" href="https://twitter.com/imephen" title="twitter"></a>
-			        
 						<a class="fa zhihu" target="_blank" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
-			        
-						<a class="fa weibo" target="_blank" href="http://weibo.com/cinderellacici" title="weibo"></a>
 			        
 						<a class="fa rss" target="_blank" href="/atom.xml" title="rss"></a>
 			        
@@ -416,7 +408,7 @@ var _hmt = _hmt || [];
 <p>对于 Paypal.com 来说，其 DS记录值 是上一级 .com 的私钥对其 DNSKEY 进行加密后得到的。</p>
 <p>而如果 Paypal.com 存在独立的子域时，又将利用其私钥对其子 zone 的 DNSKEY 执行加密从而生成子域的 DS记录值 。</p>
 <p>下图是用 DNSViz 查询到的 Paypal.com 的信任链：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426155405.png" alt="Paypal.com 的 DNSSEC 信任链"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20190426155405.png" alt="Paypal.com 的 DNSSEC 信任链"></p>
 <p>图中展示的三个框，从上至下依次代表域名<code>.</code>、<code>com.</code>和<code>paypal.com.</code>，每个框中间的内容分别对应这三个 zone 的 DNSKey 和 DS 的传递关系。</p>
 <p>可以通过点击<a target="_blank" rel="noopener" href="http://dnsviz.net/d/paypal.com/dnssec/">http://dnsviz.net/d/paypal.com/dnssec/</a>查看更多细节。</p>
 <h2 id="DNSSEC-配置检查神器：DNSViz"><a href="#DNSSEC-配置检查神器：DNSViz" class="headerlink" title="DNSSEC 配置检查神器：DNSViz"></a>DNSSEC 配置检查神器：DNSViz</h2><p>点开上面的网站，可以看到 DNSViz 是一个很强大的工具。</p>
@@ -435,7 +427,7 @@ var _hmt = _hmt || [];
 <p>更多的图例解释，可点击左侧下方的 <a target="_blank" rel="noopener" href="http://dnsviz.net/doc/dnssec/">Full legend</a> 。英文太渣，我就不做半调子翻译官了，感兴趣的话自己去看。</p>
 </blockquote>
 <p>既然是配置检查，当存在不正确的配置时，也会根据影响做 Error 或 Warning 的标记。例如我的博客域名 ephen.me，没有配置 DNSSEC ，查询出来是这样的：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426155455.png" alt=" ephen.me 的 dnssec 检查"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20190426155455.png" alt=" ephen.me 的 dnssec 检查"></p>
 <p>除了上图中最下一排的各种感叹号外，左边还有一大排的 Error 和 Warning ，描述了我的域名具体的配置出错的地方。</p>
 <blockquote>
 <p>如果以后要给域名部署配置 DNSSEC ，我会记得再来这个网站查查看。 </p>
@@ -483,7 +475,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2016/dnssec-dnsviz/">使用网页工具 DNSViz 检查域名 DNSSEC 配置</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2016-10-13, 00:00:00</p>
-      <p><span>最后更新:</span>2022-06-24, 11:45:03</p>
+      <p><span>最后更新:</span>2023-05-25, 14:00:36</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2016/dnssec-dnsviz/" title="使用网页工具 DNSViz 检查域名 DNSSEC 配置">https://ephen.me/2016/dnssec-dnsviz/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2016/dnssec-dnsviz/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

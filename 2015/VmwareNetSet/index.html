@@ -55,17 +55,17 @@
 <meta property="og:site_name" content="Ephen‘s Blog">
 <meta property="og:description" content="打开 VMware 软件，开启要设置的虚拟机，用 root 用户登录； 点击 VMware 软件菜单栏上“虚拟机”—&gt;“设置”—&gt;“网络适配器”，选择“桥接模式”（默认是“ NAT 模式”）； 进入 Linux 虚拟机修改网卡设置：  方法一，使用图形界面修改">
 <meta property="og:locale">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426161737.png">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426161803.png">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426161823.png">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20190426161737.png">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20190426161803.png">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20190426161823.png">
 <meta property="article:published_time" content="2015-03-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-24T03:47:24.977Z">
+<meta property="article:modified_time" content="2023-05-25T06:04:18.751Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="Vmware">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="虚拟机">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20190426161737.png">
+<meta name="twitter:image" content="https://iephen.pek3b.qingstor.com/b_image/20190426161737.png">
 
 <script>
 (function(){
@@ -198,11 +198,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="fa telegram" target="_blank" rel="noopener" href="https://telegram.me/imephen" title="telegram"></a>
 					        
-								<a class="fa twitter" target="_blank" rel="noopener" href="https://twitter.com/imephen" title="twitter"></a>
-					        
 								<a class="fa zhihu" target="_blank" rel="noopener" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
-					        
-								<a class="fa weibo" target="_blank" rel="noopener" href="http://weibo.com/cinderellacici" title="weibo"></a>
 					        
 								<a class="fa rss" href="/atom.xml" title="rss"></a>
 					        
@@ -309,11 +305,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="fa telegram" target="_blank" href="https://telegram.me/imephen" title="telegram"></a>
 			        
-						<a class="fa twitter" target="_blank" href="https://twitter.com/imephen" title="twitter"></a>
-			        
 						<a class="fa zhihu" target="_blank" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
-			        
-						<a class="fa weibo" target="_blank" href="http://weibo.com/cinderellacici" title="weibo"></a>
 			        
 						<a class="fa rss" target="_blank" href="/atom.xml" title="rss"></a>
 			        
@@ -373,9 +365,9 @@ var _hmt = _hmt || [];
 <h3 id="方法一，使用图形界面修改"><a href="#方法一，使用图形界面修改" class="headerlink" title="方法一，使用图形界面修改"></a>方法一，使用图形界面修改</h3><span id="more"></span>
 
 <p>1 . 桌面右击 <code>open in terminal``，输入 setup 命令后回车； 2 . 通过键盘上下键选择 </code>Network Configuration<code>， Tab 到 </code>Run tool<code>后回车； 3 .</code>Device Configuration<code>高亮回车，选择要设置的网卡（一般虚拟机只有一个网卡）后回车，进入 ip 设置界面； 4 . 默认情况下</code>Use DHCP<code>是自动获取，图形界面上展示为</code>*&#96;，下面的静态 IP 不能进行设置。如下图：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426161737.png" alt="虚拟网卡图形界面配置"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20190426161737.png" alt="虚拟网卡图形界面配置"></p>
 <p>5 . 将光标移动到 <code>Use DHCP</code> 的<code>[*]</code>上，点击空格键，即可开始设置下面的静态 IP；<br>6 . 查看本机（连到路由器上的网络而非虚拟网络）的 ip 设置，将虚拟客户机 Linux 设置成一样即可（除 IP 外， IP 设置到同一网段）；如下图：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20190426161803.png" alt="本机 IP 设置"><img src="https://imephen.pek3b.qingstor.com/b_image/20190426161823.png" alt="虚拟机IP设置"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20190426161803.png" alt="本机 IP 设置"><img src="https://iephen.pek3b.qingstor.com/b_image/20190426161823.png" alt="虚拟机IP设置"></p>
 <p>7 . Tab 到 <code>Save</code> 、 <code>Save&amp;Quit</code> 保存本次设置；</p>
 <h3 id="方法二，修改网卡配置文件"><a href="#方法二，修改网卡配置文件" class="headerlink" title="方法二，修改网卡配置文件"></a>方法二，修改网卡配置文件</h3><p>1 . 桌面右击 <code>open in terminal</code> ，输入 <code>setup</code> 命令后回车；<br>2 . 一般虚拟机网卡是 eth0 ，修改文件 <code>vi /etc/sysconfig/network-scripts/ifcfg-eth0</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DEVICE=eth0   <span class="comment">#描述网卡对应的设备别名，例如 ifcfg-eth0 的文件中它为 eth0</span></span><br><span class="line">BOOTPROTO=static    <span class="comment">#设置网卡获得 ip 地址的方式，可能的选项为 static/dhcp/bootp （分别对应静态指定的 ip 地址 / 通过 dhcp 协议获得的 ip 地址 / bootp 协议获得的 ip 地址）</span></span><br><span class="line">BROADCAST=192.168.0.255   <span class="comment">#对应的子网广播地址</span></span><br><span class="line">HWADDR=00:07:E9:05:E8:B4    <span class="comment">#对应的网卡物理地址</span></span><br><span class="line">IPADDR=192.168.14.120   <span class="comment">#如果设置网卡获得 ip 地址的方式为静态指定，此字段就指定了网卡对应的ip地址</span></span><br><span class="line">IPV6INIT=no</span><br><span class="line">IPV6_AUTOCONF=no</span><br><span class="line">NETMASK=255.255.255.0   <span class="comment">#网卡对应的网络掩码</span></span><br><span class="line">NETWORK=192.168.0.0   <span class="comment">#网卡对应的网络地址</span></span><br><span class="line">ONBOOT=<span class="built_in">yes</span>    <span class="comment">#系统启动时是否设置此网络接口，设置为yes时，系统启动时激活此设备</span></span><br></pre></td></tr></table></figure>
@@ -397,7 +389,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2015/VmwareNetSet/">桥接模式下如何设置虚拟机和本机在同一网段</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2015-03-31, 00:00:00</p>
-      <p><span>最后更新:</span>2022-06-24, 11:47:24</p>
+      <p><span>最后更新:</span>2023-05-25, 14:04:18</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2015/VmwareNetSet/" title="桥接模式下如何设置虚拟机和本机在同一网段">https://ephen.me/2015/VmwareNetSet/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2015/VmwareNetSet/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

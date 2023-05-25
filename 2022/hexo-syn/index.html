@@ -55,17 +55,17 @@
 <meta property="og:site_name" content="Ephen‘s Blog">
 <meta property="og:description" content="一个月前，公司资产部在一年一度处理离职员工回收的资产时，我获得了一台 MacBook Air 。 由于过去从未用过 Mac ，在摸清了大致的用法后，突然想再折腾下博客。 之前我没有个人电脑，每次更换工作电脑（均为 Windows 操作系统）时，直接用 U 盘复制本地 Hexo 工作目录到新电脑上，安装相关依赖后使用。 这次准备把新到的 MacBook Air 作为我的个人电脑使用，然后让个人电脑和">
 <meta property="og:locale">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20220220144314.png">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20220220160320.png">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20220220153316.png">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20220220144314.png">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20220220160320.png">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20220220153316.png">
 <meta property="article:published_time" content="2022-02-19T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-24T03:43:08.050Z">
+<meta property="article:modified_time" content="2023-05-25T06:01:30.880Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="git">
 <meta property="article:tag" content="mac">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20220220144314.png">
+<meta name="twitter:image" content="https://iephen.pek3b.qingstor.com/b_image/20220220144314.png">
 
 <script>
 (function(){
@@ -198,11 +198,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="fa telegram" target="_blank" rel="noopener" href="https://telegram.me/imephen" title="telegram"></a>
 					        
-								<a class="fa twitter" target="_blank" rel="noopener" href="https://twitter.com/imephen" title="twitter"></a>
-					        
 								<a class="fa zhihu" target="_blank" rel="noopener" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
-					        
-								<a class="fa weibo" target="_blank" rel="noopener" href="http://weibo.com/cinderellacici" title="weibo"></a>
 					        
 								<a class="fa rss" href="/atom.xml" title="rss"></a>
 					        
@@ -309,11 +305,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="fa telegram" target="_blank" href="https://telegram.me/imephen" title="telegram"></a>
 			        
-						<a class="fa twitter" target="_blank" href="https://twitter.com/imephen" title="twitter"></a>
-			        
 						<a class="fa zhihu" target="_blank" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
-			        
-						<a class="fa weibo" target="_blank" href="http://weibo.com/cinderellacici" title="weibo"></a>
 			        
 						<a class="fa rss" target="_blank" href="/atom.xml" title="rss"></a>
 			        
@@ -376,10 +368,10 @@ var _hmt = _hmt || [];
 <p><code>hexo g</code> 的动作相当于网页编译行为，而当我们需要在其他电脑上也可以同步写文章时，就需要把 hexo 工作区进行同步。</p>
 <h2 id="使用-GitHub-存储-hexo-源文件"><a href="#使用-GitHub-存储-hexo-源文件" class="headerlink" title="使用 GitHub 存储 hexo 源文件"></a>使用 GitHub 存储 hexo 源文件</h2><p>Github 是个很好的代码协同平台，我的博客本身也是放 GitHub Page ，因此我选择在 GitHub Page 项目源代码上新建一个分支来存放 hexo 源文件作为我的线上工作区。</p>
 <p>登录 GitHub 后进入到我博客所在项目查看源代码，基于 <code>master</code> 新建一个名为 <code>suorce</code> 的分支，并将该分支设置为默认分支。</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20220220144314.png" alt="GitHub 分支管理"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20220220144314.png" alt="GitHub 分支管理"></p>
 <p>回到工作电脑上，新建一个工作区目录，执行 <code>git clone 项目地址 .</code> 将 github 上的代码下载下来。由于默认分支现在是 <code>source</code> ，因此本地工作区也默认为 <code>source</code> 分支。</p>
 <p>由于远程分支是基于原分支复制的，因此内容和 master 一样，都是博客 html 文件。我除了保留此目录下隐藏的 <code>.git</code> 文件夹外，删除其他所有文件，再把之前工作目录下所有文件（含隐藏文件）复制过来。</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20220220160320.png" alt="文件夹对比"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20220220160320.png" alt="文件夹对比"></p>
 <p>测试下新的工作目录是否能正确运行 hexo 及 Node.js 相关指令，并本地预览确认无误。</p>
 <p>然后创建 <code>.gitignore</code> 文件，内容如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.DS_Store</span><br><span class="line">Thumbs.db</span><br><span class="line">db.json</span><br><span class="line">*.log</span><br><span class="line">node_modules/</span><br><span class="line">public/</span><br><span class="line">.deploy*/</span><br></pre></td></tr></table></figure>
@@ -400,7 +392,7 @@ var _hmt = _hmt || [];
 <p>执行 <code>ssh-keygen -t rsa -C &quot;github账号邮箱&quot;</code> 生成ssh密钥后添加到 Github Settings –&gt; SSH and GPG Keys 页面。</p>
 <p>执行 <code>git config --global user.name &quot;Ephen&quot;</code> 和 <code>git config --global user.email 个人邮箱</code> 配置 Git 全局用户名及邮箱。</p>
 <p>登录 <a target="_blank" rel="noopener" href="https://nodejs.org/en/download/releases/">node.js 官网历史版本下载页</a>搜索 v12.22.10 （保持与工作电脑上的版本一致）下载 <code>.pkg</code> 的程序安装包，按提示步骤完成安装。</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20220220153316.png" alt="Node.js MAC 安装包下载"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20220220153316.png" alt="Node.js MAC 安装包下载"></p>
 <h3 id="项目同步"><a href="#项目同步" class="headerlink" title="项目同步"></a>项目同步</h3><p>到个人目录创建一个分类文件夹，执行 <code>git clone 项目地址</code>命令将默认分支 <code>source</code> 下载到本地。</p>
 <p>执行 <code>npm install hexo-cli -g</code> 安装 Hexo 。</p>
 <blockquote>
@@ -428,7 +420,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2022/hexo-syn/">博客 Hexo 工作区同步至 Mac ，多个电脑可同时写博客啦～</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2022-02-20, 00:00:00</p>
-      <p><span>最后更新:</span>2022-06-24, 11:43:08</p>
+      <p><span>最后更新:</span>2023-05-25, 14:01:30</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2022/hexo-syn/" title="博客 Hexo 工作区同步至 Mac ，多个电脑可同时写博客啦～">https://ephen.me/2022/hexo-syn/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2022/hexo-syn/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>

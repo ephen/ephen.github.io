@@ -55,18 +55,18 @@
 <meta property="og:site_name" content="Ephen‘s Blog">
 <meta property="og:description" content="继填坑《博客更新后遗症》后，心里总是隐隐有些不安。毕竟作为一个喜欢探索的人，根本无法容忍版本降级。 于是决定再重新把 NodeJS 装回最新版本看看到底会发生什么，以及能不能不通过降版的方式解决。 先仔细检查下当前的版本配置。惊奇的发现 hexo 版本并没有升级！（果然之前的一顿操作太秀逗了）  之前的npm install -g hexo-cli 命令应该是只升级了 hexo-cli ，我本地的">
 <meta property="og:locale">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20220225154316.jpg">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20220223113316.jpg">
-<meta property="og:image" content="https://imephen.pek3b.qingstor.com/b_image/20220223113045.jpg">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20220225154316.jpg">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20220223113316.jpg">
+<meta property="og:image" content="https://iephen.pek3b.qingstor.com/b_image/20220223113045.jpg">
 <meta property="article:published_time" content="2022-02-24T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-06-24T03:41:42.150Z">
+<meta property="article:modified_time" content="2023-05-25T05:58:17.969Z">
 <meta property="article:author" content="Ephen">
 <meta property="article:tag" content="hexo">
 <meta property="article:tag" content="node">
 <meta property="article:tag" content="npm">
 <meta property="article:tag" content="stylus">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://imephen.pek3b.qingstor.com/b_image/20220225154316.jpg">
+<meta name="twitter:image" content="https://iephen.pek3b.qingstor.com/b_image/20220225154316.jpg">
 
 <script>
 (function(){
@@ -199,11 +199,7 @@ var _hmt = _hmt || [];
 					        
 								<a class="fa telegram" target="_blank" rel="noopener" href="https://telegram.me/imephen" title="telegram"></a>
 					        
-								<a class="fa twitter" target="_blank" rel="noopener" href="https://twitter.com/imephen" title="twitter"></a>
-					        
 								<a class="fa zhihu" target="_blank" rel="noopener" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
-					        
-								<a class="fa weibo" target="_blank" rel="noopener" href="http://weibo.com/cinderellacici" title="weibo"></a>
 					        
 								<a class="fa rss" href="/atom.xml" title="rss"></a>
 					        
@@ -310,11 +306,7 @@ var _hmt = _hmt || [];
 			        
 						<a class="fa telegram" target="_blank" href="https://telegram.me/imephen" title="telegram"></a>
 			        
-						<a class="fa twitter" target="_blank" href="https://twitter.com/imephen" title="twitter"></a>
-			        
 						<a class="fa zhihu" target="_blank" href="https://www.zhihu.com/people/imephen" title="zhihu"></a>
-			        
-						<a class="fa weibo" target="_blank" href="http://weibo.com/cinderellacici" title="weibo"></a>
 			        
 						<a class="fa rss" target="_blank" href="/atom.xml" title="rss"></a>
 			        
@@ -389,7 +381,7 @@ var _hmt = _hmt || [];
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i npm@latest -g</span><br></pre></td></tr></table></figure>
 
 <p>最后执行 <code>npm outdated</code> 命令检查 Hexo 插件版本情况，发现还有两个插件需要更新：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20220225154316.jpg" alt="plugins_outdated"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20220225154316.jpg" alt="plugins_outdated"></p>
 <p>去 Hexo 官网搜索这两个插件的作用，我发现我根本就没有用到 rsync 同步，于是将 <code>hexo-deployer-rsync</code> 插件卸载掉了。</p>
 <h2 id="修复并解决升级带来的问题"><a href="#修复并解决升级带来的问题" class="headerlink" title="修复并解决升级带来的问题"></a>修复并解决升级带来的问题</h2><h3 id="百度站点地图插件无法升级"><a href="#百度站点地图插件无法升级" class="headerlink" title="百度站点地图插件无法升级"></a>百度站点地图插件无法升级</h3><p>接上一章节，由于想到国内还是以百度为主，于是升级插件：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update hexo-generator-baidu-sitemap</span><br></pre></td></tr></table></figure>
@@ -416,10 +408,10 @@ var _hmt = _hmt || [];
 <p>我查看了 <code>_config.yml</code> 文件后，发现其中配置并没有问题。既然如此，我删掉其中一篇博文的 <code>permalink</code> 标签后测试，发现年份是回来了，但博文路径变成了中文。这下明白了，原来 <code>_config.yml</code> 文件中 <code>permalink</code> 的 <code>:title</code> 变量取的是我的 Markdown 源文件的文件名。</p>
 <p>于是修改所有的博文，删掉每篇博文中的 <code>permalink</code> 标签，然后将 <code>.md</code> 源文件名字改为对应被删除的 <code>permalink</code> 值。</p>
 <p>如下图所示：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20220223113316.jpg" alt="修改博文源文件 Permalink "></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20220223113316.jpg" alt="修改博文源文件 Permalink "></p>
 <p>至于为什么我那么老的 Hexo 版本就在博文中有 <code>permalink</code> ？我仔细回想了下，应该是当年从 WordPress 迁移博文时，用的那个 <code>hexo-migrator-wordpress</code> 插件的杰作。当时觉得这个标记挺好用的，所以就在后来的每篇博文中沿用了。</p>
 <h3 id="主题调用的副标题和作者信息丢失"><a href="#主题调用的副标题和作者信息丢失" class="headerlink" title="主题调用的副标题和作者信息丢失"></a>主题调用的副标题和作者信息丢失</h3><p>想来上方的链接都能出错，再也不敢掉以轻心。于是我将我线上正在运行的站点和本地生成的站点同时在浏览器打开并排仔细对比，映入眼帘就发现左边栏的差异：</p>
-<p><img src="https://imephen.pek3b.qingstor.com/b_image/20220223113045.jpg" alt="Subtile&amp;Author Lost"></p>
+<p><img src="https://iephen.pek3b.qingstor.com/b_image/20220223113045.jpg" alt="Subtile&amp;Author Lost"></p>
 <p>想起我之前在《<a href="/2019/blog-update/">又来折腾博客了</a>》一文中提到的设置版权信息也有用到作者名字，遂点开任意一篇博文滚到页面底部看到“文章作者”后边也是空的。</p>
 <p>查看本地代码中引用的是 <code>theme.author</code> ，但是在主题的 <code>_config.yml</code> 中并没有搜到 <code>author</code> 配置。查找我当前的文字内容，发现其来源于 Hexo 的 <code>_config.yml</code> 文件中的站点配置：</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Ephen‘s</span> <span class="string">Blog</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">奇葩一朵，</span> <span class="string">IT</span> <span class="string">废材</span></span><br><span class="line"><span class="attr">description:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">Ephen</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-Hans</span></span><br><span class="line"><span class="attr">timezone:</span></span><br></pre></td></tr></table></figure>
@@ -461,7 +453,7 @@ var _hmt = _hmt || [];
       <p><span>本文标题:</span><a href="/2022/blog-updates-plus/">NodeJS 和 Hexo 版本升级记，继续填坑博客配置</a></p>
       <p><span>文章作者:</span><a href="/" title="回到主页">Ephen</a></p>
       <p><span>发布时间:</span>2022-02-25, 00:00:00</p>
-      <p><span>最后更新:</span>2022-06-24, 11:41:42</p>
+      <p><span>最后更新:</span>2023-05-25, 13:58:17</p>
       <p>
         <span>原始链接:</span><a class="post-url" href="/2022/blog-updates-plus/" title="NodeJS 和 Hexo 版本升级记，继续填坑博客配置">https://ephen.me/2022/blog-updates-plus/</a>
         <span class="copy-path" data-clipboard-text="原文: https://ephen.me/2022/blog-updates-plus/　　作者: Ephen" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
