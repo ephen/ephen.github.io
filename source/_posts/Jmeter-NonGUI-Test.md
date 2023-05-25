@@ -24,13 +24,13 @@ tags:
 
 1 . **查看 CentOs 自带的 JDK 是否已安装**，输入： `yum list installed |grep java`
 
-![查看 JDK 是否安装](https://imephen.pek3b.qingstor.com/b_image/20190426152046.png)
+![查看 JDK 是否安装](https://iephen.pek3b.qingstor.com/b_image/20190426152046.png)
 
 2 . 若有自带安装的 JDK ，则表示 JAVA 环境已经安装成功，可以**查看安装的 java 版本信息**
 
 输入： `java -version` 可查看 Java 版本；
 
-![查看 Java 版本](https://imephen.pek3b.qingstor.com/b_image/20190426152205.png)
+![查看 Java 版本](https://iephen.pek3b.qingstor.com/b_image/20190426152205.png)
 
 3 . 如果想**卸载 CentOS 系统自带 Java 环境**，可输入： `yum -y remove java1.7.0-openjdk*` （ `*` 表示卸载掉 java1.7.0 的所有 openjdk 相关文件）
 
@@ -40,11 +40,11 @@ tags:
 
 使用 yum 方式安装需要连接网络下载相应安装文件，故需要使用 ping 命令测试网络，如 `ping www.baidu.com`
 
-![测试网络](https://imephen.pek3b.qingstor.com/b_image/20190426152436.png)
+![测试网络](https://iephen.pek3b.qingstor.com/b_image/20190426152436.png)
 
 6 . **查看 yum 库中的 java 安装包**，输入： `yum -y list java*`
 
-![查看 yum 中 java 安装包](https://imephen.pek3b.qingstor.com/b_image/20190426152504.png)
+![查看 yum 中 java 安装包](https://iephen.pek3b.qingstor.com/b_image/20190426152504.png)
 
 7 . **使用 yum 安装 java 环境**，输入： `yum -y install java1.7.0-openjdk*` ，当结果显示为 Complete ，即安装完毕。
 
@@ -56,13 +56,13 @@ tags:
 
 2 . **解压 zip 安装包**，输入： `unzip apache-jmeter-2.13.zip`
 
-![解压 jmeter 安装包](https://imephen.pek3b.qingstor.com/b_image/20190426152540.png)
+![解压 jmeter 安装包](https://iephen.pek3b.qingstor.com/b_image/20190426152540.png)
 
 ## 非 GUI 模式下运行 Jmeter
 
 JMeter 远程测试原理图如下：
 
-![Jmeter 远程测试原理图](https://imephen.pek3b.qingstor.com/b_image/20190426152614.png)
+![Jmeter 远程测试原理图](https://iephen.pek3b.qingstor.com/b_image/20190426152614.png)
 
 如果运行 JMeter 客户端的机器性能不能满足测试需要，那么测试人员可以通过单个 JMeter 客户端来控制多个远程 JMeter 服务器，以便对服务器进行压力测试，模拟足够多的并发用户。通过远程运行 JMeter ，测试人员可以跨越多台低端计算机复制测试，这样就可以模拟一个比较大的服务器压力。
 
@@ -73,7 +73,7 @@ JMeter 远程测试原理图如下：
 3 . 在 jmeter 远程服务器上运行 `root/mobile/apache/jmeter-2.13/bin/jmeter-servere` 脚本。指定 server 的 ip ，如： `./jmeter-server -Djava.rmi.server.hostname=118.192.6.15` ， jmeter-server 正常启动会提示"创建远程服务"
 4 . 在 jmeter 客户端上修改 `/bin/jmeter.properties` 文件，找到属性 `"remote_hosts"` ，使用 JMeter 远程服务器的 IP 地址作为其属性值。可以添加多个服务器的 IP 地址，以逗号作为分隔。
 
-![找到 Jmeter 属性文件](https://imephen.pek3b.qingstor.com/b_image/20190426152641.png)
+![找到 Jmeter 属性文件](https://iephen.pek3b.qingstor.com/b_image/20190426152641.png)
 
 例如：
 
@@ -82,7 +82,7 @@ remote_hosts=118.192.6.15:1099,118.192.6.16:1099   #RMI port to be used by�
 server_port=1099
 ```
 
-![修改 Jmeter 属性](https://imephen.pek3b.qingstor.com/b_image/20190426152709.png)
+![修改 Jmeter 属性](https://iephen.pek3b.qingstor.com/b_image/20190426152709.png)
 
 5 . 在 jmeter 客户端上启动 jmeter 。
 

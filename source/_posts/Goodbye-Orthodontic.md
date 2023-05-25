@@ -1,6 +1,10 @@
 ---
 title: 告别“牙套妹”称号
 date: 2017-8-29
+password: Ephen's-Photo!@#
+abstract: 这是一篇加密博文，请输入密码后查看
+message: 这里需要密码才能访问。
+wrong_pass_message: 抱歉，这个密码看着不太对，请再试试。
 categories:
   - 心情驿站
 toc: false
@@ -134,11 +138,11 @@ toc: false
 
 先来一张拆掉牙套次日的灰姑娘美照镇楼：
 
-![拆掉牙套次日](https://imephen.pek3b.qingstor.com/b_image/20190426161220.png)
+![拆掉牙套次日](https://iephen.pek3b.qingstor.com/b_image/20190426161220.png)
 
 牙套前后脸型对比：
 
-![牙套前后脸型对比照](https://imephen.pek3b.qingstor.com/b_image/20190426161335.png)
+![牙套前后脸型对比照](https://iephen.pek3b.qingstor.com/b_image/20190426161335.png)
 
 我不太喜欢拍照（所以我某种意义上不太像个女生），也没写过什么牙套日记，找张照片还挺难，凑合着看吧。希望没吓到路过的你。
 

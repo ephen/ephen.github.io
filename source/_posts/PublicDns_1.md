@@ -52,17 +52,17 @@ top: false
 
 北京快网官方门户网站 `www.fastweb.com.cn` 使用了`牛盾云安全`作了页面加速和安全防护，正常情况下使用运营商 DNS 在全国各地的解析情况如下图所示：
 
-![FastWeb 分区解析](https://imephen.pek3b.qingstor.com/b_image/20190426154730.png)
+![FastWeb 分区解析](https://iephen.pek3b.qingstor.com/b_image/20190426154730.png)
 
 这是通过智能 DNS 和 CDN 双剑合璧的最优解析结果。
 
 例如灰姑娘所在地是湖北武汉，当使用本地运营商 DNS 并存在缓存时，`ping www.fastweb.com.cn`时延如下：
 
-![本地 DNS ](https://imephen.pek3b.qingstor.com/b_image/20190426154755.png)
+![本地 DNS ](https://iephen.pek3b.qingstor.com/b_image/20190426154755.png)
 
 而我在本地模拟`ping`浙江台州的牛盾节点`122.226.182.43`，会看到时延稍微长一些：
 
-![牛盾台州](https://imephen.pek3b.qingstor.com/b_image/20190426154839.png)
+![牛盾台州](https://iephen.pek3b.qingstor.com/b_image/20190426154839.png)
 
 那么公共 DNS 的出入口会不会跟实际网络不一致呢？
 
@@ -72,7 +72,7 @@ top: false
 
 我在本地对阿里 DNS 的做了一个路由跟踪：
 
-![DNS入口](https://imephen.pek3b.qingstor.com/b_image/20190426154905.png)
+![DNS入口](https://iephen.pek3b.qingstor.com/b_image/20190426154905.png)
 
 可以发现，阿里 DNS 的入口在浙江杭州，而我本地网络是湖北电信。
 
@@ -80,7 +80,7 @@ top: false
 
 刚刚和北京同事进行远程会议时提到这个议题，正好他的 PC 配置的是阿里公共 DNS ，我们让他查询了其出口 DNS ，得到的反馈如下：
 
-![出口DNS](https://imephen.pek3b.qingstor.com/b_image/20190426154956.png)
+![出口DNS](https://iephen.pek3b.qingstor.com/b_image/20190426154956.png)
 
 本地网络北京联通，出口 DNS 竟是广东电信，这远远比我前述举例的湖北电信和浙江电信的差距大得多。
 
@@ -90,10 +90,10 @@ top: false
 
 _使用阿里 DNS 测试结果：_
 
-![阿里 DNS](https://imephen.pek3b.qingstor.com/b_image/20190426155020.png)
+![阿里 DNS](https://iephen.pek3b.qingstor.com/b_image/20190426155020.png)
 
 _使用运营商 DNS测试结果：_
 
-![运营商 DNS](https://imephen.pek3b.qingstor.com/b_image/20190426155043.png)
+![运营商 DNS](https://iephen.pek3b.qingstor.com/b_image/20190426155043.png)
 
 使用运营商 DNS 时，`ping` 值快得多。

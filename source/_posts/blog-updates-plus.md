@@ -57,7 +57,7 @@ npm i npm@latest -g
 
 最后执行 `npm outdated` 命令检查 Hexo 插件版本情况，发现还有两个插件需要更新：
 
-![plugins_outdated](https://imephen.pek3b.qingstor.com/b_image/20220225154316.jpg)
+![plugins_outdated](https://iephen.pek3b.qingstor.com/b_image/20220225154316.jpg)
 
 去 Hexo 官网搜索这两个插件的作用，我发现我根本就没有用到 rsync 同步，于是将 `hexo-deployer-rsync` 插件卸载掉了。
 
@@ -118,7 +118,7 @@ external_link:
 
 如下图所示：
 
-![修改博文源文件 Permalink ](https://imephen.pek3b.qingstor.com/b_image/20220223113316.jpg)
+![修改博文源文件 Permalink ](https://iephen.pek3b.qingstor.com/b_image/20220223113316.jpg)
 
 至于为什么我那么老的 Hexo 版本就在博文中有 `permalink` ？我仔细回想了下，应该是当年从 WordPress 迁移博文时，用的那个 `hexo-migrator-wordpress` 插件的杰作。当时觉得这个标记挺好用的，所以就在后来的每篇博文中沿用了。
 
@@ -126,7 +126,7 @@ external_link:
 
 想来上方的链接都能出错，再也不敢掉以轻心。于是我将我线上正在运行的站点和本地生成的站点同时在浏览器打开并排仔细对比，映入眼帘就发现左边栏的差异：
 
-![Subtile&Author Lost](https://imephen.pek3b.qingstor.com/b_image/20220223113045.jpg)
+![Subtile&Author Lost](https://iephen.pek3b.qingstor.com/b_image/20220223113045.jpg)
 
 想起我之前在《[又来折腾博客了](/2019/blog-update/)》一文中提到的设置版权信息也有用到作者名字，遂点开任意一篇博文滚到页面底部看到“文章作者”后边也是空的。
 

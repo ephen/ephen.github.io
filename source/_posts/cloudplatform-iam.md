@@ -45,7 +45,7 @@ IAM ，全称 Identity and Access Management ，字面意思就是识别用户�
 
 简单的用一个关系图来展示下：
 
-![IAM who](https://imephen.pek3b.qingstor.com/b_image/20190426155745.png)
+![IAM who](https://iephen.pek3b.qingstor.com/b_image/20190426155745.png)
 
 ### 接入方式（How）
 
@@ -55,7 +55,7 @@ IAM ，全称 Identity and Access Management ，字面意思就是识别用户�
 
 于是构成了云平台的接入体系。
 
-![IAM How](https://imephen.pek3b.qingstor.com/b_image/20190426155850.png)
+![IAM How](https://iephen.pek3b.qingstor.com/b_image/20190426155850.png)
 
 ### 权限（Authority）
 
@@ -65,7 +65,7 @@ IAM ，全称 Identity and Access Management ，字面意思就是识别用户�
 
 AWS IAM 内置了一系列的 Policy ，已足够客户使用。万一不够，还可以创建属于自己的 Policy 。
 
-![IAM Authority](https://imephen.pek3b.qingstor.com/b_image/20190426155920.png)<font size=1>（该图片系转载，侵删致歉。来源：[ Alchemist - AWS IAM 学习总结 ](https://www.jianshu.com/p/9ac6f557dd97)）</font>
+![IAM Authority](https://iephen.pek3b.qingstor.com/b_image/20190426155920.png)<font size=1>（该图片系转载，侵删致歉。来源：[ Alchemist - AWS IAM 学习总结 ](https://www.jianshu.com/p/9ac6f557dd97)）</font>
 
 ------
 
@@ -83,7 +83,7 @@ GCP 在用户添加时便为其设定具备某种权限的角色，当然后期�
 
 配置相对简单，但可扩展性一般。
 
-![GCP IAM](https://imephen.pek3b.qingstor.com/b_image/20190426160008.png)
+![GCP IAM](https://iephen.pek3b.qingstor.com/b_image/20190426160008.png)
 
 ### Azure
 
@@ -91,7 +91,7 @@ Azure 将客户按订阅方式划分不同的套餐，在每个订阅中配置�
 
 和 GCP 类似，有一系列的资源控制内置权限。
 
-![Azure](https://imephen.pek3b.qingstor.com/b_image/20190426160029.png)
+![Azure](https://iephen.pek3b.qingstor.com/b_image/20190426160029.png)
 
 值得一提的是，Azure 还有 Win Server 中的那套 Active Directory （活动目录）类似机制，使用域控制器将用户分域、分组并针对应用、控件、设备等（而非系统中的云资源）做一些安全权限配置。
 
@@ -107,7 +107,7 @@ BlueMix 在访问管理上看起来并没有使用统一的认证接口，它为
 
 看来 AWS 行业鼻祖的地位影响还是很大的。
 
-![BlueMix](https://imephen.pek3b.qingstor.com/b_image/20190426160053.png)
+![BlueMix](https://iephen.pek3b.qingstor.com/b_image/20190426160053.png)
 
 BlueMix 给人的感觉，虽然除了子账号，其他各功能也都有，就是比较凌乱，没有统一管控起来。
 

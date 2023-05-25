@@ -66,7 +66,7 @@ toc: true
 
 以下是 RFC-1034 的发布信息：
 
-![ rfc1034 comment ](https://pek3b.qingstor.com/imephen/20190426150600.png)
+![ rfc1034 comment ](https://iephen.pek3b.qingstor.com/b_image/20190426150600.png)
 
 它明确的表明了这份标准：
 

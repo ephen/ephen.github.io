@@ -1,2 +1,2 @@
 User-agent：*
-Disallow：/Images
+Disallow：/2017/Goodbye-Orthodontic

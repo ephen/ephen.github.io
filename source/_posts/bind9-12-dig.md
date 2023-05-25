@@ -21,7 +21,7 @@ top: false
 
 随后我在**使用这个版本的 dig 时，只要不指定 DNS 服务器就没有返回，每次使用该工具时必须指定 DNS 服务器。**
 
-![ dig 12 版本有问题 ](https://imephen.pek3b.qingstor.com/b_image/digproblem.jpg)
+![ dig 12 版本有问题 ](https://iephen.pek3b.qingstor.com/b_image/digproblem.jpg)
 
 <!--more-->
 
@@ -31,19 +31,19 @@ top: false
 
 **网络抓包并没有抓到任何 DNS 请求！**
 
-![ 抓包没有 dns 请求 ](https://pek3b.qingstor.com/imephen/capture.jpg)
+![ 抓包没有 dns 请求 ](https://iephen.pek3b.qingstor.com/b_image/capture.jpg)
 
 换 DNS 配置、换手机热点做网络环境的一番折腾，依然还是这样！开始决定要不换个旧点的版本试试。
 
 重新下载版本 bind 9.11.6-P1 安装后，没问题了鸭！
 
-![ dig 9.11.6-P1 版没问题 ](https://pek3b.qingstor.com/imephen/versionchange.jpg)
+![ dig 9.11.6-P1 版没问题 ](https://iephen.pek3b.qingstor.com/b_image/versionchange.jpg)
 
 真是喜极而泣。
 
 下载了目前最新稳定版 bind 9.14.1 又试了下，也没有问题。
 
-![ dig 9.14.1 版没问题 ](https://pek3b.qingstor.com/imephen/dig914.jpg)
+![ dig 9.14.1 版没问题 ](https://iephen.pek3b.qingstor.com/b_image/dig914.jpg)
 
 **如果你和我一样正在使用 dig 9.12.3-p1 版，为不影响使用，记得将软件升级或回退哦。**
 
@@ -51,19 +51,19 @@ top: false
 
 最简单的方法，到官网下载相应版本 Bind 后，解压。
 
-![ Bind 源程序解压 ](https://pek3b.qingstor.com/imephen/binddir.jpg)
+![ Bind 源程序解压 ](https://iephen.pek3b.qingstor.com/b_image/binddir.jpg)
 
 使用管理员运行 `BINDInstall.exe` ，指定本地安装目录。
 
 如果只想安装 dig ，安装选项选择 `Tools Only` 即可。如下图所示：
 
-![ 安装 dig ](https://pek3b.qingstor.com/imephen/bindinstall.jpg)
+![ 安装 dig ](https://iephen.pek3b.qingstor.com/b_image/bindinstall.jpg)
 
 是不是很简单鸭~
 
 不太记得是不是需要自己加下环境变量，要是小伙伴**安装后不能像我一样直接在 CMD 里不指定目录使用 dig ，那就需要添加下 PATH 。**
 
-![ 添加环境变量 ](https://pek3b.qingstor.com/imephen/paths.jpg)
+![ 添加环境变量 ](https://iephen.pek3b.qingstor.com/b_image/paths.jpg)
 
 我个人的环境变量有些多，涂画得乱起八糟，请勿见怪。
 

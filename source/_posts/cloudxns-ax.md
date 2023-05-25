@@ -11,7 +11,7 @@ tags:
 toc: false
 ---
 
-![CloudXNS Logo](https://imephen.pek3b.qingstor.com/b_image/20190426151836.png)
+![CloudXNS Logo](https://iephen.pek3b.qingstor.com/b_image/20190426151836.png)
 
 ## 首先，简单介绍下 CloudXNS 中的 AX 记录类型：
 
@@ -23,7 +23,7 @@ X 意为 eXtend ， AX 即表示扩展的 A 记录解析，具体表现为将多
 
 首先将 `www.chinatesters.cn` 域名在 CloudXNS 系统中做如下图所示配置：
 
-![CloudXNS 解析配置](https://imephen.pek3b.qingstor.com/b_image/20190426151910.png)
+![CloudXNS 解析配置](https://iephen.pek3b.qingstor.com/b_image/20190426151910.png)
 
 优先级即代表预设比例，上图配置中表示记录值 `2.2.2.1` 、 `1.1.1.2` 和 `1.1.1.1` 出现的比例为 `30:100:50` 。灰姑娘写了个脚本通过多次执行同一个 `dig` 命令获取每个结果的出现次数。测试代码示例如下：
 

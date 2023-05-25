@@ -106,7 +106,7 @@ $ hexo server
 
 登陆 Wordpress 管理控制台，导出 WXR 文件，如下图所示：
 
-![导出 wp 文件](https://imephen.pek3b.qingstor.com/b_image/20190426162220.png)
+![导出 wp 文件](https://iephen.pek3b.qingstor.com/b_image/20190426162220.png)
 
 将导出的文件保存为 `wordpress.xml` ，执行命令 `hexo migrate wordpress wordpress.xml` 即可完成文章导入。
 
@@ -149,15 +149,15 @@ deploy:
 
 然后去 Github 和 Coding 相应 Page 项目设置中绑定自己的域名，如图所示：
 
-![ Github 绑定域名](https://imephen.pek3b.qingstor.com/b_image/20190426162332.png)
+![ Github 绑定域名](https://iephen.pek3b.qingstor.com/b_image/20190426162332.png)
 
-![ Coding 绑定域名](https://imephen.pek3b.qingstor.com/b_image/20190426162355.png)
+![ Coding 绑定域名](https://iephen.pek3b.qingstor.com/b_image/20190426162355.png)
 
 如果希望在自己的云主机中也部署一份，那么可登陆主机生成 SSH Key，将 Key 添加到 Github 或者 Coding 中（我添加到了 Github ），到网站文件根目录关联项目链接后执行 `git pull origin master` 即可完成站点部署。
 
 最后，登陆 CloudXNS 做域名解析，我的解析设置如下图：
 
-![ CloudXNS 域名解析](https://imephen.pek3b.qingstor.com/b_image/20190426162423.png)
+![ CloudXNS 域名解析](https://iephen.pek3b.qingstor.com/b_image/20190426162423.png)
 
 ### RSS 、站点地图及搜索引擎优化
 
@@ -179,7 +179,7 @@ baidusitemap:
 
 按照百度站长平台的指引添加站点地图的位置：
 
-![百度站点地图](https://imephen.pek3b.qingstor.com/b_image/20190426162507.png)
+![百度站点地图](https://iephen.pek3b.qingstor.com/b_image/20190426162507.png)
 
 也可以到自己的云主机平台上执行命令手动提交，这种提交方式百度响应是最快的了。
 

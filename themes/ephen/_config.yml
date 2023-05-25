@@ -66,14 +66,14 @@ aboutme: <a target='_blank' href='https://www.qingcloud.com/'>QingCloud 青云</
 subnav:
   mail: "mailto:ephen@live.cn"
   telegram: "https://telegram.me/imephen"
-  twitter: "https://twitter.com/imephen"
   zhihu: "https://www.zhihu.com/people/imephen"
-  weibo: "http://weibo.com/cinderellacici"
+  # github: "https://github.com/ephen"
+  # weibo: "http://weibo.com/cinderellacici"
   rss: /atom.xml
   # google: "#"  
-  # github: "https://github.com/ephen"
   # douban: "#"  
-  # facebook: "#"  
+  # facebook: "#"
+  # twitter: "#" 
   # linkedin: "#"
 
 ## 是否展示备案号

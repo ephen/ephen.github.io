@@ -31,7 +31,7 @@ comments: true
 
 刚好捉到一来武汉出差的美女射击师，让她先教我画这个简单的风车。掌握到方法后，我又画了各种各样的风车。也尝试画了一些别的图案，并挑选了一些我觉得画得还行的一个个应用到本地博客上试。最终选了现在用的这个，跟之前的差别没有太大，但还是能明显看得到差别。
 
-![blog favicon](https://imephen.pek3b.qingstor.com/b_image/favicons_test.jpg)
+![blog favicon](https://iephen.pek3b.qingstor.com/b_image/favicons_test.jpg)
 
 **立个 Flag ：~~以后每年都换一次自己设计的 Favicon~~ （请假装没看见……**
 
@@ -51,7 +51,7 @@ comments: true
 
 其实想写的主题有不少，我的博客 to do list 上都排着呢。
 
-![ ToDoList ](https://pek3b.qingstor.com/imephen/20190426145923.png)
+![ ToDoList ](https://iephen.pek3b.qingstor.com/b_image/20190426145923.png)
 
 当然，这个列表排了好几个月了，很有可能有些东西都过时了，最终也不一定兑现发布。
 
