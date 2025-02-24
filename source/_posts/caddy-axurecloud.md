@@ -340,3 +340,9 @@ ssh Administrator@ephen.me "bash -lc 'cd /c/Caddy && sh ephen-sync.sh'"
 ```
 
 回车后信任指纹，输入密码，就实现了远程执行服务器上的脚本了。
+
+## 特别鸣谢
+
+1. [DeepSeek - 探索未至之境](https://chat.deepseek.com/)
+2. [Caddy 官方中文文档](https://caddy2.dengxiaolong.com/docs/)
+3. [盐袋子 - AxureCloud 部署](https://www.besalt.top/article/p013)
