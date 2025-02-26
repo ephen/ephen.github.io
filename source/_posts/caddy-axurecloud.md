@@ -2,13 +2,13 @@
 title: 了不得了，使用 Caddy 反向代理 AxureCloud 还能自动提供 https 访问
 date: 2025-2-20 
 categories: 
-  - 知识探索
-  - 博客折腾
+  - [知识探索]
+  - [博客折腾]
 tags: 
   - caddy
   - deepseek
   - AI
-  - axure
+  - Axure
   - https
 toc: true
 comments: true
